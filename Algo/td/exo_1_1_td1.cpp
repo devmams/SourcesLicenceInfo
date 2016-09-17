@@ -12,8 +12,7 @@
 **/
 
 int main(){
-  int a,b,q;
-  float r;
+  int a,b,q,r;
   std::cout << "entrez un entier (dividende)" << std::endl;
   std::cin >> a;
   std::cout << "entrez un entier (diviseur)" << std::endl;
