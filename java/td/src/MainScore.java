@@ -1,4 +1,4 @@
-public class Main{
+public class MainScore{
   public static void main(String[] args) {
     Score match = new Score();
     //Score vi = new Score();

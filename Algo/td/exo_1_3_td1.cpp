@@ -11,8 +11,18 @@
  *post-condition : u , u = Uk
 **/
 
+int recurSuite(int k , int u){
+  if(k == 0){
+    return u;
+  }
+  else{
+    recurSuite(k-1 , 5*u-3);
+  }
+}
+
 int main(){
-  int k,u;
+  
+  /*int k,u;
   std::cout << "entrez un entier ?" << std::endl;
   std::cin >> k;
   u = 1;
@@ -20,6 +30,9 @@ int main(){
     std::cout << "U"<<i<< " = " << u << std::endl;
     u = 5*u - 3;
   }
-  std::cout << "U"<<k<< " = " << u << std::endl;
+  std::cout << "U"<<k<< " = " << u << std::endl;*/
+
+  std::cout << "u : " << recurSuite(5,1) << std::endl;
+
   return 0;
 }

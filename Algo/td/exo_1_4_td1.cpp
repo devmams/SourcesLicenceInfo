@@ -19,10 +19,9 @@ int main(){
   std::cout << "entrez une chaine ?" << std::endl;
   std::cin >> s;
   t = "";
-  std::cout << "size : " << s.size() << std::endl;
   for (int i=0 ; i<s.size() ; i++) {
     t = s[i] + t;
   }
-  std::cout << "t : " << t << std::endl;
+  std::cout << "la chaine inversé de << " << s << " >> est : " << t << std::endl;
   return 0;
 }
