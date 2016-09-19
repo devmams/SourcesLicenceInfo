@@ -2,7 +2,7 @@ public class Compte{
   private String proprietaire;
   private int numero;
   private double solde;
-  private static int nbOperations = 0;
+  private int nbOperations = 0;
   private static int prochainNumero = 1;
 
   public Compte(String proprietaire,double solde){
@@ -17,6 +17,8 @@ public class Compte{
     "Nom du Compte : " + this.proprietaire
     +"\nNumero : " + this.numero
     +"\nSolde : " + this.solde
+    +"\nNombre d'Operation : " + this.nbOperations
+    +"\n--------------------------------------------"
     );
   }
 
