@@ -1,6 +1,6 @@
 /**
  * @file tp1-1.cpp
- * @author C. Jermann
+ * @author C. Jerman
  * @date 15/09/2015 Création
  * @date 15/09/2016 Actualisation du commentaire d'entête
  * @brief Programme implémentant l'algorithme de calcul de la valeur absolue vu en CM

@@ -1,0 +1,111 @@
+\hypertarget{tp1-2_8cpp}{\section{Référence du fichier tp1-\/2.cpp}
+\label{tp1-2_8cpp}\index{tp1-\/2.\+cpp@{tp1-\/2.\+cpp}}
+}
+
+
+Programme implémentant l'algorithme d'insertion dans un tableau vu en C\+M.  
+
+
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$cassert$>$}\\*
+Graphe des dépendances par inclusion de tp1-\/2.cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{tp1-2_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{tp1-2_8cpp_a293a7e040a686ef8e011c2382f384ebe}{inserer} (float tab\mbox{[}$\,$\mbox{]}, unsigned int \&nbelem, unsigned int taille, float r, unsigned int pos)
+\begin{DoxyCompactList}\small\item\em procédure inserer \end{DoxyCompactList}\item 
+int \hyperlink{tp1-2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\begin{DoxyCompactList}\small\item\em fonction principale \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Programme implémentant l'algorithme d'insertion dans un tableau vu en C\+M. 
+
+\begin{DoxyAuthor}{Auteur}
+C. Jermann 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+15/09/2015 Création 
+
+15/09/2016 Actualisation du commentaire d'entête 
+\end{DoxyDate}
+
+
+Définition dans le fichier \hyperlink{tp1-2_8cpp_source}{tp1-\/2.\+cpp}.
+
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{tp1-2_8cpp_a293a7e040a686ef8e011c2382f384ebe}{\index{tp1-\/2.\+cpp@{tp1-\/2.\+cpp}!inserer@{inserer}}
+\index{inserer@{inserer}!tp1-\/2.\+cpp@{tp1-\/2.\+cpp}}
+\subsubsection[{inserer}]{\setlength{\rightskip}{0pt plus 5cm}void inserer (
+\begin{DoxyParamCaption}
+\item[{float}]{tab\mbox{[}$\,$\mbox{]}, }
+\item[{unsigned int \&}]{nbelem, }
+\item[{unsigned int}]{taille, }
+\item[{float}]{r, }
+\item[{unsigned int}]{pos}
+\end{DoxyParamCaption}
+)}}\label{tp1-2_8cpp_a293a7e040a686ef8e011c2382f384ebe}
+
+
+procédure inserer 
+
+{\bfseries Role} \+: insere un élément dans un tableau
+
+{\bfseries Entrées} \+:
+\begin{DoxyItemize}
+\item {\itshape tableau} de rééls
+\item {\itshape entier} nbelem positif
+\item {\itshape entier} taille positif
+\item {\itshape réel} r
+\item {\itshape entier} pos positif
+\end{DoxyItemize}
+
+{\bfseries Sortie} \+:
+\begin{DoxyItemize}
+\item {\itshape tab} tableau incluant l'élément r
+\item {\itshape nbelem} = nbelem + 1
+\end{DoxyItemize}
+
+\begin{DoxyPrecond}{Précondition}
+tablau non vide entier pos $<$= nbelem $<$ taille entier pos $>$ 0
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ta\mbox{[}....\mbox{]} = tab\mbox{[}...r..\mbox{]} nbelem++
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Test}
+\item[\hyperlink{test__test000002}{Test}]$\vert$\+Entrée $\vert$ Sortie $\vert$ Justification $\vert$ Résultat $\vert$ $\vert$--$\vert$--$\vert$--$\vert$--$\vert$ \end{DoxyRefDesc}
+
+
+Définition à la ligne 41 du fichier tp1-\/2.\+cpp.
+
+\hypertarget{tp1-2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{tp1-\/2.\+cpp@{tp1-\/2.\+cpp}!main@{main}}
+\index{main@{main}!tp1-\/2.\+cpp@{tp1-\/2.\+cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{tp1-2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+fonction principale 
+
+{\bfseries Rôle} \+: exécuter le jeu de tests de la procédure inserer
+
+\begin{DoxyPrecond}{Précondition}
+aucune
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+aucune
+\end{DoxyPostcond}
+Cette fonction illustre le concept de test unitaire. Elle applique un à un l'ensemble des tests du jeu défini pour la procédure inserer, et affiche un message décrivant chaque test et indiquant s'il passe ou échoue. 
+
+Définition à la ligne 99 du fichier tp1-\/2.\+cpp.
+
