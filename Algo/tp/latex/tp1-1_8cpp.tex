@@ -1,0 +1,89 @@
+\hypertarget{tp1-1_8cpp}{\section{Référence du fichier tp1-\/1.cpp}
+\label{tp1-1_8cpp}\index{tp1-\/1.\+cpp@{tp1-\/1.\+cpp}}
+}
+
+
+Programme implémentant l'algorithme de calcul de la valeur absolue vu en C\+M.  
+
+
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$cassert$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+Graphe des dépendances par inclusion de tp1-\/1.cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{tp1-1_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{tp1-1_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\begin{DoxyCompactList}\small\item\em fonction principale \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Programme implémentant l'algorithme de calcul de la valeur absolue vu en C\+M. 
+
+\begin{DoxyAuthor}{Auteur}
+C. Jermann 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+15/09/2015 Création 
+
+15/09/2016 Actualisation du commentaire d'entête 
+\end{DoxyDate}
+
+
+Définition dans le fichier \hyperlink{tp1-1_8cpp_source}{tp1-\/1.\+cpp}.
+
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{tp1-1_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{tp1-\/1.\+cpp@{tp1-\/1.\+cpp}!main@{main}}
+\index{main@{main}!tp1-\/1.\+cpp@{tp1-\/1.\+cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{tp1-1_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+fonction principale 
+
+{\bfseries Role} \+: calculer la valeur absolue d'un entier saisi par l'utilisateur
+
+{\bfseries Entrée} \+:
+\begin{DoxyItemize}
+\item {\itshape n} entier positif
+\end{DoxyItemize}
+
+{\bfseries Sortie} \+:
+\begin{DoxyItemize}
+\item {\itshape m} valeur absolue de n
+\end{DoxyItemize}
+
+\begin{DoxyPrecond}{Précondition}
+Entier n
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+m=$\vert$n$\vert$
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Test}
+\item[\hyperlink{test__test000001}{Test}]\begin{TabularC}{4}
+\hline
+\rowcolor{lightgray}{\bf Entrees }&{\bf Sorties }&{\bf Justification }&{\bf Resultat  }\\\cline{1-4}
+n=1 &m=1 &branche alors &passe \\\cline{1-4}
+n=0 &m=0 &cas limite &passe \\\cline{1-4}
+n=-\/1 &m=1 &branche sinon &passe \\\cline{1-4}
+n='a' &E\+R\+R\+E\+U\+R &illicite &échoue (problème de saisie C++) \\\cline{1-4}
+\end{TabularC}
+\end{DoxyRefDesc}
+
+
+Ce programme demande à l'utilisateur un entier et en calcule la valeur absolue au moyen d'une conditionnelle, puis affiche le résultat. Il illustre la documentation Doxygen d'un programme et l'utilisation des assertions. 
+
+Définition à la ligne 43 du fichier tp1-\/1.\+cpp.
+
