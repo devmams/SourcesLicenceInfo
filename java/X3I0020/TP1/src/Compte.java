@@ -1,3 +1,9 @@
+/**
+* Classe Compte dont le but est de Creer un compte Bancaire
+* @author D. Mamadou
+* @version 1.0
+*/
+
 public class Compte{
   private String proprietaire;
   private int numero;
