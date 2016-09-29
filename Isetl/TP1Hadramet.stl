@@ -1,0 +1,15 @@
+E1:= { x : x in {1..99} : x mod 2 = 0};
+E2 := { x*x : x in {1..10}  };
+E3 := { x : x in {100..999} : x div 100 = x mod 10};
+E4 := { x : x in {100..999} : x div 100 /= x mod 10 and x mod 10 /= ((x div 10) mod 10) and x div 100 /= ((x div 10) mod 10)};
+Diviseur := func (x) ;
+local y ;
+return {y : y in {1..x-1} : x mod y = 0};
+end func ;
+Diviseur(5);
+sommeDiv := func (x) ;
+local z ;
+z = 0 ; 
+for i in [1..99] do if x mod i = 0 then z = z + i ; end if ; end for ;
+return z ;
+end func ;
