@@ -7,7 +7,7 @@
  * @author ...
  */
 public class Tirelire {
-	// Nombre de pièces différentes dans la monnaie 
+	// Nombre de pièces différentes dans la monnaie
 	private static final int NbPieces = 8;
 	
 	// Valeurs des différentes pièces en centimes
