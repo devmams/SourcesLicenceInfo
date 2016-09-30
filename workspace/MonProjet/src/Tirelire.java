@@ -44,7 +44,7 @@ public class Tirelire {
 	}
 	
 	/**
-	 * 
+	 * verifie l'existence d'une valeur
 	 */
 	public int existe (int val) {
 		boolean existe = false;
@@ -86,7 +86,10 @@ public class Tirelire {
 	 * Ajout d'une pièce dans la tirelire
     * @param val Valeur de la pièce ajoutée dans la tirelire
 	 */
-   //public void ajouterPiece(int val) {}
+	public void ajouterPiece(int val) {
+		int pos = existe(val);
+		pieces[pos] += 1;
+	}
 
 	/**
 	 * Ajout d'une autre tirelire dans la tirelire
@@ -99,13 +102,19 @@ public class Tirelire {
     * @param val Valeur d'une pièce
     * @param nb Le nombre de pièces de valeur val retirées de la tirelire
 	 */
-	//public void retirerPiece(int val, int nb) {}
+	public void retirerPiece(int val, int nb) {
+		int pos = existe(val);
+		pieces[pos] -= nb;
+	}
 
 	/**
 	 * Retrait d'une pièce de la tirelire
     * @param val Valeur de la pièce retirée de la tirelire
 	 */
-   //public void retirerPiece(int val) {}
+	public void retirerPiece(int val) {
+		int pos = existe(val);
+		pieces[pos] -= 1;
+ 	}
 
 	/**
 	 * Retrait d'une autre tirelire de la tirelire
@@ -116,19 +125,37 @@ public class Tirelire {
 	/**
 	 * Affichage de la tirelire
 	 */
-	//public void afficher() {}
+	public void afficher() {
+		for(int i=0 ; i<8 ; i++){
+			System.out.println("Le nombre de "+nomPiece(i)+" est :"+nbPiece(ValPieces[i])+"");
+		}
+		System.out.println("La Somme totale est de : "+ totalCentimes()+" Centimes");
+		System.out.println("La Somme totale est de : "+ totalEuros()+" Euros");
+	}
 
 	/**
 	 * Calcul de la somme totale
 	 * @return La somme totale en centimes
 	 */
-	//public int totalCentimes() {}
-	
+	public int totalCentimes() {
+		int cpt = 0;
+		for(int i=0 ; i<8 ; i++){
+			cpt += nbPiece(ValPieces[i]) * ValPieces[i];
+		}
+		return cpt;
+	}
+
 	/**
 	 * Calcul de la somme totale
 	 * @return La somme totale en euros
 	 */
-	//public double totalEuros() {}
+	public double totalEuros() {		
+		int cpt = 0;
+		for(int i=0 ; i<8 ; i++){
+			cpt += nbPiece(ValPieces[i]) * ValPieces[i];
+		}
+		return cpt/100;
+	}
 
    /**
 	 * Opération pour rendre la monnaie

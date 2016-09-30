@@ -1,0 +1,152 @@
+/**
+ * Classe permettant de représenter des tirelires contenant des pièces
+ * de monnaie en euro.
+ * 
+ * ...
+ * 
+ * @author ...
+ */
+public class Tirelire {
+	// Nombre de pièces différentes dans la monnaie 
+	private static final int NbPieces = 8;
+	
+	// Valeurs des différentes pièces en centimes
+	private static final int[] ValPieces = {1, 2, 5, 10, 20, 50, 100, 200};
+
+	// Opération retournant le nom de la pièce à la position pos dans ValPieces
+	private static String nomPiece(int pos) {
+		int val = ValPieces[pos];
+		if (val<100)
+			return Integer.toString(val) + "c";
+		else 
+			return Integer.toString(val/100) + "e";
+	}
+
+	// Définir ici le ou les attributs
+	private int[] pieces = new int[8];
+
+	/**
+	 * Construit une tirelire vide.
+	 */
+	public Tirelire() {
+		for (int i=0 ; i<8; i++) {
+			pieces[i] = 0;
+		}
+	}
+
+	/**
+	 * Vide une tirelire.
+	 */
+	public void vider() {
+		for (int i=0 ; i<8; i++) {
+			pieces[i] = 0;
+		}	
+	}
+	
+	/**
+	 * verifie l'existence d'une valeur
+	 */
+	public int existe (int val) {
+		boolean existe = false;
+		int k = 0; 
+		for (int j =0;j<8;j++){
+			if(ValPieces[j]==val) {
+				existe = true;
+				k = j;
+				break;
+			}
+		}
+		if(existe)
+			return k;
+		else
+			return -1;
+	}
+
+	/**
+	 * Nombre d'exemplaires d'une pièce
+    * @param val Valeur d'une pièce
+    * @return Le nombre de pièces de valeur val dans la tirelire
+	 */
+	public int nbPiece(int val) {
+		int pos = existe(val);
+		return pieces[pos];
+	}
+
+	/**
+	 * Ajout de pièces dans la tirelire
+    * @param val Valeur d'une pièce
+    * @param nb Le nombre de pièces de valeur val ajoutées dans la tirelire
+	 */
+	public void ajouterPiece(int val, int nb) {
+		int pos = existe(val);
+		pieces[pos] += nb;
+	}
+
+	/**
+	 * Ajout d'une pièce dans la tirelire
+    * @param val Valeur de la pièce ajoutée dans la tirelire
+	 */
+	public void ajouterPiece(int val) {
+		int pos = existe(val);
+		
+	}
+
+	/**
+	 * Ajout d'une autre tirelire dans la tirelire
+    * @param autre L'autre tirelire ajoutée dans la tirelire
+	 */
+   //public void ajouterTirelire(Tirelire autre) {}
+
+   /**
+	 * Retrait de pièces de la tirelire
+    * @param val Valeur d'une pièce
+    * @param nb Le nombre de pièces de valeur val retirées de la tirelire
+	 */
+	//public void retirerPiece(int val, int nb) {}
+
+	/**
+	 * Retrait d'une pièce de la tirelire
+    * @param val Valeur de la pièce retirée de la tirelire
+	 */
+   //public void retirerPiece(int val) {}
+
+	/**
+	 * Retrait d'une autre tirelire de la tirelire
+    * @param autre L'autre tirelire retirée de la tirelire
+	 */
+   //public void retirerTirelire(Tirelire autre) {}
+
+	/**
+	 * Affichage de la tirelire
+	 */
+	//public void afficher() {}
+
+	/**
+	 * Calcul de la somme totale
+	 * @return La somme totale en centimes
+	 */
+	//public int totalCentimes() {}
+	
+	/**
+	 * Calcul de la somme totale
+	 * @return La somme totale en euros
+	 */
+	//public double totalEuros() {}
+
+   /**
+	 * Opération pour rendre la monnaie
+    * @param total La somme à prendre dans la tirelire
+	 * @return Une autre tirelire contenant des pièces présentes dans la tirelire
+    *         dont la somme est égale au total voulu en cas de succès ; cette
+    *         autre tirelire est vide en cas d'échec.
+    *
+    * Un algorithme glouton consiste à rendre un maximum de pièces de plus grandes
+    * valeurs possibles. Par exemple, si le total est égal à 450 centimes et si
+    * la tirelire contient n=3 pièces de 200 centimes alors :
+    *    - il est possible de rendre au maximum n pièces
+    *    - il est possible de rendre au maximum total/200 pièces
+    *    - donc rendre min(n,total/200) pièces en les ajoutant dans l'autre tirelire
+    *    - mettre à jour le total à rendre
+	 */
+	//public Tirelire retirerSomme(int total) {}
+}
