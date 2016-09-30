@@ -11,7 +11,7 @@ public class Test {
 
 		ib.ajouterPiece(10, 10);
 		ib.ajouterTirelire(mamadou);
-		ib.retirerTirelire(mamadou);
+		ib.retirerTirelire(mamadou)
 		//ib.ajouterPiece(10);
 
 		//ib.retirerPiece(10, 7);

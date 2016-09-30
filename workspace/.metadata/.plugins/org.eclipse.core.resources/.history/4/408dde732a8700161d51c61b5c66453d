@@ -97,7 +97,7 @@ public class Tirelire {
 	 */
 	public void ajouterTirelire(Tirelire autre) {
 		for(int i=0 ; i<8 ;i++){
-			pieces[i] += autre.nbPiece(ValPieces[i]);
+			pieces[i] = autre.nbPiece(ValPieces[i])
 		}
 	}
 
@@ -124,11 +124,7 @@ public class Tirelire {
 	 * Retrait d'une autre tirelire de la tirelire
     * @param autre L'autre tirelire retirée de la tirelire
 	 */
-	public void retirerTirelire(Tirelire autre) {
-		for(int i=0 ; i<8 ;i++){
-			pieces[i] -= autre.nbPiece(ValPieces[i]);
-		}
-	}
+   //public void retirerTirelire(Tirelire autre) {}
 
 	/**
 	 * Affichage de la tirelire
@@ -158,7 +154,7 @@ public class Tirelire {
 	 * @return La somme totale en euros
 	 */
 	public double totalEuros() {		
-		double cpt = 0;
+		int cpt = 0;
 		for(int i=0 ; i<8 ; i++){
 			cpt += nbPiece(ValPieces[i]) * ValPieces[i];
 		}

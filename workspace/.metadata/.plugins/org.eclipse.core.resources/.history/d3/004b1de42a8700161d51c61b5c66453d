@@ -124,11 +124,7 @@ public class Tirelire {
 	 * Retrait d'une autre tirelire de la tirelire
     * @param autre L'autre tirelire retirée de la tirelire
 	 */
-	public void retirerTirelire(Tirelire autre) {
-		for(int i=0 ; i<8 ;i++){
-			pieces[i] -= autre.nbPiece(ValPieces[i]);
-		}
-	}
+   //public void retirerTirelire(Tirelire autre) {}
 
 	/**
 	 * Affichage de la tirelire
