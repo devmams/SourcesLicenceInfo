@@ -23,6 +23,7 @@ return z ;
 end func ;
 
 sommeDivRec := func (x,y,z);
-
-end func;
-
+if x mod y-1 = 0 then 
+	return z;
+end if;
+end func;
