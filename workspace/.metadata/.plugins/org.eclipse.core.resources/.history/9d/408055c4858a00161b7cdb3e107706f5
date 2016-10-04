@@ -1,0 +1,16 @@
+
+public class Fabrique {
+	private Piece un ;
+	private Piece deux ;
+	private Piece trois ;
+	private Piece quatre ;
+
+	
+	public Piece creerCarre(){
+		un = new Piece(0.5,0.5);
+		deux = new Piece(0.5,1.5);
+		trois = new Piece(1.5,1.5);
+		quatre = new Piece(1.5,0.5);
+	}
+
+}

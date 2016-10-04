@@ -1,0 +1,11 @@
+
+public class Plateau {
+	private static final int largeur = 10;
+	private static final int hauteur = 20;
+	private Cellule tab[][];
+	
+	public Plateau(){
+		this.tab = new Cellule[largeur][hauteur];  
+	}
+	
+}
