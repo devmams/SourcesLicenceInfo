@@ -15,19 +15,7 @@ public class Piece {
 	}
 	
 	public Cellule getCelluleUn(){
-		return this.un;
-	}
-	
-	public Cellule getCelluleDeux(){
-		return this.deux;
-	}
-	
-	public Cellule getCelluleTrois(){
-		return this.trois;
-	}
-	
-	public Cellule getCelluleQuatre(){
-		return this.quatre;
+		
 	}
 	
 	public Piece versLeBas(){

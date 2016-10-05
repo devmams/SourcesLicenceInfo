@@ -8,15 +8,4 @@ public class Plateau {
 		this.tab = new Cellule[largeur][hauteur];  
 	}
 	
-	public boolean accepter(Piece p){
-		
-	}
-	
-	public void retirer(Piece p){
-		
-	}
-	
-	public void ajouter(Piece p){
-		
-	}
 }

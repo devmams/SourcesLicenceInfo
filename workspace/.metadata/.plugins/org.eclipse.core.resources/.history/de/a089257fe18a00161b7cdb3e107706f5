@@ -13,7 +13,9 @@ public class Plateau {
 	}
 	
 	public void retirer(Piece p){
-		
+		if(accepter(p))
+			
+		else
 	}
 	
 	public void ajouter(Piece p){
