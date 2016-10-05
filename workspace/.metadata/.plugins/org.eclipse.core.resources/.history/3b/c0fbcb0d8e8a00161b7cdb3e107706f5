@@ -1,0 +1,25 @@
+
+public class Piece {
+	
+	private Cellule un ;
+	private Cellule deux ;
+	private Cellule trois ;
+	private Cellule quatre ;
+
+	
+	public Piece(Cellule c1,Cellule c2 ,Cellule c3 ,Cellule c4){
+		this.un = c1;
+		this.deux = c2;
+		this.trois = c3;
+		this.quatre = c4;
+	}
+	
+	public Piece versLeBas(){
+		return new Piece(new Cellule(5.5,un.getY()-1),new Cellule(5.5,deux.getY()-1),new Cellule(6.5,trois.getY()-1),new Cellule(6.5,quatre.getY()-1));
+	}
+
+	public Piece versLaGauche(){
+		return new Piece(new Cellule(un.getX(),un.getY()-1),new Cellule(deux.getX(),deux.getY()-1)
+		,new Cellule(trois.getX(),trois.getY()-1),new Cellule(quatre.getX(),quatre.getY()-1));	
+	}
+}

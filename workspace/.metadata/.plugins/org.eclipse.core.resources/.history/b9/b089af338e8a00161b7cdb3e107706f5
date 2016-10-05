@@ -22,9 +22,4 @@ public class Piece {
 		return new Piece(new Cellule(un.getX()-1,un.getY()),new Cellule(deux.getX()-1,deux.getY())
 		,new Cellule(trois.getX()-1,trois.getY()),new Cellule(quatre.getX()-1,quatre.getY()));	
 	}
-	
-	public Piece versLaDroite(){
-		return new Piece(new Cellule(un.getX()+1,un.getY()),new Cellule(deux.getX()+1,deux.getY())
-		,new Cellule(trois.getX()+1,trois.getY()),new Cellule(quatre.getX()+1,quatre.getY()));
-	}
 }

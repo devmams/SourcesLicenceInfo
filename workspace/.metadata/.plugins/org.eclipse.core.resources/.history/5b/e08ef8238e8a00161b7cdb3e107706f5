@@ -19,12 +19,7 @@ public class Piece {
 		,new Cellule(trois.getX(),trois.getY()-1),new Cellule(quatre.getX(),quatre.getY()-1));	}
 
 	public Piece versLaGauche(){
-		return new Piece(new Cellule(un.getX()-1,un.getY()),new Cellule(deux.getX()-1,deux.getY())
-		,new Cellule(trois.getX()-1,trois.getY()),new Cellule(quatre.getX()-1,quatre.getY()));	
-	}
-	
-	public Piece versLaDroite(){
-		return new Piece(new Cellule(un.getX()+1,un.getY()),new Cellule(deux.getX()+1,deux.getY())
-		,new Cellule(trois.getX()+1,trois.getY()),new Cellule(quatre.getX()+1,quatre.getY()));
+		return new Piece(new Cellule(un.getX(),un.getY()-1),new Cellule(deux.getX(),deux.getY()-1)
+		,new Cellule(trois.getX(),trois.getY()-1),new Cellule(quatre.getX(),quatre.getY()-1));	
 	}
 }
