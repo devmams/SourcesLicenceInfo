@@ -5,6 +5,7 @@ public class Piece {
 	private Cellule deux ;
 	private Cellule trois ;
 	private Cellule quatre ;
+	private char ch;
 
 	
 	public Piece(Cellule c1,Cellule c2 ,Cellule c3 ,Cellule c4){
@@ -31,16 +32,17 @@ public class Piece {
 	}
 	
 	public Piece versLeBas(){
-		return new Piece(new Cellule(un.getX(),un.getY()-1),new Cellule(deux.getX(),deux.getY()-1)
-		,new Cellule(trois.getX(),trois.getY()-1),new Cellule(quatre.getX(),quatre.getY()-1));	}
+		return new Piece(new Cellule(un.getX(),un.getY()-1,un.getC()),new Cellule(deux.getX(),deux.getY()-1,un.getC())
+		,new Cellule(trois.getX(),trois.getY()-1,un.getC()),new Cellule(quatre.getX(),quatre.getY()-1,un.getC()));
+	}
 
 	public Piece versLaGauche(){
-		return new Piece(new Cellule(un.getX()-1,un.getY()),new Cellule(deux.getX()-1,deux.getY())
-		,new Cellule(trois.getX()-1,trois.getY()),new Cellule(quatre.getX()-1,quatre.getY()));	
+		return new Piece(new Cellule(un.getX()-1,un.getY(),un.getC()),new Cellule(deux.getX()-1,deux.getY(),un.getC())
+		,new Cellule(trois.getX()-1,trois.getY(),un.getC()),new Cellule(quatre.getX()-1,quatre.getY(),un.getC()));	
 	}
 	
 	public Piece versLaDroite(){
-		return new Piece(new Cellule(un.getX()+1,un.getY()),new Cellule(deux.getX()+1,deux.getY())
-		,new Cellule(trois.getX()+1,trois.getY()),new Cellule(quatre.getX()+1,quatre.getY()));
+		return new Piece(new Cellule(un.getX()+1,un.getY(),un.getC()),new Cellule(deux.getX()+1,deux.getY(),un.getC())
+		,new Cellule(trois.getX()+1,trois.getY(),un.getC()),new Cellule(quatre.getX()+1,quatre.getY(),un.getC()));
 	}
 }

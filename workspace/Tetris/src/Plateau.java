@@ -5,11 +5,34 @@ public class Plateau {
 	private Cellule tab[][];
 	
 	public Plateau(){
-		this.tab = new Cellule[largeur][hauteur];  
+		this.tab = new Cellule[largeur][hauteur];
+		for(int i=0 ; i<10 ; i++){
+			for(int j=0 ; j<20 ; j++){
+				this.tab[i][j] = new Cellule(0,0,'n'); 
+			}
+		}
+	}
+	
+	public Cellule getCase(Cellule cl){
+		return tab[][];
 	}
 	
 	public boolean accepter(Piece p){
+		boolean res = false;
+		if(p.getCelluleUn().getC() == 'a'){
+			if(tab[p.getX()+0.5][p.getY()+0.5] == 'n'){
+				res = true;
+			}
+				
+		}
+		else if(p.getCelluleUn().getC() == 'b'){
+			
+		}
+		else{
+			
+		}
 		
+		return res;
 	}
 	
 	public void retirer(Piece p){

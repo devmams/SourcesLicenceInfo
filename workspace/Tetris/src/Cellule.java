@@ -1,8 +1,9 @@
 public class Cellule {
 	private double x;
 	private double y;
+	private char c;
 	
-	public Cellule(double x,double y){
+	public Cellule(double x,double y , char c){
 		this.x = x;
 		this.y = y;
 	}
@@ -13,5 +14,9 @@ public class Cellule {
 	
 	public double getY(){
 		return this.y;
+	}
+	
+	public char getC(){
+		return this.c;
 	}
 }
