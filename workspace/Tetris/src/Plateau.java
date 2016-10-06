@@ -20,10 +20,22 @@ public class Plateau {
 	public boolean accepter(Piece p){
 		boolean res = false;
 		if(p.getCelluleUn().getC() == 'a'){
-			if(tab[p.getX()+0.5][p.getY()+0.5] == 'n'){
-				res = true;
-			}
+			if(p.getMouvement() == 1){
 				
+			}
+			else if (.getMouvement() == 2){
+				
+			}
+			else{
+				
+			}
+			if(tab[(int)p.getCelluleUn().getX()+1][(int)p.getCelluleUn().getY()+1] == new Cellule(0,0,'n')
+			&& tab[(int)p.getCelluleDeux().getX()+1][(int)p.getCelluleDeux().getY()+1] == new Cellule(0,0,'n')
+			&& tab[(int)p.getCelluleTrois().getX()+1][(int)p.getCelluleTrois().getY()+1] == new Cellule(0,0,'n')
+			&& tab[(int)p.getCelluleQuatre().getX()+1][(int)p.getCelluleQuatre().getY()+1] == new Cellule(0,0,'n'))
+				res = true;
+			else
+				res = false;
 		}
 		else if(p.getCelluleUn().getC() == 'b'){
 			
