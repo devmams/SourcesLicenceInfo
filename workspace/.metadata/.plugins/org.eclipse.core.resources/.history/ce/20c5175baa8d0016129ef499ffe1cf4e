@@ -1,0 +1,13 @@
+
+public class MainPrincipal {
+	public static void main(String[] args) {
+		Fabrique f = new Fabrique();
+		Piece p = f.creerCarre();
+		Plateau plat = new Plateau();
+		plat.jouer(p);
+		plat.jouer(p.versLeBas());
+		
+	
+	}
+
+}

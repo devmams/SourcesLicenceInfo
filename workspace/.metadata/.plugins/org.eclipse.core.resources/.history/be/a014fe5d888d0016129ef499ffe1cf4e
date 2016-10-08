@@ -1,0 +1,34 @@
+
+public class Piece {	
+	
+	private static String typeMouvement;
+	private Piece anciennePiece;
+	
+	
+	private Cellule piece[][] = new Cellule[4][4];
+
+	
+	public Piece(Cellule c1,Cellule c2 ,Cellule c3 ,Cellule c4){
+		for(int i=0 ; i<4 ; i++){
+			for(int j=0 ; j<4 ; j++){
+				if((c1.getX() == i && c1.getY() == j)){
+					piece[i][j] = c1;
+				}
+				else if((c2.getX() == i && c2.getY() == j)){
+					piece[i][j] = c2;
+				}
+				else if((c3.getX() == i && c3.getY() == j)){
+					piece[i][j] = c3;
+				}
+				else if((c4.getX() == i && c4.getY() == j)){
+					piece[i][j] = c4;
+				}
+				else{
+					piece[i][j] = new Cellule(0,0,'n');
+				}
+			}
+		}
+	}
+	
+	
+}

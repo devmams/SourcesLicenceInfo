@@ -1,0 +1,22 @@
+
+public class MainPrincipal {
+	public static void main(String[] args) {
+		Fabrique f = new Fabrique();
+		Piece p = f.creerCarre();
+		Plateau plat = new Plateau();
+		System.out.println(p.getCelluleUn().getX());
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX());
+		System.out.println(p.versLeBas().getCelluleUn().getX());
+
+
+		plat.ajouterDebut(p);
+		
+		
+		System.out.println("------------");
+		Piece pp = f.creerCarre();
+		plat.ajouterDebut(pp);
+	
+	}
+
+}

@@ -1,0 +1,79 @@
+
+public class Piece {	
+	
+	private static String typeMouvement;
+	private Piece anciennePiece;
+	
+	
+	private Cellule piece[][] = new Cellule[4][4];
+
+	
+	public Piece(Cellule c1,Cellule c2 ,Cellule c3 ,Cellule c4){
+		for(int i=0 ; i<4 ; i++){
+			for(int j=0 ; j<4 ; j++){7
+				if((c1.getX() == i && c1.getY() == j)){
+					piece[i][j] = c1;
+				}
+				else if((c1.getX() == i && c1.getY() == j)){
+					piece[i][j] = c1;
+				}
+				else if((c1.getX() == i && c1.getY() == j)){
+					piece[i][j] = c1;
+				}
+			}
+		}
+	}
+	
+	public Cellule getCelluleUn(){
+		return this.un;
+	}
+	
+	public Cellule getCelluleDeux(){
+		return this.deux;
+	}
+	
+	public Cellule getCelluleTrois(){
+		return this.trois;
+	}
+	
+	public Cellule getCelluleQuatre(){
+		return this.quatre;
+	}
+	
+	
+	
+	public Piece versLeBas(){
+		this.typeMouvement = "bas";
+		this.anciennePiece = new Piece(new Cellule(un.getX(),un.getY(),un.getC()),new Cellule(deux.getX(),deux.getY(),un.getC())
+		,new Cellule(trois.getX(),trois.getY(),un.getC()),new Cellule(quatre.getX(),quatre.getY(),un.getC()));
+		
+		return new Piece(new Cellule(un.getX(),un.getY()-1,un.getC()),new Cellule(deux.getX(),deux.getY()-1,un.getC())
+		,new Cellule(trois.getX(),trois.getY()-1,un.getC()),new Cellule(quatre.getX(),quatre.getY()-1,un.getC()));
+	}
+
+	public Piece versLaGauche(){
+		this.typeMouvement = "gauche";
+		this.anciennePiece = new Piece(new Cellule(un.getX(),un.getY(),un.getC()),new Cellule(deux.getX(),deux.getY(),un.getC())
+		,new Cellule(trois.getX(),trois.getY(),un.getC()),new Cellule(quatre.getX(),quatre.getY(),un.getC()));
+		
+		return new Piece(new Cellule(un.getX()-1,un.getY(),un.getC()),new Cellule(deux.getX()-1,deux.getY(),un.getC())
+		,new Cellule(trois.getX()-1,trois.getY(),un.getC()),new Cellule(quatre.getX()-1,quatre.getY(),un.getC()));	
+	}
+	
+	public Piece versLaDroite(){
+		this.typeMouvement = "droite";
+		this.anciennePiece = new Piece(new Cellule(un.getX(),un.getY(),un.getC()),new Cellule(deux.getX(),deux.getY(),un.getC())
+		,new Cellule(trois.getX(),trois.getY(),un.getC()),new Cellule(quatre.getX(),quatre.getY(),un.getC()));
+		
+		return new Piece(new Cellule(un.getX()+1,un.getY(),un.getC()),new Cellule(deux.getX()+1,deux.getY(),un.getC())
+		,new Cellule(trois.getX()+1,trois.getY(),un.getC()),new Cellule(quatre.getX()+1,quatre.getY(),un.getC()));
+	}
+	
+	public String getMouvement(){
+		return this.typeMouvement;
+	}
+	
+	public Piece getAncienne(){
+		return this.anciennePiece;
+	}
+}

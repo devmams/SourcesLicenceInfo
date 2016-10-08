@@ -1,11 +1,12 @@
 public class Cellule {
 	private double x;
 	private double y;
-	private char c;
+	private char col;
 	
-	public Cellule(double x,double y , char c){
+	public Cellule(double x,double y , char col){
 		this.x = x;
 		this.y = y;
+		this.col = col;
 	}
 	
 	public double getX(){
@@ -17,6 +18,6 @@ public class Cellule {
 	}
 	
 	public char getC(){
-		return this.c;
+		return this.col;
 	}
 }

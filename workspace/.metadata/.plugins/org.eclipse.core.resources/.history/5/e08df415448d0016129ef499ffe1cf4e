@@ -1,0 +1,74 @@
+
+public class MainPrincipal {
+	public static void main(String[] args) {
+		Fabrique f = new Fabrique();
+		Piece p = f.creerCarre();
+		Plateau plat = new Plateau();
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		p = p.versLeBas();
+		System.out.println(p.getCelluleUn().getX()+ " ; " +p.getCelluleUn().getY());
+		System.out.println(plat.accepter(p));
+		
+
+
+		
+		
+
+
+		plat.ajouterDebut(p);
+		
+		
+		System.out.println("------------");
+		Piece pp = f.creerCarre();
+		plat.ajouterDebut(pp);
+	
+	}
+
+}

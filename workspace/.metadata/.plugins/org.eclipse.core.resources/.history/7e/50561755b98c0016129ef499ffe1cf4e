@@ -1,0 +1,17 @@
+
+public class MainPrincipal {
+	public static void main(String[] args) {
+		Fabrique f = new Fabrique();
+		Plateau plat = new Plateau();
+		Piece p = f.creerCarre();
+		plat.ajouter(p);
+		p.versLeBas();
+		Piece tmp = p;
+		plat.retirer(p);
+		System.out.println(plat.accepter(p));
+		
+
+		//System.out.println(p.getCelluleUn().getX() + " , " + p.getCelluleUn().getY() + " , "+ p.getCelluleUn().getC());
+	}
+
+}

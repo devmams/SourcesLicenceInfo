@@ -1,0 +1,24 @@
+
+public class MainPrincipal {
+	public static void main(String[] args) {
+		Fabrique f = new Fabrique();
+		Piece p = f.creerCarre();
+		Plateau plat = new Plateau();
+		System.out.println(p.getCelluleUn().getX() + " , " + p.getCelluleUn().getY());
+		plat.jouer(p);
+		p = p.versLeBas();
+		p = p.versLeBas();
+
+		
+		//System.out.println(p.getCelluleUn().getX() + " , " + p.getCelluleUn().getY());
+		
+		System.out.println(p.getCelluleUn().getX() + " , " + p.getCelluleUn().getY());
+		System.out.println(p.getCelluleUn().getX() + " , " + p.getCelluleUn().getY());
+
+
+		//plat.jouer(p.versLeBas());
+		
+	
+	}
+
+}

@@ -1,0 +1,30 @@
+
+public class MainPrincipal {
+	public static void main(String[] args) {
+		Fabrique f = new Fabrique();
+		Piece p = f.creerCarre();
+		Plateau plat = new Plateau();
+		plat.retirer(p);
+		if(plat.accepter(p)){
+			
+		}
+		p = p.versLeBas();
+		plat.jouer(p);
+		
+		
+
+
+		
+		
+
+
+		plat.ajouterDebut(p);
+		
+		
+		System.out.println("------------");
+		Piece pp = f.creerCarre();
+		plat.ajouterDebut(pp);
+	
+	}
+
+}

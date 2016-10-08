@@ -2,9 +2,21 @@
 public class MainPrincipal {
 	public static void main(String[] args) {
 		Fabrique f = new Fabrique();
-		System.out.println(f.carre());
-		// TODO Auto-generated method stub
+		Piece p = f.creerCarre();
+		Plateau plat = new Plateau();
+		plat.jouer(p);
+		p = p.versLaGauche();
+		plat.jouer(p);
+		p = p.versLaGauche();
+		plat.jouer(p);
+		p = p.versLaGauche();
+		plat.jouer(p);
+		p = p.versLaGauche();
+		plat.jouer(p);
+	
+		
 
+	
 	}
 
 }

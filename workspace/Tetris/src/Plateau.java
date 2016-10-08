@@ -1,57 +1,71 @@
 
 public class Plateau {
-	private static final int largeur = 10;
-	private static final int hauteur = 20;
-	private Cellule tab[][];
+	private int largeur = 12;
+	private int hauteur = 21;
+	public Cellule grille[][];
 	
 	public Plateau(){
-		this.tab = new Cellule[largeur][hauteur];
-		for(int i=0 ; i<10 ; i++){
+		this.grille = new Cellule[largeur][hauteur];
+		for(int i=1 ; i<10 ; i++){
 			for(int j=0 ; j<20 ; j++){
-				this.tab[i][j] = new Cellule(0,0,'n'); 
+				this.grille[i][j] = new Cellule(0,0,'n'); 
+			}
+			for(int k=0 ; k<10 ; k++){
+				this.grille[k][20] = new Cellule(0,0,'z');
+			}
+			for(int l=0 ; l<21 ; l++){
+				this.grille[0][l] = new Cellule(0,0,'z');
+			}
+			for(int m=0 ; m<21 ; m++){
+				this.grille[11][m] = new Cellule(0,0,'z');
 			}
 		}
-	}
-	
-	public Cellule getCase(Cellule cl){
-		return tab[][];
 	}
 	
 	public boolean accepter(Piece p){
 		boolean res = false;
-		if(p.getCelluleUn().getC() == 'a'){
-			if(p.getMouvement() == 1){
-				
-			}
-			else if (.getMouvement() == 2){
-				
-			}
-			else{
-				
-			}
-			if(tab[(int)p.getCelluleUn().getX()+1][(int)p.getCelluleUn().getY()+1] == new Cellule(0,0,'n')
-			&& tab[(int)p.getCelluleDeux().getX()+1][(int)p.getCelluleDeux().getY()+1] == new Cellule(0,0,'n')
-			&& tab[(int)p.getCelluleTrois().getX()+1][(int)p.getCelluleTrois().getY()+1] == new Cellule(0,0,'n')
-			&& tab[(int)p.getCelluleQuatre().getX()+1][(int)p.getCelluleQuatre().getY()+1] == new Cellule(0,0,'n'))
-				res = true;
-			else
-				res = false;
+		if(this.grille[(int)p.getCelluleUn().getX()][(int)p.getCelluleUn().getY()].getC() == 'n'
+		&& this.grille[(int)p.getCelluleDeux().getX()][(int)p.getCelluleDeux().getY()].getC() == 'n'
+		&& this.grille[(int)p.getCelluleTrois().getX()][(int)p.getCelluleTrois().getY()].getC() == 'n'
+		&& this.grille[(int)p.getCelluleQuatre().getX()][(int)p.getCelluleQuatre().getY()].getC() == 'n'){
+			res = true;
 		}
-		else if(p.getCelluleUn().getC() == 'b'){
-			
-		}
-		else{
-			
-		}
-		
 		return res;
 	}
 	
+	public void jouer(Piece p){
+		if(p.getCelluleUn().getX() == 4.5 && p.getCelluleUn().getY() == 0.5){
+			ajouter(p);
+			System.out.println("ajoutée au debut avec succès !");
+		}
+		else{
+			System.out.println("nou : " +p.getCelluleUn().getX() + " , " + p.getCelluleUn().getY());
+			System.out.println("anc : " +p.getAncienne().getCelluleUn().getX() + " , " + p.getAncienne().getCelluleUn().getY());
+			retirer(p.getAncienne());
+			System.out.println(accepter(p));
+			if(accepter(p)){
+				ajouter(p);
+				System.out.println("piece ajoutée avec succès !");
+			}
+			else{
+				System.out.println("la piece ne peut etre ajoutée");
+				ajouter(p.getAncienne());
+			}
+		}
+	}
+	
 	public void retirer(Piece p){
-		
+		this.grille[(int)p.getCelluleUn().getX()][(int)p.getCelluleUn().getY()] = new Cellule(0,0,'n');
+		this.grille[(int)p.getCelluleDeux().getX()][(int)p.getCelluleDeux().getY()] = new Cellule(0,0,'n');
+		this.grille[(int)p.getCelluleTrois().getX()][(int)p.getCelluleTrois().getY()] = new Cellule(0,0,'n');
+		this.grille[(int)p.getCelluleQuatre().getX()][(int)p.getCelluleQuatre().getY()] = new Cellule(0,0,'n');
 	}
 	
 	public void ajouter(Piece p){
-		
+		this.grille[(int)p.getCelluleUn().getX()][(int)p.getCelluleUn().getY()] = p.getCelluleUn();
+		this.grille[(int)p.getCelluleDeux().getX()][(int)p.getCelluleDeux().getY()] = p.getCelluleDeux();
+		this.grille[(int)p.getCelluleTrois().getX()][(int)p.getCelluleTrois().getY()] = p.getCelluleTrois();
+		this.grille[(int)p.getCelluleQuatre().getX()][(int)p.getCelluleQuatre().getY()] = p.getCelluleQuatre();
 	}
+	
 }
