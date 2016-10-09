@@ -17,10 +17,7 @@ public class MainPrincipal {
 		plat.jouer(p);
 		p = p.versLeBas();
 		plat.jouer(p);
-		Piece pp = f.creerBatonHorizontal();
-		plat.jouer(pp);
-		pp = pp.versLaDroite();
-		plat.jouer(pp);
+		pp = f.creerBatonHorizontal();
 		
 	
 	}

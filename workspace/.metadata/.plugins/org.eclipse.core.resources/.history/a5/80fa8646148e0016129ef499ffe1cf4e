@@ -5,23 +5,16 @@ public class MainPrincipal {
 		Piece p = f.creerCarre();
 		Plateau plat = new Plateau();
 		plat.jouer(p);
-		p = p.versLaDroite();
+		p = p.versLaGauche();
 		plat.jouer(p);
-		p = p.versLaDroite();
+		p = p.versLaGauche();
 		plat.jouer(p);
-		p = p.versLaDroite();
+		p = p.versLaGauche();
 		plat.jouer(p);
-		p = p.versLaDroite();
+		p = p.versLaGauche();
 		plat.jouer(p);
-		//p = p.versLaDroite();
+		p = p.versLaGauche();
 		plat.jouer(p);
-		p = p.versLeBas();
-		plat.jouer(p);
-		Piece pp = f.creerBatonHorizontal();
-		plat.jouer(pp);
-		pp = pp.versLaDroite();
-		plat.jouer(pp);
-		
 	
 	}
 

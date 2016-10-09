@@ -18,8 +18,11 @@ public class Plateau {
 	
 	public boolean accepter(Piece p){
 		boolean res = false;
-		if((p.getCelluleUn().getX() < 0 || p.getCelluleDeux().getX() < 0 || p.getCelluleTrois().getX() < 0 || p.getCelluleQuatre().getX() < 0)
-		|| (p.getCelluleUn().getX() >10 || p.getCelluleDeux().getX() >10 || p.getCelluleTrois().getX() >10 || p.getCelluleQuatre().getX() >10)){
+		System.out.println("----"+ p.getCellule().getX());
+		if(p.getCelluleUn().getX() < 0 || p.getCelluleDeux().getX() < 0 || p.getCelluleTrois().getX() < 0 || p.getCelluleQuatre().getX() < 0){
+			res = false;
+		}
+		else if(p.getCelluleUn().getX()>10 || p.getCelluleDeux().getX()>10 || p.getCelluleTrois().getX()>10 || p.getCelluleQuatre().getX()>10){
 			res = false;
 		}
 		else if(this.grille[(int)p.getCelluleUn().getX()][(int)p.getCelluleUn().getY()].getC() == 'n'
