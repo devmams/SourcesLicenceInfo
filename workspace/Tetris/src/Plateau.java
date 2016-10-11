@@ -52,6 +52,14 @@ public class Plateau {
 		}
 	}
 	
+	public boolean bloquer(Piece p){
+		boolean bloque = true;
+		if(!accepter(p.versLeBas())){
+			bloque = false;
+		}
+		return bloque;
+	}
+	
 	public void retirer(Piece p){
 		this.grille[(int)p.getCelluleUn().getX()][(int)p.getCelluleUn().getY()] = new Cellule(0,0,'n');
 		this.grille[(int)p.getCelluleDeux().getX()][(int)p.getCelluleDeux().getY()] = new Cellule(0,0,'n');
