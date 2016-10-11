@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+
+public class MainPrincipal {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int cpt = 0;
+		Fabrique f = new Fabrique();
+		Piece p = f.creerCarre();
+		Plateau plat = new Plateau();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+
+		if(!plat.accepter(p)){
+			p = p.getAncienne().versLeBas();
+		}
+		
+
+		
+		/*while(true){
+			while(!plat.bloquer(p)){
+				cpt++;
+				int dep = sc.nextInt();
+				if(dep == 1)
+				{
+				p = p.versLeBas();
+				}
+				else if(dep == 2 && plat.bloquer(p)){
+					System.out.println("####");
+					p = p.getAncienne().getAncienne();
+				}
+				else if(dep == 2)
+				{
+				p = p.versLaDroite();
+				}
+				else if(dep==3)
+				{
+					p = p.versLaGauche();
+				}
+				plat.jouer(p);
+			}
+			if(plat.bloquer(p)){
+				Fabrique ff = new Fabrique(); 
+				p = ff.creerCarre();
+			}	
+		}*/
+		
+	
+	}
+
+}

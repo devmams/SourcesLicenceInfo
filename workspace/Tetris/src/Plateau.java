@@ -2,7 +2,7 @@
 public class Plateau {
 	private int largeur = 10;
 	private int hauteur = 21;
-	public Cellule grille[][];
+	private Cellule grille[][];
 	
 	public Plateau(){
 		this.grille = new Cellule[largeur][hauteur];
@@ -52,12 +52,29 @@ public class Plateau {
 		}
 	}
 	
-	public boolean bloquer(Piece p){
-		boolean bloque = true;
-		if(!accepter(p.versLeBas())){
-			bloque = false;
+	public void verifieLigne(){
+		int cpt;
+		for(int i=0 ; i<20 ; i++){
+			cpt = 0;
+			for(int j=0 ; j<10 ; j++){
+				if(this.grille[j][i].getC() != 'n'){
+					cpt++;
+				}
+			}
+			if(cpt == 10){
+				for(int k=0 ; k<10 ; k++){
+					this.grille[i][k] = new Cellule(0,0,'n');
+				}
+				for(int l=i-1 ; l>=0 ;l--){
+					for(int m=0 ; m<10 ; m++){
+						this.grille[l][m] = this.grille[l+1][m];
+					}
+				}
+			}
+			else{
+				System.out.println("la ligne n'est pas pleine");
+			}
 		}
-		return bloque;
 	}
 	
 	public void retirer(Piece p){

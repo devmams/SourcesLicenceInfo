@@ -10,14 +10,77 @@ public class MainPrincipal {
 		Piece p = f.creerCarre();
 		Plateau plat = new Plateau();
 		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		//p = p.versLeBas();
+		//plat.jouer(p);
+
+		if(!plat.accepter(p.versLeBas())){
+			p = f.creerCarre();
+			plat.jouer(p);
+		}
 		
-		while(true){
+		p = p.versLeBas();
+		plat.jouer(p);
+		
+		plat.verifieLigne();
+		
+		
+		
+		
+		
+	
+		
+		
+		
+		
+
+		
+		/*while(true){
 			while(!plat.bloquer(p)){
 				cpt++;
 				int dep = sc.nextInt();
 				if(dep == 1)
 				{
 				p = p.versLeBas();
+				}
+				else if(dep == 2 && plat.bloquer(p)){
+					System.out.println("####");
+					p = p.getAncienne().getAncienne();
 				}
 				else if(dep == 2)
 				{
@@ -29,11 +92,11 @@ public class MainPrincipal {
 				}
 				plat.jouer(p);
 			}
-			if(!plat.bloquer(p)){
+			if(plat.bloquer(p)){
 				Fabrique ff = new Fabrique(); 
 				p = ff.creerCarre();
-			}		
-		}
+			}	
+		}*/
 		
 	
 	}
