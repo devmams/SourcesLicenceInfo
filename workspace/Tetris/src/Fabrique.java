@@ -1,9 +1,6 @@
 
 public class Fabrique {
-	private Piece creerCarre;
-	private Piece creerBatonVertical;
-	private Piece creerBatonHorizontal;
-
+	
 	public Fabrique(){}
 
 	public Piece creerCarre(){

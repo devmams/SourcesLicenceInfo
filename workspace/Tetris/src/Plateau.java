@@ -48,6 +48,7 @@ public class Plateau {
 			else{
 				System.out.println("la piece ne peut etre ajoutée");
 				ajouter(p.getAncienne());
+				
 			}
 		}
 	}
@@ -64,6 +65,7 @@ public class Plateau {
 			if(cpt == 10){
 				for(int k=0 ; k<10 ; k++){
 					this.grille[i][k] = new Cellule(0,0,'n');
+					System.out.println("ligne : "+ i +" supprimé avec succès !");
 				}
 				for(int l=i-1 ; l>=0 ;l--){
 					for(int m=0 ; m<10 ; m++){
@@ -79,9 +81,11 @@ public class Plateau {
 	
 	public boolean jeuPerdu(Piece p){
 		boolean res = true;
+		retirer(p);
 		if(accepter(p.versLeBas())){
 			res = false;
 		}
+		ajouter(p);
 		return res;
 	}
 	

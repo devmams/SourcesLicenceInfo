@@ -1,0 +1,89 @@
+import java.util.Scanner;
+
+
+public class MainPrincipal {
+	public static void main(String[] args) {
+		
+		int depl;
+		Scanner sc = new Scanner(System.in);
+		Fabrique f = new Fabrique();
+		Piece p = f.creerCarre();
+		Plateau plat = new Plateau();
+		plat.jouer(p);
+		
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		p = p.versLeBas();
+		plat.jouer(p);
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		if(!plat.accepter(p)){
+			p = f.creerCarre();
+		}
+		plat.jouer(p);
+		p = p.versLeBas();
+		
+		while(true){
+				int dep = sc.nextInt();
+				if(dep == 1)
+				{
+				p = p.versLeBas();
+				}
+				else if(dep == 2){
+					System.out.println("####");
+					p = p.getAncienne().getAncienne();
+				}
+				else if(dep == 2)
+				{
+				p = p.versLaDroite();
+				}
+				else if(dep==3)
+				{
+					p = p.versLaGauche();
+				}
+				plat.jouer(p);
+			}
+			if(plat.jeuPerdu(p)){
+				Fabrique ff = new Fabrique(); 
+				p = ff.creerCarre();
+			}	
+		}
+	
+		
+	
+
+		
+	}
+}

@@ -1,0 +1,21 @@
+
+public class Fabrique {
+	private Piece creerCarre;
+	private Piece creerBatonVertical;
+	private Piece creerBatonHorizontal;
+
+	public Fabrique(){}
+
+	public Piece creerCarre(){
+		return new Piece(new Cellule(4.5,0.5,'a'),new Cellule(5.5,0.5,'a'),new Cellule(5.5,1.5,'a'),new Cellule(4.5,1.5,'a'));
+	}
+
+	public Piece creerBatonVertical(){
+		return new Piece(new Cellule(4.5,0.5,'b'),new Cellule(4.5,1.5,'b'),new Cellule(4.5,2.5,'b'),new Cellule(4.5,3.5,'b'));
+	}
+
+	public Piece creerBatonHorizontal(){
+		return new Piece(new Cellule(4.5,0.5,'c'),new Cellule(5.5,0.5,'c'),new Cellule(6.5,0.5,'c'),new Cellule(7.5,0.5,'c'));
+
+	}
+}
