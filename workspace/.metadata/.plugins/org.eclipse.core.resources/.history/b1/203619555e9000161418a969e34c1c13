@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+
+public class MainPrincipal {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		Fabrique f = new Fabrique();
+		Piece p = f.creerCarre();
+		Plateau plat = new Plateau();
+		
+		boolean jeu = false;
+		while(jeu == false){
+			plat.jouer(p);
+			int dep = sc.nextInt();
+			plat.retirer(p);
+			if(plat.accepter(p.versLeBas())){
+				if(dep == 1){
+					p = p.versLaGauche();
+				}
+				else if(dep == 0){
+					p = p.versLeBas();
+				}
+				else if(dep == 3){
+					p = p.versLaDroite();
+				}
+				else if(dep==3)
+				{
+					p = p.versLaGauche();
+				}
+			}
+			else{
+				p = f.creerCarre();
+				jeu = plat.jeuPerdu(p);
+			}
+			System.out.println(jeu);
+		}
+		//sc.close();
+	}
+}

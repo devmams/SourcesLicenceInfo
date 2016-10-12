@@ -1,0 +1,78 @@
+import java.util.Scanner;
+
+
+public class MainPrincipal {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int cpt = 0;
+		Fabrique f = new Fabrique();
+		Piece p = f.creerCarre();
+		Plateau plat = new Plateau();
+		
+		boolean jeu = false;
+		while(jeu == false){
+			
+			jeu = plat.jeuPerdu(p);
+		}
+
+		
+		
+		
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		p = p.versLeBas();
+		plat.jouer(p);
+		//p = p.versLeBas();
+		//plat.jouer(p);
+
+		if(!plat.accepter(p.versLeBas())){
+			p = f.creerCarre();
+			plat.jouer(p);
+		}
+		
+		p = p.versLeBas();
+		plat.jouer(p);
+		
+		plat.verifieLigne();
+		
+		
+		
+		
+	
+	}
+
+}
