@@ -28,7 +28,7 @@ public class Game extends JFrame implements KeyListener {
 	public static void main(String[] args) {
 		Game g = new Game();
 		g.setVisible(true);
-		g.setSize(152, 300);
+		g.setSize(200, 420);
 	    g.setLocationRelativeTo(null);
 	    g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		g.jouer();
@@ -36,43 +36,53 @@ public class Game extends JFrame implements KeyListener {
 
 	private void jouer () {
 		// Boucle infinie (tant que mon_process existe et n'est pas interrompu)
-		while (res){
-			plt.ajouter(p);
-			repaint();	
-			
-			
-			plt.ajouter(p);
-			repaint();
-			p = p.versLeBas();
-			plt.retirer(p.getAncienne());
-			if(!plt.accepter(p)){
-				p = p.getAncienne();
+		while(true){
+			while (res){
 				plt.ajouter(p);
-				plt.verifieLigne();
+				repaint();	
+				plt.ajouter(p);
 				repaint();
-				p = f.creerPiece();
-				if(!plt.accepter(p.versLeBas())){
-					res = false;
+				p = p.versLeBas();
+				plt.retirer(p.getAncienne());
+				if(!plt.accepter(p)){
+					p = p.getAncienne();
+					plt.ajouter(p);
+					plt.verifieLigne();
+					repaint();
+					p = f.creerPiece();
+					if(!plt.accepter(p.versLeBas())){
+						res = false;
+					}
+				}
+				plt.ajouter(p);
+				repaint();
+				try {
+					Thread.sleep(300);
+				}
+				catch (InterruptedException e) {
+					return;
 				}
 			}
-			plt.ajouter(p);
+			res = true;
 			repaint();
+			plt = new Plateau('a');
 			try {
-				Thread.sleep(300);
+				Thread.sleep(200);
 			}
 			catch (InterruptedException e) {
 				return;
 			}
+			repaint();
+			System.out.println("GAME OVER !");
 		}
-		System.out.println("GAME OVER !");
 	}
 
 	public void update(Graphics g){
 		if(offI == null){
-			offI = createImage(152, 300);
+			offI = createImage(200, 420);
 			offG = offI.getGraphics();
 		}
-		offG.clearRect(0, 0, 152, 300);
+		offG.clearRect(0, 0, 200, 420);
 		paint(offG);
 		g.drawImage(offI, 0, 0, null);
 	}
@@ -82,17 +92,17 @@ public class Game extends JFrame implements KeyListener {
 			for (int l=0;l<20;l++) {
 				if (plt.getCellule(k,l).getC() == 'n') {
 					g.setColor(Color.white);
-					g.fill3DRect (15*k,15*l,15,15,true);
+					g.fill3DRect (20*k,20*l,20,20,true);
 				}
 				else{
 					switch (plt.getCellule(k,l).getC()) {
-					case 'a':     g.setColor(new Color(0,192,0));    g.fill3DRect(15*k,15*l,15,15,true); break; //vert
-					case 'b':     g.setColor(Color.pink);            g.fill3DRect(15*k,15*l,15,15,true); break; //rouge
-                    case 'c':     g.setColor(new Color(0,128,224));    g.fill3DRect(15*k,15*l,15,15,true); break; //bleu
-                    /*case 4:     g.setColor(new Color(0,192,192));    g.fill3DRect(15*k,15*l,15,15,true); break; //cyan
-                    case 5:     g.setColor(Color.orange);            g.fill3DRect(15*k,15*l,15,15,true); break; //orange
-                    case 6:     g.setColor(Color.darkGray);          g.fill3DRect(15*k,15*l,15,15,true); break; //gris
-                    case 7:     g.setColor(Color.magenta);           g.fill3DRect(15*k,15*l,15,15,true); break; //magenta*/
+					case 'a':     g.setColor(new Color(0,192,0));    g.fill3DRect (20*k,20*l,20,20,true); break; //vert
+					case 'b':     g.setColor(Color.pink);            g.fill3DRect (20*k,20*l,20,20,true); break; //rouge
+                    case 'c':     g.setColor(new Color(0,128,224));  g.fill3DRect (20*k,20*l,20,20,true); break; //bleu
+                    case 'd':     g.setColor(new Color(0,192,192));  g.fill3DRect(20*k,20*l,20,20,true); break; //cyan
+                    case 'e':     g.setColor(Color.orange);          g.fill3DRect(20*k,20*l,20,20,true); break; //orange
+                    case 'f':     g.setColor(Color.darkGray);        g.fill3DRect(20*k,20*l,20,20,true); break; //gris
+                    case 'g':     g.setColor(Color.magenta);         g.fill3DRect(20*k,20*l,20,20,true); break; //magenta*/
 					}
 				}
 			}
@@ -121,20 +131,16 @@ public class Game extends JFrame implements KeyListener {
 			repaint();		
 		}
 		break;
-		/*case KeyEvent.VK_DOWN : if (p != null) {
-			plt.retirer(p);
-			if(!plt.accepter(p.versLeBas())){
-				plt.ajouter(p);
-				repaint();
-				p = f.creerCarre();
-				plt.jouer(p);
-				plt.retirer(p);
-				if(!plt.accepter(p.versLeBas())){
-					res = false;
-				}
+		case KeyEvent.VK_DOWN : if (p != null) {
+			p = p.versLeBas();
+			plt.retirer(p.getAncienne());
+			if(!plt.accepter(p)){
+				p = p.getAncienne();
 			}
+			plt.ajouter(p);
+			repaint();
 		}
-		break;*/
+		break;
 		default : repaint();
 		}
 	}

@@ -1,0 +1,41 @@
+import java.awt.Color;
+
+
+public class Fabrique {
+	private int nb;
+	private Piece p;
+	public Fabrique(){}
+		
+	public Piece creerPiece(){
+		nb = 1 + (int)(Math.random() * 3 );
+		switch (plt.getCellule(k,l).getC()) {
+			case 1:     g.setColor(new Color(0,192,0));    g.fill3DRect (20*k,20*l,20,20,true); break; //vert
+			case 4:     g.setColor(Color.pink);            g.fill3DRect (20*k,20*l,20,20,true); break; //rouge
+	        case 3:     g.setColor(new Color(0,128,224));  g.fill3DRect (20*k,20*l,20,20,true); break; //bleu
+	        case 4:     g.setColor(new Color(0,192,192));    g.fill3DRect(15*k,15*l,15,15,true); break; //cyan
+	        case 5:     g.setColor(Color.orange);            g.fill3DRect(15*k,15*l,15,15,true); break; //orange
+	        case 6:     g.setColor(Color.darkGray);          g.fill3DRect(15*k,15*l,15,15,true); break; //gris
+	        case 7:     g.setColor(Color.magenta);           g.fill3DRect(15*k,15*l,15,15,true); break; //magenta*/
+		}
+		if(nb == 1)
+	      p = new Piece(new Cellule(4.5,0.5,'a'),new Cellule(5.5,0.5,'a'),new Cellule(5.5,1.5,'a'),new Cellule(4.5,1.5,'a'));
+	    else if(nb == 2)
+	      p = new Piece(new Cellule(4.5,0.5,'b'),new Cellule(4.5,1.5,'b'),new Cellule(4.5,2.5,'b'),new Cellule(4.5,3.5,'b'));
+	    else if(nb == 3)
+	      p = new Piece(new Cellule(4.5,0.5,'c'),new Cellule(5.5,0.5,'c'),new Cellule(6.5,0.5,'c'),new Cellule(7.5,0.5,'c'));
+	    return p;
+	}
+			
+	/*public Piece creerCarre(){
+		return new Piece(new Cellule(4.5,0.5,'a'),new Cellule(5.5,0.5,'a'),new Cellule(5.5,1.5,'a'),new Cellule(4.5,1.5,'a'));
+	}
+
+	public Piece creerBatonVertical(){
+		return new Piece(new Cellule(4.5,0.5,'b'),new Cellule(4.5,1.5,'b'),new Cellule(4.5,2.5,'b'),new Cellule(4.5,3.5,'b'));
+	}
+
+	public Piece creerBatonHorizontal(){
+		return new Piece(new Cellule(4.5,0.5,'c'),new Cellule(5.5,0.5,'c'),new Cellule(6.5,0.5,'c'),new Cellule(7.5,0.5,'c'));
+
+	}*/
+}
