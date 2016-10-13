@@ -31,6 +31,28 @@ public class Plateau {
 		return res;
 	}
 	
+	public void jouer(Piece p){
+		if(p.getCelluleUn().getX() == 4.5 && p.getCelluleUn().getY() == 0.5){
+			ajouter(p);
+			System.out.println("ajoutée au debut avec succès !");
+		}
+		else{
+			System.out.println("nou : " +p.getCelluleUn().getX() + " , " + p.getCelluleUn().getY());
+			System.out.println("anc : " +p.getAncienne().getCelluleUn().getX() + " , " + p.getAncienne().getCelluleUn().getY());
+			retirer(p.getAncienne());
+			System.out.println(accepter(p));
+			if(accepter(p)){
+				ajouter(p);
+				System.out.println("piece ajoutée avec succès !");
+			}
+			else{
+				System.out.println("la piece ne peut etre ajoutée");
+				ajouter(p.getAncienne());
+				
+			}
+		}
+	}
+	
 	public void verifieLigne(){
 		int cpt;
 		for(int i=0 ; i<20 ; i++){
@@ -42,12 +64,12 @@ public class Plateau {
 			}
 			if(cpt == 10){
 				for(int k=0 ; k<10 ; k++){
-					this.grille[k][i] = new Cellule(0,0,'n');
+					this.grille[i][k] = new Cellule(0,0,'n');
+					System.out.println("ligne : "+ i +" supprimé avec succès !");
 				}
-				System.out.println("ligne : "+ i +" supprimé avec succès !");
 				for(int l=i-1 ; l>=0 ;l--){
 					for(int m=0 ; m<10 ; m++){
-						this.grille[m][l+1] = this.grille[m][l];
+						this.grille[l][m] = this.grille[l+1][m];
 					}
 				}
 			}

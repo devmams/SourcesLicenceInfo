@@ -47,7 +47,7 @@ public class Plateau {
 				System.out.println("ligne : "+ i +" supprimé avec succès !");
 				for(int l=i-1 ; l>=0 ;l--){
 					for(int m=0 ; m<10 ; m++){
-						this.grille[m][l+1] = this.grille[m][l];
+						this.grille[m][l] = this.grille[m][l+1];
 					}
 				}
 			}

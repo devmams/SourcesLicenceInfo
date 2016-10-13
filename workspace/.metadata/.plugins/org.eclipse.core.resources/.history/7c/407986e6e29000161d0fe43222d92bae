@@ -88,8 +88,8 @@ public class Game extends JFrame implements KeyListener {
 					switch (plt.getCellule(k,l).getC()) {
 					case 'a':     g.setColor(new Color(0,192,0));    g.fill3DRect(15*k,15*l,15,15,true); break; //vert
 					case 'b':     g.setColor(Color.pink);            g.fill3DRect(15*k,15*l,15,15,true); break; //rouge
-                    case 'c':     g.setColor(new Color(0,128,224));    g.fill3DRect(15*k,15*l,15,15,true); break; //bleu
-                    /*case 4:     g.setColor(new Color(0,192,192));    g.fill3DRect(15*k,15*l,15,15,true); break; //cyan
+                    /*case 3:     g.setColor(new Color(0,128,224));    g.fill3DRect(15*k,15*l,15,15,true); break; //bleu
+                    case 4:     g.setColor(new Color(0,192,192));    g.fill3DRect(15*k,15*l,15,15,true); break; //cyan
                     case 5:     g.setColor(Color.orange);            g.fill3DRect(15*k,15*l,15,15,true); break; //orange
                     case 6:     g.setColor(Color.darkGray);          g.fill3DRect(15*k,15*l,15,15,true); break; //gris
                     case 7:     g.setColor(Color.magenta);           g.fill3DRect(15*k,15*l,15,15,true); break; //magenta*/

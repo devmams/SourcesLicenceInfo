@@ -1,0 +1,33 @@
+
+public class Fabrique {
+	private int nb;
+	public Fabrique(){
+		
+		nb = 1 + (int)(Math.random() * 3 );
+		switch (numero) {
+        case 7:   for (int i=0;i<4;i++) { for (int j=0;j<16;j++) { piecec [i][j]=Piece7 [i][j]; }}; break;
+        case 6:   for (int i=0;i<4;i++) { for (int j=0;j<16;j++) { piecec [i][j]=Piece6 [i][j]; }}; break;
+        case 5:   for (int i=0;i<4;i++) { for (int j=0;j<16;j++) { piecec [i][j]=Piece5 [i][j]; }}; break;
+        case 4:   for (int i=0;i<4;i++) { for (int j=0;j<16;j++) { piecec [i][j]=Piece4 [i][j]; }}; break;
+        case 3:   for (int i=0;i<4;i++) { for (int j=0;j<16;j++) { piecec [i][j]=Piece3 [i][j]; }}; break;
+        case 2:   for (int i=0;i<4;i++) { for (int j=0;j<16;j++) { piecec [i][j]=Piece2 [i][j]; }}; break;
+        case 1:   for (int i=0;i<4;i++) { for (int j=0;j<16;j++) { piecec [i][j]=Piece1 [i][j]; }}; break;
+}
+		return new Piece(new Cellule(4.5,0.5,'a'),new Cellule(5.5,0.5,'a'),new Cellule(5.5,1.5,'a'),new Cellule(4.5,1.5,'a'));
+		return new Piece(new Cellule(4.5,0.5,'b'),new Cellule(4.5,1.5,'b'),new Cellule(4.5,2.5,'b'),new Cellule(4.5,3.5,'b'));
+		return new Piece(new Cellule(4.5,0.5,'c'),new Cellule(5.5,0.5,'c'),new Cellule(6.5,0.5,'c'),new Cellule(7.5,0.5,'c'));
+
+			
+	/*public Piece creerCarre(){
+		return new Piece(new Cellule(4.5,0.5,'a'),new Cellule(5.5,0.5,'a'),new Cellule(5.5,1.5,'a'),new Cellule(4.5,1.5,'a'));
+	}
+
+	public Piece creerBatonVertical(){
+		return new Piece(new Cellule(4.5,0.5,'b'),new Cellule(4.5,1.5,'b'),new Cellule(4.5,2.5,'b'),new Cellule(4.5,3.5,'b'));
+	}
+
+	public Piece creerBatonHorizontal(){
+		return new Piece(new Cellule(4.5,0.5,'c'),new Cellule(5.5,0.5,'c'),new Cellule(6.5,0.5,'c'),new Cellule(7.5,0.5,'c'));
+
+	}*/
+}

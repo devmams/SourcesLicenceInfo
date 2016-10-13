@@ -1,7 +1,7 @@
 
 public class Fabrique {
 	private int nb;
-	private Piece p;
+	
 	public Fabrique(){}
 		
 	public Piece creerPiece(){

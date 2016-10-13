@@ -1,0 +1,29 @@
+
+public class Fabrique {
+	private Piece p;
+	public Fabrique(int nb){
+		if(nb == 1){
+			return new Piece(new Cellule(4.5,0.5,'a'),new Cellule(5.5,0.5,'a'),new Cellule(5.5,1.5,'a'),new Cellule(4.5,1.5,'a'));
+		}
+		else if(nb == 2){
+			return new Piece(new Cellule(4.5,0.5,'b'),new Cellule(4.5,1.5,'b'),new Cellule(4.5,2.5,'b'),new Cellule(4.5,3.5,'b'));
+		}
+		else if(nb == 3){
+			return new Piece(new Cellule(4.5,0.5,'c'),new Cellule(5.5,0.5,'c'),new Cellule(6.5,0.5,'c'),new Cellule(7.5,0.5,'c'));
+		}
+		
+	}
+
+	/*public Piece creerCarre(){
+		return new Piece(new Cellule(4.5,0.5,'a'),new Cellule(5.5,0.5,'a'),new Cellule(5.5,1.5,'a'),new Cellule(4.5,1.5,'a'));
+	}
+
+	public Piece creerBatonVertical(){
+		return new Piece(new Cellule(4.5,0.5,'b'),new Cellule(4.5,1.5,'b'),new Cellule(4.5,2.5,'b'),new Cellule(4.5,3.5,'b'));
+	}
+
+	public Piece creerBatonHorizontal(){
+		return new Piece(new Cellule(4.5,0.5,'c'),new Cellule(5.5,0.5,'c'),new Cellule(6.5,0.5,'c'),new Cellule(7.5,0.5,'c'));
+
+	}*/
+}
