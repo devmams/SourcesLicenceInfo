@@ -79,17 +79,6 @@ public class Plateau {
 		}
 	}
 	
-	public boolean jeuPerdu(Piece p){
-		boolean res = true;
-		retirer(p);
-		if(accepter(p.versLeBas())){
-			res = false;
-		}
-		ajouter(p);
-		return res;
-	}
-	
-	
 	public void retirer(Piece p){
 		this.grille[(int)p.getCelluleUn().getX()][(int)p.getCelluleUn().getY()] = new Cellule(0,0,'n');
 		this.grille[(int)p.getCelluleDeux().getX()][(int)p.getCelluleDeux().getY()] = new Cellule(0,0,'n');
@@ -102,6 +91,10 @@ public class Plateau {
 		this.grille[(int)p.getCelluleDeux().getX()][(int)p.getCelluleDeux().getY()] = p.getCelluleDeux();
 		this.grille[(int)p.getCelluleTrois().getX()][(int)p.getCelluleTrois().getY()] = p.getCelluleTrois();
 		this.grille[(int)p.getCelluleQuatre().getX()][(int)p.getCelluleQuatre().getY()] = p.getCelluleQuatre();
+	}
+
+	public Cellule getCellule(int k, int l) {
+		return grille[k][l];
 	}
 	
 }

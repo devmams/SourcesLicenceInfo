@@ -1,0 +1,59 @@
+import java.util.*;
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.Graphics.*;
+import java.util.Random;
+
+public class Dessin  extends Applet implements Runnable, KeyListener {
+	Image offI;//nécessaire à la méthode de double buffering
+	Graphics offG;//nécessaire à la méthode de double buffering
+	public void init() {
+	  resize(150, 300);
+	  Plateau plt = new Plateau();
+	  Fabrique f = new Fabrique();
+	  Piece p = f.creerCarre();
+	  plt.jouer(p);
+	  repaint();
+
+	  // Ajout de l'écouteur de clavier
+	  this.addKeyListener(this);
+
+	  requestFocus();
+
+	}
+	
+	public void update(Graphics g){
+	if(offI == null){
+		offI = createImage(150, 300);
+		offG = offI.getGraphics();
+	}
+		offG.clearRect(0, 0, 150, 300);
+		paint(offG);
+		g.drawImage(offI, 0, 0, null);
+	}
+	
+	public void paint (Graphics g , Cellule[][] g) {
+	  for (int k=0;k<10;k++) {
+		for (int l=0;l<20;l++) {
+			if (grille[k][l]==0) {
+			   g.setColor(Color.white);
+	           g.draw3DRect (15*k,15*l,15,15,true);
+			}
+			else{
+                switch (plt[k][l]) {
+                    case 1:     g.setColor(new Color(0,192,0));       g.fill3DRect(15*k,15*l,15,15,true); break; //vert
+                    /*case 2:     g.setColor(Color.pink);               g.fill3DRect(15*k,15*l,15,15,true); break; //rouge
+                    case 3:     g.setColor(new Color(0,128,224));     g.fill3DRect(15*k,15*l,15,15,true); break; //bleu
+                    case 4:     g.setColor(new Color(0,192,192));              g.fill3DRect(15*k,15*l,15,15,true); break; //cyan
+                    case 5:     g.setColor(Color.orange);             g.fill3DRect(15*k,15*l,15,15,true); break; //orange
+                    case 6:     g.setColor(Color.darkGray);          g.fill3DRect(15*k,15*l,15,15,true); break; //gris
+                    case 7:     g.setColor(Color.magenta);            g.fill3DRect(15*k,15*l,15,15,true); break; //magenta*/
+                }
+			}
+		}
+	  }
+
+	}
+	
+}

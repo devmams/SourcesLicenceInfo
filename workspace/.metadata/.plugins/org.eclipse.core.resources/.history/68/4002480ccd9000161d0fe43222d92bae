@@ -1,0 +1,150 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JFrame;
+
+public class Game extends JFrame implements KeyListener {
+
+	private static final long serialVersionUID = 1L;
+	Image offI;//nécessaire à la méthode de double buffering
+	Graphics offG;//nécessaire à la méthode de double buffering
+	Plateau plt;
+	Fabrique f;
+	Piece p;
+	boolean res = true;
+
+	public Game() {
+		plt = new Plateau();
+		f = new Fabrique();
+		p = f.creerCarre();
+		// Ajout de l'écouteur de clavier
+		this.addKeyListener(this);
+//		requestFocus();
+	}
+
+	public static void main(String[] args) {
+		Game g = new Game();
+		g.setVisible(true);
+		g.setSize(152, 300);
+	    g.setLocationRelativeTo(null);
+	    g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		g.jouer();
+	}
+
+	private void jouer () {
+		// Boucle infinie (tant que mon_process existe et n'est pas interrompu)
+		while (res){
+			
+			plt.retirer(p);
+			if(!plt.accepter(p.versLeBas())){
+				plt.ajouter(p);
+				p = f.creerCarre();
+				plt.jouer(p);
+				plt.retirer(p);
+				if(!plt.accepter(p.versLeBas())){
+					res = false;
+				}
+			}
+			p = p.versLeBas();
+			plt.jouer(p);
+			repaint();
+			try {
+				Thread.sleep(500);
+			}
+			catch (InterruptedException e) {
+				return;
+			}
+		}
+		System.out.println("GAME OVER !");
+	}
+
+	public void update(Graphics g){
+		if(offI == null){
+			offI = createImage(152, 300);
+			offG = offI.getGraphics();
+		}
+		offG.clearRect(0, 0, 152, 300);
+		paint(offG);
+		g.drawImage(offI, 0, 0, null);
+	}
+
+	public void paint (Graphics g) {
+		for (int k=0;k<10;k++) {
+			for (int l=0;l<20;l++) {
+				if (plt.getCellule(k,l).getC() == 'n') {
+					g.setColor(Color.white);
+					g.draw3DRect (15*k,15*l,15,15,true);
+				}
+				else{
+					switch (plt.getCellule(k,l).getC()) {
+					case 'a':     g.setColor(new Color(0,192,0));    g.fill3DRect(15*k,15*l,15,15,true); break; //vert
+					/*case 2:     g.setColor(Color.pink);            g.fill3DRect(15*k,15*l,15,15,true); break; //rouge
+                    case 3:     g.setColor(new Color(0,128,224));    g.fill3DRect(15*k,15*l,15,15,true); break; //bleu
+                    case 4:     g.setColor(new Color(0,192,192));    g.fill3DRect(15*k,15*l,15,15,true); break; //cyan
+                    case 5:     g.setColor(Color.orange);            g.fill3DRect(15*k,15*l,15,15,true); break; //orange
+                    case 6:     g.setColor(Color.darkGray);          g.fill3DRect(15*k,15*l,15,15,true); break; //gris
+                    case 7:     g.setColor(Color.magenta);           g.fill3DRect(15*k,15*l,15,15,true); break; //magenta*/
+					}
+				}
+			}
+		}
+	}
+
+	public void keyPressed(KeyEvent e) {
+		switch (e.getKeyCode()) {
+		case KeyEvent.VK_LEFT : if (p != null) {
+			plt.retirer(p);
+			if(!plt.accepter(p.versLaGauche())){
+				p = p.getAncienne();
+			}
+			else{
+				p = p.versLaGauche();
+			}
+			plt.ajouter(p);
+			repaint();
+		}
+		break;
+		case KeyEvent.VK_RIGHT : if (p != null) {
+			plt.retirer(p);
+			if(!plt.accepter(p.versLaDroite())){
+				p = p.getAncienne();
+			}
+			else{
+				p = p.versLaDroite();
+			}
+			plt.ajouter(p);
+			repaint();
+		}
+		break;
+		/*case KeyEvent.VK_UP : if (p != null) {
+					p.tourned(grille);
+					repaint();
+				}*/
+		case KeyEvent.VK_DOWN : if (p != null) {
+			plt.retirer(p);
+			if(!plt.accepter(p.versLeBas())){
+				plt.ajouter(p);
+				p = f.creerCarre();
+				plt.jouer(p);
+				plt.retirer(p);
+				if(!plt.accepter(p.versLeBas())){
+					res = false;
+				}
+			}
+			
+		}
+		break;
+		default : repaint();
+		}
+	}
+
+	public void keyReleased(KeyEvent e){
+	}
+
+	public void keyTyped(KeyEvent e){
+	}
+
+}

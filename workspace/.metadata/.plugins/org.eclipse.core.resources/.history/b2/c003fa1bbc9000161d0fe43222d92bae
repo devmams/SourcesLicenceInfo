@@ -1,0 +1,28 @@
+import java.util.*;
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.Graphics.*;
+import java.util.Random;
+
+public class Dessin  extends Applet implements Runnable, KeyListener {
+	Image offI;//nécessaire à la méthode de double buffering
+	Graphics offG;//nécessaire à la méthode de double buffering
+	public void init() {
+
+		  resize(150, 300);
+		  Plateau plt = new Plateau();
+
+		  Fabrique f = new Fabrique();
+		  Piece p = f.creerCarre();
+		  p.affiche_piece(grille);
+		  repaint();
+
+		  // Ajout de l'écouteur de clavier
+		  this.addKeyListener(this);
+
+		  requestFocus();
+
+		}
+	
+}

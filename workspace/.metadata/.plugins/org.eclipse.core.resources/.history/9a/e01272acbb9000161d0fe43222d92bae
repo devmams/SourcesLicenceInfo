@@ -1,0 +1,14 @@
+import java.util.*;
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.Graphics.*;
+import java.util.Random;
+
+public class Dessin  extends Applet implements Runnable, KeyListener {
+	Image offI;//nécessaire à la méthode de double buffering
+	Graphics offG;//nécessaire à la méthode de double buffering
+	resize(150, 300);
+	
+	
+}
