@@ -6,6 +6,7 @@ public class Piece {
 	private Cellule trois ;
 	private Cellule quatre ;
 	private static Piece ancienne;
+	private static int pos;
 	
 	public Piece(Cellule c1,Cellule c2 ,Cellule c3 ,Cellule c4){
 		this.un = c1;
@@ -57,7 +58,6 @@ public class Piece {
 		return new Piece(new Cellule(un.getX()+1,un.getY(),un.getC()),new Cellule(deux.getX()+1,deux.getY(),un.getC())
 		,new Cellule(trois.getX()+1,trois.getY(),un.getC()),new Cellule(quatre.getX()+1,quatre.getY(),un.getC()));
 	}
-	
 	
 	
 	

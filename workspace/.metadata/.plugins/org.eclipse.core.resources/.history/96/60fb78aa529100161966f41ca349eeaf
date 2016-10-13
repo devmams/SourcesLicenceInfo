@@ -1,0 +1,55 @@
+import java.awt.Color;
+
+
+public class Fabrique {
+	private int nb;
+	private double x;
+	private static int pos;
+	private Piece p;
+	private double cx;
+	private double cy;
+
+
+	
+
+	public Fabrique(){}
+		
+	public Piece creerPiece(){
+		pos = 1;
+		x = 1.5 + (int)(Math.random() * 6 );
+		nb = 1 + (int)(Math.random() * 7 );
+		switch (nb) {
+		case 1:p = new Piece(new Cellule(x,0.5,'a'),new Cellule(x+1,0.5,'a'),new Cellule(x+1,1.5,'a'),new Cellule(x,1.5,'a'));break;//carre
+		case 2:p = new Piece(new Cellule(x,0.5,'b'),new Cellule(x,1.5,'b'),new Cellule(x,2.5,'b'),new Cellule(x,3.5,'b'));;break;//baton
+		case 3:p = new Piece(new Cellule(x,0.5,'c'),new Cellule(x,1.5,'c'),new Cellule(x,2.5,'c'),new Cellule(x+1,1.5,'c'));break;
+		case 4:p = new Piece(new Cellule(x,0.5,'d'),new Cellule(x,1.5,'d'),new Cellule(x+1,1.5,'d'),new Cellule(x+1,2.5,'d'));break;
+		case 5:p = new Piece(new Cellule(x,0.5,'e'),new Cellule(x,1.5,'e'),new Cellule(x-1,1.5,'e'),new Cellule(x-1,2.5,'e'));break;
+		case 6:p = new Piece(new Cellule(x,0.5,'f'),new Cellule(x,1.5,'f'),new Cellule(x,2.5,'f'),new Cellule(x-1,2.5,'f'));break;
+		case 7:p = new Piece(new Cellule(x,0.5,'g'),new Cellule(x,1.5,'g'),new Cellule(x,2.5,'g'),new Cellule(x+1,2.5,'g'));break;
+		}
+	    return p;
+	}
+	
+	public Piece rotationPiece(Piece p){
+		pos++;
+		if(p.getCelluleUn().getC() == 'a'){
+			switch (pos) {
+			case 1:p = new Piece(new Cellule(x,0.5,'a'),new Cellule(x+1,0.5,'a'),new Cellule(x+1,1.5,'a'),new Cellule(x,1.5,'a'));break;//carre
+			case 2:p = new Piece(new Cellule(x,0.5,'a'),new Cellule(x+1,0.5,'a'),new Cellule(x+1,1.5,'a'),new Cellule(x,1.5,'a'));break;//carre
+			case 3:p = new Piece(new Cellule(x,0.5,'a'),new Cellule(x+1,0.5,'a'),new Cellule(x+1,1.5,'a'),new Cellule(x,1.5,'a'));break;//carre
+			case 4:p = new Piece(new Cellule(x,0.5,'a'),new Cellule(x+1,0.5,'a'),new Cellule(x+1,1.5,'a'),new Cellule(x,1.5,'a'));pos = -1 ;break;//carre
+			}
+		}
+		if(p.getCelluleUn().getC() == 'b'){
+			cx = p.getCelluleUn().getX();
+			cy = p.getCelluleUn().getY();
+			switch (pos) {
+			case 1:p = new Piece(new Cellule(cx,cy,'b'),new Cellule(cx,cy+1,'b'),new Cellule(cx,cy+2,'b'),new Cellule(cx,cy+3,'b'));;break;//baton
+			case 2:p = new Piece(new Cellule(cx,cy,'b'),new Cellule(cx+1,1.5,'b'),new Cellule(cx+2,2.5,'b'),new Cellule(cx+3,3.5,'b'));;break;//baton
+			case 3:p = new Piece(new Cellule(x,0.5,'b'),new Cellule(x,1.5,'b'),new Cellule(x,2.5,'b'),new Cellule(x,3.5,'b'));;break;//baton
+			case 4:p = new Piece(new Cellule(x,0.5,'b'),new Cellule(x,1.5,'b'),new Cellule(x,2.5,'b'),new Cellule(x,3.5,'b'));pos = 0;break;//baton
+			}
+		}
+	}
+			
+}

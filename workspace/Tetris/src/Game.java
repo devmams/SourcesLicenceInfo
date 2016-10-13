@@ -131,6 +131,15 @@ public class Game extends JFrame implements KeyListener {
 			repaint();		
 		}
 		break;
+		case KeyEvent.VK_UP : if (p != null) {
+			p = f.rotationPiece(p);
+			plt.retirer(p.getAncienne());
+			if(!plt.accepter(p)){
+				p = p.getAncienne();
+			}
+			plt.ajouter(p);
+			repaint();
+		}
 		case KeyEvent.VK_DOWN : if (p != null) {
 			p = p.versLeBas();
 			plt.retirer(p.getAncienne());
