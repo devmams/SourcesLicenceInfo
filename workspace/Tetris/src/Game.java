@@ -37,15 +37,15 @@ public class Game extends JFrame implements KeyListener {
 	private void jouer () {
 		// Boucle infinie (tant que mon_process existe et n'est pas interrompu)
 		while(true){
-			while (res){
-				plt.ajouter(p);
-				repaint();	
+			while (res){	
 				plt.ajouter(p);
 				repaint();
+				Piece tmp = p;
 				p = p.versLeBas();
-				plt.retirer(p.getAncienne());
+				plt.retirer(tmp);
+
 				if(!plt.accepter(p)){
-					p = p.getAncienne();
+					p = tmp;
 					plt.ajouter(p);
 					plt.verifieLigne();
 					repaint();
@@ -73,7 +73,6 @@ public class Game extends JFrame implements KeyListener {
 				return;
 			}
 			repaint();
-			System.out.println("GAME OVER !");
 		}
 	}
 
@@ -91,7 +90,7 @@ public class Game extends JFrame implements KeyListener {
 		for (int k=0;k<10;k++) {
 			for (int l=0;l<20;l++) {
 				if (plt.getCellule(k,l).getC() == 'n') {
-					g.setColor(Color.white);
+					g.setColor(Color.black);
 					g.fill3DRect (20*k,20*l,20,20,true);
 				}
 				else{
@@ -101,7 +100,7 @@ public class Game extends JFrame implements KeyListener {
                     case 'c':     g.setColor(new Color(0,128,224));  g.fill3DRect (20*k,20*l,20,20,true); break; //bleu
                     case 'd':     g.setColor(new Color(0,192,192));  g.fill3DRect(20*k,20*l,20,20,true); break; //cyan
                     case 'e':     g.setColor(Color.orange);          g.fill3DRect(20*k,20*l,20,20,true); break; //orange
-                    case 'f':     g.setColor(Color.darkGray);        g.fill3DRect(20*k,20*l,20,20,true); break; //gris
+                    case 'f':     g.setColor(Color.white);        g.fill3DRect(20*k,20*l,20,20,true); break; //gris
                     case 'g':     g.setColor(Color.magenta);         g.fill3DRect(20*k,20*l,20,20,true); break; //magenta*/
 					}
 				}
@@ -112,23 +111,25 @@ public class Game extends JFrame implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_LEFT : if (p != null) {
+			Piece tmp = p;
 			p = p.versLaGauche();
-			plt.retirer(p.getAncienne());
+			plt.retirer(tmp);
 			if(!plt.accepter(p)){
-				p = p.getAncienne();
+				p = tmp;
 			}
 			plt.ajouter(p);
 			repaint();
 		}
 		break;
 		case KeyEvent.VK_RIGHT : if (p != null){
+			Piece tmp = p;
 			p = p.versLaDroite();
-			plt.retirer(p.getAncienne());
+			plt.retirer(tmp);
 			if(!plt.accepter(p)){
-				p = p.getAncienne();
+				p = tmp;
 			}
 			plt.ajouter(p);
-			repaint();		
+			repaint();
 		}
 		break;
 		case KeyEvent.VK_UP : if (p != null) {
@@ -141,15 +142,17 @@ public class Game extends JFrame implements KeyListener {
 			plt.ajouter(p);
 			repaint();
 		}
-		break;
 		case KeyEvent.VK_DOWN : if (p != null) {
-			p = p.versLeBas();
-			plt.retirer(p.getAncienne());
-			if(!plt.accepter(p)){
-				p = p.getAncienne();
+			plt.retirer(p);
+			if(!plt.accepter(p.versLeBas())){
+				plt.ajouter(p);
+				repaint();
 			}
-			plt.ajouter(p);
-			repaint();
+			else{
+				p = p.versLeBas();
+				plt.ajouter(p);
+				repaint();
+			}
 		}
 		break;
 		default : repaint();

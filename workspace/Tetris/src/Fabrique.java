@@ -1,5 +1,3 @@
-import java.awt.Color;
-
 
 public class Fabrique {
 	private int nb;
@@ -18,15 +16,15 @@ public class Fabrique {
 	public Piece creerPiece(){
 		pos = 1;
 		x = 1.5 + (int)(Math.random() * 6 );
-		nb = 1 + (int)(Math.random() * 4 );
+		nb = 1 + (int)(Math.random() * 7 );
 		switch (nb) {
 		case 1:p = new Piece(new Cellule(x,0.5,'a'),new Cellule(x+1,0.5,'a'),new Cellule(x+1,1.5,'a'),new Cellule(x,1.5,'a'));break;//carre
 		case 2:p = new Piece(new Cellule(x,0.5,'b'),new Cellule(x,1.5,'b'),new Cellule(x,2.5,'b'),new Cellule(x,3.5,'b'));;break;//baton
 		case 3:p = new Piece(new Cellule(x,0.5,'c'),new Cellule(x,1.5,'c'),new Cellule(x,2.5,'c'),new Cellule(x+1,1.5,'c'));break;//T
-		case 4:p = new Piece(new Cellule(x,0.5,'d'),new Cellule(x,1.5,'d'),new Cellule(x+1,1.5,'d'),new Cellule(x+1,2.5,'d'));break;
-		case 5:p = new Piece(new Cellule(x,0.5,'e'),new Cellule(x,1.5,'e'),new Cellule(x-1,1.5,'e'),new Cellule(x-1,2.5,'e'));break;
-		case 6:p = new Piece(new Cellule(x,0.5,'f'),new Cellule(x,1.5,'f'),new Cellule(x,2.5,'f'),new Cellule(x-1,2.5,'f'));break;
-		case 7:p = new Piece(new Cellule(x,0.5,'g'),new Cellule(x,1.5,'g'),new Cellule(x,2.5,'g'),new Cellule(x+1,2.5,'g'));break;
+		case 4:p = new Piece(new Cellule(x,0.5,'d'),new Cellule(x,1.5,'d'),new Cellule(x+1,1.5,'d'),new Cellule(x+1,2.5,'d'));break;//Z1
+		case 5:p = new Piece(new Cellule(x,0.5,'e'),new Cellule(x,1.5,'e'),new Cellule(x-1,1.5,'e'),new Cellule(x-1,2.5,'e'));break;//Z2
+		case 6:p = new Piece(new Cellule(x,0.5,'f'),new Cellule(x,1.5,'f'),new Cellule(x,2.5,'f'),new Cellule(x-1,2.5,'f'));break;//L1
+		case 7:p = new Piece(new Cellule(x,0.5,'g'),new Cellule(x,1.5,'g'),new Cellule(x,2.5,'g'),new Cellule(x+1,2.5,'g'));break;//L2
 		}
 	    return p;
 	}
@@ -71,6 +69,36 @@ public class Fabrique {
 			case 2:pr = new Piece(new Cellule(cx,cy+2,'d'),new Cellule(cx+1,cy+2,'d'),new Cellule(cx+1,cy+1,'d'),new Cellule(cx+2,cy+1,'d'));break;
 			case 3:pr = new Piece(new Cellule(cx,cy-2,'d'),new Cellule(cx,cy-1,'d'),new Cellule(cx+1,cy-1,'d'),new Cellule(cx+1,cy,'d'));break;
 			case 4:pr = new Piece(new Cellule(cx,cy+2,'d'),new Cellule(cx+1,cy+2,'d'),new Cellule(cx+1,cy+1,'d'),new Cellule(cx+2,cy+1,'d'));pos=0;break;
+			}
+		}
+		else if(p.getCelluleUn().getC() == 'e'){
+			cx = p.getCelluleUn().getX();
+			cy = p.getCelluleUn().getY();
+			switch (pos) {
+			case 1:pr = new Piece(new Cellule(cx+1,cy-1,'e'),new Cellule(cx+1,cy,'e'),new Cellule(cx,cy,'e'),new Cellule(cx,cy+1,'e'));break;
+			case 2:pr = new Piece(new Cellule(cx-1,cy+1,'e'),new Cellule(cx,cy+1,'e'),new Cellule(cx,cy+2,'e'),new Cellule(cx+1,cy+2,'e'));break;
+			case 3:pr = new Piece(new Cellule(cx+1,cy-1,'e'),new Cellule(cx+1,cy,'e'),new Cellule(cx,cy,'e'),new Cellule(cx,cy+1,'e'));break;
+			case 4:pr = new Piece(new Cellule(cx-1,cy+1,'e'),new Cellule(cx,cy+1,'e'),new Cellule(cx,cy+2,'e'),new Cellule(cx+1,cy+2,'e'));pos=0;break;
+			}
+		}
+		else if(p.getCelluleUn().getC() == 'f'){
+			cx = p.getCelluleUn().getX();
+			cy = p.getCelluleUn().getY();
+			switch (pos) {
+			case 1:pr = new Piece(new Cellule(cx-1,cy-2,'f'),new Cellule(cx-1,cy-1,'f'),new Cellule(cx-1,cy,'f'),new Cellule(cx-2,cy,'f'));break;//L
+			case 2:pr = new Piece(new Cellule(cx-1,cy+1,'f'),new Cellule(cx,cy+1,'f'),new Cellule(cx+1,cy+1,'f'),new Cellule(cx+1,cy+2,'f'));break;//
+			case 3:pr = new Piece(new Cellule(cx,cy+1,'f'),new Cellule(cx,cy,'f'),new Cellule(cx,cy-1,'f'),new Cellule(cx+1,cy-1,'f'));break;//
+			case 4:pr = new Piece(new Cellule(cx+2,cy,'f'),new Cellule(cx+1,cy,'f'),new Cellule(cx,cy,'f'),new Cellule(cx,cy-1,'f'));pos=0;break;//
+			}
+		}
+		else if(p.getCelluleUn().getC() == 'g'){
+			cx = p.getCelluleUn().getX();
+			cy = p.getCelluleUn().getY();
+			switch (pos) {
+			case 1:pr = new Piece(new Cellule(cx-2,cy-1,'g'),new Cellule(cx-2,cy,'g'),new Cellule(cx-2,cy+1,'g'),new Cellule(cx-1,cy+1,'g'));break;//L2
+			case 2:pr = new Piece(new Cellule(cx,cy+2,'g'),new Cellule(cx+1,cy+2,'g'),new Cellule(cx+2,cy+2,'g'),new Cellule(cx+2,cy+1,'g'));break;
+			case 3:pr = new Piece(new Cellule(cx+1,cy,'g'),new Cellule(cx+1,cy-1,'g'),new Cellule(cx+1,cy-2,'g'),new Cellule(cx,cy-2,'g'));break;
+			case 4:pr = new Piece(new Cellule(cx+1,cy-1,'g'),new Cellule(cx,cy-1,'g'),new Cellule(cx-1,cy-1,'g'),new Cellule(cx-1,cy,'g'));pos=0;break;
 			}
 		}
 		return pr;
