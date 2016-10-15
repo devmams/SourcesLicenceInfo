@@ -73,6 +73,14 @@ public class Game extends JFrame implements KeyListener {
 			catch (InterruptedException e) {
 				return;
 			}
+			plt = new Plateau('a');
+			repaint();
+			try {
+				Thread.sleep(200);
+			}
+			catch (InterruptedException e) {
+				return;
+			}
 		}
 	}
 

@@ -142,6 +142,7 @@ public class Game extends JFrame implements KeyListener {
 			plt.ajouter(p);
 			repaint();
 		}
+		break;
 		case KeyEvent.VK_DOWN : if (p != null) {
 			plt.retirer(p);
 			if(!plt.accepter(p.versLeBas())){

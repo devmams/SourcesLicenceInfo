@@ -13,27 +13,17 @@ using namespace std;
 //--------------------------------------------------------------------
 /**
  * @brief procédure inserer
- *
- * @b Role : insere un élément dans un tableau
- *
- * @b Entrées :
-            - @e tableau de rééls
-            - @e entier nbelem positif
-            - @e  entier taille positif
-            - @e réel r
-            - @e entier pos positif
- *
- * @b Sortie :
-            - @e tab tableau incluant l'élément r
-            - @e nbelem = nbelem + 1
- *
- * @pre   tablau non vide
-          entier  pos <= nbelem < taille
-          entier pos > 0
- *
- * @post   ta[....] = tab[...r..]
- *         nbelem++
- *
+ * 
+ * @b Role : 
+ * 
+ * @b Entrées : 
+ * 
+ * @b Sortie : 
+ * 
+ * @pre 
+ * 
+ * @post 
+ * 
  * @test
  * |Entrée    | Sortie    | Justification | Résultat |
  * |--|--|--|--|
@@ -42,7 +32,7 @@ void inserer(float tab[], unsigned int & nbelem, unsigned int taille, float r, u
 {
     // pré-condition
     assert((1<=pos) and (pos<=nbelem+1) and (nbelem<taille));
-
+    
     // sauvegarde des données d'entrée pour pouvoir tester la post-condition
     unsigned int i;
     unsigned int nbelem_d = nbelem;
@@ -54,19 +44,19 @@ void inserer(float tab[], unsigned int & nbelem, unsigned int taille, float r, u
 
     // lexique
     unsigned int ind;
-
+    
     // décalage des éléments
     for (ind=0; ind<nbelem+1-pos; ++ind)
     {
         tab[nbelem-ind] = tab[nbelem-ind-1];
     }
-
+    
     // insertion du nouvel élément
     tab[pos-1] = r;
-
+    
     // incrémentation du nombre d'éléments
     nbelem = nbelem+1;
-
+    
     // post-condition
     bool postcond=true;
     for (i=1; i<=pos-1; ++i)
@@ -85,15 +75,15 @@ void inserer(float tab[], unsigned int & nbelem, unsigned int taille, float r, u
 //--------------------------------------------------------------------
 /**
  * @brief fonction principale
- *
+ * 
  * @b Rôle : exécuter le jeu de tests de la procédure inserer
- *
+ * 
  * @pre aucune
- *
+ * 
  * @post aucune
- *
+ * 
  * Cette fonction illustre le concept de test unitaire. Elle applique un à un
- * l'ensemble des tests du jeu défini pour la procédure inserer, et
+ * l'ensemble des tests du jeu défini pour la procédure inserer, et 
  * affiche un message décrivant chaque test et indiquant s'il passe ou échoue.
 */
 int main()
