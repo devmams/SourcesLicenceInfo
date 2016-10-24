@@ -1,9 +1,8 @@
 #include <iostream>  // cout, cin
 #include <cstdlib>   // rand(), srand()
-//#include <ctime>     // time(), clock_t, clock(), CLOCKS_PER_SEC
 #include <cassert>   // assert()
-//#include <climits>   // UINT_MAX
 #include <time.h>    // DBL_MAX
+#include <algorithm> // std::swap
 using namespace std;
 
 
@@ -13,9 +12,10 @@ typedef char Tabchar[Taille];
 
 void affiche(const Tabchar & t){
   cout << "les éléments du tableau sont : ";
-  for(int i=0 ; i<Taille ; i++){
+  for(int i=0 ; i<Taille-1 ; i++){
     cout << t[i] << " , ";
   }
+  cout << t[Taille-1];
   cout<<endl;
 }
 
@@ -48,12 +48,53 @@ char frequenceComptage(Tabchar & t){
   return res;
 }
 
+void tri(Tabchar tab){
+  bool modif = false;
+  int nblem = Taille;
+  while(!modif){
+    modif = false;
+    for(int i=1 ; i< nblem-1 ; i++){
+      if(static_cast<int>(tab[i]) > static_cast<int>(tab[i+1])){
+        swap(tab[i],tab[i+1]);
+        modif = true;
+      }
+    }
+    cout<< "-------"<<endl;
+    nblem--;
+  }
+
+
+  /*int cpt = 0;
+  cout << "----" << static_cast<int>(tab[0]) <<endl;
+  cout << "----" << static_cast<int>(tab[1]) <<endl;
+  for(int i=0 ; i<Taille ; i++){
+    for(int j=cpt+1 ; j<Taille ; j++){
+      if(tab[cpt] == tab[j]){
+        swap(tab[cpt+1],tab[j]);
+        cpt++;
+      }
+    }
+    i += cpt+1;
+    cout << cpt <<endl;
+  }*/
+}
+
+/*char frequenceTri (Tabchar tab){
+  int max = 0 , occ = 0;
+  char res , c;
+
+  tri(tab);
+}*/
+
+
 int main(){
   Tabchar tab;
-  char elt = 'i';
+  char elt = 'd';
   aleatoire(tab,'a','i');
   affiche(tab);
-  cout<< "le nombre d'occurrence de : "<< elt << " est : " << occurrences(tab , elt) <<endl;
-  cout << frequenceComptage(tab) <<endl;
+  cout << "le nombre d'occurrence de : "<< elt << " est : " << occurrences(tab , elt) <<endl;
+  cout << "la lettre qui apparait le plus est : " << frequenceComptage(tab) << " ,elle apparait : " << occurrences(tab,frequenceComptage(tab)) <<endl;
+  tri(tab);
+  affiche(tab);
   return 0;
 }
