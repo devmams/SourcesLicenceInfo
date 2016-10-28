@@ -50,22 +50,20 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tetris/src/Piece.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Plateau.java" partName="Plateau.java" path="/home/ousmane/Fac/workspace/Tetris/src/Plateau.java" title="Plateau.java" tooltip="Tetris/src/Plateau.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Plateau.java" partName="Plateau.java" path="/home/ousmane/Fac/workspace/Tetris/src/Plateau.java" title="Plateau.java" tooltip="Tetris/src/Plateau.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tetris/src/Plateau.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Game.java" partName="Game.java" path="/home/ousmane/Fac/workspace/Tetris/src/Game.java" title="Game.java" tooltip="Tetris/src/Game.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Game.java" partName="Game.java" path="/home/ousmane/Fac/workspace/Tetris/src/Game.java" title="Game.java" tooltip="Tetris/src/Game.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tetris/src/Game.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3476" selectionTopPixel="1656"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="516" selectionTopPixel="720"/>
 </editor>
 </editors>
 <views>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="">
-<customFilters userDefinedPatternsEnabled="false">
-<xmlDefinedFilters>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
+<customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*" isEnabled="true"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter" isEnabled="false"/>
@@ -304,7 +302,6 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Plateau.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Piece.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Fabrique.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Cellule.java"/>
@@ -320,156 +317,157 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Game.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Plateau.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Fabrique.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Game.java"/>
 </editors>
-<item historyLabel="Plateau.java" index="0">
+<item historyLabel="Piece.java" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Piece.java" index="1">
+<item historyLabel="Fabrique.java" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="2">
+<item historyLabel="Cellule.java" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Cellule.java" index="3">
+<item historyLabel="Fabrique.java" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="2">
+<item historyLabel="MainPrincipal.java" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="MainPrincipal.java" index="4">
+<item historyLabel="Piece.java" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Piece.java" index="5">
+<item historyLabel="Plateau.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MainPrincipal.java" index="4">
+<item historyLabel="MainPrincipal.java" index="3">
 <position info="not_deleted" x="537" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="6">
+<item historyLabel="Plateau.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Piece.java" index="5">
+<item historyLabel="Piece.java" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="2">
+<item historyLabel="Fabrique.java" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Cellule.java" index="3">
+<item historyLabel="Cellule.java" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="2">
+<item historyLabel="Fabrique.java" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Piece.java" index="5">
+<item historyLabel="Piece.java" index="4">
 <position info="not_deleted" x="294" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="2">
+<item historyLabel="Fabrique.java" index="1">
 <position info="not_deleted" x="194" y="0"/>
 </item>
-<item historyLabel="Cellule.java" index="3">
+<item historyLabel="Cellule.java" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Piece.java" index="5">
+<item historyLabel="Piece.java" index="4">
 <position info="not_deleted" x="294" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="2">
+<item historyLabel="Fabrique.java" index="1">
 <position info="not_deleted" x="194" y="0"/>
 </item>
-<item historyLabel="MainPrincipal.java" index="7">
+<item historyLabel="MainPrincipal.java" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="8">
+<item historyLabel="Plateau.java" index="7">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Game.java" index="9">
+<item historyLabel="Game.java" index="8">
 <position info="not_deleted" x="3635" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="8">
+<item historyLabel="Plateau.java" index="7">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="2">
+<item historyLabel="Fabrique.java" index="1">
 <position info="not_deleted" x="328" y="0"/>
 </item>
-<item historyLabel="Game.java" index="9">
+<item historyLabel="Game.java" index="8">
 <position info="not_deleted" x="3635" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="8">
+<item historyLabel="Plateau.java" index="7">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="2">
+<item historyLabel="Fabrique.java" index="1">
 <position info="not_deleted" x="328" y="0"/>
 </item>
-<item historyLabel="Game.java" index="9">
+<item historyLabel="Game.java" index="8">
 <position info="not_deleted" x="3441" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="2">
+<item historyLabel="Fabrique.java" index="1">
 <position/>
 </item>
-<item historyLabel="Plateau.java" index="8">
+<item historyLabel="Plateau.java" index="7">
 <position info="not_deleted" x="1593" y="0"/>
 </item>
-<item historyLabel="Game.java" index="9">
+<item historyLabel="Game.java" index="8">
 <position info="not_deleted" x="3441" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="2">
+<item historyLabel="Fabrique.java" index="1">
 <position info="not_deleted" x="2987" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="10">
+<item historyLabel="Plateau.java" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="10">
+<item historyLabel="Plateau.java" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Piece.java" index="11">
+<item historyLabel="Piece.java" index="10">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Piece.java" index="11">
+<item historyLabel="Piece.java" index="10">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Cellule.java" index="12">
+<item historyLabel="Cellule.java" index="11">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Cellule.java" index="12">
+<item historyLabel="Cellule.java" index="11">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Piece.java" index="11">
+<item historyLabel="Piece.java" index="10">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Cellule.java" index="12">
+<item historyLabel="Cellule.java" index="11">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="2">
+<item historyLabel="Fabrique.java" index="1">
 <position info="not_deleted" x="2987" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="10">
+<item historyLabel="Plateau.java" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Game.java" index="13">
+<item historyLabel="Game.java" index="12">
 <position info="not_deleted" x="3871" y="0"/>
 </item>
-<item historyLabel="Game.java" index="13">
+<item historyLabel="Game.java" index="12">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="14">
+<item historyLabel="Plateau.java" index="13">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Game.java" index="13">
+<item historyLabel="Game.java" index="12">
 <position info="not_deleted" x="1570" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="14">
+<item historyLabel="Plateau.java" index="13">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Game.java" index="13">
+<item historyLabel="Game.java" index="12">
 <position info="not_deleted" x="1570" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="15">
+<item historyLabel="Fabrique.java" index="14">
 <position info="not_deleted" x="2987" y="0"/>
 </item>
-<item active="true" historyLabel="Plateau.java" index="14">
+<item historyLabel="Plateau.java" index="13">
 <position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="Game.java" index="15">
+<position info="not_deleted" x="3476" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>

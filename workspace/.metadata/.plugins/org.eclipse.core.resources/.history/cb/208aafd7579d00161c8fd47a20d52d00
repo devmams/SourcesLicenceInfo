@@ -22,6 +22,7 @@ public class Game extends JFrame implements KeyListener {
 		p = f.creerPiece();
 		// Ajout de l'écouteur de clavier
 		this.addKeyListener(this);
+//		requestFocus();
 	}
 
 	public static void main(String[] args) {

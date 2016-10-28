@@ -8,6 +8,9 @@ public class Fabrique {
 	private double cx;
 	private double cy;
 
+
+	
+
 	public Fabrique(){}
 		
 	public Piece creerPiece(){
@@ -15,50 +18,49 @@ public class Fabrique {
 	x = 1.5 + (int)(Math.random() * 6 );
 	nb = 1 + (int)(Math.random() * 7 );
 	switch (nb) {
-		case 1: p = creerCarre();break;
-		case 2:	p = creerBatonVertical();break;
-		case 3: p = creerTe();break;
-		case 4: p = creerBiais();break;
-		case 5: p = creerBiaisInverse();break;
-		case 6: p = creerL();break;
-		case 7: p = creerLInverse();break;
+	case 1: p = creerCarre();
+	case 2:	p = creerBatonVertical();
+	case 3:p = new Piece(new Cellule(x,0.5,'c'),new Cellule(x,1.5,'c'),new Cellule(x,2.5,'c'),new Cellule(x+1,1.5,'c'));break;//T
+	case 4:p = new Piece(new Cellule(x,0.5,'d'),new Cellule(x,1.5,'d'),new Cellule(x+1,1.5,'d'),new Cellule(x+1,2.5,'d'));break;//Z1
+	case 5:p = new Piece(new Cellule(x,0.5,'e'),new Cellule(x,1.5,'e'),new Cellule(x-1,1.5,'e'),new Cellule(x-1,2.5,'e'));break;//Z2
+	case 6:p = new Piece(new Cellule(x,0.5,'f'),new Cellule(x,1.5,'f'),new Cellule(x,2.5,'f'),new Cellule(x-1,2.5,'f'));break;//L1
+	case 7:p = new Piece(new Cellule(x,0.5,'g'),new Cellule(x,1.5,'g'),new Cellule(x,2.5,'g'),new Cellule(x+1,2.5,'g'));break;//L2
 	}
-		return p;
+    return p;
     }
-	
-	Piece creerLInverse(){
+	/*public Piece creerPiece(){
+		pos = 1;
 		x = 1.5 + (int)(Math.random() * 6 );
-		return new Piece(new Cellule(x,0.5,'g'),new Cellule(x,1.5,'g'),new Cellule(x,2.5,'g'),new Cellule(x+1,2.5,'g'));
-	}
-	
-	Piece creerL(){
-		x = 1.5 + (int)(Math.random() * 6 );
-		return new Piece(new Cellule(x,0.5,'f'),new Cellule(x,1.5,'f'),new Cellule(x,2.5,'f'),new Cellule(x-1,2.5,'f'));
-	}
-	
-	Piece creerBiaisInverse(){
-		x = 1.5 + (int)(Math.random() * 6 );
-		return new Piece(new Cellule(x,0.5,'e'),new Cellule(x,1.5,'e'),new Cellule(x-1,1.5,'e'),new Cellule(x-1,2.5,'e'));
-	}
-	
+		nb = 1 + (int)(Math.random() * 7 );
+		switch (nb) {
+		case 1:p = new Piece(new Cellule(x,0.5,'a'),new Cellule(x+1,0.5,'a'),new Cellule(x+1,1.5,'a'),new Cellule(x,1.5,'a'));break;//carre
+		case 2:p = new Piece(new Cellule(x,0.5,'b'),new Cellule(x,1.5,'b'),new Cellule(x,2.5,'b'),new Cellule(x,3.5,'b'));;break;//baton
+		case 3:p = new Piece(new Cellule(x,0.5,'c'),new Cellule(x,1.5,'c'),new Cellule(x,2.5,'c'),new Cellule(x+1,1.5,'c'));break;//T
+		case 4:p = new Piece(new Cellule(x,0.5,'d'),new Cellule(x,1.5,'d'),new Cellule(x+1,1.5,'d'),new Cellule(x+1,2.5,'d'));break;//Z1
+		case 5:p = new Piece(new Cellule(x,0.5,'e'),new Cellule(x,1.5,'e'),new Cellule(x-1,1.5,'e'),new Cellule(x-1,2.5,'e'));break;//Z2
+		case 6:p = new Piece(new Cellule(x,0.5,'f'),new Cellule(x,1.5,'f'),new Cellule(x,2.5,'f'),new Cellule(x-1,2.5,'f'));break;//L1
+		case 7:p = new Piece(new Cellule(x,0.5,'g'),new Cellule(x,1.5,'g'),new Cellule(x,2.5,'g'),new Cellule(x+1,2.5,'g'));break;//L2
+		}
+	    return p;
+	}*/
 	Piece creerBiais(){
 		x = 1.5 + (int)(Math.random() * 6 );
-		return new Piece(new Cellule(x,0.5,'d'),new Cellule(x,1.5,'d'),new Cellule(x+1,1.5,'d'),new Cellule(x+1,2.5,'d'));
+		return new Piece(new Cellule(x,0.5,'c'),new Cellule(x,1.5,'c'),new Cellule(x,2.5,'c'),new Cellule(x+1,1.5,'c'));//baton
 	}
 	
 	Piece creerTe(){
 		x = 1.5 + (int)(Math.random() * 6 );
-		return new Piece(new Cellule(x,0.5,'c'),new Cellule(x,1.5,'c'),new Cellule(x,2.5,'c'),new Cellule(x+1,1.5,'c'));
+		return new Piece(new Cellule(x,0.5,'c'),new Cellule(x,1.5,'c'),new Cellule(x,2.5,'c'),new Cellule(x+1,1.5,'c'));//baton
 	}
 	
 	Piece creerBatonVertical(){
 		x = 1.5 + (int)(Math.random() * 6 );
-		return new Piece(new Cellule(x,0.5,'b'),new Cellule(x,1.5,'b'),new Cellule(x,2.5,'b'),new Cellule(x,3.5,'b'));
+		return new Piece(new Cellule(x,0.5,'b'),new Cellule(x,1.5,'b'),new Cellule(x,2.5,'b'),new Cellule(x,3.5,'b'));//baton
 	}
 	
 	Piece creerCarre(){
 		x = 1.5 + (int)(Math.random() * 6 );
-		return new Piece(new Cellule(x,0.5,'a'),new Cellule(x+1,0.5,'a'),new Cellule(x+1,1.5,'a'),new Cellule(x,1.5,'a'));
+		return new Piece(new Cellule(x,0.5,'a'),new Cellule(x+1,0.5,'a'),new Cellule(x+1,1.5,'a'),new Cellule(x,1.5,'a'));//carre
 	}
 	
 	public Piece rotationPiece(Piece p){
