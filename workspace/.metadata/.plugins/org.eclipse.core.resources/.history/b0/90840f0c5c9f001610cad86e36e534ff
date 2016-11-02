@@ -1,9 +1,10 @@
 /**
- * Classe permettant de créer une cellule.
+ * Classe permettant de représenter des tirelires contenant des pièces
+ * de monnaie en euro.
  * 
  * ...
  * 
- * @author Glenn PLOUHINEC / Mamadou DIALLO
+ * @author ...
  */
 public class Cellule {
 	private double x;

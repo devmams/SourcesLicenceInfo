@@ -1,10 +1,10 @@
 /**
- * Classe permettant de generer toutes les 
- * pièces du jeu Tetris.
+ * Classe permettant de représenter des tirelires contenant des pièces
+ * de monnaie en euro.
  * 
  * ...
  * 
- * @author Glenn PLOUHINEC / Mamadou DIALLO
+ * @author ...
  */
 public class Fabrique {
 	private int nb;
@@ -76,8 +76,7 @@ public class Fabrique {
 			switch (pos) {
 			case 1:pr = p ;break;//carre
 			case 2:pr = p ;break;//carre
-			case 3:pr = p ;break;//carre
-			case 4:pr = p ; pos = 0 ;break;//carre
+			case 3:pr = p ; pos = 0 ;break;//carre
 
 			}
 		}

@@ -1,11 +1,4 @@
-/**
- * Classe permettant de créer une pièce qui est un ensemble 
- * de 4 Cellules.
- * 
- * ...
- * 
- * @author Glenn PLOUHINEC / Mamadou DIALLO
- */
+
 public class Piece {
 	
 	private Cellule un ;

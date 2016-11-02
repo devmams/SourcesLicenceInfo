@@ -117,7 +117,7 @@ public class Game extends JFrame implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_LEFT : if (p != null) {
-			Piece tmp = p; 
+			Piece tmp = p;
 			p = p.versLaGauche();
 			plt.retirer(tmp);
 			if(!plt.accepter(p)){

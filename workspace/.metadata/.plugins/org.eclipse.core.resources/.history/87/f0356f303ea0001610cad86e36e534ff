@@ -1,5 +1,6 @@
 /**
- * Classe permettant de créer le plateau du jeu.
+ * Classe permettant de créer le plateau du jeu 
+ * qui est une grille rectanglaire.
  * 
  * ...
  * 

@@ -1,10 +1,4 @@
-/**
- * Classe permettant de créer le plateau du jeu.
- * 
- * ...
- * 
- * @author Glenn PLOUHINEC / Mamadou DIALLO
- */
+
 public class Plateau {
 	private int largeur = 10;
 	private int hauteur = 21;

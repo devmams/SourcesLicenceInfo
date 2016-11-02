@@ -1,6 +1,6 @@
 /**
  * Classe permettant de generer toutes les 
- * pièces du jeu Tetris.
+ * pièces du jeu.
  * 
  * ...
  * 
@@ -76,8 +76,7 @@ public class Fabrique {
 			switch (pos) {
 			case 1:pr = p ;break;//carre
 			case 2:pr = p ;break;//carre
-			case 3:pr = p ;break;//carre
-			case 4:pr = p ; pos = 0 ;break;//carre
+			case 3:pr = p ; pos = 0 ;break;//carre
 
 			}
 		}

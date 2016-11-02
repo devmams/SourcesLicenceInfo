@@ -1,9 +1,10 @@
 /**
- * Classe permettant l'affichage graphique du jeu.
+ * Classe permettant de représenter des tirelires contenant des pièces
+ * de monnaie en euro.
  * 
  * ...
  * 
- * @author Glenn PLOUHINEC / Mamadou DIALLO
+ * @author Glenn PLOUHINEC / Mamadou MAMADOU DIALLO
  */
 import java.awt.Color;
 import java.awt.Graphics;
@@ -117,7 +118,7 @@ public class Game extends JFrame implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_LEFT : if (p != null) {
-			Piece tmp = p; 
+			Piece tmp = p;
 			p = p.versLaGauche();
 			plt.retirer(tmp);
 			if(!plt.accepter(p)){
