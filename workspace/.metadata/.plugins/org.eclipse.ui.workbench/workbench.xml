@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="14" version="2.0">
+<workbench progressCount="9" version="2.0">
 <workbenchAdvisor/>
 <window height="744" maximized="true" width="1024" x="65" y="24">
 <fastViewData fastViewLocation="1024"/>
@@ -29,41 +29,43 @@
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="4"/>
+<part id="1"/>
 <part id="0"/>
 <part id="2"/>
-<part id="1"/>
 <part id="3"/>
-<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Cellule.java" partName="Cellule.java" path="/home/ousmane/Fac/workspace/Tetris/src/Cellule.java" title="Cellule.java" tooltip="Tetris/src/Cellule.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tetris/src/Cellule.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Fabrique.java" partName="Fabrique.java" path="/home/ousmane/Fac/workspace/Tetris/src/Fabrique.java" title="Fabrique.java" tooltip="Tetris/src/Fabrique.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tetris/src/Fabrique.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2987" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="2587" selectionTopPixel="1028"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Piece.java" partName="Piece.java" path="/home/ousmane/Fac/workspace/Tetris/src/Piece.java" title="Piece.java" tooltip="Tetris/src/Piece.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tetris/src/Piece.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1084" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Plateau.java" partName="Plateau.java" path="/home/ousmane/Fac/workspace/Tetris/src/Plateau.java" title="Plateau.java" tooltip="Tetris/src/Plateau.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tetris/src/Plateau.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="729" selectionTopPixel="937"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Game.java" partName="Game.java" path="/home/ousmane/Fac/workspace/Tetris/src/Game.java" title="Game.java" tooltip="Tetris/src/Game.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tetris/src/Game.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="516" selectionTopPixel="720"/>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Jeu.java" partName="Jeu.java" path="/home/ousmane/Fac/workspace/Tetris/src/Jeu.java" title="Jeu.java" tooltip="Tetris/src/Jeu.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tetris/src/Jeu.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2457" selectionTopPixel="501"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Cellule.java" partName="Cellule.java" path="/home/ousmane/Fac/workspace/Tetris/src/Cellule.java" title="Cellule.java" tooltip="Tetris/src/Cellule.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tetris/src/Cellule.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="125" selectionTopPixel="255"/>
 </editor>
 </editors>
 <views>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="">
-<customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
+<customFilters userDefinedPatternsEnabled="false">
+<xmlDefinedFilters>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*" isEnabled="true"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter" isEnabled="false"/>
@@ -90,6 +92,10 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings (2 items)"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="886" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -258,7 +264,7 @@
 <layout>
 <mainWindow>
 <info folder="true" part="left">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
@@ -276,7 +282,7 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.24950495" ratioLeft="252" ratioRight="758" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.70186335" ratioLeft="678" ratioRight="288" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="LabelNotFound"/>
@@ -288,7 +294,7 @@
 </folder>
 </info>
 <info folder="true" part="right" ratio="0.74934036" ratioLeft="568" ratioRight="190" relationship="2" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
@@ -302,172 +308,162 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Piece.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Fabrique.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Cellule.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/MainPrincipal.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Piece.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Plateau.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/MainPrincipal.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Plateau.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Game.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Plateau.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Piece.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Cellule.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Game.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Plateau.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Fabrique.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Game.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Piece.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Cellule.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Jeu.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tetris/src/Cellule.java"/>
 </editors>
-<item historyLabel="Piece.java" index="0">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Fabrique.java" index="1">
+<position info="not_deleted" x="2851" y="0"/>
+</item>
+<item historyLabel="Plateau.java" index="0">
+<position info="not_deleted" x="2154" y="0"/>
 </item>
 <item historyLabel="Fabrique.java" index="1">
-<position info="not_deleted" x="0" y="0"/>
+<position info="not_deleted" x="2851" y="0"/>
 </item>
-<item historyLabel="Cellule.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Piece.java" index="2">
+<position info="not_deleted" x="1887" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MainPrincipal.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Piece.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Plateau.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MainPrincipal.java" index="3">
-<position info="not_deleted" x="537" y="0"/>
-</item>
-<item historyLabel="Plateau.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Piece.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Cellule.java" index="3">
+<position info="not_deleted" x="522" y="6"/>
 </item>
 <item historyLabel="Fabrique.java" index="1">
-<position info="not_deleted" x="0" y="0"/>
+<position info="not_deleted" x="2851" y="0"/>
 </item>
-<item historyLabel="Cellule.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Plateau.java" index="0">
+<position info="not_deleted" x="2154" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="1">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Jeu.java" index="4">
+<position info="not_deleted" x="3733" y="0"/>
 </item>
-<item historyLabel="Piece.java" index="4">
-<position info="not_deleted" x="294" y="0"/>
-</item>
-<item historyLabel="Fabrique.java" index="1">
-<position info="not_deleted" x="194" y="0"/>
-</item>
-<item historyLabel="Cellule.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Piece.java" index="4">
-<position info="not_deleted" x="294" y="0"/>
+<item historyLabel="Plateau.java" index="0">
+<position info="not_deleted" x="2154" y="0"/>
 </item>
 <item historyLabel="Fabrique.java" index="1">
-<position info="not_deleted" x="194" y="0"/>
+<position info="not_deleted" x="2851" y="0"/>
 </item>
-<item historyLabel="MainPrincipal.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Piece.java" index="2">
+<position info="not_deleted" x="1887" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="7">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Cellule.java" index="5">
+<position info="not_deleted" x="125" y="0"/>
 </item>
-<item historyLabel="Game.java" index="8">
-<position info="not_deleted" x="3635" y="0"/>
+<item historyLabel="Jeu.java" index="4">
+<position info="not_deleted" x="3620" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="7">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Plateau.java" index="0">
+<position info="not_deleted" x="2154" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="1">
-<position info="not_deleted" x="328" y="0"/>
-</item>
-<item historyLabel="Game.java" index="8">
-<position info="not_deleted" x="3635" y="0"/>
-</item>
-<item historyLabel="Plateau.java" index="7">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Piece.java" index="2">
+<position info="not_deleted" x="1887" y="0"/>
 </item>
 <item historyLabel="Fabrique.java" index="1">
-<position info="not_deleted" x="328" y="0"/>
+<position info="not_deleted" x="2851" y="0"/>
 </item>
-<item historyLabel="Game.java" index="8">
-<position info="not_deleted" x="3441" y="0"/>
+<item historyLabel="Plateau.java" index="0">
+<position info="not_deleted" x="2154" y="0"/>
 </item>
-<item historyLabel="Fabrique.java" index="1">
-<position/>
+<item historyLabel="Jeu.java" index="4">
+<position info="not_deleted" x="3620" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="7">
-<position info="not_deleted" x="1593" y="0"/>
+<item historyLabel="Cellule.java" index="5">
+<position info="not_deleted" x="125" y="0"/>
 </item>
-<item historyLabel="Game.java" index="8">
-<position info="not_deleted" x="3441" y="0"/>
-</item>
-<item historyLabel="Fabrique.java" index="1">
-<position info="not_deleted" x="2987" y="0"/>
-</item>
-<item historyLabel="Plateau.java" index="9">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Plateau.java" index="9">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Piece.java" index="10">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Piece.java" index="10">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Cellule.java" index="11">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Cellule.java" index="11">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Piece.java" index="10">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Cellule.java" index="11">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Piece.java" index="2">
+<position info="not_deleted" x="1084" y="0"/>
 </item>
 <item historyLabel="Fabrique.java" index="1">
-<position info="not_deleted" x="2987" y="0"/>
+<position info="not_deleted" x="2587" y="12"/>
 </item>
-<item historyLabel="Plateau.java" index="9">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Plateau.java" index="0">
+<position info="not_deleted" x="2165" y="0"/>
 </item>
-<item historyLabel="Game.java" index="12">
-<position info="not_deleted" x="3871" y="0"/>
+<item historyLabel="Jeu.java" index="4">
+<position info="not_deleted" x="3620" y="0"/>
 </item>
-<item historyLabel="Game.java" index="12">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Fabrique.java" index="1">
+<position info="not_deleted" x="2587" y="12"/>
 </item>
-<item historyLabel="Plateau.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Piece.java" index="2">
+<position info="not_deleted" x="1084" y="0"/>
 </item>
-<item historyLabel="Game.java" index="12">
-<position info="not_deleted" x="1570" y="0"/>
+<item historyLabel="Cellule.java" index="5">
+<position info="not_deleted" x="125" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Piece.java" index="2">
+<position info="not_deleted" x="1084" y="0"/>
 </item>
-<item historyLabel="Game.java" index="12">
-<position info="not_deleted" x="1570" y="0"/>
+<item historyLabel="Fabrique.java" index="1">
+<position info="not_deleted" x="2587" y="12"/>
 </item>
-<item historyLabel="Fabrique.java" index="14">
-<position info="not_deleted" x="2987" y="0"/>
+<item historyLabel="Plateau.java" index="0">
+<position info="not_deleted" x="2165" y="0"/>
 </item>
-<item historyLabel="Plateau.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Jeu.java" index="4">
+<position info="not_deleted" x="4683" y="0"/>
 </item>
-<item active="true" historyLabel="Game.java" index="15">
-<position info="not_deleted" x="3476" y="0"/>
+<item historyLabel="Plateau.java" index="0">
+<position info="not_deleted" x="2165" y="0"/>
+</item>
+<item historyLabel="Fabrique.java" index="1">
+<position info="not_deleted" x="2587" y="12"/>
+</item>
+<item historyLabel="Jeu.java" index="4">
+<position info="not_deleted" x="1783" y="0"/>
+</item>
+<item historyLabel="Fabrique.java" index="1">
+<position info="not_deleted" x="2587" y="12"/>
+</item>
+<item historyLabel="Jeu.java" index="4">
+<position info="not_deleted" x="1783" y="0"/>
+</item>
+<item historyLabel="Plateau.java" index="0">
+<position info="not_deleted" x="2165" y="0"/>
+</item>
+<item historyLabel="Fabrique.java" index="1">
+<position info="not_deleted" x="2587" y="12"/>
+</item>
+<item historyLabel="Piece.java" index="2">
+<position info="not_deleted" x="1084" y="0"/>
+</item>
+<item historyLabel="Jeu.java" index="4">
+<position info="not_deleted" x="1783" y="0"/>
+</item>
+<item historyLabel="Plateau.java" index="0">
+<position info="not_deleted" x="2165" y="0"/>
+</item>
+<item historyLabel="Fabrique.java" index="1">
+<position info="not_deleted" x="2587" y="12"/>
+</item>
+<item historyLabel="Piece.java" index="2">
+<position info="not_deleted" x="1084" y="0"/>
+</item>
+<item historyLabel="Cellule.java" index="5">
+<position info="not_deleted" x="125" y="0"/>
+</item>
+<item historyLabel="Jeu.java" index="4">
+<position info="not_deleted" x="2039" y="0"/>
+</item>
+<item historyLabel="Plateau.java" index="0">
+<position info="not_deleted" x="729" y="0"/>
+</item>
+<item historyLabel="Jeu.java" index="4">
+<position info="not_deleted" x="2039" y="0"/>
+</item>
+<item historyLabel="Plateau.java" index="0">
+<position info="not_deleted" x="729" y="0"/>
+</item>
+<item historyLabel="Jeu.java" index="4">
+<position info="not_deleted" x="2457" y="0"/>
+</item>
+<item historyLabel="Plateau.java" index="0">
+<position info="not_deleted" x="729" y="0"/>
+</item>
+<item active="true" historyLabel="Jeu.java" index="4">
+<position info="not_deleted" x="2457" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -493,6 +489,12 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Cellule.java" tooltip="Tetris/src/Cellule.java">
+<persistable path="/Tetris/src/Cellule.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Jeu.java" tooltip="Tetris/src/Jeu.java">
+<persistable path="/Tetris/src/Jeu.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="tetris.jar" tooltip="Tetris/tetris.jar">
 <persistable path="/Tetris/tetris.jar"/>
 </file>
@@ -513,9 +515,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Fabrique.java" tooltip="Tetris/src/Fabrique.java">
 <persistable path="/Tetris/src/Fabrique.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Cellule.java" tooltip="Tetris/src/Cellule.java">
-<persistable path="/Tetris/src/Cellule.java"/>
 </file>
 </mruList>
 </workbench>

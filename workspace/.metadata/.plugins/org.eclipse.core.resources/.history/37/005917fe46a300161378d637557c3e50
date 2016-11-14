@@ -1,0 +1,39 @@
+/**
+ * Classe permettant de créer une cellule.
+ * 
+ * 
+ * @author Glenn PLOUHINEC / Mamadou DIALLO
+ */
+public class Cellule {
+	
+	//l'abscisse de la cellule
+	private double x;
+	
+	//l'abscisse de la cellule
+	private double y;
+	
+	//la couleur de la cellule
+	private char col;
+	
+	/**
+	 * Construit une celule avec les coordonnées 
+	 * et la couleur.
+	 */
+	public Cellule(double x,double y , char col){
+		this.x = x;
+		this.y = y;
+		this.col = col;
+	}
+	
+	public double getX(){
+		return this.x;
+	}
+	
+	public double getY(){
+		return this.y;
+	}
+	
+	public char getC(){
+		return this.col;
+	}
+}
