@@ -229,3 +229,251 @@ Caused by: java.lang.NullPointerException
 	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
 	... 22 more
+!SESSION 2016-11-14 14:32:40.228 -----------------------------------------------
+eclipse.buildId=debbuild
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=fr_FR
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY org.eclipse.core.resources 4 1 2016-11-14 15:13:55.964
+!MESSAGE Problems occurred while refreshing local changes
+!SUBENTRY 1 org.eclipse.core.resources 4 1 2016-11-14 15:13:55.964
+!MESSAGE Problems occurred while refreshing local changes
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:923)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:904)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1699)
+	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:167)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: The project description file (.project) for 'MonProjet' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!SUBENTRY 2 org.eclipse.core.resources 4 271 2016-11-14 15:13:55.965
+!MESSAGE Errors occurred while refreshing resources with the local file system.
+!SUBENTRY 3 org.eclipse.core.resources 4 567 2016-11-14 15:13:55.966
+!MESSAGE The project description file (.project) for 'MonProjet' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+
+!ENTRY org.eclipse.ui.ide 4 4 2016-11-14 15:14:57.053
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 2 1 2016-11-14 15:14:57.056
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2016-11-14 15:14:57.056
+!MESSAGE The project description file (.project) for 'MonProjet' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SESSION 2016-11-14 15:15:01.071 -----------------------------------------------
+eclipse.buildId=debbuild
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=fr_FR
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2016-11-14 23:25:29.345
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [QuestionChaine(String, int) [in QuestionChaine [in [Working copy] QuestionChaine.java [in <default> [in src [in Tp]]]]] does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newNotPresentException(JavaElement.java:495)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:529)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:255)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:241)
+	at org.eclipse.jdt.internal.core.SourceMethod.isConstructor(SourceMethod.java:216)
+	at org.eclipse.jdt.internal.ui.viewsupport.JavaElementLabelComposer.appendMethodLabel(JavaElementLabelComposer.java:378)
+	at org.eclipse.jdt.internal.ui.viewsupport.JavaElementLabelComposer.appendElementLabel(JavaElementLabelComposer.java:270)
+	at org.eclipse.jdt.ui.JavaElementLabels.getElementLabel(JavaElementLabels.java:518)
+	at org.eclipse.jdt.ui.JavaElementLabels.getElementLabel(JavaElementLabels.java:491)
+	at org.eclipse.jdt.ui.JavaElementLabels.getTextLabel(JavaElementLabels.java:395)
+	at org.eclipse.jdt.ui.JavaElementLabelProvider.getText(JavaElementLabelProvider.java:255)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getMethodBreakpointText(JDIModelPresentation.java:1737)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getBreakpointText(JDIModelPresentation.java:1495)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getText(JDIModelPresentation.java:229)
+	at org.eclipse.debug.internal.ui.LazyModelPresentation.getText(LazyModelPresentation.java:185)
+	at org.eclipse.debug.internal.ui.DelegatingModelPresentation.getText(DelegatingModelPresentation.java:158)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager$2.run(JavaDebugOptionsManager.java:733)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager.updateBreakpointMessages(JavaDebugOptionsManager.java:748)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager.breakpointsChanged(JavaDebugOptionsManager.java:762)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.run(BreakpointManager.java:1062)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.notify(BreakpointManager.java:1081)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:935)
+	at org.eclipse.debug.internal.core.BreakpointManager.access$4(BreakpointManager.java:922)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointManagerVisitor.update(BreakpointManager.java:778)
+	at org.eclipse.debug.internal.core.BreakpointManager.resourceChanged(BreakpointManager.java:688)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:381)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:146)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2016-11-14 23:25:29.348
+!MESSAGE QuestionChaine(String, int) [in QuestionChaine [in [Working copy] QuestionChaine.java [in <default> [in src [in Tp]]]]] does not exist
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2016-11-14 23:26:22.684
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [QuestionChaine(String, int) [in QuestionChaine [in [Working copy] QuestionChaine.java [in <default> [in src [in Tp]]]]] does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newNotPresentException(JavaElement.java:495)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:529)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:255)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:241)
+	at org.eclipse.jdt.internal.core.SourceMethod.isConstructor(SourceMethod.java:216)
+	at org.eclipse.jdt.internal.ui.viewsupport.JavaElementLabelComposer.appendMethodLabel(JavaElementLabelComposer.java:378)
+	at org.eclipse.jdt.internal.ui.viewsupport.JavaElementLabelComposer.appendElementLabel(JavaElementLabelComposer.java:270)
+	at org.eclipse.jdt.ui.JavaElementLabels.getElementLabel(JavaElementLabels.java:518)
+	at org.eclipse.jdt.ui.JavaElementLabels.getElementLabel(JavaElementLabels.java:491)
+	at org.eclipse.jdt.ui.JavaElementLabels.getTextLabel(JavaElementLabels.java:395)
+	at org.eclipse.jdt.ui.JavaElementLabelProvider.getText(JavaElementLabelProvider.java:255)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getMethodBreakpointText(JDIModelPresentation.java:1737)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getBreakpointText(JDIModelPresentation.java:1495)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getText(JDIModelPresentation.java:229)
+	at org.eclipse.debug.internal.ui.LazyModelPresentation.getText(LazyModelPresentation.java:185)
+	at org.eclipse.debug.internal.ui.DelegatingModelPresentation.getText(DelegatingModelPresentation.java:158)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager$2.run(JavaDebugOptionsManager.java:733)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager.updateBreakpointMessages(JavaDebugOptionsManager.java:748)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager.breakpointsChanged(JavaDebugOptionsManager.java:762)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.run(BreakpointManager.java:1062)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.notify(BreakpointManager.java:1081)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:935)
+	at org.eclipse.debug.internal.core.BreakpointManager.access$4(BreakpointManager.java:922)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointManagerVisitor.update(BreakpointManager.java:778)
+	at org.eclipse.debug.internal.core.BreakpointManager.resourceChanged(BreakpointManager.java:688)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:381)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:146)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2016-11-14 23:26:22.684
+!MESSAGE QuestionChaine(String, int) [in QuestionChaine [in [Working copy] QuestionChaine.java [in <default> [in src [in Tp]]]]] does not exist
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2016-11-14 23:38:49.665
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [QuestionChaine(String, int) [in QuestionChaine [in [Working copy] QuestionChaine.java [in <default> [in src [in Tp]]]]] does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newNotPresentException(JavaElement.java:495)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:529)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:255)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:241)
+	at org.eclipse.jdt.internal.core.SourceMethod.isConstructor(SourceMethod.java:216)
+	at org.eclipse.jdt.internal.ui.viewsupport.JavaElementLabelComposer.appendMethodLabel(JavaElementLabelComposer.java:378)
+	at org.eclipse.jdt.internal.ui.viewsupport.JavaElementLabelComposer.appendElementLabel(JavaElementLabelComposer.java:270)
+	at org.eclipse.jdt.ui.JavaElementLabels.getElementLabel(JavaElementLabels.java:518)
+	at org.eclipse.jdt.ui.JavaElementLabels.getElementLabel(JavaElementLabels.java:491)
+	at org.eclipse.jdt.ui.JavaElementLabels.getTextLabel(JavaElementLabels.java:395)
+	at org.eclipse.jdt.ui.JavaElementLabelProvider.getText(JavaElementLabelProvider.java:255)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getMethodBreakpointText(JDIModelPresentation.java:1737)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getBreakpointText(JDIModelPresentation.java:1495)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getText(JDIModelPresentation.java:229)
+	at org.eclipse.debug.internal.ui.LazyModelPresentation.getText(LazyModelPresentation.java:185)
+	at org.eclipse.debug.internal.ui.DelegatingModelPresentation.getText(DelegatingModelPresentation.java:158)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager$2.run(JavaDebugOptionsManager.java:733)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager.updateBreakpointMessages(JavaDebugOptionsManager.java:748)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager.breakpointsChanged(JavaDebugOptionsManager.java:762)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.run(BreakpointManager.java:1062)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.notify(BreakpointManager.java:1081)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:935)
+	at org.eclipse.debug.internal.core.BreakpointManager.access$4(BreakpointManager.java:922)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointManagerVisitor.update(BreakpointManager.java:778)
+	at org.eclipse.debug.internal.core.BreakpointManager.resourceChanged(BreakpointManager.java:688)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:381)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:146)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2016-11-14 23:38:49.668
+!MESSAGE QuestionChaine(String, int) [in QuestionChaine [in [Working copy] QuestionChaine.java [in <default> [in src [in Tp]]]]] does not exist
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2016-11-14 23:39:34.681
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [QuestionChaine(String, int) [in QuestionChaine [in [Working copy] QuestionChaine.java [in <default> [in src [in Tp]]]]] does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newNotPresentException(JavaElement.java:495)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:529)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:255)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:241)
+	at org.eclipse.jdt.internal.core.SourceMethod.isConstructor(SourceMethod.java:216)
+	at org.eclipse.jdt.internal.ui.viewsupport.JavaElementLabelComposer.appendMethodLabel(JavaElementLabelComposer.java:378)
+	at org.eclipse.jdt.internal.ui.viewsupport.JavaElementLabelComposer.appendElementLabel(JavaElementLabelComposer.java:270)
+	at org.eclipse.jdt.ui.JavaElementLabels.getElementLabel(JavaElementLabels.java:518)
+	at org.eclipse.jdt.ui.JavaElementLabels.getElementLabel(JavaElementLabels.java:491)
+	at org.eclipse.jdt.ui.JavaElementLabels.getTextLabel(JavaElementLabels.java:395)
+	at org.eclipse.jdt.ui.JavaElementLabelProvider.getText(JavaElementLabelProvider.java:255)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getMethodBreakpointText(JDIModelPresentation.java:1737)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getBreakpointText(JDIModelPresentation.java:1495)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getText(JDIModelPresentation.java:229)
+	at org.eclipse.debug.internal.ui.LazyModelPresentation.getText(LazyModelPresentation.java:185)
+	at org.eclipse.debug.internal.ui.DelegatingModelPresentation.getText(DelegatingModelPresentation.java:158)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager$2.run(JavaDebugOptionsManager.java:733)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager.updateBreakpointMessages(JavaDebugOptionsManager.java:748)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager.breakpointsChanged(JavaDebugOptionsManager.java:762)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.run(BreakpointManager.java:1062)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.notify(BreakpointManager.java:1081)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:935)
+	at org.eclipse.debug.internal.core.BreakpointManager.access$4(BreakpointManager.java:922)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointManagerVisitor.update(BreakpointManager.java:778)
+	at org.eclipse.debug.internal.core.BreakpointManager.resourceChanged(BreakpointManager.java:688)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:381)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:146)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2016-11-14 23:39:34.682
+!MESSAGE QuestionChaine(String, int) [in QuestionChaine [in [Working copy] QuestionChaine.java [in <default> [in src [in Tp]]]]] does not exist
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2016-11-14 23:40:36.961
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [QuestionChaine(String, int) [in QuestionChaine [in [Working copy] QuestionChaine.java [in <default> [in src [in Tp]]]]] does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newNotPresentException(JavaElement.java:495)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:529)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:255)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:241)
+	at org.eclipse.jdt.internal.core.SourceMethod.isConstructor(SourceMethod.java:216)
+	at org.eclipse.jdt.internal.ui.viewsupport.JavaElementLabelComposer.appendMethodLabel(JavaElementLabelComposer.java:378)
+	at org.eclipse.jdt.internal.ui.viewsupport.JavaElementLabelComposer.appendElementLabel(JavaElementLabelComposer.java:270)
+	at org.eclipse.jdt.ui.JavaElementLabels.getElementLabel(JavaElementLabels.java:518)
+	at org.eclipse.jdt.ui.JavaElementLabels.getElementLabel(JavaElementLabels.java:491)
+	at org.eclipse.jdt.ui.JavaElementLabels.getTextLabel(JavaElementLabels.java:395)
+	at org.eclipse.jdt.ui.JavaElementLabelProvider.getText(JavaElementLabelProvider.java:255)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getMethodBreakpointText(JDIModelPresentation.java:1737)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getBreakpointText(JDIModelPresentation.java:1495)
+	at org.eclipse.jdt.internal.debug.ui.JDIModelPresentation.getText(JDIModelPresentation.java:229)
+	at org.eclipse.debug.internal.ui.LazyModelPresentation.getText(LazyModelPresentation.java:185)
+	at org.eclipse.debug.internal.ui.DelegatingModelPresentation.getText(DelegatingModelPresentation.java:158)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager$2.run(JavaDebugOptionsManager.java:733)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager.updateBreakpointMessages(JavaDebugOptionsManager.java:748)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager.breakpointsChanged(JavaDebugOptionsManager.java:762)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.run(BreakpointManager.java:1062)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.notify(BreakpointManager.java:1081)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:935)
+	at org.eclipse.debug.internal.core.BreakpointManager.access$4(BreakpointManager.java:922)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointManagerVisitor.update(BreakpointManager.java:778)
+	at org.eclipse.debug.internal.core.BreakpointManager.resourceChanged(BreakpointManager.java:688)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:381)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:146)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2016-11-14 23:40:36.962
+!MESSAGE QuestionChaine(String, int) [in QuestionChaine [in [Working copy] QuestionChaine.java [in <default> [in src [in Tp]]]]] does not exist

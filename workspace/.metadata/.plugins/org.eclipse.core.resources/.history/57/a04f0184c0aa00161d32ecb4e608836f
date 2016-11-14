@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+
+public class QuestionChaine extends Question{
+	
+	private int reponse;
+	Scanner sc = new Scanner(System.in);
+	
+	public QuestionChaine(String texte,int reponse, int points) { 
+		super(texte,points);
+		this.reponse = reponse;
+	}
+	
+	public boolean repondre() {
+		int rep = sc.nextInt();
+		if(rep == reponse)
+			return true;
+		else
+			return false;
+	}
+
+	
+
+}

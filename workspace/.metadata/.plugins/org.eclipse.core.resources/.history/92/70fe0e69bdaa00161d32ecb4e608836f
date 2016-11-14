@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Quiz {
+	private ArrayList<Question> questions;
+	Scanner rep = new Scanner(System.in);
+	
+	public Quiz(){
+		questions = new ArrayList<Question>();
+	}
+	
+	public void add(Question q){
+		questions.add(q);
+	}
+
+	public int jouer(){
+		for(int i=0 ; i<questions.size() ; i++){
+			questions.get(i).jouer();
+		}
+		
+		return 0;
+	}
+}

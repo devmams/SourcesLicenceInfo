@@ -1,0 +1,10 @@
+
+public class QuestionChaine extends Question{
+
+	
+	
+	public boolean repondre() {
+		return false;
+	}
+
+}

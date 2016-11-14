@@ -1,0 +1,12 @@
+
+public class QuestionOuiNon extends Question{
+
+	public boolean repondre() {
+
+		return false;
+	}
+
+
+	
+
+}

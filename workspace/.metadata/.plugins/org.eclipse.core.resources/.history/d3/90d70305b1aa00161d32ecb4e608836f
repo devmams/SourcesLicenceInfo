@@ -1,0 +1,11 @@
+
+public class QuestionChaine extends Question{
+	public Question(String texte, int points) { 
+		this.texte = texte;
+		this.points = points;
+	}
+	public boolean repondre() {
+		return false;
+	}
+
+}

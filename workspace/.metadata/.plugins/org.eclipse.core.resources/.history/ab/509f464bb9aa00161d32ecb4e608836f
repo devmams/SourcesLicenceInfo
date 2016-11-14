@@ -1,0 +1,12 @@
+
+public class QuestionChaine extends Question{
+	private Strng reponse;
+	
+	public QuestionChaine(String texte,String reponse, int points) { 
+		
+	}
+	public boolean repondre() {
+		return false;
+	}
+
+}

@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+
+public class QuestionNombre extends Question{
+	
+	private String reponse;
+	Scanner sc = new Scanner(System.in);
+	
+	public QuestionNombre(String texte,String reponse, int points) { 
+		super(texte,points);
+		this.reponse = reponse;
+	}
+	
+	public boolean repondre() {
+		String rep = sc.nextLine();
+		if(rep == reponse)
+			return true;
+		else
+			return false;
+	}
+
+	
+
+}

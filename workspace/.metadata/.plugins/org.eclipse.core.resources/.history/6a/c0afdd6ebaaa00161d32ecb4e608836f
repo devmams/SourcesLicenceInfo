@@ -1,0 +1,17 @@
+
+public class QuestionChaine extends Question{
+	private String reponse;
+	
+	public QuestionChaine(String texte,String reponse, int points) { 
+		super(texte,points);
+		this.reponse = reponse;
+	}
+	
+	public boolean repondre() {
+		if(reponse == "rtt")
+			return true;
+		else
+			return false;
+	}
+
+}

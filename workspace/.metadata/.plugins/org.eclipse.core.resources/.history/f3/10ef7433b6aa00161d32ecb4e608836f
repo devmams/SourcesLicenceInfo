@@ -1,0 +1,19 @@
+import java.util.ArrayList;
+
+public class Quiz {
+	private ArrayList questions;
+	private int points;
+	
+	public Quiz(){
+		questions = new ArrayList();
+	}
+	
+	public void add(Question q){
+		questions.add(q);
+	}
+	
+	public int jouer(){
+		
+	}
+
+}
