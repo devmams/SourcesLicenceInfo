@@ -1,0 +1,8 @@
+
+public abstract class Entite {
+	protected int numeroEntite;
+	protected int largeur;
+	protected int hauteur;
+	
+	public Entite(){}
+}

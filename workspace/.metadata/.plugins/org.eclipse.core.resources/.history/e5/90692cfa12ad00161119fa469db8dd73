@@ -1,0 +1,6 @@
+
+public class Planetes extends Entite {
+
+		int taille;
+		int populaltion;
+}

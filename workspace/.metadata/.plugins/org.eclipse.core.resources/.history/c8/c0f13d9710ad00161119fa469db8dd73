@@ -1,0 +1,4 @@
+
+public class Entite {
+	protected int numeroEntite;
+}

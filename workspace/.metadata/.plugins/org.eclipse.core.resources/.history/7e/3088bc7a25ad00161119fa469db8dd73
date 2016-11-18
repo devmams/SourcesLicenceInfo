@@ -1,0 +1,18 @@
+import java.util.Random;
+
+
+public class Vaisseaux extends Entite {
+	
+	private int resistance;
+	private int integrite;
+	private int taille;
+	private Propulsion propultion;
+	private Equipement equipement;
+	
+	public Vaisseaux(){
+		super();
+		Random rand = new Random();
+		taille = 
+	}
+
+}

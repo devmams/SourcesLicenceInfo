@@ -1,0 +1,16 @@
+import java.util.Random;
+
+
+public class Planetes extends Entite {
+
+		int taille;
+		int populaltion;
+		boolean construction;
+		
+		public Planetes(){
+			super();
+			Random rand = new Random();
+			taille = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;//taille
+
+		}
+}

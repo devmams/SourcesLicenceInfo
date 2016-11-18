@@ -1,0 +1,8 @@
+
+public class Vaisseaux extends Entite {
+	
+	private int resistance;
+	private int integrite;
+	private Propulsion propultion;
+
+}
