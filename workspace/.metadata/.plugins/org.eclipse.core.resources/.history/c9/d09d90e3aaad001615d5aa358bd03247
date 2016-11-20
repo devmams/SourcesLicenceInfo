@@ -1,0 +1,20 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+
+public class Empire {
+
+	private ArrayList<Planetes> planetes;
+	private ArrayList<Vaisseaux> vaisseaux;
+	private int nombrePlanetes;
+	private int nombreVaisseaux;
+	
+	public Empire(){
+		Random rand = new Random();
+		nombrePlanetes = Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin;
+		nombreVaisseaux = Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin;
+		
+		planetes = new ArrayList<Planetes>();
+		vaisseaux = new ArrayList<Vaisseaux>();
+	}
+}

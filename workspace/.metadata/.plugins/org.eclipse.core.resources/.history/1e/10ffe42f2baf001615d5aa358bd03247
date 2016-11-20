@@ -1,0 +1,62 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+public abstract class Entite {
+	//private int numeroEntite;
+	private int abs;
+	private int ord;
+	
+	
+	public Entite(){
+		Random rand = new Random();
+		abs = rand.nextInt(Constantes.Largeur); //abscisse
+		ord = rand.nextInt(Constantes.Hauteur); //ordonnée
+		occupee(abs, ord));
+	}
+	
+	public Entite(int  x, int y){
+		//abs = x;
+		//ord = y;
+		//System.out.println("occ : "+ occupee(abs, ord));
+		/*if(Constantes.Largeur*ord + abs){
+			
+		}*/
+		
+		
+		/*if(x<0)
+			abs = Constantes.Largeur + x;
+		if(x>Constantes.Largeur-1)
+			abs = x - Constantes.Largeur;
+		if(y<0)
+			ord = Constantes.Hauteur + y;
+		if(y>Constantes.Hauteur-1)
+			ord = y - Constantes.Hauteur;*/
+		
+	}
+	
+	public boolean occupee(int x, int y){
+		boolean occupee = false;
+		int tmp = Constantes.Largeur*y + x;
+		Empire e = new Empire();
+		/*for(int i=0 ; i<e.getCaseOccupees().size() ;i++){
+			if(tmp == e.getCaseOccupees().get(i)){
+				occupee = true;
+				break;
+			}
+		}*/
+		return occupee;
+	}
+	
+	public int getAbscisse(){
+		return abs;
+	}
+	
+	public int getOrdonnee(){
+		return ord;
+	}
+	
+	public int getNumeroEntite(){
+		return Constantes.Largeur*ord + abs;
+	}
+
+}

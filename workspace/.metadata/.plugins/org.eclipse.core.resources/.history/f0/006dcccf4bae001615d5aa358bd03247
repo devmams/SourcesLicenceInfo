@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Entite {
+	private static int numeroEntite;
+	private int abs;
+	private int ord;
+	private ArrayList<int> caseOccupee;
+	
+	
+	public Entite(){
+		Random rand = new Random();
+		numeroEntite++;
+		abs = Math.abs(rand.nextInt())%Constantes.Largeur; //abscisse
+		ord = Math.abs(rand.nextInt())%Constantes.Hauteur; //ordonnée
+		caseO
+	}
+	
+	public Entite(int  x, int y){
+		numeroEntite++;
+		abs = x; //abscisse
+		ord = y; //ordonnée
+		if(x<0)
+			abs = Constantes.Largeur + x;
+		if(x>Constantes.Largeur-1)
+			abs = x - Constantes.Largeur;
+		if(y<0)
+			ord = Constantes.Hauteur + y;
+		if(y>Constantes.Largeur-1)
+			ord = y - Constantes.Hauteur;
+		
+	}
+	
+	public int getAbscisse(){
+		return abs;
+	}
+	
+	public int getNumeroEntite(){
+		return numeroEntite;
+	}
+	
+	public int getOrdonnee(){
+		return ord;
+	}
+}

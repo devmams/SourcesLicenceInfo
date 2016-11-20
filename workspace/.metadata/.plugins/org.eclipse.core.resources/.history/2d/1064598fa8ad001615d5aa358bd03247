@@ -1,0 +1,17 @@
+import java.util.Random;
+
+
+public class Espece {
+	private int idEspece;
+	private int tauxNatalite;
+	private int tauxProductivite;
+	private Empire empire;
+	
+	public Espece(){
+		Random rand = new Random();
+		idEspece++;
+		tauxNatalite = Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin;
+		tauxProductivite = Math.abs(rand.nextInt())%(Constantes.TauxProductiviteMax-Constantes.TauxProductiviteMin+1) + Constantes.TauxProductiviteMin;
+		
+	}
+}

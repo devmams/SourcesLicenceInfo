@@ -1,0 +1,41 @@
+import java.util.Random;
+
+public class Entite {
+	protected static int numeroEntite;
+	protected int abs;
+	protected int ord;
+	
+	public Entite(){
+		Random rand = new Random();
+		numeroEntite++;
+		abs = Math.abs(rand.nextInt())%Constantes.Largeur; //abscisse
+		ord = Math.abs(rand.nextInt())%Constantes.Hauteur; //ordonnée
+	}
+	
+	public Entite(int  x, int y){
+		numeroEntite++;
+		abs = x; //abscisse
+		ord = y; //ordonnée
+		if(x<0)
+			x = ;
+		if(x>0)
+			x = ;
+		if(y<0)
+			y = Constantes.Largeur - y;
+		if(y>0)
+			y = y - Constantes.Largeur;
+		
+	}
+	
+	public int getAbscisse(){
+		return abs;
+	}
+	
+	public int getNumeroEntite(){
+		return numeroEntite;
+	}
+	
+	public int getOrdonnee(){
+		return ord;
+	}
+}

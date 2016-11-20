@@ -1,0 +1,13 @@
+import java.util.ArrayList;
+
+
+public class Empire {
+
+	private ArrayList<Planetes> planetes;
+	private ArrayList<Vaisseaux> vaisseaux;
+	
+	public Empire(){
+		planetes = new ArrayList<Planetes>();
+		vaisseaux = new ArrayList<Vaisseaux>();
+	}
+}

@@ -1,0 +1,15 @@
+import java.util.Random;
+
+public abstract class Entite {
+	protected static int numeroEntite;
+	protected int largeur;
+	protected int hauteur;
+
+	
+	public Entite(){
+		Random rand = new Random();
+		numeroEntite++;
+		largeur = Math.abs(rand.nextInt())%Constantes.Largeur; //abscisse
+		hauteur = Math.abs(rand.nextInt())%Constantes.Hauteur; //ordonnée
+	}
+}

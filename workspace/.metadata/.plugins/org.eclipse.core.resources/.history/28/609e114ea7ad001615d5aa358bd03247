@@ -1,0 +1,12 @@
+
+public class Espece {
+	private int idEspece;
+	private int tauxNatalite;
+	private int tauxProductivite;
+	private Empire empire;
+	
+	public Espece(){
+		this.idEspece++;
+		
+	}
+}

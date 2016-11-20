@@ -1,0 +1,100 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+public abstract class Entite {
+	//private int numeroEntite;
+	private int abs;
+	private int ord;
+	private static ArrayList<Integer> caseOccupee = new ArrayList<Integer>();
+	
+	public Entite(){
+		Random rand = new Random();
+		abs = rand.nextInt(Constantes.Largeur); //abscisse
+		ord = Math.abs(rand.nextInt(Constantes.Hauteur); //ordonnée
+		int tmp = Constantes.Largeur * (ord) + abs;
+		//numeroEntite = Constantes.Largeur * (ord) + abs;
+		//System.out.println("abs : "+ abs +" , ord : "+ ord + " = "+ (Constantes.Largeur*ord + abs));
+		System.out.println(tmp);
+		/*while(occupee(numeroEntite)){
+			abs = Math.abs(rand.nextInt())%Constantes.Largeur; //abscisse
+			ord = Math.abs(rand.nextInt())%Constantes.Hauteur; //ordonnée
+			numeroEntite = Constantes.Largeur * (ord-1) + abs;
+		}*/
+		caseOccupee.add(tmp);
+		System.out.println(tailleCaseOccupee());
+		tmp = 0;
+	}
+	
+	public Entite(int  x, int y){
+		/*abs = x;
+		ord = y-1;
+		int tmp = Constantes.Largeur * (y-1) + x;
+		System.out.println(tmp);
+		System.out.println(occupee(tmp));
+		if(!occupee(tmp)){
+			System.out.println("---");
+			abs = x;
+			ord = y+1;
+			tmp = Constantes.Largeur * (y-1) + x;
+			if(!occupee(tmp)){
+				abs = x-1;
+				ord = y;
+				tmp = Constantes.Largeur * (y-1) + x;
+				if(!occupee(tmp)){
+					abs = x+1;
+					ord = y;
+					tmp = Constantes.Largeur * (y-1) + x;
+				}
+				else{
+					numeroEntite = Constantes.Largeur* (ord-1) + abs;
+					caseOccupee.add(numeroEntite);
+				}
+			}
+			else{
+				numeroEntite = Constantes.Largeur* (ord-1) + abs;
+				caseOccupee.add(numeroEntite);
+			}
+		}
+		else{
+			numeroEntite = Constantes.Largeur* (ord-1) + abs;
+			caseOccupee.add(numeroEntite);
+		}
+		
+		if(x<0)
+			abs = Constantes.Largeur + x;
+		if(x>Constantes.Largeur-1)
+			abs = x - Constantes.Largeur;
+		if(y<0)
+			ord = Constantes.Hauteur + y;
+		if(y>Constantes.Hauteur-1)
+			ord = y - Constantes.Hauteur;*/
+		
+	}
+	
+	/*protected boolean occupee(int x){
+		boolean occupee = false;
+		for(int i=0 ;i<caseOccupee.size() ;i++){
+			if( x == caseOccupee.get(i)){
+				occupee = true;
+				break;
+			}
+		}
+		return occupee;
+	}*/
+	
+	public int tailleCaseOccupee(){
+		return caseOccupee.size();
+	}
+	
+	public int getAbscisse(){
+		return abs;
+	}
+	
+	public int getNumeroEntite(){
+		return 0;
+	}
+	
+	public int getOrdonnee(){
+		return ord;
+	}
+}

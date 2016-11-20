@@ -1,0 +1,38 @@
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Planetes extends Entite {
+
+		int taillePlanete;
+		int populaltion;
+		boolean construction;
+		int tauxNantalite;
+		
+		public Planetes(){
+			super();
+			Random rand = new Random();
+			taillePlanete = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;//taille
+			populaltion = taillePlanete/2;
+			tauxNantalite = Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin;//tauxNatalite
+
+		}
+		
+		public int getTaillePlante(){
+			return taillePlanete;
+		}
+		
+		public int getPopulaltion(){
+			return populaltion;
+		}
+		
+		public int getTauxNatalite(){
+			return taillePlanete;
+		}
+		
+		public void reproduction(){
+			
+		}
+		
+		
+}

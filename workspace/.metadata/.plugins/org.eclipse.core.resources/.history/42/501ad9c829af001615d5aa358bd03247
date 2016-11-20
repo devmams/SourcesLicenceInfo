@@ -1,0 +1,47 @@
+import java.awt.Color;
+import java.util.ArrayList;
+
+
+public class Empire {
+
+	private ArrayList<Planetes> planetes;
+	private Planetes p;
+	private ArrayList<Vaisseaux> vaisseaux;
+	private Vaisseaux v1;
+	private Vaisseaux v2;
+	public static ArrayList<Integer> caseOccupees = new ArrayList<Integer>();
+	private static int cpt = 0;
+	
+	public Empire(){
+		planetes = new ArrayList<Planetes>();
+		vaisseaux = new ArrayList<Vaisseaux>();
+		cpt++;
+		p = new Planetes();
+		v1 = new Vaisseaux(p.getAbscisse() ,p.getOrdonnee());
+		v1 = new Vaisseaux(p.getAbscisse() ,p.getOrdonnee());
+		caseOccupees.add(p.getNumeroEntite());
+		//caseOccupees.add(v1.getNumeroEntite());
+		//caseOccupees.add(v2.getNumeroEntite());
+
+		planetes.add(p);
+		//vaisseaux.add(v1);
+		//vaisseaux.add(v2);
+
+	}
+	
+	public int getCpt(){
+		return cpt;
+	}
+	
+	public static ArrayList<Integer> getCaseOccupees(){
+		return caseOccupees;
+	}
+	
+	public ArrayList<Planetes> getPlanetes(){
+		return planetes;
+	}
+	
+	public ArrayList<Vaisseaux> getVaisseaux(){
+		return vaisseaux;
+	}
+}

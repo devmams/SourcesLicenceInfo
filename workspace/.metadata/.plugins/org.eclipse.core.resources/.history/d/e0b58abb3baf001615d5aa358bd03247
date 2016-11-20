@@ -1,0 +1,23 @@
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Planetes extends Entite {
+
+		int taillePlanete;
+		int populaltion;
+		boolean construction;
+		private static ArrayList<Integer> vaisseauxPlanetes = new ArrayList<Integer>();
+		
+		public Planetes(){
+			super();
+			Random rand = new Random();
+			taillePlanete= Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;//taille
+		}
+		
+		public int getTaillePlante(){
+			return taillePlanete;
+		}
+		
+		
+}

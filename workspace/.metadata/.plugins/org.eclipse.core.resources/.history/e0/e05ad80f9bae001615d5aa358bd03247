@@ -1,0 +1,32 @@
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Random;
+
+
+public class Empire {
+
+	private ArrayList<Planetes> planetes;
+	private Planetes p;
+	private ArrayList<Vaisseaux> vaisseaux;
+	private Vaisseaux v;
+	private int nombrePlanetes;
+	private int nombreVaisseaux;
+	
+	public Empire(){
+		Random rand = new Random();
+		planetes = new ArrayList<Planetes>();
+		vaisseaux = new ArrayList<Vaisseaux>();
+		planetes.add(new Planetes());
+		vaisseaux.add(new Vaisseaux(planetes.get(0).getAbscisse()-1 ,planetes.get(0).getOrdonnee()-1));
+		//vaisseaux.add(new Vaisseaux(planetes.get(0).getAbscisse()+1 ,planetes.get(0).getOrdonnee()+1));
+
+	}
+	
+	public ArrayList<Planetes> getPlanetes(){
+		return planetes;
+	}
+	
+	public ArrayList<Vaisseaux> getVaisseaux(){
+		return vaisseaux;
+	}
+}

@@ -1,0 +1,81 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+public abstract class Entite {
+	private static int numeroEntite;
+	private int abs;
+	private int ord;
+	private static ArrayList<Integer> caseOccupee = new ArrayList<Integer>();
+	
+	public Entite(){
+		Random rand = new Random();
+		abs = Math.abs(rand.nextInt())%Constantes.Largeur; //abscisse
+		ord = Math.abs(rand.nextInt())%Constantes.Hauteur; //ordonnée
+		numeroEntite = Constantes.Largeur * (ord-1) + abs;
+		while(occupee(numeroEntite)){
+			abs = Math.abs(rand.nextInt())%Constantes.Largeur; //abscisse
+			ord = Math.abs(rand.nextInt())%Constantes.Hauteur; //ordonnée
+			numeroEntite = Constantes.Largeur * (ord-1) + abs;
+		}
+		caseOccupee.add(numeroEntite);
+	}
+	
+	public Entite(int  x, int y){
+		System.out.println(Constantes.Largeur * (y-1) + x);
+		abs = x;
+		ord = y-1;
+		int tmp = Constantes.Largeur * (y-1) + x;
+		if(!occupee(Constantes.Largeur * (y-2) + x)){
+			abs = x;
+			ord = y-1;
+		}
+		else if(!occupee(Constantes.Largeur * y + x)){
+			System.out.println("22");
+			abs = x;
+			ord = y+1;
+		}
+		else if(!occupee(Constantes.Largeur * (y-1) + x-1)){
+			abs = x-1;
+			ord = y;
+		}
+		else if(!occupee(Constantes.Largeur * (y-1) + x+1)){
+			abs = x+1;
+			ord = y;
+		}
+		
+		if(x<0)
+			abs = Constantes.Largeur + x;
+		if(x>Constantes.Largeur-1)
+			abs = x - Constantes.Largeur;
+		if(y<0)
+			ord = Constantes.Hauteur + y;
+		if(y>Constantes.Hauteur-1)
+			ord = y - Constantes.Hauteur;
+		
+		numeroEntite = Constantes.Largeur * (y-1) + x;
+		caseOccupee.add(numeroEntite);
+	}
+	
+	protected boolean occupee(int x){
+		boolean occupee = false;
+		for(int i=0 ;i<caseOccupee.size() ;i++){
+			if( x == caseOccupee.get(i)){
+				occupee = true;
+				break;
+			}
+		}
+		return occupee;
+	}
+	
+	public int getAbscisse(){
+		return abs;
+	}
+	
+	public int getNumeroEntite(){
+		return numeroEntite;
+	}
+	
+	public int getOrdonnee(){
+		return ord;
+	}
+}

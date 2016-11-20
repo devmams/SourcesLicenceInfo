@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -21,16 +22,29 @@ public class Simulation {
 	public static void main(String[] args) {
 		// création du panneau d'affichage
 		Affichage panneau = new Affichage();
-
+		
 		// création de la fenêtre principale contenant le panneau
 		Fenetre fenetre = new Fenetre(panneau);
 
+		ArrayList<Espece> especes = new ArrayList<Espece>();
+		
+		ArrayList<Planetes> planetesInoccupee = new ArrayList<Planetes>();
+
+		//création d'espace initiales
+		for(int i=0 ; i<3 ;i++){
+			especes.add(new Espece());
+		}
+		
+		//création de planètes inoccupées
+		for(int ind=0 ; ind<Constantes.NbPlanetesInocupee ;ind++){
+			planetesInoccupee.add(new Planetes());
+		}
+		
 		// boucle de simulation
 		int tour = 0;
 		while (!victoire() && tour<Constantes.TourMax) {
 			// décompte des tours
 			tour += 1;
-
 			// Exécution des étapes du tour courant
 			// TODO : à compléter
 			
@@ -38,6 +52,7 @@ public class Simulation {
 			// Affichage d'un bref rapport textuel
 			System.out.println("Tour " + tour + " :");
 			// TODO : à compléter
+			
 			
 			// raffraîchissement de la grille
 			// TODO : à modifier 
@@ -48,30 +63,49 @@ public class Simulation {
 			// PLANETES ET VAISSEAUX SONT ICI REPRESENTÉS PAR DES TABLEAUX
 			// D'ENTIERS INDIQUANT LES DONNÉES PERTINENTES POUR LEUR AFFICHAGE.
 			// NOTE : AUCUNE VÉRIFICATION DE SUPERPOSITION N'EST FAITE
-			Random rand = new Random();
+			//Random rand = new Random();
 			ArrayList<int[]> listePlanetes = new ArrayList<int[]>();
 			ArrayList<int[]> listeVaisseaux = new ArrayList<int[]>();
-			for (int i=0; i<tour; i++) {
-				int[] p = new int[6];
-				p[0] = Math.abs(rand.nextInt())%Constantes.Largeur; // abscisse
-				p[1] = Math.abs(rand.nextInt())%Constantes.Hauteur; // ordonnée
-				p[2] = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin; // taille
-				p[3] = Math.abs(rand.nextInt())%256; // composante rouge
-				p[4] = Math.abs(rand.nextInt())%256; // composante vert
-				p[5] = Math.abs(rand.nextInt())%256; // composante bleu
-				listePlanetes.add(p);
+			
+			for (Espece e : especes) {
+				for (int i=0; i<e.getEmpire().getPlanetes().size(); i++) {
+					int[] p = new int[6];
+					p[0] = e.getEmpire().getPlanetes().get(i).getAbscisse(); // abscisse
+					p[1] = e.getEmpire().getPlanetes().get(i).getOrdonnee(); // ordonnée
+					p[2] = e.getEmpire().getPlanetes().get(i).getTaillePlante(); // taille
+					p[3] = e.getCouleur().getRed(); // composant rouge
+					p[4] = e.getCouleur().getGreen(); // composante vert
+					p[5] = e.getCouleur().getBlue(); // composante bleu
+					listePlanetes.add(p);
+					//System.out.println("id entitee : "+ e.getEmpire().getPlanetes().get(i).getNumeroEntite());
+					//System.out.println("caseO : "+ e.getEmpire().getPlanetes().get(i).getCaseOccupees());
+					System.out.println("pop : "+ e.getEmpire().getPlanetes().get(i).getPopulaltion());
+					e.getEmpire().getPlanetes().get(i).reproduction();
+				}	
+				for (int j=0; j<e.getEmpire().getVaisseaux().size(); j++) {
+					int[] v = new int[6];
+					v[0] = e.getEmpire().getVaisseaux().get(j).getAbscisse(); // abscisse
+					v[1] = e.getEmpire().getVaisseaux().get(j).getOrdonnee(); // ordonnée
+					v[2] = e.getEmpire().getVaisseaux().get(j).getResistance(); //résistance
+					v[3] = e.getCouleur().getRed(); // composant rouge
+					v[4] = e.getCouleur().getGreen(); // composante vert
+					v[5] = e.getCouleur().getBlue(); // composante bleu
+					listeVaisseaux.add(v);
+				}
 			}
-			for (int i=0; i<tour; i++) {
-				int[] p = new int[6];
-				p[0] = Math.abs(rand.nextInt())%Constantes.Largeur; // abscisse
-				p[1] = Math.abs(rand.nextInt())%Constantes.Hauteur; // ordonnée
-				p[2] = Math.abs(rand.nextInt())%(Constantes.VaisseauResistanceMax-Constantes.VaisseauResistanceMin+1) + Constantes.VaisseauResistanceMin; // résistance
-				p[3] = Math.abs(rand.nextInt())%256; // composante rouge
-				p[4] = Math.abs(rand.nextInt())%256; // composante vert
-				p[5] = Math.abs(rand.nextInt())%256; // composante bleu
-				listeVaisseaux.add(p);
-			}
-
+			
+			//ajout des planètes inoccupées
+			/*for(int i=0 ; i<Constantes.NbPlanetesInocupee; i++){
+				int[] pI = new int[6];
+				pI[0] = planetesInoccupee.get(i).getAbscisse(); // abscisse
+				pI[1] = planetesInoccupee.get(i).getOrdonnee(); // ordonnee
+				pI[2] = planetesInoccupee.get(i).getTaillePlante(); // taille
+				pI[3] = Color.white.getRed(); // composant rouge
+				pI[4] = Color.white.getGreen(); // composante vert
+				pI[5] = Color.white.getBlue(); // composante bleu
+				listePlanetes.add(pI);
+			}*/
+			
 			panneau.rafraichir(listePlanetes,listeVaisseaux);
 			/////////////////////////////////////////////////////////
 			/////////////////////////////////////////////////////////
@@ -85,9 +119,9 @@ public class Simulation {
 				e.printStackTrace();
 			}
 		}
-		
+		System.out.println("fin");
 		// fermeture de la fenêtre
-		fenetre.dispose();
+		//fenetre.dispose();
 	}
 
 }

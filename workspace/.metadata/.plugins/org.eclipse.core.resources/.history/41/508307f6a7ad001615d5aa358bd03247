@@ -1,0 +1,17 @@
+import java.util.Random;
+
+
+public class Espece {
+	private int idEspece;
+	private int tauxNatalite;
+	private int tauxProductivite;
+	private Empire empire;
+	
+	public Espece(){
+		Random rand = new Random();
+		this.idEspece++;
+		this.tauxNatalite = 0;
+		this.tauxProductivite = 0;
+		
+	}
+}

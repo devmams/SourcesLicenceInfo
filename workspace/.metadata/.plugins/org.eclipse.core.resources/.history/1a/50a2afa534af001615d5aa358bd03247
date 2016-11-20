@@ -1,0 +1,78 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+public abstract class Entite {
+	//private int numeroEntite;
+	private int abs;
+	private int ord;
+	private static ArrayList<Integer> caseOccupees = new ArrayList<Integer>();
+	private int cpt = 0;
+	
+	
+	public Entite(){
+		Random rand = new Random();
+		abs = 1;// rand.nextInt(Constantes.Largeur); //abscisse
+		ord = 2;//rand.nextInt(Constantes.Hauteur); //ordonnée
+		add();
+		cpt++;
+	}
+	
+	public Entite(Planetes p){
+		
+		abs = p.getAbscisse();
+		ord = p.getOrdonnee()-1;
+		
+		/*if(Constantes.Largeur*ord + abs){
+			
+		}*/
+		
+		
+		/*if(x<0)
+			abs = Constantes.Largeur + x;
+		if(x>Constantes.Largeur-1)
+			abs = x - Constantes.Largeur;
+		if(y<0)
+			ord = Constantes.Hauteur + y;
+		if(y>Constantes.Hauteur-1)
+			ord = y - Constantes.Hauteur;*/
+		
+	}
+	
+	public int getCpt(){
+		return cpt;
+	}
+	
+	public void add(){
+		caseOccupees.add(getNumeroEntite());
+	}
+	
+	/*public void occupee(int x, int y){
+		boolean occupee = false;
+		int tmp = Constantes.Largeur*y + x;
+		/*Empire e = new Empire();
+		for(int i=0 ; i<e.getCaseOccupees().size() ;i++){
+			if(tmp == e.getCaseOccupees().get(i)){
+				occupee = true;
+				break;
+			}
+		}
+		System.out.println(x);
+	}*/
+	
+	public ArrayList<Integer> getCaseOccupees(){
+		return caseOccupees;
+	}
+	
+	public int getAbscisse(){
+		return abs;
+	}
+	
+	public int getOrdonnee(){
+		return ord;
+	}
+	
+	public int getNumeroEntite(){
+		return Constantes.Largeur*ord + abs;
+	}
+
+}

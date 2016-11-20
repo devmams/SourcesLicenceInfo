@@ -1,0 +1,18 @@
+import java.util.Random;
+
+
+public class Espece {
+	private int idEspece;
+	private int tauxNatalite;
+	private int tauxProductivite;
+	private Empire empire;
+	
+	public Espece(){
+		Random rand = new Random();
+		this.idEspece++;
+		this.tauxNatalite = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;
+		this.tauxProductivite = 0;
+		p[2] = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin; // taille
+		
+	}
+}

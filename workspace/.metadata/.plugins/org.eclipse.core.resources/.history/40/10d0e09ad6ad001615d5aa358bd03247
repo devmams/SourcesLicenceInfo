@@ -1,0 +1,36 @@
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Random;
+
+
+public class Empire {
+
+	private ArrayList<Planetes> planetes;
+	private Planetes p;
+	private ArrayList<Vaisseaux> vaisseaux;
+	private Vaisseaux v;
+	private int nombrePlanetes;
+	private int nombreVaisseaux;
+	
+	public Empire(Color c){
+		Random rand = new Random();
+		planetes = new ArrayList<Planetes>();
+		vaisseaux = new ArrayList<Vaisseaux>();
+		nombrePlanetes = Math.abs(rand.nextInt())%(Constantes.NombrePlaneteMax-Constantes.NombrePlaneteMin+1) + Constantes.NombrePlaneteMin;
+		nombreVaisseaux = Math.abs(rand.nextInt())%(Constantes.NombreVaisseauxMax-Constantes.NombreVaisseauxMin+1) + Constantes.NombreVaisseauxMin;
+		for(int plnt=0 ; plnt<nombrePlanetes ; plnt++){
+			planetes.add(new Planetes(c));
+		}
+		for(int vssx=0 ; vssx<10 ; vssx++){
+			vaisseaux.add(new Vaisseaux(c));
+		}
+	}
+	
+	public ArrayList<Planetes> getPlanetes(){
+		return planetes;
+	}
+	
+	public ArrayList<Vaisseaux> getVaisseaux(){
+		return vaisseaux;
+	}
+}
