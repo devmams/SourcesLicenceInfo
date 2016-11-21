@@ -4,43 +4,47 @@ import java.util.Random;
 
 public class Planetes extends Entite {
 
-		private int taillePlanete;
-		private int populaltion;
-		private boolean construction;
-		private int tauxNantalite;
-		
-		public Planetes(){
-			super();
-			Random rand = new Random();
-			taillePlanete = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;//taille
-			populaltion = taillePlanete/2;
-			tauxNantalite = Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin;//tauxNatalite
-
+	private int taillePlanete;
+	private int populaltion;
+	private Construction construction;
+	private int tauxNantalite;
+	
+	public Planetes(){
+		super();
+		Random rand = new Random();
+		taillePlanete = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;//taille
+		populaltion = taillePlanete/2;
+		tauxNantalite = Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin;//tauxNatalite
+		construction = new Construction();
+	}
+	
+	public int getTaillePlante(){
+		return taillePlanete;
+	}
+	
+	public int getPopulaltion(){
+		return populaltion;
+	}
+	
+	public Construction getPropulsion(){
+		return construction;
+	}
+	
+	public int getTauxNatalite(){
+		return taillePlanete;
+	}
+	
+	public void reproduction(){
+		populaltion = min(taillePlanete, populaltion*(1+tauxNantalite));
+	}
+	
+	public int min(int a ,int b){
+		int tmp = a;
+		if(a > b){
+			tmp = b;
 		}
-		
-		public int getTaillePlante(){
-			return taillePlanete;
-		}
-		
-		public int getPopulaltion(){
-			return populaltion;
-		}
-		
-		public int getTauxNatalite(){
-			return taillePlanete;
-		}
-		
-		public void reproduction(){
-			populaltion = min(taillePlanete, populaltion*(1+tauxNantalite));
-		}
-		
-		public int min(int a ,int b){
-			int tmp = a;
-			if(a > b){
-				tmp = b;
-			}
-			return tmp;
-		}
+		return tmp;
+	}
 		
 		
 }

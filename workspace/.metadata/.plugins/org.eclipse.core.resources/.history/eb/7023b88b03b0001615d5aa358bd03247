@@ -1,0 +1,98 @@
+import java.awt.Color;
+import java.util.Random;
+
+
+public class Vaisseaux extends Entite {
+	
+	private int resistance;
+	private Propulsion propulsion;
+	
+	public Vaisseaux(Planetes p){
+		super(p);
+		Random rand = new Random();
+		resistance = Math.abs(rand.nextInt())%(Constantes.VaisseauResistanceMax-Constantes.VaisseauResistanceMin+1) + Constantes.VaisseauResistanceMin; // résistance
+		propulsion = new Propulsion();
+	}
+
+	public int getResistance(){
+		return resistance;
+	}
+	
+	public Propulsion getPropulsion(){
+		return propulsion;
+	}
+	
+	private boolean verifCarburant(){
+		boolean res = false;
+		if(getPropulsion().getCarburant() > 0){
+			res = true;
+		}
+		return res;
+	}
+	
+	private void lineaire(){
+		Random rd = new Random();
+		int sens = rd.nextInt(4);//sens de placement
+		sens = 0;
+		int tmp;
+		switch(sens){
+		case 0 :
+			tmp = ord - getPropulsion().positionAtteinte();
+			if(occupee(abs, tmp)){
+				ord = tmp;
+			}
+		break;
+		case 1 :
+			tmp = abs + getPropulsion().positionAtteinte();
+			if(occupee(tmp, ord)){
+				abs = tmp;
+			}
+		break;
+		case 2 :
+			tmp = ord + getPropulsion().positionAtteinte();
+			if(occupee(abs, tmp)){
+				ord = tmp;
+			}
+		break;
+		case 3 :
+			tmp = abs - getPropulsion().positionAtteinte();
+			if(occupee(tmp, ord)){
+				abs = tmp;
+			}
+		break;
+		}
+	}
+	
+	private void diagonale(){
+		
+	}
+	
+	private void omnidirectinnelle(){
+		
+	}
+	
+	private void deplace(){
+		switch(typeDeplacement){
+		case '+' : 
+			lineaire();
+		break;	
+		case 'x' :
+			diagonale();
+		break;
+		case '*' :
+			omnidirectinnelle();
+		break;
+		}
+	}
+	
+	public void deplacement(){
+			if(verifCarburant()){
+				getPropulsion().setCarburant();
+				deplace();
+			}
+			else{
+				//autoDestruction();
+			}
+	}
+	
+}

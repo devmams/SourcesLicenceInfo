@@ -1,0 +1,121 @@
+import java.awt.Color;
+import java.util.Random;
+
+
+public class Vaisseaux extends Entite {
+	
+	private int resistance;
+	private Propulsion propulsion;
+	
+	public Vaisseaux(Planetes p){
+		super(p);
+		Random rand = new Random();
+		resistance = Math.abs(rand.nextInt())%(Constantes.VaisseauResistanceMax-Constantes.VaisseauResistanceMin+1) + Constantes.VaisseauResistanceMin; // résistance
+		propulsion = new Propulsion();
+	}
+
+	public int getResistance(){
+		return resistance;
+	}
+	
+	public Propulsion getPropulsion(){
+		return propulsion;
+	}
+	
+	private boolean verifCarburant(){
+		boolean res = false;
+		if(getPropulsion().getCarburant() > 0){
+			res = true;
+		}
+		return res;
+	}
+	
+	private void sensHaut(){
+		int tmp = ord - getPropulsion().positionAtteinte();
+		if(!occupee(abs, tmp)){
+			ord = tmp;
+			recadrerOrdonnee(ord);
+		}
+	}
+	
+	private void sensBas(){
+		int tmp = ord + getPropulsion().positionAtteinte();
+		if(!occupee(abs, tmp)){
+			ord = tmp;
+			recadrerOrdonnee(ord);
+		}
+	}
+	
+	private void sensGauche(){
+		int tmp = abs - getPropulsion().positionAtteinte();
+		if(!occupee(tmp, ord)){
+			abs = tmp;
+			recadrerAbscisse(abs);
+		}
+	}
+	
+	private void sensDroit(){
+		int tmp = abs + getPropulsion().positionAtteinte();
+		if(!occupee(tmp, ord)){
+			abs = tmp;
+			recadrerAbscisse(abs);
+		}
+	}
+	
+	private void sensDiagonale1(){
+		int tmp1 = getPropulsion().getPortee();
+	}
+	
+	private void lineaire(){
+		Random rd = new Random();
+		int sens = rd.nextInt(4);//sens de placement
+		switch(sens){
+		case 0 :
+			sensHaut();
+		break;
+		case 1 :
+			sensDroit();
+		break;
+		case 2 :
+			sensBas();
+		break;
+		case 3 :
+			sensGauche();
+		break;
+		}
+	}
+	
+	private void diagonale(){
+		
+	}
+	
+	private void omnidirectinnelle(){
+		
+	}
+	
+	private void deplace(){
+		switch(typeDeplacement){
+		case '+' : 
+			lineaire();
+		break;	
+		case 'x' :
+			diagonale();
+		break;
+		case '*' :
+			omnidirectinnelle();
+		break;
+		}
+	}
+	
+	public void deplacement(){
+			if(verifCarburant()){
+				getPropulsion().setCarburant();
+				deplace();
+			}
+			else{
+				System.out.println("carburant nif!!!!");
+				//autoDestruction();
+			}
+	}
+	
+}

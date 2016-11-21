@@ -1,0 +1,28 @@
+import java.awt.Color;
+import java.util.Random;
+
+
+public class Vaisseaux extends Entite {
+	
+	private int resistance;
+	private int integrite;
+	private Propulsion propulsion;
+	private Equipement equipement;
+	
+	public Vaisseaux(Planetes p){
+		super(p);
+		Random rand = new Random();
+		resistance = Math.abs(rand.nextInt())%(Constantes.VaisseauResistanceMax-Constantes.VaisseauResistanceMin+1) + Constantes.VaisseauResistanceMin; // résistance
+		propulsion = new Propulsion();
+	}
+
+	public int getResistance(){
+		return resistance;
+	}
+	
+	public Propulsion getPropulsion(){
+		return propulsion;
+	}
+	
+	
+}

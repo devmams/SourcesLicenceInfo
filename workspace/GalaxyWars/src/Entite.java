@@ -3,8 +3,9 @@ import java.util.Random;
 
 public abstract class Entite {
 	//private int numeroEntite;
-	private int abs;
-	private int ord;
+	protected int abs;
+	protected int ord;
+	protected char typeDeplacement;
 	private static ArrayList<Integer> caseOccupees = new ArrayList<Integer>();	
 	
 	public Entite(){
@@ -22,48 +23,67 @@ public abstract class Entite {
 		
 		abs = p.getAbscisse();
 		ord = p.getOrdonnee()-1;
-		setCoordonnees(abs, ord);
+		recadrerCoordonnees(abs, ord);
 		System.out.println(occupee(abs, ord));
 		if(occupee(abs, ord)){
 			abs = p.getAbscisse();
 			ord = p.getOrdonnee()+1;
-			setCoordonnees(abs, ord);
+			recadrerCoordonnees(abs, ord);
 			if(occupee(abs, ord)){
 				abs = p.getAbscisse()-1;
 				ord = p.getOrdonnee();
-				setCoordonnees(abs, ord);
+				recadrerCoordonnees(abs, ord);
 				if(occupee(abs, ord)){
 					abs = p.getAbscisse()+1;
 					ord = p.getOrdonnee();
-					setCoordonnees(abs, ord);
+					recadrerCoordonnees(abs, ord);
 				}
 			}
 		}
 		
+		Random r = new Random();
+		int tD = r.nextInt(3); //abscisse
+		switch(tD){
+		case 0 : typeDeplacement = '+';break;
+		case 1 : typeDeplacement = 'x';break;
+		case 2 : typeDeplacement = '*';break;
+		}
+		//typeDeplacement = '+';
 		caseOccupees.add(getNumeroEntite());
 		
 	}
 	
-	public void setAbscisse(int x){
-		if(x<0){
-			abs = Constantes.Largeur + x;
-		}
+
+	public int getAbscisse(){
+		return abs;
+	}
+	
+	public int getOrdonnee(){
+		return ord;
+	}
+	
+	public int recadrerAbscisse(int x){
+		int temp = x;
+		if(x<0)
+			temp = Constantes.Largeur + x;
 		if(x>Constantes.Largeur-1){
-			abs = x - Constantes.Largeur;
+			temp = x - Constantes.Largeur;
 		}
+		return temp;
 	}
 	
-	public void setOrdonnee(int y){
-		if(y<0){
-			ord = Constantes.Hauteur + y;
-		}
+	public int recadrerOrdonnee(int y){
+		int temp = y;
+		if(y<0)
+			temp = Constantes.Hauteur + y;
 		if(y>Constantes.Hauteur-1)
-			ord = y - Constantes.Hauteur;
+			temp = y - Constantes.Hauteur;
+		return temp;
 	}
 	
-	public void setCoordonnees(int x,int y){
-		setAbscisse(x);
-		setOrdonnee(y);
+	public void recadrerCoordonnees(int x,int y){
+		abs = recadrerAbscisse(x);
+		ord = recadrerOrdonnee(y);
 	}
 	
 	public boolean occupee(int x, int y){
@@ -78,20 +98,24 @@ public abstract class Entite {
 		return occupee;
 	}
 	
+	public char getTypeDeplacement(){
+		return typeDeplacement;
+	}
+	
 	public ArrayList<Integer> getCaseOccupees(){
 		return caseOccupees;
 	}
 	
-	public int getAbscisse(){
-		return abs;
-	}
-	
-	public int getOrdonnee(){
-		return ord;
-	}
-	
 	public int getNumeroEntite(){
 		return Constantes.Largeur*ord + abs;
+	}
+	
+	public void viderCase(int i){
+		for(int j=0 ;j<caseOccupees.size() ;j++){
+			if(caseOccupees.get(j) == i){
+				caseOccupees.remove(j);
+			}
+		}
 	}
 
 }

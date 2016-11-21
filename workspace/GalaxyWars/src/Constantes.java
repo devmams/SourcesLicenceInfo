@@ -24,14 +24,21 @@ public class Constantes {
 	public static final int VaisseauResistanceMin = 1; // résistance minimale d'un vaisseau
 	public static final int VaisseauResistanceMax = 10; // résistance maximale d'un vaisseau
 	
+	// Caractéristiques de la propulsion
+	public static final int PorteeMin = 1;
+	public static final int PorteeMax = 5;
+	public static final int CarburantMin = 10;
+	public static final int CarburantMax = 20;
+
+	
 	// Caractéristiques des propulsions
 	public static final int PropulsionPorteeMin = 1; // portée minimal d'une propulsion
 	public static final int PropulsionPorteeMax = 5; // portée maximal d'une propulsion
 
 	// Paramètres de la simulation
-	public static final int TourMax = 10; // nombre de tours maximum
+	public static final int TourMax = 20; // nombre de tours maximum
 	//public static final int TourMs = 2000; // durée d'un tour en millisecondes
-	public static final int TourMs = 300; // durée d'un tour en millisecondes
+	public static final int TourMs = 1000; // durée d'un tour en millisecondes
 	
 	// Paramètres d'affichage
 	public static final int GfxCase = 40; // taille des cases en pixel

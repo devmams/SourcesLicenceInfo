@@ -1,0 +1,15 @@
+
+public class Propulsion {
+
+	private int portee;
+	private int carburant;
+	
+	public Propulsion(){
+		portee = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin; // portee;
+		carburant = 0;
+	}
+	
+	public int getPortee(){
+		return portee;
+	}
+}

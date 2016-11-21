@@ -147,7 +147,7 @@ public final class Affichage extends JPanel {
 			affichePlanete(g,p[0],p[1],p[2],new Color(p[3],p[4],p[5]));
 		}
 		for (int[] p : lesVaisseaux) {
-			afficheVaisseau(g,p[0],p[1],p[2],"+p",new Color(p[3],p[4],p[5]));
+			afficheVaisseau(g,p[0],p[1],p[2],(char)p[3]+"p",new Color(p[4],p[5],p[6]));
 		}
 		/////////////////////////////////////////////////////////
 		/////////////////////////////////////////////////////////

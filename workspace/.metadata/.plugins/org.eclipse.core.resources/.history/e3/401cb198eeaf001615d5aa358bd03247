@@ -1,0 +1,18 @@
+import java.util.Random;
+
+
+public class Propulsion {
+
+	private int portee;
+	private int carburant;
+	
+	public Propulsion(){
+		Random rand = new Random();
+		portee = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin; // portee;
+		carburant = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin; // portee;;
+	}
+	
+	public int getPortee(){
+		return portee;
+	}
+}

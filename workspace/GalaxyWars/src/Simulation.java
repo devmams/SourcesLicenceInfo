@@ -77,25 +77,27 @@ public class Simulation {
 					p[4] = e.getCouleur().getGreen(); // composante vert
 					p[5] = e.getCouleur().getBlue(); // composante bleu
 					listePlanetes.add(p);
-					//System.out.println("id entitee : "+ e.getEmpire().getPlanetes().get(i).getNumeroEntite());
-					//System.out.println("caseO : "+ e.getEmpire().getPlanetes().get(i).getCaseOccupees());
-					System.out.println("pop : "+ e.getEmpire().getPlanetes().get(i).getPopulaltion());
-					e.getEmpire().getPlanetes().get(i).reproduction();
+					//System.out.println("pop : "+ e.getEmpire().getPlanetes().get(i).getPopulaltion());
+					//e.getEmpire().getPlanetes().get(i).reproduction();
 				}	
 				for (int j=0; j<e.getEmpire().getVaisseaux().size(); j++) {
-					int[] v = new int[6];
+					int[] v = new int[7];
 					v[0] = e.getEmpire().getVaisseaux().get(j).getAbscisse(); // abscisse
 					v[1] = e.getEmpire().getVaisseaux().get(j).getOrdonnee(); // ordonnée
 					v[2] = e.getEmpire().getVaisseaux().get(j).getResistance(); //résistance
-					v[3] = e.getCouleur().getRed(); // composant rouge
-					v[4] = e.getCouleur().getGreen(); // composante vert
-					v[5] = e.getCouleur().getBlue(); // composante bleu
+					v[3] = (int)e.getEmpire().getVaisseaux().get(j).getTypeDeplacement(); //typeDeplacement
+					v[4] = e.getCouleur().getRed(); // composant rouge
+					v[5] = e.getCouleur().getGreen(); // composante vert
+					v[6] = e.getCouleur().getBlue(); // composante bleu
 					listeVaisseaux.add(v);
+					e.getEmpire().getVaisseaux().get(j).deplacement();
+					e.getEmpire().autoDestruction();
+					//System.out.println("portee : "+ e.getEmpire().getVaisseaux().get(j).getPropulsion().getPortee());
 				}
 			}
 			
 			//ajout des planètes inoccupées
-			/*for(int i=0 ; i<Constantes.NbPlanetesInocupee; i++){
+			for(int i=0 ; i<Constantes.NbPlanetesInocupee; i++){
 				int[] pI = new int[6];
 				pI[0] = planetesInoccupee.get(i).getAbscisse(); // abscisse
 				pI[1] = planetesInoccupee.get(i).getOrdonnee(); // ordonnee
@@ -104,7 +106,7 @@ public class Simulation {
 				pI[4] = Color.white.getGreen(); // composante vert
 				pI[5] = Color.white.getBlue(); // composante bleu
 				listePlanetes.add(pI);
-			}*/
+			}
 			
 			panneau.rafraichir(listePlanetes,listeVaisseaux);
 			/////////////////////////////////////////////////////////

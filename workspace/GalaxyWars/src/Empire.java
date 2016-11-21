@@ -9,7 +9,6 @@ public class Empire {
 	private Vaisseaux v1;
 	private Vaisseaux v2;
 	private Vaisseaux v3;
-	private static ArrayList<Integer> caseOccupees = new ArrayList<Integer>();
 	
 	public Empire(){
 		planetes = new ArrayList<Planetes>();
@@ -27,6 +26,16 @@ public class Empire {
 	public ArrayList<Planetes> getPlanetes(){
 		return planetes;
 	}
+	
+	public void autoDestruction(){
+		for(int i=0 ;i<vaisseaux.size() ;i++){
+			if(!vaisseaux.get(i).verifCarburant()){
+				vaisseaux.get(i).viderCase(vaisseaux.get(i).getNumeroEntite());
+				vaisseaux.remove(i);
+			}
+		}
+	}
+	
 	
 	public ArrayList<Vaisseaux> getVaisseaux(){
 		return vaisseaux;
