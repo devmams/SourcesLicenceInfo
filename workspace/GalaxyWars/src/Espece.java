@@ -15,10 +15,10 @@ public class Espece {
 		tauxNatalite = Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin;
 		tauxProductivite = Math.abs(rand.nextInt())%(Constantes.TauxProductiviteMax-Constantes.TauxProductiviteMin+1) + Constantes.TauxProductiviteMin;
 		coul = creerCouleur(idEspece);
-		empire = new Empire();
+		empire = new Empire(coul);
 	}
 	
-	private Color creerCouleur(int x){
+	public static Color creerCouleur(int x){
 		Color col = Color.white;//noir
 		switch(x){
 		case 1 : col = Color.red;break;//rouge

@@ -22,8 +22,8 @@ public final class Affichage extends JPanel {
 	/////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////
 	// CODE FACTICE POUR ILLUSTRER LE MECANISME D'AFFICHAGE
-	private ArrayList<int[]> lesPlanetes;
-	private ArrayList<int[]> lesVaisseaux;
+	private ArrayList<Planetes> lesPlanetes;
+	private ArrayList<Vaisseaux> lesVaisseaux;
 	/////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////
@@ -109,13 +109,13 @@ public final class Affichage extends JPanel {
 	 */
 	// TODO : modifier la signature au besoin 
 	@SuppressWarnings("unchecked")
-	public void rafraichir(ArrayList<int[]> planetes, ArrayList<int[]> vaisseaux) {
+	public void rafraichir(ArrayList<Planetes> planetes, ArrayList<Vaisseaux> vaisseaux) {
 		/////////////////////////////////////////////////////////
 		/////////////////////////////////////////////////////////
 		/////////////////////////////////////////////////////////
 		// CODE FACTICE POUR ILLUSTRER LE MECANISME D'AFFICHAGE
-		lesPlanetes = (ArrayList<int[]>) planetes.clone(); // recopie la liste pour éviter des problèmes de synchronisation
-		lesVaisseaux =(ArrayList<int[]>) vaisseaux.clone(); // recopie la liste pour éviter des problèmes de synchronisation
+		lesPlanetes = (ArrayList<Planetes>) planetes.clone(); // recopie la liste pour éviter des problèmes de synchronisation
+		lesVaisseaux =(ArrayList<Vaisseaux>) vaisseaux.clone(); // recopie la liste pour éviter des problèmes de synchronisation
 		/////////////////////////////////////////////////////////
 		/////////////////////////////////////////////////////////
 		/////////////////////////////////////////////////////////
@@ -143,11 +143,11 @@ public final class Affichage extends JPanel {
 		/////////////////////////////////////////////////////////
 		/////////////////////////////////////////////////////////
 		// CODE FACTICE POUR ILLUSTRER LE MECANISME D'AFFICHAGE
-		for (int[] p : lesPlanetes) {
-			affichePlanete(g,p[0],p[1],p[2],new Color(p[3],p[4],p[5]));
+		for (Planetes p : lesPlanetes) {
+			affichePlanete(g,p.getAbscisse(),p.getOrdonnee(),p.getTaillePlante(),p.getColorEntite());
 		}
-		for (int[] p : lesVaisseaux) {
-			afficheVaisseau(g,p[0],p[1],p[2],(char)p[3]+"p",new Color(p[4],p[5],p[6]));
+		for (Vaisseaux v : lesVaisseaux) {
+			afficheVaisseau(g,v.getAbscisse(),v.getOrdonnee(),v.getResistance(),v.getTypeDeplacement()+"p",v.getColorEntite());
 		}
 		/////////////////////////////////////////////////////////
 		/////////////////////////////////////////////////////////

@@ -5,15 +5,15 @@ import java.util.Random;
 public class Planetes extends Entite {
 
 	private int taillePlanete;
-	private int populaltion;
+	private int population;
 	private Construction construction;
 	private int tauxNantalite;
 	
-	public Planetes(){
-		super();
+	public Planetes(Color c){
+		super(c);
 		Random rand = new Random();
 		taillePlanete = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;//taille
-		populaltion = taillePlanete/2;
+		population = taillePlanete/2;
 		tauxNantalite = Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin;//tauxNatalite
 		construction = new Construction();
 	}
@@ -23,7 +23,7 @@ public class Planetes extends Entite {
 	}
 	
 	public int getPopulaltion(){
-		return populaltion;
+		return population;
 	}
 	
 	public Construction getPropulsion(){
@@ -35,7 +35,7 @@ public class Planetes extends Entite {
 	}
 	
 	public void reproduction(){
-		populaltion = min(taillePlanete, populaltion*(1+tauxNantalite));
+		population = min(taillePlanete, population*(1+tauxNantalite));
 	}
 	
 	public int min(int a ,int b){

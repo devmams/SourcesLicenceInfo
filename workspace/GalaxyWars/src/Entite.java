@@ -1,14 +1,15 @@
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Entite {
-	//private int numeroEntite;
+	private Color couleur;
 	protected int abs;
 	protected int ord;
 	protected char typeDeplacement;
 	private static ArrayList<Integer> caseOccupees = new ArrayList<Integer>();	
 	
-	public Entite(){
+	public Entite(Color c){
 		Random rand = new Random();
 		abs = rand.nextInt(Constantes.Largeur); //abscisse
 		ord = rand.nextInt(Constantes.Hauteur); //ordonnée
@@ -17,9 +18,10 @@ public abstract class Entite {
 			ord = rand.nextInt(Constantes.Hauteur); //ordonnée
 		}
 		caseOccupees.add(getNumeroEntite());
+		couleur = c ;
 	}
 	
-	public Entite(Planetes p){
+	public Entite(Planetes p,Color c){
 		
 		abs = p.getAbscisse();
 		ord = p.getOrdonnee()-1;
@@ -50,9 +52,12 @@ public abstract class Entite {
 		}
 		//typeDeplacement = '+';
 		caseOccupees.add(getNumeroEntite());
-		
+		couleur = c;
 	}
 	
+	public Color getColorEntite(){
+		return couleur;
+	}
 
 	public int getAbscisse(){
 		return abs;

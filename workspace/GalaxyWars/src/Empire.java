@@ -3,24 +3,23 @@ import java.util.ArrayList;
 
 public class Empire {
 
+	private Color couleur;
 	private ArrayList<Planetes> planetes;
 	private Planetes p;
 	private ArrayList<Vaisseaux> vaisseaux;
 	private Vaisseaux v1;
 	private Vaisseaux v2;
-	private Vaisseaux v3;
 	
-	public Empire(){
+	public Empire(Color col){
+		couleur = col;
 		planetes = new ArrayList<Planetes>();
 		vaisseaux = new ArrayList<Vaisseaux>();
-		p = new Planetes();
-		v1 = new Vaisseaux(p);
-		v2 = new Vaisseaux(p);
-
+		p = new Planetes(couleur);
+		v1 = new Vaisseaux(p,couleur);
+		v2 = new Vaisseaux(p,couleur);
 		planetes.add(p);
 		vaisseaux.add(v1);
-		vaisseaux.add(v2);
-		
+		vaisseaux.add(v2);		
 	}
 	
 	public ArrayList<Planetes> getPlanetes(){
@@ -34,6 +33,10 @@ public class Empire {
 				vaisseaux.remove(i);
 			}
 		}
+	}
+	
+	public Color getEmpirColor(){
+		return couleur;
 	}
 	
 	

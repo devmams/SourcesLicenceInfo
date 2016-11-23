@@ -37,7 +37,7 @@ public class Simulation {
 		
 		//création de planètes inoccupées
 		for(int ind=0 ; ind<Constantes.NbPlanetesInocupee ;ind++){
-			planetesInoccupee.add(new Planetes());
+			planetesInoccupee.add(new Planetes(Color.white));
 		}
 		
 		// boucle de simulation
@@ -64,48 +64,24 @@ public class Simulation {
 			// D'ENTIERS INDIQUANT LES DONNÉES PERTINENTES POUR LEUR AFFICHAGE.
 			// NOTE : AUCUNE VÉRIFICATION DE SUPERPOSITION N'EST FAITE
 			//Random rand = new Random();
-			ArrayList<int[]> listePlanetes = new ArrayList<int[]>();
-			ArrayList<int[]> listeVaisseaux = new ArrayList<int[]>();
+			ArrayList<Planetes> listePlanetes = new ArrayList<Planetes>();
+			ArrayList<Vaisseaux> listeVaisseaux = new ArrayList<Vaisseaux>();
 			
 			for (Espece e : especes) {
-				for (int i=0; i<e.getEmpire().getPlanetes().size(); i++) {
-					int[] p = new int[6];
-					p[0] = e.getEmpire().getPlanetes().get(i).getAbscisse(); // abscisse
-					p[1] = e.getEmpire().getPlanetes().get(i).getOrdonnee(); // ordonnée
-					p[2] = e.getEmpire().getPlanetes().get(i).getTaillePlante(); // taille
-					p[3] = e.getCouleur().getRed(); // composant rouge
-					p[4] = e.getCouleur().getGreen(); // composante vert
-					p[5] = e.getCouleur().getBlue(); // composante bleu
-					listePlanetes.add(p);
-					//System.out.println("pop : "+ e.getEmpire().getPlanetes().get(i).getPopulaltion());
+				for (int p=0; p<e.getEmpire().getPlanetes().size(); p++) {
+					listePlanetes.add(e.getEmpire().getPlanetes().get(p));
 					//e.getEmpire().getPlanetes().get(i).reproduction();
 				}	
-				for (int j=0; j<e.getEmpire().getVaisseaux().size(); j++) {
-					int[] v = new int[7];
-					v[0] = e.getEmpire().getVaisseaux().get(j).getAbscisse(); // abscisse
-					v[1] = e.getEmpire().getVaisseaux().get(j).getOrdonnee(); // ordonnée
-					v[2] = e.getEmpire().getVaisseaux().get(j).getResistance(); //résistance
-					v[3] = (int)e.getEmpire().getVaisseaux().get(j).getTypeDeplacement(); //typeDeplacement
-					v[4] = e.getCouleur().getRed(); // composant rouge
-					v[5] = e.getCouleur().getGreen(); // composante vert
-					v[6] = e.getCouleur().getBlue(); // composante bleu
-					listeVaisseaux.add(v);
-					e.getEmpire().getVaisseaux().get(j).deplacement();
+				for (int v=0; v<e.getEmpire().getVaisseaux().size(); v++) {
+					listeVaisseaux.add(e.getEmpire().getVaisseaux().get(v));
+					e.getEmpire().getVaisseaux().get(v).deplacement();
 					e.getEmpire().autoDestruction();
-					//System.out.println("portee : "+ e.getEmpire().getVaisseaux().get(j).getPropulsion().getPortee());
 				}
 			}
 			
 			//ajout des planètes inoccupées
 			for(int i=0 ; i<Constantes.NbPlanetesInocupee; i++){
-				int[] pI = new int[6];
-				pI[0] = planetesInoccupee.get(i).getAbscisse(); // abscisse
-				pI[1] = planetesInoccupee.get(i).getOrdonnee(); // ordonnee
-				pI[2] = planetesInoccupee.get(i).getTaillePlante(); // taille
-				pI[3] = Color.white.getRed(); // composant rouge
-				pI[4] = Color.white.getGreen(); // composante vert
-				pI[5] = Color.white.getBlue(); // composante bleu
-				listePlanetes.add(pI);
+				listePlanetes.add(planetesInoccupee.get(i));
 			}
 			
 			panneau.rafraichir(listePlanetes,listeVaisseaux);

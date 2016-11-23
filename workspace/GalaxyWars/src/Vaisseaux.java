@@ -7,8 +7,8 @@ public class Vaisseaux extends Entite {
 	private int resistance;
 	private Propulsion propulsion;
 	
-	public Vaisseaux(Planetes p){
-		super(p);
+	public Vaisseaux(Planetes p,Color c){
+		super(p,c);
 		Random rand = new Random();
 		resistance = Math.abs(rand.nextInt())%(Constantes.VaisseauResistanceMax-Constantes.VaisseauResistanceMin+1) + Constantes.VaisseauResistanceMin; // résistance
 		propulsion = new Propulsion();
@@ -148,7 +148,7 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
-	private void omnidirectinnelle(){
+	private void omnidirectionnelle(){
 		Random rd = new Random();
 		int sens = rd.nextInt(8);//sens de placement
 		switch(sens){
@@ -188,7 +188,7 @@ public class Vaisseaux extends Entite {
 			diagonale();
 		break;
 		case '*' :
-			omnidirectinnelle();
+			omnidirectionnelle();
 		break;
 		}
 	}
