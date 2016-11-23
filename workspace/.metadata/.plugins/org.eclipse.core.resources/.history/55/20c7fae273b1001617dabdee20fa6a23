@@ -1,0 +1,9 @@
+
+public class Construction {
+	
+	private Vaisseaux vaisseaux;
+	
+	public Construction(Planetes p){
+		vaisseaux(p,p.getColorEntite());
+	}
+}

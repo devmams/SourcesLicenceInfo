@@ -14,6 +14,7 @@ public class Vaisseaux extends Entite {
 		propulsion = new Propulsion();
 	}
 
+	
 	public int getResistance(){
 		return resistance;
 	}
@@ -31,38 +32,52 @@ public class Vaisseaux extends Entite {
 	}
 	
 	private void sensHaut(){
+		int ancien = ord;
 		int tmp = ord - getPropulsion().positionAtteinte();
 		tmp = recadrerOrdonnee(tmp);
 		if(!occupee(abs, tmp)){
 			ord = tmp;
+			viderCase(Constantes.Largeur*ancien + abs);
+			ajoutCase(getNumeroEntite());
 		}
 	}
 	
 	private void sensBas(){
+		int ancien = ord;
 		int tmp = ord + getPropulsion().positionAtteinte();
 		tmp = recadrerOrdonnee(tmp);
 		if(!occupee(abs, tmp)){
 			ord = tmp;
+			viderCase(Constantes.Largeur*ancien + abs);
+			ajoutCase(getNumeroEntite());
 		}
 	}
 	
 	private void sensGauche(){
+		int ancien = abs;
 		int tmp = abs - getPropulsion().positionAtteinte();
 		tmp = recadrerAbscisse(tmp);
 		if(!occupee(tmp, ord)){
 			abs = tmp;
+			viderCase(Constantes.Largeur*ord + ancien);
+			ajoutCase(getNumeroEntite());
 		}
 	}
 	
 	private void sensDroit(){
+		int ancien = abs;
 		int tmp = abs + getPropulsion().positionAtteinte();
 		tmp = recadrerAbscisse(tmp);
 		if(!occupee(tmp, ord)){
 			abs = tmp;
+			viderCase(Constantes.Largeur*ord + ancien);
+			ajoutCase(getNumeroEntite());
 		}
 	}
 	
 	private void sensDiagonale1(){
+		int ancien1 = abs;
+		int ancien2 = ord;
 		int tmp1 = getPropulsion().getPortee();
 		int x = abs + tmp1;
 		int y = ord - tmp1;
@@ -71,10 +86,14 @@ public class Vaisseaux extends Entite {
 		if(!occupee(x, y)){
 			abs = x;
 			ord = y;
+			viderCase(Constantes.Largeur*ancien2 + ancien1);
+			ajoutCase(getNumeroEntite());
 		}
 	}
 	
 	private void sensDiagonale2(){
+		int ancien1 = abs;
+		int ancien2 = ord;
 		int tmp1 = getPropulsion().getPortee();
 		int x = abs + tmp1;
 		int y = ord + tmp1;
@@ -83,10 +102,14 @@ public class Vaisseaux extends Entite {
 		if(!occupee(x, y)){
 			abs = x;
 			ord = y;
+			viderCase(Constantes.Largeur*ancien2 + ancien1);
+			ajoutCase(getNumeroEntite());
 		}
 	}
 	
 	private void sensDiagonale3(){
+		int ancien1 = abs;
+		int ancien2 = ord;
 		int tmp1 = getPropulsion().getPortee();
 		int x = abs - tmp1;
 		int y = ord + tmp1;
@@ -95,10 +118,14 @@ public class Vaisseaux extends Entite {
 		if(!occupee(x, y)){
 			abs = x;
 			ord = y;
+			viderCase(Constantes.Largeur*ancien2 + ancien1);
+			ajoutCase(getNumeroEntite());
 		}
 	}
 	
 	private void sensDiagonale4(){
+		int ancien1 = abs;
+		int ancien2 = ord;
 		int tmp1 = getPropulsion().getPortee();
 		int x = abs - tmp1;
 		int y = ord - tmp1;
@@ -107,6 +134,8 @@ public class Vaisseaux extends Entite {
 		if(!occupee(x, y)){
 			abs = x;
 			ord = y;
+			viderCase(Constantes.Largeur*ancien2 + ancien1);
+			ajoutCase(getNumeroEntite());
 		}
 	}
 	

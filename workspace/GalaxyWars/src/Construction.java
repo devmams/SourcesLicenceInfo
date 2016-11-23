@@ -1,7 +1,8 @@
 
 public class Construction {
 	
-	public Construction(){
-		
-	}
+	private Vaisseaux vaisseaux;
+	
+	public Construction(){}
+
 }

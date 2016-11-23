@@ -111,6 +111,10 @@ public abstract class Entite {
 		return caseOccupees;
 	}
 	
+	public void ajoutCase(int e){
+		caseOccupees.add(e);
+	} 
+	
 	public int getNumeroEntite(){
 		return Constantes.Largeur*ord + abs;
 	}
@@ -119,6 +123,7 @@ public abstract class Entite {
 		for(int j=0 ;j<caseOccupees.size() ;j++){
 			if(caseOccupees.get(j) == i){
 				caseOccupees.remove(j);
+				break;
 			}
 		}
 	}

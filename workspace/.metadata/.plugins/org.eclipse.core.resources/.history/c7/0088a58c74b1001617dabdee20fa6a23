@@ -1,0 +1,9 @@
+
+public class Construction {
+	
+	private Vaisseaux vaisseaux;
+	
+	public Construction(){
+		vaisseaux = new Vaisseaux(p,p.getColorEntite());
+	}
+}

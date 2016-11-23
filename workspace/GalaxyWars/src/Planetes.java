@@ -6,7 +6,6 @@ public class Planetes extends Entite {
 
 	private int taillePlanete;
 	private int population;
-	private Construction construction;
 	private int tauxNantalite;
 	
 	public Planetes(Color c){
@@ -15,19 +14,15 @@ public class Planetes extends Entite {
 		taillePlanete = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;//taille
 		population = taillePlanete/2;
 		tauxNantalite = Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin;//tauxNatalite
-		construction = new Construction();
 	}
 	
 	public int getTaillePlante(){
 		return taillePlanete;
 	}
 	
+	
 	public int getPopulaltion(){
 		return population;
-	}
-	
-	public Construction getPropulsion(){
-		return construction;
 	}
 	
 	public int getTauxNatalite(){
