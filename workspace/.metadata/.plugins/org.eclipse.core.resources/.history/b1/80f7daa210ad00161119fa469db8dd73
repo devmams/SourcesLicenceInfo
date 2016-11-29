@@ -1,6 +1,0 @@
-
-public abstract class Entite {
-	protected int numeroEntite;
-	
-	public Entite
-}

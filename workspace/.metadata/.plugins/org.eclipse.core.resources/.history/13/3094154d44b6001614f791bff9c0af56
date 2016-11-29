@@ -229,24 +229,4 @@ public class Vaisseaux extends Entite {
 			}
 	}
 	
-	public Entite cible(){
-		Entite cible;
-		Random rd = new Random();
-		int caseCible = rd.nextInt(8);//case cible de placement
-
-		switch(caseCible){
-		case 0 : 
-		
-		
-		}
-		
-		
-		return ;
-	}
-	
-	public void interaction(){
-		
-	}
-	
-	
 }

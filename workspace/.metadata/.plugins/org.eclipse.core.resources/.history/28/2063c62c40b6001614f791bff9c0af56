@@ -6,7 +6,7 @@ public class Planetes extends Entite {
 
 	private int taillePlanete;
 	private int population;
-	private int tauxNatalite;
+	private int tauxNantalite;
 	private int integrite;
 	
 	public Planetes(Color c){
@@ -14,7 +14,7 @@ public class Planetes extends Entite {
 		Random rand = new Random();
 		taillePlanete = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;//taille
 		population = taillePlanete/2;
-		tauxNatalite = Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin;//tauxNatalite
+		tauxNantalite = Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin;//tauxNatalite
 		integrite = 0;
 	}
 	
@@ -40,11 +40,11 @@ public class Planetes extends Entite {
 	}
 	
 	public int getTauxNatalite(){
-		return tauxNatalite;
+		return taillePlanete;
 	}
 	
 	public void reproduction(){
-		population = min(taillePlanete, population*(1+tauxNatalite));
+		population = min(taillePlanete, population*(1+tauxNantalite));
 	}
 	
 	public int min(int a ,int b){

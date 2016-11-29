@@ -26,7 +26,7 @@ public abstract class Entite {
 		abs = p.getAbscisse();
 		ord = p.getOrdonnee()-1;
 		recadrerCoordonnees(abs, ord);
-		//System.out.println(occupee(abs, ord));
+		System.out.println(occupee(abs, ord));
 		if(occupee(abs, ord)){
 			abs = p.getAbscisse();
 			ord = p.getOrdonnee()+1;

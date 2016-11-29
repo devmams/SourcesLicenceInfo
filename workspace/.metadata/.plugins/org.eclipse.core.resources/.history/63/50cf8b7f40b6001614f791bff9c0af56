@@ -59,12 +59,12 @@ public class Simulation {
 			for (Espece e : especes) {
 				for (int p=0; p<e.getEmpire().getPlanetes().size(); p++) {
 					listePlanetes.add(e.getEmpire().getPlanetes().get(p));
-					e.getEmpire().getPlanetes().get(p).reproduction(); //reproduction de la population
+					e.getEmpire().getPlanetes().get(p).reproduction();
 				}	
 				for (int v=0; v<e.getEmpire().getVaisseaux().size(); v++) {
 					listeVaisseaux.add(e.getEmpire().getVaisseaux().get(v));
 					e.getEmpire().getVaisseaux().get(v).deplacement();
-					e.getEmpire().autoDestruction(); 
+					e.getEmpire().autoDestruction();
 				}
 				e.constructioin();
 			}
