@@ -1,9 +1,0 @@
-import java.util.ArrayList;
-
-public class Quiz {
-	private ArrayList<QuestionChaine> questions = new ArrayList<int>();
-	
-	public Quiz(){
-	}
-
-}

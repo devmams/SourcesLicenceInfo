@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="Propulsion"/>
+<fullyQualifiedTypeName name="Equipement"/>
+<fullyQualifiedTypeName name="Constantes"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="Entite"/>
 <fullyQualifiedTypeName name="Empire"/>
 <fullyQualifiedTypeName name="Planetes"/>
-<fullyQualifiedTypeName name="Propulsion"/>
-<fullyQualifiedTypeName name="Equipement"/>
 <fullyQualifiedTypeName name="Vaisseaux"/>
 </qualifiedTypeNameHistroy>
