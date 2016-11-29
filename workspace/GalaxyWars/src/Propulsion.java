@@ -9,7 +9,7 @@ public class Propulsion {
 	public Propulsion(){
 		Random rand = new Random();
 		portee = Math.abs(rand.nextInt())%(Constantes.PorteeMax-Constantes.PorteeMin+1) + Constantes.PorteeMin; // portee;
-		carburant = Math.abs(rand.nextInt())%(Constantes.CarburantMax-Constantes.CarburantMin+1) + Constantes.CarburantMin; // Carburant;
+		carburant = 3;// Math.abs(rand.nextInt())%(Constantes.CarburantMax-Constantes.CarburantMin+1) + Constantes.CarburantMin; // Carburant;
 	}
 	
 	public int getPortee(){

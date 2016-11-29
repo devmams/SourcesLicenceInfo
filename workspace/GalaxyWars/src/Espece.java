@@ -39,16 +39,26 @@ public class Espece {
 		return empire;
 	}
 	
-	/*public void construction(){
-		for(Empire e : empire){
-			for(int i=0 ; i<empire.getPlanetes().size() ;i++){
-				nouvelleIntegrite = min(,ancienneIntegrite+poulation*tau);
-				ancienneIntegrite = nouvelleIntegrite;
+	public void constructioin(){
+		for(int i=0 ;i<empire.getPlanetes().size() ;i++){
+			Vaisseaux v = new Vaisseaux(empire.getPlanetes().get(i), empire.getPlanetes().get(i).getColorEntite());
+			if(empire.getPlanetes().get(i).construire(tauxProductivite ,v)){
+				empire.getVaisseaux().add(v);
 			}
 		}
-		
-	}*/
+	}
+	
+	
 }
+
+
+
+
+
+
+
+
+
 
 
 

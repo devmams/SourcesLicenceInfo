@@ -36,7 +36,7 @@ public class Constantes {
 	public static final int PropulsionPorteeMax = 5; // portée maximal d'une propulsion
 
 	// Paramètres de la simulation
-	public static final int TourMax = 100; // nombre de tours maximum
+	public static final int TourMax = 20; // nombre de tours maximum
 	public static final int TourMs = 2000; // durée d'un tour en millisecondes
 	//public static final int TourMs = 1000; // durée d'un tour en millisecondes
 	

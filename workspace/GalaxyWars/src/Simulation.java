@@ -51,19 +51,8 @@ public class Simulation {
 			
 			// Affichage d'un bref rapport textuel
 			System.out.println("Tour " + tour + " :");
-			// TODO : à compléter
 			
 			
-			// raffraîchissement de la grille
-			// TODO : à modifier 
-			/////////////////////////////////////////////////////////
-			/////////////////////////////////////////////////////////
-			/////////////////////////////////////////////////////////
-			// CODE FACTICE POUR ILLUSTRER UNE UTILISATION POSSIBLE DE L'AFFICHAGE.
-			// PLANETES ET VAISSEAUX SONT ICI REPRESENTÉS PAR DES TABLEAUX
-			// D'ENTIERS INDIQUANT LES DONNÉES PERTINENTES POUR LEUR AFFICHAGE.
-			// NOTE : AUCUNE VÉRIFICATION DE SUPERPOSITION N'EST FAITE
-			//Random rand = new Random();
 			ArrayList<Planetes> listePlanetes = new ArrayList<Planetes>();
 			ArrayList<Vaisseaux> listeVaisseaux = new ArrayList<Vaisseaux>();
 			
@@ -77,6 +66,7 @@ public class Simulation {
 					e.getEmpire().getVaisseaux().get(v).deplacement();
 					e.getEmpire().autoDestruction();
 				}
+				e.constructioin();
 			}
 			
 			//ajout des planètes inoccupées

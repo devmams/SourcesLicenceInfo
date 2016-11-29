@@ -7,6 +7,7 @@ public class Planetes extends Entite {
 	private int taillePlanete;
 	private int population;
 	private int tauxNantalite;
+	private int integrite;
 	
 	public Planetes(Color c){
 		super(c);
@@ -14,7 +15,20 @@ public class Planetes extends Entite {
 		taillePlanete = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;//taille
 		population = taillePlanete/2;
 		tauxNantalite = Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin;//tauxNatalite
+		integrite = 0;
 	}
+	
+	private void nouvelleIntegrite(int t ,Vaisseaux v){
+		integrite = min ( v.getResistance(), integrite + population * t);
+	}
+	
+	public boolean construire(int tauxProductivite , Vaisseaux v){
+		nouvelleIntegrite(tauxProductivite, v);
+		if(integrite == v.getResistance())
+			return true;
+		else 
+			return false;
+	} 
 	
 	public int getTaillePlante(){
 		return taillePlanete;
