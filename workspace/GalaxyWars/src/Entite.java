@@ -6,9 +6,8 @@ public abstract class Entite {
 	private Color couleur;
 	protected int abs;
 	protected int ord;
-	protected char typeDeplacement;
-	private static ArrayList<Integer> caseOccupees = new ArrayList<Integer>();	
-	
+	private static boolean[] caseOccupees = new boolean[300];
+
 	public Entite(Color c){
 		Random rand = new Random();
 		abs = rand.nextInt(Constantes.Largeur); //abscisse
@@ -17,44 +16,59 @@ public abstract class Entite {
 			abs = rand.nextInt(Constantes.Largeur); //abscisse
 			ord = rand.nextInt(Constantes.Hauteur); //ordonnée
 		}
-		caseOccupees.add(getNumeroEntite());
 		couleur = c ;
+		caseOccupees[getNumeroEntite()] = true;
 	}
-	
+
 	public Entite(Planetes p,Color c){
-		
-		abs = p.getAbscisse();
+
+		caseAdjacente(p);
+		couleur = c;
+		caseOccupees[getNumeroEntite()] = true;
+
+	}
+
+	public void caseAdjacente(Planetes p){
+		abs = p.getAbscisse()-1;
 		ord = p.getOrdonnee()-1;
 		recadrerCoordonnees(abs, ord);
-		//System.out.println(occupee(abs, ord));
 		if(occupee(abs, ord)){
 			abs = p.getAbscisse();
-			ord = p.getOrdonnee()+1;
+			ord = p.getOrdonnee()-1;
 			recadrerCoordonnees(abs, ord);
 			if(occupee(abs, ord)){
-				abs = p.getAbscisse()-1;
-				ord = p.getOrdonnee();
+				abs = p.getAbscisse()+1;
+				ord = p.getOrdonnee()-1;
 				recadrerCoordonnees(abs, ord);
 				if(occupee(abs, ord)){
 					abs = p.getAbscisse()+1;
 					ord = p.getOrdonnee();
 					recadrerCoordonnees(abs, ord);
+					if(occupee(abs, ord)){
+						abs = p.getAbscisse()+1;
+						ord = p.getOrdonnee()+1;
+						recadrerCoordonnees(abs, ord);
+						if(occupee(abs, ord)){
+							abs = p.getAbscisse();
+							ord = p.getOrdonnee()+1;
+							recadrerCoordonnees(abs, ord);
+							if(occupee(abs, ord)){
+								abs = p.getAbscisse()-1;
+								ord = p.getOrdonnee()+1;
+								recadrerCoordonnees(abs, ord);
+								if(occupee(abs, ord)){
+									abs = p.getAbscisse()-1;
+									ord = p.getOrdonnee();
+									recadrerCoordonnees(abs, ord);
+								}
+							}
+						}
+					}
 				}
 			}
 		}
-		
-		Random r = new Random();
-		int tD = r.nextInt(3); //abscisse
-		switch(tD){
-		case 0 : typeDeplacement = '+';break;
-		case 1 : typeDeplacement = 'x';break;
-		case 2 : typeDeplacement = '*';break;
-		}
-		//typeDeplacement = '+';
-		caseOccupees.add(getNumeroEntite());
-		couleur = c;
 	}
-	
+
 	public Color getColorEntite(){
 		return couleur;
 	}
@@ -62,11 +76,11 @@ public abstract class Entite {
 	public int getAbscisse(){
 		return abs;
 	}
-	
+
 	public int getOrdonnee(){
 		return ord;
 	}
-	
+
 	public int recadrerAbscisse(int x){
 		int temp = x;
 		if(x<0)
@@ -76,7 +90,7 @@ public abstract class Entite {
 		}
 		return temp;
 	}
-	
+
 	public int recadrerOrdonnee(int y){
 		int temp = y;
 		if(y<0)
@@ -85,47 +99,48 @@ public abstract class Entite {
 			temp = y - Constantes.Hauteur;
 		return temp;
 	}
-	
+
 	public void recadrerCoordonnees(int x,int y){
 		abs = recadrerAbscisse(x);
 		ord = recadrerOrdonnee(y);
 	}
-	
+
 	public boolean occupee(int x, int y){
 		boolean occupee = false;
 		int tmp = Constantes.Largeur*y + x;
-		for(int i=0 ; i<caseOccupees.size() ;i++){
-			if(tmp == caseOccupees.get(i)){
-				occupee = true;
-				break;
-			}
+		if(caseOccupees[tmp]){
+			occupee = true;
 		}
 		return occupee;
 	}
-	
-	public char getTypeDeplacement(){
-		return typeDeplacement;
+
+
+	public void ajoutCase(int pos){
+		caseOccupees[pos] = true;
 	}
-	
-	public ArrayList<Integer> getCaseOccupees(){
-		return caseOccupees;
-	}
-	
-	public void ajoutCase(int e){
-		caseOccupees.add(e);
-	} 
-	
+
 	public int getNumeroEntite(){
 		return Constantes.Largeur*ord + abs;
 	}
+
+	public void viderCase(int pos){
+		caseOccupees[pos] = false;
+	}
 	
-	public void viderCase(int i){
-		for(int j=0 ;j<caseOccupees.size() ;j++){
-			if(caseOccupees.get(j) == i){
-				caseOccupees.remove(j);
-				break;
-			}
+	public int min(int a ,int b){
+		int tmp = a;
+		if(a > b){
+			tmp = b;
 		}
+		return tmp;
+	}
+	
+	public int retrouverAbs(int num){
+		return num%Constantes.Largeur;
+	}
+	
+	public int retrouverOrd(int num){
+		return num/Constantes.Largeur;
 	}
 
 }

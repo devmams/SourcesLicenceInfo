@@ -40,12 +40,7 @@ public class Espece {
 	}
 	
 	public void constructioin(){
-		for(int i=0 ;i<empire.getPlanetes().size() ;i++){
-			Vaisseaux v = new Vaisseaux(empire.getPlanetes().get(i), empire.getPlanetes().get(i).getColorEntite());
-			if(empire.getPlanetes().get(i).construire(tauxProductivite ,v)){
-				empire.getVaisseaux().add(v);
-			}
-		}
+		empire.constructionVaisseaux(tauxProductivite);
 	}
 	
 	

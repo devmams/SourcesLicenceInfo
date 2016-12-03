@@ -1,0 +1,158 @@
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Random;
+
+public abstract class Entite {
+	private Color couleur;
+	protected int abs;
+	protected int ord;
+	protected char typeDeplacement;
+	private static boolean[] caseOcc = new boolean[300];
+	private static ArrayList<Integer> caseOccupees = new ArrayList<Integer>();	
+	
+	public Entite(Color c){
+		Random rand = new Random();
+		abs = rand.nextInt(Constantes.Largeur); //abscisse
+		ord = rand.nextInt(Constantes.Hauteur); //ordonnée
+		while(occupee(abs, ord)){
+			abs = rand.nextInt(Constantes.Largeur); //abscisse
+			ord = rand.nextInt(Constantes.Hauteur); //ordonnée
+		}
+		//caseOccupees.add(getNumeroEntite());
+		caseOcc[getNumeroEntite()] = true;
+		couleur = c ;
+	}
+	
+	public Entite(Planetes p,Color c){
+		
+		abs = p.getAbscisse();
+		ord = p.getOrdonnee()-1;
+		recadrerCoordonnees(abs, ord);
+		//System.out.println(occupee(abs, ord));
+		if(occupee(abs, ord)){
+			abs = p.getAbscisse();
+			ord = p.getOrdonnee()+1;
+			recadrerCoordonnees(abs, ord);
+			if(occupee(abs, ord)){
+				abs = p.getAbscisse()-1;
+				ord = p.getOrdonnee();
+				recadrerCoordonnees(abs, ord);
+				if(occupee(abs, ord)){
+					abs = p.getAbscisse()+1;
+					ord = p.getOrdonnee();
+					recadrerCoordonnees(abs, ord);
+				}
+			}
+		}
+		
+		Random r = new Random();
+		int tD = r.nextInt(3); //abscisse
+		switch(tD){
+		case 0 : typeDeplacement = '+';break;
+		case 1 : typeDeplacement = 'x';break;
+		case 2 : typeDeplacement = '*';break;
+		}
+		//typeDeplacement = '+';
+		//caseOccupees.add(getNumeroEntite());
+		caseOcc[getNumeroEntite()] = true;
+
+		couleur = c;
+	}
+	
+	public Color getColorEntite(){
+		return couleur;
+	}
+
+	public int getAbscisse(){
+		return abs;
+	}
+	
+	public int getOrdonnee(){
+		return ord;
+	}
+	
+	public int recadrerAbscisse(int x){
+		int temp = x;
+		if(x<0)
+			temp = Constantes.Largeur + x;
+		if(x>Constantes.Largeur-1){
+			temp = x - Constantes.Largeur;
+		}
+		return temp;
+	}
+	
+	public int recadrerOrdonnee(int y){
+		int temp = y;
+		if(y<0)
+			temp = Constantes.Hauteur + y;
+		if(y>Constantes.Hauteur-1)
+			temp = y - Constantes.Hauteur;
+		return temp;
+	}
+	
+	public void recadrerCoordonnees(int x,int y){
+		abs = recadrerAbscisse(x);
+		ord = recadrerOrdonnee(y);
+	}
+	
+	/*public boolean occupee(int x, int y){
+		boolean occupee = false;
+		int tmp = Constantes.Largeur*y + x;
+		for(int i=0 ; i<caseOccupees.size() ;i++){
+			if(tmp == caseOccupees.get(i)){
+				occupee = true;
+				break;
+			}
+		}
+		return occupee;
+	}*/
+	
+	public boolean[] getCaseOccupees(){
+		return caseOcc;
+	}
+	
+	/*public void ajoutCase(int e){
+		caseOccupees.add(e);
+	} 
+	
+	public int getNumeroEntite(){
+		return Constantes.Largeur*ord + abs;
+	}
+	
+	public void viderCase(int i){
+		for(int j=0 ;j<caseOccupees.size() ;j++){
+			if(caseOccupees.get(j) == i){
+				caseOccupees.remove(j);
+				break;
+			}
+		}
+	}
+	
+	public boolean occupee(int x, int y){
+		boolean occupee = false;
+		int tmp = Constantes.Largeur*y + x;
+		if(!caseOccupees[tmp]){
+			occupee = true;
+		}
+		return occupee;
+	}*/
+
+	public char getTypeDeplacement(){
+		return typeDeplacement;
+	}
+
+	public void ajoutCase(int pos){
+		caseOcc[pos] = true;
+	}
+
+	public int getNumeroEntite(){
+		return Constantes.Largeur*ord + abs;
+	}
+
+	public void viderCase(int pos){
+		caseOcc[pos] = false;
+	}
+	
+	
+
+}

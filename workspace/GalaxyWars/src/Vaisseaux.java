@@ -5,15 +5,47 @@ import java.util.Random;
 public class Vaisseaux extends Entite {
 	
 	private int resistance;
+	private int integrite;
 	private Propulsion propulsion;
+	private char typeDeplacement;
+
 	
 	public Vaisseaux(Planetes p,Color c){
 		super(p,c);
 		Random rand = new Random();
 		resistance = Math.abs(rand.nextInt())%(Constantes.VaisseauResistanceMax-Constantes.VaisseauResistanceMin+1) + Constantes.VaisseauResistanceMin; // résistance
+		integrite = rand.nextInt(resistance+1); // résistance
 		propulsion = new Propulsion();
+		typeDeplacement = typeDeplacement();
 	}
-
+	
+	public void setIntegrite(int nouvelleIntegrite){
+		integrite = nouvelleIntegrite;
+	}
+	
+	public int getIntegrite() {
+		return integrite;
+	}
+	
+	public void nouvelleIntegrite(int t , int p){
+		integrite = min (resistance, integrite + p * t);
+	} 
+	
+	public char typeDeplacement(){
+		char s = '+';
+		Random r = new Random();
+		int tD = r.nextInt(3); //abscisse
+		switch(tD){
+		case 0 : s = '+';break;
+		case 1 : s = 'x';break;
+		case 2 : s = '*';break;
+		}
+		return s;
+	}
+	
+	public char getTypeDeplacement(){
+		return typeDeplacement;
+	}
 	
 	public int getResistance(){
 		return resistance;
@@ -229,24 +261,21 @@ public class Vaisseaux extends Entite {
 			}
 	}
 	
-	public Entite cible(){
-		Entite cible;
+	/*public int caseCible(){
+		int caseCible = 0;
 		Random rd = new Random();
-		int caseCible = rd.nextInt(8);//case cible de placement
-
-		switch(caseCible){
-		case 0 : 
-		
-		
+		int haz = rd.nextInt(8);//case cible de placement
+		switch(haz){
+		case 0 : caseCible = getNumeroEntite()-21;
+		case 1 : caseCible = getNumeroEntite()-20;
+		case 2 : caseCible = getNumeroEntite()-19;
+		case 3 : caseCible = getNumeroEntite()+1;
+		case 4 : caseCible = getNumeroEntite()+21;
+		case 5 : caseCible = getNumeroEntite()+20;
+		case 6 : caseCible = getNumeroEntite()+19;
+		case 7 : caseCible = getNumeroEntite()-1;		
 		}
-		
-		
-		return ;
-	}
-	
-	public void interaction(){
-		
-	}
-	
+		return caseCible;
+	}*/	
 	
 }

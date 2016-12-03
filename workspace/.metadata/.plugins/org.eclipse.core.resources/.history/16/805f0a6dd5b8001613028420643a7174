@@ -1,0 +1,48 @@
+import java.awt.Color;
+import java.util.ArrayList;
+
+public class Empire {
+
+	private Color couleur;
+	private ArrayList<Planetes> planetes;
+	private Planetes p;
+	private ArrayList<Vaisseaux> vaisseaux;
+	private Vaisseaux v1;
+	private Vaisseaux v2;
+	private Vaisseaux nouveauVaisseaux;
+	
+	public Empire(Color col){
+		couleur = col;
+		planetes = new ArrayList<Planetes>();
+		vaisseaux = new ArrayList<Vaisseaux>();
+		p = new Planetes(couleur);
+		v1 = new Vaisseaux(p,couleur);
+		v2 = new Vaisseaux(p,couleur);
+		planetes.add(p);
+		vaisseaux.add(v1);
+		vaisseaux.add(v2);		
+	}
+	
+	public Color getEmpirColor(){
+		return couleur;
+	}
+	
+	public ArrayList<Planetes> getPlanetes(){
+		return planetes;
+	}
+	
+	public void autoDestruction(){
+		for(int i=0 ;i<vaisseaux.size() ;i++){
+			if(!vaisseaux.get(i).verifCarburant()){
+				vaisseaux.get(i).viderCase(vaisseaux.get(i).getNumeroEntite());
+				vaisseaux.remove(i);
+			}
+		}
+	}
+	
+	public void construction
+	
+	public ArrayList<Vaisseaux> getVaisseaux(){
+		return vaisseaux;
+	}
+}

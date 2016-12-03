@@ -9,6 +9,7 @@ public class Empire {
 	private ArrayList<Vaisseaux> vaisseaux;
 	private Vaisseaux v1;
 	private Vaisseaux v2;
+	private static ArrayList<Entite> listeEntites = new ArrayList<Entite>();
 	private Vaisseaux nouveauVaisseaux;
 	
 	public Empire(Color col){
@@ -18,9 +19,23 @@ public class Empire {
 		p = new Planetes(couleur);
 		v1 = new Vaisseaux(p,couleur);
 		v2 = new Vaisseaux(p,couleur);
-		planetes.add(p);
+		ajouterPlanete(p);
+		//listeEntites.add(p.getNumeroEntite(),p);
 		vaisseaux.add(v1);
-		vaisseaux.add(v2);		
+		//listeEntites.add(v1.getNumeroEntite(),v1);
+		vaisseaux.add(v2);	
+		//listeEntites.add(v2.getNumeroEntite(),v2);
+
+	}
+	
+	
+	public void ajouterPlanete(Planetes p){
+		planetes.add(p);
+		nouveauV(p);
+	}
+
+	private void nouveauV(Planetes p){
+		p.vaisseauxEnConstruction(p);
 	}
 	
 	public Color getEmpirColor(){
@@ -33,14 +48,43 @@ public class Empire {
 	
 	public void autoDestruction(){
 		for(int i=0 ;i<vaisseaux.size() ;i++){
-			if(!vaisseaux.get(i).verifCarburant()){
+			if(!vaisseaux.get(i).verifCarburant() || vaisseaux.get(i).getIntegrite() == 0){
 				vaisseaux.get(i).viderCase(vaisseaux.get(i).getNumeroEntite());
 				vaisseaux.remove(i);
+				//listeEntites.remove(vaisseaux.get(i).getNumeroEntite());
 			}
 		}
+	}
+	
+	public void constructionVaisseaux(int t){
+		for(int i=0 ; i<planetes.size() ;i++){
+			if(planetes.get(i).lancementVaisseaux(t)){
+				vaisseaux.add(planetes.get(i).vaisseauxConstruit());
+				nouveauV(planetes.get(i));
+				//listeEntites.add(planetes.get(i).vaisseauxConstruit().getNumeroEntite(),planetes.get(i).vaisseauxConstruit());
+			}
+		}
+	}
+	
+	public Entite entitePresente(int num){
+		return listeEntites.get(num);
 	}
 	
 	public ArrayList<Vaisseaux> getVaisseaux(){
 		return vaisseaux;
 	}
+	
+	/*public void interaction(){
+		for(int v=0 ;v<vaisseaux.size() ;v++){
+			int cible = vaisseaux.get(v).caseCible();
+			if(vaisseaux.get(v).occupee(vaisseaux.get(v).retrouverAbs(cible), vaisseaux.get(v).retrouverOrd(cible))){
+				if(listeEntites.get(cible).getColorEntite() == vaisseaux.get(v).getColorEntite()){
+					
+				}
+				else{
+					
+				}
+			}
+		}
+	}*/
 }
