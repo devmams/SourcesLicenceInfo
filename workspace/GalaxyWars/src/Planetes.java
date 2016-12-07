@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Planetes extends Entite {
@@ -50,14 +49,6 @@ public class Planetes extends Entite {
 	
 	public void reproduction(){
 		population = min(taillePlanete, population*(1+tauxNatalite));
-	}
-	
-	public int min(int a ,int b){
-		int tmp = a;
-		if(a > b){
-			tmp = b;
-		}
-		return tmp;
 	}
 		
 		

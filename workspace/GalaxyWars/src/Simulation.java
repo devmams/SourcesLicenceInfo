@@ -64,9 +64,9 @@ public class Simulation {
 				for (int v=0; v<e.getEmpire().getVaisseaux().size(); v++) {
 					listeVaisseaux.add(e.getEmpire().getVaisseaux().get(v));
 					e.getEmpire().getVaisseaux().get(v).deplacement();
-					e.getEmpire().autoDestruction(); 
+					//e.getEmpire().autoDestruction(); 
 				}
-				e.constructioin();
+				//e.constructioin();
 			}
 			
 			//ajout des planètes inoccupées
