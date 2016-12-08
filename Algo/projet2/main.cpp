@@ -10,7 +10,6 @@
 
 using namespace std;
 
-
 int main(int argc, char **argv)
 {
   // il faut que FilePriorite soit implémenté pour que ça puisse compiler
@@ -26,7 +25,7 @@ int main(int argc, char **argv)
 
   std::string line;
   std::ifstream file;
-  file.open( "test_communes.txt", std::ifstream::in );
+  file.open( "test_commune.txt", std::ifstream::in );
 
   // Cette boucle while va lire le fichier liste_communes.txt, placer
   // les données dans commune et enfiler commune dans fp.

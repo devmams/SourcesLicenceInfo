@@ -26,23 +26,15 @@ void supprimer(FilePriorite & ch, Maillon * pm)
 
 void afficher(const FilePriorite & ch)
 {
-	Maillon* courant;
-
+	Maillon* courant = new Maillon;
 	courant = ch.tete;
 	cout << "[";
-
-	//boucle où on connaitle nombre de Maillon dans le chainage
-	/*for (int i = 0; i < ch.nb; ++i)
+	int cpt = 0;
+	while (courant != NULL && cpt != 10 )
 	{
-		cout << (*courant).elt.nom << ": " << (*courant).elt.priorite << "; ";
-		courant = (*courant).suiv;
-	}*/
-
-	//boucle où la chaine se termine par NULL
-	while (courant != NULL)
-	{
-		cout << (*courant).elt.nom << ": " << (*courant).elt.priorite << "; " <<endl;
-		courant = (*courant).suiv;
+		cout << courant->elt.nom << " : " << courant->elt.priorite <<endl;
+		courant = courant->suiv;
+		cpt++;
 	}
 	cout << "]" << endl;
 }
@@ -54,30 +46,34 @@ void creer(FilePriorite & ch)
 
 bool est_vide(const FilePriorite & ch)
 {
-	if(ch.tete == NULL){
-		return true;
-	}
-	else{
-		return false;
-	}
+	return ch.tete == NULL;
 }
-
 
 //On ajoute un nouvel élément en queue (correspond au moins prioritaire), tandis que la tete est le premier élément de la file est le plus prioritaire
 void enfiler(FilePriorite & ch, const Commune & com)
 {
-	Maillon* courant;
-	Maillon* tmp;
+	Maillon *nouveau = new Maillon;
+	nouveau->elt = com;
+	nouveau->suiv = ch.tete;
 
-	courant = ch.tete;
-
-	if(courant == NULL)
-	{
-		ch.tete = new Maillon;
-		courant = ch.tete;
-		(*courant).elt = com;
+	if(est_vide(ch)){
+		ch.tete = nouveau;
 	}
-	else
+	else{
+		Maillon *courant = new Maillon;
+		Maillon *prec = new Maillon;
+		courant = ch.tete;
+		prec = courant;
+		while(com.priorite < courant->elt.priorite && courant->suiv != NULL){
+			prec = courant;
+			courant = courant->suiv;
+		}
+		prec->suiv = nouveau;
+		nouveau->suiv = courant;
+		//ch.tete = nouveau;
+	}
+
+	/*else
 	{
 		while((*courant).suiv != NULL && (*courant).elt.priorite > com.priorite)
 		{
@@ -89,7 +85,7 @@ void enfiler(FilePriorite & ch, const Commune & com)
 		courant = (*courant).suiv; // On accède au nouveau maillon (vide) venant d'etre créé
 		(*courant).elt = com; // on lui affecte la valeur de la commune passée en parametre
 		(*courant).suiv = tmp; // On reconstruit le chainage
-	}
+	}*/
 
 }
 
