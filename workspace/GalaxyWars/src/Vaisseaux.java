@@ -5,11 +5,10 @@ import java.util.Random;
 public class Vaisseaux extends Entite {
 	
 	private int resistance;
-	private int integrite;
 	private Propulsion propulsion;
 	private char typeDeplacement;
+	private int integrite;
 
-	
 	public Vaisseaux(Planetes p,Color c){
 		super(p,c);
 		Random rand = new Random();
@@ -17,7 +16,7 @@ public class Vaisseaux extends Entite {
 		integrite = rand.nextInt(resistance+1); // résistance
 		propulsion = new Propulsion();
 		typeDeplacement = typeDeplacement();
-	}
+	} 
 	
 	public void setIntegrite(int nouvelleIntegrite){
 		integrite = nouvelleIntegrite;
@@ -29,7 +28,7 @@ public class Vaisseaux extends Entite {
 	
 	public void nouvelleIntegrite(int t , int p){
 		integrite = min (resistance, integrite + p * t);
-	} 
+	}
 	
 	public char typeDeplacement(){
 		char s = '+';
@@ -69,8 +68,9 @@ public class Vaisseaux extends Entite {
 		tmp = recadrerOrdonnee(tmp);
 		if(!occupee(abs, tmp)){
 			ord = tmp;
-			viderCase(Constantes.Largeur*ancien + abs);
-			ajoutCase(getNumeroEntite());
+			int anciennePos = Constantes.Largeur*ancien + abs;
+			int nouvellePos = Constantes.Largeur*ord + abs;
+			modifPositionEntite(anciennePos, nouvellePos);
 		}
 	}
 	
@@ -80,8 +80,9 @@ public class Vaisseaux extends Entite {
 		tmp = recadrerOrdonnee(tmp);
 		if(!occupee(abs, tmp)){
 			ord = tmp;
-			viderCase(Constantes.Largeur*ancien + abs);
-			ajoutCase(getNumeroEntite());
+			int anciennePos = Constantes.Largeur*ancien + abs;
+			int nouvellePos = Constantes.Largeur*ord + abs;
+			modifPositionEntite(anciennePos, nouvellePos);
 		}
 	}
 	
@@ -91,8 +92,9 @@ public class Vaisseaux extends Entite {
 		tmp = recadrerAbscisse(tmp);
 		if(!occupee(tmp, ord)){
 			abs = tmp;
-			viderCase(Constantes.Largeur*ord + ancien);
-			ajoutCase(getNumeroEntite());
+			int anciennePos = Constantes.Largeur*ord + ancien;
+			int nouvellePos = Constantes.Largeur*ord + abs;
+			modifPositionEntite(anciennePos, nouvellePos);
 		}
 	}
 	
@@ -102,8 +104,9 @@ public class Vaisseaux extends Entite {
 		tmp = recadrerAbscisse(tmp);
 		if(!occupee(tmp, ord)){
 			abs = tmp;
-			viderCase(Constantes.Largeur*ord + ancien);
-			ajoutCase(getNumeroEntite());
+			int anciennePos = Constantes.Largeur*ord + ancien;
+			int nouvellePos = Constantes.Largeur*ord + abs;
+			modifPositionEntite(anciennePos, nouvellePos);
 		}
 	}
 	
@@ -118,8 +121,9 @@ public class Vaisseaux extends Entite {
 		if(!occupee(x, y)){
 			abs = x;
 			ord = y;
-			viderCase(Constantes.Largeur*ancien2 + ancien1);
-			ajoutCase(getNumeroEntite());
+			int anciennePos = Constantes.Largeur*ancien2 + ancien1;
+			int nouvellePos = Constantes.Largeur*ord + abs;
+			modifPositionEntite(anciennePos, nouvellePos);
 		}
 	}
 	
@@ -134,8 +138,9 @@ public class Vaisseaux extends Entite {
 		if(!occupee(x, y)){
 			abs = x;
 			ord = y;
-			viderCase(Constantes.Largeur*ancien2 + ancien1);
-			ajoutCase(getNumeroEntite());
+			int anciennePos = Constantes.Largeur*ancien2 + ancien1;
+			int nouvellePos = Constantes.Largeur*ord + abs;
+			modifPositionEntite(anciennePos, nouvellePos);
 		}
 	}
 	
@@ -150,8 +155,9 @@ public class Vaisseaux extends Entite {
 		if(!occupee(x, y)){
 			abs = x;
 			ord = y;
-			viderCase(Constantes.Largeur*ancien2 + ancien1);
-			ajoutCase(getNumeroEntite());
+			int anciennePos = Constantes.Largeur*ancien2 + ancien1;
+			int nouvellePos = Constantes.Largeur*ord + abs;
+			modifPositionEntite(anciennePos, nouvellePos);
 		}
 	}
 	
@@ -166,8 +172,9 @@ public class Vaisseaux extends Entite {
 		if(!occupee(x, y)){
 			abs = x;
 			ord = y;
-			viderCase(Constantes.Largeur*ancien2 + ancien1);
-			ajoutCase(getNumeroEntite());
+			int anciennePos = Constantes.Largeur*ancien2 + ancien1;
+			int nouvellePos = Constantes.Largeur*ord + abs;
+			modifPositionEntite(anciennePos, nouvellePos);
 		}
 	}
 	
@@ -175,18 +182,10 @@ public class Vaisseaux extends Entite {
 		Random rd = new Random();
 		int sens = rd.nextInt(4);//sens de placement
 		switch(sens){
-		case 0 :
-			sensHaut();
-		break;
-		case 1 :
-			sensDroit();
-		break;
-		case 2 :
-			sensBas();
-		break;
-		case 3 :
-			sensGauche();
-		break;
+		case 0 :sensHaut();break;
+		case 1 :sensDroit();break;
+		case 2 :sensBas();break;
+		case 3 :sensGauche();break;
 		}
 	}
 	
@@ -194,18 +193,10 @@ public class Vaisseaux extends Entite {
 		Random rd = new Random();
 		int sens = rd.nextInt(4);//sens de placement
 		switch(sens){
-		case 0 :
-			sensDiagonale1();
-		break;
-		case 1 :
-			sensDiagonale2();
-		break;
-		case 2 :
-			sensDiagonale3();
-		break;
-		case 3 :
-			sensDiagonale4();
-		break;
+		case 0 :sensDiagonale1();break;
+		case 1 :sensDiagonale2();break;
+		case 2 :sensDiagonale3();break;
+		case 3 :sensDiagonale4();break;
 		}
 	}
 	
@@ -213,69 +204,86 @@ public class Vaisseaux extends Entite {
 		Random rd = new Random();
 		int sens = rd.nextInt(8);//sens de placement
 		switch(sens){
-		case 0 :
-			sensHaut();
-		break;
-		case 1 :
-			sensDiagonale1();
-		break;
-		case 2 :
-			sensDroit();
-		break;
-		case 3 :
-			sensDiagonale2();
-		break;
-		case 4 :
-			sensBas();
-		break;
-		case 5 :
-			sensDiagonale3();
-		break;
-		case 6 :
-			sensGauche();
-		break;
-		case 7 :
-			sensDiagonale4();
-		break;
+		case 0 :sensHaut();break;
+		case 1 :sensDiagonale1();break;
+		case 2 :sensDroit();break;
+		case 3 :sensDiagonale2();break;
+		case 4 :sensBas();break;
+		case 5 :sensDiagonale3();break;
+		case 6 :sensGauche();break;
+		case 7 :sensDiagonale4();break;
 		}
 	}
 	
 	private void deplace(){
 		switch(typeDeplacement){
-		case '+' :
-			lineaire();
-		break;	
-		case 'x' :
-			diagonale();
-		break;
-		case '*' :
-			omnidirectionnelle();
-		break;
+		case '+' :lineaire();break;	
+		case 'x' :diagonale();break;
+		case '*' :omnidirectionnelle();break;
 		}
 	}
 	
 	public void deplacement(){
-			if(verifCarburant()){
-				getPropulsion().setCarburant();
-				deplace();
-			}
+		if(verifCarburant()){
+			//getPropulsion().diminuerCarburant();
+			deplace();
+		}
 	}
 	
-	/*public int caseCible(){
+	public int caseCible(){
 		int caseCible = 0;
+		int posAbs = retrouverAbs(getNumeroEntite());
+		int posOrd = retrouverOrd(getNumeroEntite());
 		Random rd = new Random();
 		int haz = rd.nextInt(8);//case cible de placement
 		switch(haz){
-		case 0 : caseCible = getNumeroEntite()-21;
-		case 1 : caseCible = getNumeroEntite()-20;
-		case 2 : caseCible = getNumeroEntite()-19;
-		case 3 : caseCible = getNumeroEntite()+1;
-		case 4 : caseCible = getNumeroEntite()+21;
-		case 5 : caseCible = getNumeroEntite()+20;
-		case 6 : caseCible = getNumeroEntite()+19;
-		case 7 : caseCible = getNumeroEntite()-1;		
+		case 0 :posAbs = recadrerAbscisse(posAbs-1);posOrd = recadrerOrdonnee(posOrd-1);caseCible = Constantes.Largeur*posOrd + posAbs;break;
+		case 1 :posAbs = recadrerAbscisse(posAbs);posOrd = recadrerOrdonnee(posOrd-1);caseCible = Constantes.Largeur*posOrd + posAbs;break;
+		case 2 :posAbs = recadrerAbscisse(posAbs+1);posOrd = recadrerOrdonnee(posOrd-1);caseCible = Constantes.Largeur*posOrd + posAbs;break;
+		case 3 :posAbs = recadrerAbscisse(posAbs+1);posOrd = recadrerOrdonnee(posOrd);caseCible = Constantes.Largeur*posOrd + posAbs;break;
+		case 4 :posAbs = recadrerAbscisse(posAbs+1);posOrd = recadrerOrdonnee(posOrd+1);caseCible = Constantes.Largeur*posOrd + posAbs;break;
+		case 5 :posAbs = recadrerAbscisse(posAbs);posOrd = recadrerOrdonnee(posOrd+1);caseCible = Constantes.Largeur*posOrd + posAbs;break;
+		case 6 :posAbs = recadrerAbscisse(posAbs-1);posOrd = recadrerOrdonnee(posOrd+1);caseCible = Constantes.Largeur*posOrd + posAbs;break;
+		case 7 :posAbs = recadrerAbscisse(posAbs-1);posOrd = recadrerOrdonnee(posOrd);caseCible = Constantes.Largeur*posOrd + posAbs;break;
 		}
 		return caseCible;
-	}*/	
+	}	
 	
+	public void infligeDegat(){
+		Random rand = new Random();
+		int degat = rand.nextInt(3) + 1;
+		integrite -= degat;
+	}
+	
+	public void interactionVaisseaux(Empire e){
+		int cible = caseCible();
+		System.out.println("cible : " + cible);
+		if(occupee(retrouverAbs(cible),retrouverOrd(cible))){ //verifie si la case ciblée est occupée
+			System.out.println("occupée");
+			Entite entiteCible = getListeEntites(cible);
+			Color colorEntiteCible = entiteCible.getColorEntite();
+			
+			if(!colorEntiteCible.equals(getColorEntite()) && !colorEntiteCible.equals(Color.white)){
+				//verifie si le vaisseaux est ennemi
+				System.out.println("ennemi");
+				entiteCible.infligeDegat();
+			}
+			else if(colorEntiteCible.equals(getColorEntite()) && entiteCible.getTypeEntite() == 'p'){
+				System.out.println("alliée");
+				propulsion.rechargerCarburant();
+			}
+			else if(colorEntiteCible.equals(Color.white)){
+				entiteCible.modifCouleur(e.getEmpirColor());
+				e.ajouterPlaneteIno((Planetes) entiteCible);
+				//System.out.println("************************"+(Planetes) getListeEntites(cible));
+			}
+		}
+	}
 }
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;colorEntiteColor&apos; in &apos;Vaisseaux.interactionVaisseaux(...)&apos; to &apos;colorEntiteCible&apos;&#x0A;- Original project: &apos;GalaxyWars&apos;&#x0A;- Original element: &apos;Vaisseaux.interactionVaisseaux(Empire).colorEntiteColor&apos;&#x0A;- Renamed element: &apos;colorEntiteColor&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;colorEntiteColor&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{Vaisseaux.java[Vaisseaux~interactionVaisseaux~QEmpire;@colorEntiteColor!7475!7528!7481!7496!QColor;!0!false" name="colorEntiteCible" references="true" stamp="1481373925596" version="1.0"/>
+</session>

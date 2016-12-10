@@ -1,0 +1,85 @@
+import java.awt.Color;
+import java.util.ArrayList;
+
+public class Empire {
+
+	private Color couleur;
+	private ArrayList<Planetes> planetes;
+	private Planetes p;
+	private ArrayList<Vaisseaux> vaisseaux;
+	private Vaisseaux v1;
+	private Vaisseaux v2;
+
+	public Empire(Color col){
+		couleur = col;
+		planetes = new ArrayList<Planetes>();
+		vaisseaux = new ArrayList<Vaisseaux>();
+		p = new Planetes(couleur);
+		v1 = new Vaisseaux(p,couleur);
+		v2 = new Vaisseaux(p,couleur);
+		ajouterPlanete(p);
+		p.ajoutListeEntite(p);
+		ajoutVaisseaux(v1);
+		v1.ajoutListeEntite(v1);
+		ajoutVaisseaux(v2);
+		v2.ajoutListeEntite(v2);
+	}	
+	
+	public void ajouterPlanete(Planetes p){
+		planetes.add(p);
+		nouveauVaisseauxEnDeConstruction(p);
+	}
+
+	public void ajoutVaisseaux(Vaisseaux v){
+		vaisseaux.add(v);
+		v.ajoutListeEntite(v);
+	}
+	
+	private void nouveauVaisseauxEnDeConstruction(Planetes p){
+		p.vaisseauxEnConstruction(p);
+	}
+	
+	public Color getEmpirColor(){
+		return couleur;
+	}
+	
+	public ArrayList<Planetes> getPlanetes(){
+		return planetes;
+	}
+	
+	public void autoDestruction(){
+		for(int i=0 ;i<vaisseaux.size() ;i++){
+			if(!vaisseaux.get(i).verifCarburant() /*|| vaisseaux.get(i).getIntegrite() == 0*/){
+				vaisseaux.get(i).viderCase(vaisseaux.get(i).getNumeroEntite());
+				vaisseaux.remove(i);
+				vaisseaux.get(i).supprListeEntite(vaisseaux.get(i));
+			}
+		}
+	}
+	
+	public void constructionVaisseaux(int t){
+		for(int i=0 ; i<planetes.size() ;i++){
+			if(planetes.get(i).constructionTerminee(t)){
+				vaisseaux.add(planetes.get(i).vaisseauxConstruit());
+				planetes.get(i).vaisseauxConstruit().ajoutListeEntite(planetes.get(i).vaisseauxConstruit());
+				nouveauVaisseauxEnDeConstruction(planetes.get(i));
+			}
+		}
+	}
+	
+	public void interaction(Empire empire){
+		for(int i=0 ; i < vaisseaux.size() ; i++){
+			vaisseaux.get(i).interactionVaisseaux(empire);
+		}
+	}
+	
+	public ArrayList<Vaisseaux> getVaisseaux(){
+		return vaisseaux;
+	}
+	
+	
+}
+
+
+
+

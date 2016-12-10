@@ -5,7 +5,8 @@ public abstract class Entite {
 	private Color couleur;
 	protected int abs;
 	protected int ord;
-	private static boolean[] caseOccupees = new boolean[300];
+	private static Entite[] listeEntites = new Entite[300];
+	private char typeEntite; // 'v' pour vaisseaux et 'p' pour planete
 
 	public Entite(Color c){
 		Random rand = new Random();
@@ -16,22 +17,51 @@ public abstract class Entite {
 			ord = rand.nextInt(Constantes.Hauteur); //ordonnée
 		}
 		couleur = c ;
-		caseOccupees[getNumeroEntite()] = true;
+		typeEntite = 'p';
 	}
 
 	public Entite(Planetes p,Color c){
-
 		caseAdjacente(p);
 		couleur = c;
-		caseOccupees[getNumeroEntite()] = true;
-
+		typeEntite = 'v';
 	}
-
+	
+	public abstract void infligeDegat();
+	
+	public void modifCouleur(Color newColor){
+		couleur = newColor;
+	}
+	
+	public Entite getListeEntites(int pos){
+		return listeEntites[pos];
+	}
+	
+	public void ajoutListeEntite(Entite e){
+		listeEntites[e.getNumeroEntite()] = e;
+	}
+	
+	public void supprListeEntite(Entite e){
+		listeEntites[e.getNumeroEntite()] = null;
+	}
+	
+	public void modifPositionEntite(int anciennePos, int nouvellePos){
+		//System.out.println("Entite.modifPositionEntite() " + Thread.currentThread().getName());
+		listeEntites[nouvellePos] = listeEntites[anciennePos];
+		listeEntites[anciennePos] = null;
+	}
+	
+	public char getTypeEntite(){
+		return typeEntite;
+	}
+	
 	public void caseAdjacente(Planetes p){
+		System.err.println("1----------");
 		abs = p.getAbscisse()-1;
 		ord = p.getOrdonnee()-1;
 		recadrerCoordonnees(abs, ord);
+		System.out.println(occupee(abs, ord));
 		if(occupee(abs, ord)){
+			System.err.println("2----------");
 			abs = p.getAbscisse();
 			ord = p.getOrdonnee()-1;
 			recadrerCoordonnees(abs, ord);
@@ -104,26 +134,18 @@ public abstract class Entite {
 		ord = recadrerOrdonnee(y);
 	}
 
+	//renvoie vrai si la case est occupee
 	public boolean occupee(int x, int y){
 		boolean occupee = false;
 		int tmp = Constantes.Largeur*y + x;
-		if(caseOccupees[tmp]){
+		if(listeEntites[tmp] != null){
 			occupee = true;
 		}
 		return occupee;
 	}
 
-
-	public void ajoutCase(int pos){
-		caseOccupees[pos] = true;
-	}
-
 	public int getNumeroEntite(){
 		return Constantes.Largeur*ord + abs;
-	}
-
-	public void viderCase(int pos){
-		caseOccupees[pos] = false;
 	}
 	
 	public int min(int a ,int b){
@@ -135,7 +157,8 @@ public abstract class Entite {
 	}
 	
 	public int retrouverAbs(int num){
-		return num%Constantes.Largeur;
+		int ordon = retrouverOrd(num);
+		return num - (ordon*Constantes.Largeur);
 	}
 	
 	public int retrouverOrd(int num){

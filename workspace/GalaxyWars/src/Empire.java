@@ -9,28 +9,49 @@ public class Empire {
 	private ArrayList<Vaisseaux> vaisseaux;
 	private Vaisseaux v1;
 	private Vaisseaux v2;
-	private static ArrayList<Entite> listeEntites = new ArrayList<Entite>();
-	
+
 	public Empire(Color col){
 		couleur = col;
 		planetes = new ArrayList<Planetes>();
 		vaisseaux = new ArrayList<Vaisseaux>();
 		p = new Planetes(couleur);
-		v1 = new Vaisseaux(p,couleur);
-		v2 = new Vaisseaux(p,couleur);
 		ajouterPlanete(p);
-		vaisseaux.add(v1);
-		vaisseaux.add(v2);	
-
-	}
-	
+		System.out.println("p : " + p.getNumeroEntite());
+		v1 = new Vaisseaux(p,couleur);
+		ajoutVaisseaux(v1);
+		System.out.println("v1 : " + v1.getNumeroEntite());
+		v2 = new Vaisseaux(p,couleur);
+		System.out.println("v2 : " + v2.getNumeroEntite());
+		ajoutVaisseaux(v2);
+	}	
 	
 	public void ajouterPlanete(Planetes p){
 		planetes.add(p);
-		nouveauV(p);
+		p.ajoutListeEntite(p);
+		nouveauVaisseauxEnConstruction(p);
+	}
+	
+	public void ajouterPlaneteIno(Planetes p){
+		planetes.add(p);
+		nouveauVaisseauxEnConstruction(p);
+	}
+	
+	public void supprPlanete(int i){
+		planetes.get(i).supprListeEntite(planetes.get(i));
+		planetes.remove(i);
 	}
 
-	private void nouveauV(Planetes p){
+	public void ajoutVaisseaux(Vaisseaux v){
+		vaisseaux.add(v);
+		v.ajoutListeEntite(v);
+	}
+	
+	public void supprVaisseaux(int i){
+		vaisseaux.get(i).supprListeEntite(vaisseaux.get(i));
+		vaisseaux.remove(i);
+	}
+	
+	private void nouveauVaisseauxEnConstruction(Planetes p){
 		p.vaisseauxEnConstruction(p);
 	}
 	
@@ -45,41 +66,41 @@ public class Empire {
 	public void autoDestruction(){
 		for(int i=0 ;i<vaisseaux.size() ;i++){
 			if(!vaisseaux.get(i).verifCarburant() || vaisseaux.get(i).getIntegrite() == 0){
-				vaisseaux.get(i).viderCase(vaisseaux.get(i).getNumeroEntite());
-				vaisseaux.remove(i);
+				supprVaisseaux(i);
 			}
 		}
 	}
 	
 	public void constructionVaisseaux(int t){
 		for(int i=0 ; i<planetes.size() ;i++){
-			if(planetes.get(i).lancementVaisseaux(t)){
-				vaisseaux.add(planetes.get(i).vaisseauxConstruit());
-				nouveauV(planetes.get(i));
-				//listeEntites.add(planetes.get(i).vaisseauxConstruit().getNumeroEntite(),planetes.get(i).vaisseauxConstruit());
+			if(planetes.get(i).constructionTerminee(t)){
+				int x = planetes.get(i).vaisseauxConstruit().retrouverAbs(planetes.get(i).vaisseauxConstruit().getNumeroEntite());
+				int y = planetes.get(i).vaisseauxConstruit().retrouverOrd(planetes.get(i).vaisseauxConstruit().getNumeroEntite());
+				if(!planetes.get(i).vaisseauxConstruit().occupee(x, y)){
+					ajoutVaisseaux(planetes.get(i).vaisseauxConstruit());
+					nouveauVaisseauxEnConstruction(planetes.get(i));
+				}
 			}
 		}
 	}
 	
-	public Entite entitePresente(int num){
-		return listeEntites.get(num);
+	public void deplacementVaisseaux(){
+		for(int i=0 ; i<vaisseaux.size() ;i++){
+			vaisseaux.get(i).deplacement();
+		}
+	}
+	
+	public void interaction(){
+		
 	}
 	
 	public ArrayList<Vaisseaux> getVaisseaux(){
 		return vaisseaux;
 	}
 	
-	/*public void interaction(){
-		for(int v=0 ;v<vaisseaux.size() ;v++){
-			int cible = vaisseaux.get(v).caseCible();
-			if(vaisseaux.get(v).occupee(vaisseaux.get(v).retrouverAbs(cible), vaisseaux.get(v).retrouverOrd(cible))){
-				if(listeEntites.get(cible).getColorEntite() == vaisseaux.get(v).getColorEntite()){
-					
-				}
-				else{
-					
-				}
-			}
-		}
-	}*/
+	
 }
+
+
+
+

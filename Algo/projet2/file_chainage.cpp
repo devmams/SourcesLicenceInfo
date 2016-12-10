@@ -26,16 +26,18 @@ void supprimer(FilePriorite & ch, Maillon * pm)
 
 void afficher(const FilePriorite & ch)
 {
-	Maillon* courant = new Maillon;
+	Maillon* courant;
 	courant = ch.tete;
 	cout << "[";
 	int cpt = 0;
-	while (courant != NULL && cpt != 10 )
+	//cout << ch.tete->elt->nom <<endl;
+	/*while (cpt != 10 )
 	{
-		cout << courant->elt.nom << " : " << courant->elt.priorite <<endl;
-		courant = courant->suiv;
+		cout << "test" <<endl;
+		cout << courant->suiv ;//<< " : " << courant->elt.priorite <<endl;
+		//courant = courant->suiv;
 		cpt++;
-	}
+	}*/
 	cout << "]" << endl;
 }
 

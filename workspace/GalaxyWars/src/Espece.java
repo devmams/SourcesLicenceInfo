@@ -8,8 +8,6 @@ public class Espece {
 	private int tauxProductivite;
 	private Empire empire;
 	private Color coul;
-	private int nouvelleIntegrite;
-	private int ancienneIntegrite = 0;
 	
 	public Espece(){
 		Random rand = new Random();
@@ -31,6 +29,10 @@ public class Espece {
 		return col;
 	}
 	
+	public int getTauxNatalite(){
+		return tauxNatalite;
+	}
+	
 	public Color getCouleur(){
 		return coul;
 	}
@@ -39,11 +41,13 @@ public class Espece {
 		return empire;
 	}
 	
+	public int getTauxProductivite(){
+		return tauxProductivite;
+	}
+	
 	public void constructioin(){
 		empire.constructionVaisseaux(tauxProductivite);
 	}
-	
-	
 }
 
 

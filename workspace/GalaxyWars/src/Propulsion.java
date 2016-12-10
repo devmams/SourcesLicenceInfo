@@ -26,7 +26,11 @@ public class Propulsion {
 		return tmp;
 	}
 	
-	public void setCarburant(){
+	public void diminuerCarburant(){
 		carburant--;
+	}
+	
+	public void rechargerCarburant(){
+		carburant += 5;
 	}
 }

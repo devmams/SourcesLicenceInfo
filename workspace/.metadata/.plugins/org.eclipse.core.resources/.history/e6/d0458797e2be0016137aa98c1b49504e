@@ -1,0 +1,101 @@
+import java.awt.Color;
+import java.util.ArrayList;
+
+public class Empire {
+
+	private Color couleur;
+	private ArrayList<Planetes> planetes;
+	private Planetes p;
+	private ArrayList<Vaisseaux> vaisseaux;
+	private Vaisseaux v1;
+	private Vaisseaux v2;
+
+	public Empire(Color col){
+		couleur = col;
+		planetes = new ArrayList<Planetes>();
+		vaisseaux = new ArrayList<Vaisseaux>();
+		p = new Planetes(couleur);
+		v1 = new Vaisseaux(p,couleur);
+		v2 = new Vaisseaux(p,couleur);
+		ajouterPlanete(p);
+		ajoutVaisseaux(v1);
+		ajoutVaisseaux(v2);
+	}	
+	
+	public void ajouterPlanete(Planetes p){
+		planetes.add(p);
+		p.ajoutListeEntite(p);
+		nouveauVaisseauxEnDeConstruction(p);
+	}
+	
+	public void supprPlanete(Planetes p){
+		for(int i=0 ;i<planetes.size() ;i++){
+			if(planetes.get(i).equals(p)){
+				planetes.remove(i);
+				break;
+			}
+		}
+		p.supprListeEntite(p);
+	}
+
+	public void ajoutVaisseaux(Vaisseaux v){
+		vaisseaux.add(v);
+		v.ajoutListeEntite(v);
+	}
+	
+	public void supprVaisseaux(Vaisseaux v){
+		for(int i=0 ;i<vaisseaux.size() ;i++){
+			if(vaisseaux.get(i).equals(v)){
+				vaisseaux.remove(i);
+				break;
+			}
+		}
+		v.supprListeEntite(v);
+	}
+	
+	private void nouveauVaisseauxEnDeConstruction(Planetes p){
+		p.vaisseauxEnConstruction(p);
+	}
+	
+	public Color getEmpirColor(){
+		return couleur;
+	}
+	
+	public ArrayList<Planetes> getPlanetes(){
+		return planetes;
+	}
+	
+	public void autoDestruction(){
+		for(int i=0 ;i<vaisseaux.size() ;i++){
+			if(!vaisseaux.get(i).verifCarburant() || vaisseaux.get(i).getIntegrite() == 0){
+				supprVaisseaux(vaisseaux.get(i));
+			}
+		}
+	}
+	
+	public void constructionVaisseaux(int t){
+		for(int i=0 ; i<planetes.size() ;i++){
+			if(planetes.get(i).constructionTerminee(t)){
+				if(planetes.get(i).vaisseauxConstruit())
+				ajoutVaisseaux(planetes.get(i).vaisseauxConstruit());
+				nouveauVaisseauxEnDeConstruction(planetes.get(i));
+			}
+		}
+	}
+	
+	public void deplacementVaisseaux(){
+		for(int i=0 ; i<vaisseaux.size() ;i++){
+			vaisseaux.get(i).deplacement();
+		}
+	}
+	
+	public ArrayList<Vaisseaux> getVaisseaux(){
+		return vaisseaux;
+	}
+	
+	
+}
+
+
+
+
