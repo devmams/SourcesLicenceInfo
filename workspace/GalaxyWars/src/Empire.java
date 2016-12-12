@@ -75,7 +75,7 @@ public class Empire {
 		}
 	}
 	
-	public void constructionVaisseaux(int t){
+	public void constructionVaisseaux(double t){
 		for(int i=0 ; i<planetes.size() ;i++){
 			if(planetes.get(i).constructionTerminee(t)){
 				int x = planetes.get(i).vaisseauxConstruit().retrouverAbs(planetes.get(i).vaisseauxConstruit().getNumeroEntite());
@@ -100,7 +100,7 @@ public class Empire {
 		}
 	}
 	
-	public void reproduction(int tauxNatalite){
+	public void reproduction(double tauxNatalite){
 		for(int p=0 ; p<planetes.size() ;p++){
 			planetes.get(p).reproductionPlanete(tauxNatalite);
 		}

@@ -9,7 +9,7 @@ public class Vaisseaux extends Entite {
 	private int resistance;
 	private Propulsion propulsion;
 	private char typeDeplacement;
-	private int integrite;
+	private double integrite;
 
 	public Vaisseaux(Planetes p,Color c){
 		super(p,c);
@@ -24,12 +24,14 @@ public class Vaisseaux extends Entite {
 		integrite = nouvelleIntegrite;
 	}
 	
-	public int getIntegrite() {
+	public double getIntegrite() {
 		return integrite;
 	}
 	
-	public void nouvelleIntegrite(int t , int p){
-		integrite = min (resistance, integrite + (p * t));
+	public void nouvelleIntegrite(double tauxProductivite , double pop){
+		System.out.println("resistance : "+resistance +" ; integriteInit : "+integrite);
+		integrite = min (resistance, integrite + (pop * tauxProductivite));
+		System.out.println("new integrite : "+integrite);
 	}
 	
 	public char typeDeplacement(){
@@ -264,9 +266,9 @@ public class Vaisseaux extends Entite {
 			Color colorEntiteCible = entiteCible.getColorEntite();
 			char typeEntite = entiteCible.getTypeEntite();
 			
-			if(!colorEntiteCible.equals(getColorEntite()) && !colorEntiteCible.equals(Color.white)){//verifie si la cible est ennemie
+			if(!colorEntiteCible.equals(getColorEntite()) && !colorEntiteCible.equals(Color.white)){//verifie si la cible est ennemie(planete ou vaisseaux
 				entiteCible.infligeDegat();
-				if(typeEntite == 'p'){
+				if(typeEntite == 'p' && !((Planetes) entiteCible).populationNull()){
 					for(int i=0 ;i<esp.size();i++){
 						if(colorEntiteCible == esp.get(i).getCouleur()){
 							esp.get(i).getEmpire().supprPlanete((Planetes) entiteCible);
@@ -276,12 +278,13 @@ public class Vaisseaux extends Entite {
 					pI.ajoutPlaneteInoccupee((Planetes) entiteCible);
 				}
 			}
-			else if(colorEntiteCible.equals(getColorEntite()) && typeEntite == 'p'){
+			else if(colorEntiteCible.equals(getColorEntite()) && typeEntite == 'p'){//vérifie si la planete est alliée
 				propulsion.rechargerCarburant();
 			}
-			else if(typeEntite == 'p' && colorEntiteCible.equals(Color.white)){
-				entiteCible.modifCouleur(getColorEntite());
+			else if(typeEntite == 'p' && colorEntiteCible.equals(Color.white)){//verifie si la planète est inoccupée
 				pI.supprPlaneteInoccupee((Planetes) entiteCible);
+				entiteCible.modifCouleur(getColorEntite());
+				((Planetes) entiteCible).modifPopulation(getIntegrite());
 				e.ajouterPlanete((Planetes) entiteCible);
 				e.supprVaisseaux((Vaisseaux) getListeEntites(getNumeroEntite()));
 				supprListeEntite(getListeEntites(getNumeroEntite()));

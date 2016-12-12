@@ -10,8 +10,8 @@
 <fullyQualifiedTypeName name="Constantes"/>
 <fullyQualifiedTypeName name="Planetes"/>
 <fullyQualifiedTypeName name="PlanetesInoccupees"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="Espece"/>
 </qualifiedTypeNameHistroy>

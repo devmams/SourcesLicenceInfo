@@ -145,8 +145,8 @@ public abstract class Entite {
 		return Constantes.Largeur*ord + abs;
 	}
 	
-	public int min(int a ,int b){
-		int tmp = a;
+	public double min(double a ,double b){
+		double tmp = a;
 		if(a > b){
 			tmp = b;
 		}

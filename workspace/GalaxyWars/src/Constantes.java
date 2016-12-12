@@ -37,7 +37,7 @@ public class Constantes {
 
 	// Paramètres de la simulation
 	public static final int TourMax = 5000; // nombre de tours maximum
-	public static final int TourMs = 20; // durée d'un tour en millisecondes
+	public static final int TourMs = 500; // durée d'un tour en millisecondes
 	//public static final int TourMs = 1000; // durée d'un tour en millisecondes
 	
 	// Paramètres d'affichage

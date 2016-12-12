@@ -4,16 +4,16 @@ import java.util.Random;
 
 public class Espece {
 	private static int idEspece = 0;
-	private int tauxNatalite;
-	private int tauxProductivite;
+	private double tauxNatalite;
+	private double tauxProductivite;
 	private Empire empire;
 	private Color coul;
 	
 	public Espece(){
 		Random rand = new Random();
 		idEspece++;
-		tauxNatalite = (Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin);
-		tauxProductivite = (Math.abs(rand.nextInt())%(Constantes.TauxProductiviteMax-Constantes.TauxProductiviteMin+1) + Constantes.TauxProductiviteMin);
+		tauxNatalite = ((Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin))*0.01;
+		tauxProductivite = ((Math.abs(rand.nextInt())%(Constantes.TauxProductiviteMax-Constantes.TauxProductiviteMin+1) + Constantes.TauxProductiviteMin))*0.01;
 		coul = creerCouleur(idEspece);
 		empire = new Empire(coul);
 	}
@@ -29,7 +29,7 @@ public class Espece {
 		return col;
 	}
 	
-	public int getTauxNatalite(){
+	public double getTauxNatalite(){
 		return tauxNatalite;
 	}
 	
@@ -41,7 +41,7 @@ public class Espece {
 		return empire;
 	}
 	
-	public int getTauxProductivite(){
+	public double getTauxProductivite(){
 		return tauxProductivite;
 	}
 }

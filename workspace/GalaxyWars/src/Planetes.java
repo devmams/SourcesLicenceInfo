@@ -5,7 +5,7 @@ public class Planetes extends Entite {
 
 	private int taillePlanete;
 	private Vaisseaux nvVaisseaux ;
-	private int population;
+	private double population;
 	
 	public Planetes(Color c){
 		super(c);
@@ -18,16 +18,13 @@ public class Planetes extends Entite {
 		Random rand = new Random();
 		int degat = rand.nextInt(6) + 5;
 		population -= degat;
-		if(population < 0){
-			population = 0;
-		}
 	}
 	
 	public int getTaillePlante(){
 		return taillePlanete;
 	}
 	
-	public boolean constructionTerminee(int t){
+	public boolean constructionTerminee(double t){
 		boolean bool = false;
 		nvVaisseaux.nouvelleIntegrite(t,population);
 		if(nvVaisseaux.getIntegrite() == nvVaisseaux.getResistance()){
@@ -45,24 +42,29 @@ public class Planetes extends Entite {
 		return nvVaisseaux;
 	}
 	
-	public int getPopulaltion(){
+	public double getPopulaltion(){
 		return population;
 	}
 	
-	public void reproductionPlanete(int tauxNatalite){
+	public void reproductionPlanete(double tauxNatalite){
+		//System.out.println("pop init : "+population +" ; "+"taillePop : "+taillePlanete);
+		//System.out.println("natalite : "+ tauxNatalite);
+		
 		population = min(taillePlanete, population*(1+tauxNatalite));
+		//System.out.println("pop :"+ population);
 	}
 	
 	public boolean populationNull() {
 		boolean res = false;
-		System.out.println("pop : "+population);
-		if(population > 0){
+		if(population <= 0){
 			res = true;
+			System.out.println(population + "---------------------------");
 		}
+		//System.out.println(population +"+++++++++++++++++++++++");
 		return false;
 	}
 		
-	public void modifPopulation(int nvPop){
+	public void modifPopulation(double nvPop){
 		population = nvPop;
 	}
 		
