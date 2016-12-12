@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="11" version="2.0">
+<workbench progressCount="14" version="2.0">
 <workbenchAdvisor/>
 <window height="744" maximized="true" width="1024" x="65" y="24">
 <fastViewData fastViewLocation="1024"/>
@@ -8,18 +8,18 @@
 </perspectiveBar>
 <coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="160" y="36"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="144" y="30"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="174" y="36"/>
-<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="156" y="30"/>
+<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="316" y="30"/>
 <coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="88" y="30"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="100" y="36"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="138" y="36"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="88" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="124" y="30"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="256" y="36"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="232" y="30"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -35,11 +35,11 @@
 <part id="7"/>
 <part id="2"/>
 <part id="3"/>
-<part id="4"/>
 <part id="5"/>
 <part id="6"/>
 <part id="8"/>
 <part id="9"/>
+<part id="4"/>
 <part id="10"/>
 <part id="11"/>
 <part id="12"/>
@@ -47,64 +47,105 @@
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Affichage.java" partName="Affichage.java" path="/comptes/E14F494H/Fac/workspace/GalaxyWars/src/Affichage.java" title="Affichage.java" tooltip="GalaxyWars/src/Affichage.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Affichage.java" partName="Affichage.java" path="/home/ousmane/Fac/workspace/GalaxyWars/src/Affichage.java" title="Affichage.java" tooltip="GalaxyWars/src/Affichage.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GalaxyWars/src/Affichage.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="34" selectionOffset="5438" selectionTopPixel="1556"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5396" selectionTopPixel="1853"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Constantes.java" partName="Constantes.java" path="/comptes/E14F494H/Fac/workspace/GalaxyWars/src/Constantes.java" title="Constantes.java" tooltip="GalaxyWars/src/Constantes.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Constantes.java" partName="Constantes.java" path="/home/ousmane/Fac/workspace/GalaxyWars/src/Constantes.java" title="Constantes.java" tooltip="GalaxyWars/src/Constantes.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GalaxyWars/src/Constantes.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1632" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1288" selectionTopPixel="238"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Construction.java" partName="Construction.java" path="/comptes/E14F494H/Fac/workspace/GalaxyWars/src/Construction.java" title="Construction.java" tooltip="GalaxyWars/src/Construction.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GalaxyWars/src/Construction.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Empire.java" partName="Empire.java" path="/comptes/E14F494H/Fac/workspace/GalaxyWars/src/Empire.java" title="Empire.java" tooltip="GalaxyWars/src/Empire.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Empire.java" partName="Empire.java" path="/home/ousmane/Fac/workspace/GalaxyWars/src/Empire.java" title="Empire.java" tooltip="GalaxyWars/src/Empire.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GalaxyWars/src/Empire.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="117" selectionOffset="1369" selectionTopPixel="544"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2459" selectionTopPixel="1394"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Entite.java" partName="Entite.java" path="/comptes/E14F494H/Fac/workspace/GalaxyWars/src/Entite.java" title="Entite.java" tooltip="GalaxyWars/src/Entite.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Entite.java" partName="Entite.java" path="/home/ousmane/Fac/workspace/GalaxyWars/src/Entite.java" title="Entite.java" tooltip="GalaxyWars/src/Entite.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GalaxyWars/src/Entite.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2401" selectionTopPixel="1407"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="745" selectionTopPixel="144"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Equipement.java" partName="Equipement.java" path="/comptes/E14F494H/Fac/workspace/GalaxyWars/src/Equipement.java" title="Equipement.java" tooltip="GalaxyWars/src/Equipement.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GalaxyWars/src/Equipement.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Espece.java" partName="Espece.java" path="/comptes/E14F494H/Fac/workspace/GalaxyWars/src/Espece.java" title="Espece.java" tooltip="GalaxyWars/src/Espece.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Espece.java" partName="Espece.java" path="/home/ousmane/Fac/workspace/GalaxyWars/src/Espece.java" title="Espece.java" tooltip="GalaxyWars/src/Espece.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GalaxyWars/src/Espece.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="104" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Fenetre.java" partName="Fenetre.java" path="/comptes/E14F494H/Fac/workspace/GalaxyWars/src/Fenetre.java" title="Fenetre.java" tooltip="GalaxyWars/src/Fenetre.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GalaxyWars/src/Fenetre.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="498" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Planetes.java" partName="Planetes.java" path="/comptes/E14F494H/Fac/workspace/GalaxyWars/src/Planetes.java" title="Planetes.java" tooltip="GalaxyWars/src/Planetes.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GalaxyWars/src/Planetes.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="724" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Propulsion.java" partName="Propulsion.java" path="/comptes/E14F494H/Fac/workspace/GalaxyWars/src/Propulsion.java" title="Propulsion.java" tooltip="GalaxyWars/src/Propulsion.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Propulsion.java" partName="Propulsion.java" path="/home/ousmane/Fac/workspace/GalaxyWars/src/Propulsion.java" title="Propulsion.java" tooltip="GalaxyWars/src/Propulsion.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GalaxyWars/src/Propulsion.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="726" selectionTopPixel="17"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Simulation.java" partName="Simulation.java" path="/comptes/E14F494H/Fac/workspace/GalaxyWars/src/Simulation.java" title="Simulation.java" tooltip="GalaxyWars/src/Simulation.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Simulation.java" partName="Simulation.java" path="/home/ousmane/Fac/workspace/GalaxyWars/src/Simulation.java" title="Simulation.java" tooltip="GalaxyWars/src/Simulation.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GalaxyWars/src/Simulation.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1764" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1361" selectionTopPixel="599"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Vaisseaux.java" partName="Vaisseaux.java" path="/comptes/E14F494H/Fac/workspace/GalaxyWars/src/Vaisseaux.java" title="Vaisseaux.java" tooltip="GalaxyWars/src/Vaisseaux.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Vaisseaux.java" partName="Vaisseaux.java" path="/home/ousmane/Fac/workspace/GalaxyWars/src/Vaisseaux.java" title="Vaisseaux.java" tooltip="GalaxyWars/src/Vaisseaux.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GalaxyWars/src/Vaisseaux.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="722" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7781" selectionTopPixel="4386"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.ClassFileEditor" name="JComponent.class" partName="JComponent.class" path="/tmp/JComponent.class4994152930085283295.class" title="JComponent.class" tooltip="javax.swing.JComponent" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" org.eclipse.jdt.ui.ClassFileIdentifier="=GalaxyWars/\/usr\/lib\/jvm\/java-8-oracle\/jre\/lib\/rt.jar&lt;javax.swing(JComponent.class"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="39825" selectionTopPixel="17255"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Planetes.java" partName="Planetes.java" path="/home/ousmane/Fac/workspace/GalaxyWars/src/Planetes.java" title="Planetes.java" tooltip="GalaxyWars/src/Planetes.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GalaxyWars/src/Planetes.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="753" selectionTopPixel="663"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlanetesInoccupees.java" partName="PlanetesInoccupees.java" path="/home/ousmane/Fac/workspace/GalaxyWars/src/PlanetesInoccupees.java" title="PlanetesInoccupees.java" tooltip="GalaxyWars/src/PlanetesInoccupees.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GalaxyWars/src/PlanetesInoccupees.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="718" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
+<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.TypeHierarchy" partName="Type Hierarchy">
+<viewState hidefields="false" hidelocaltypes="false" hidenonpublic="false" hidestatic="false" input="=GalaxyWars/src&lt;{Vaisseaux.java[Vaisseaux" link_editors="0" mv_vertical_scroll="0" orientation="3" qualified_names="0" ratio="350" selection="=GalaxyWars/src&lt;{Vaisseaux.java[Vaisseaux" showinherited="false" sortbydefiningtype="false" vertical_scroll="0" view="2" workingSetName=""/>
+</view>
+<view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
+<viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="">
+<customFilters userDefinedPatternsEnabled="false">
+<xmlDefinedFilters>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.HideInnerClassFilesFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ImportDeclarationFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaElementFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.LibraryFilter" isEnabled="false"/>
+<child filterId="org.eclipse.pde.ui.BinaryProjectFilter1" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.CuAndClassFileFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter" isEnabled="false"/>
+<child filterId="org.eclipse.pde.ui.ExternalPluginLibrariesFilter1" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.FieldsFilter" isEnabled="false"/>
+</xmlDefinedFilters>
+</customFilters>
+</viewState>
+</view>
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
 </view>
+<view id="org.eclipse.jdt.callhierarchy.view" partName="Call Hierarchy">
+<viewState search_scope_type="1"/>
+</view>
 <view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
 <viewState/>
 </view>
 <view id="org.eclipse.ui.views.TaskList" partName="Tasks">
@@ -120,7 +161,13 @@
 </viewState>
 </view>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
-<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.cdt.ui.cview.groupincludes="false" org.eclipse.cdt.ui.cview.groupmacros="false" org.eclipse.cdt.ui.editor.CUChildren="true" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
+<viewState/>
 </view>
 </views>
 <perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.ui.resourcePerspective">
@@ -157,25 +204,25 @@
 <fastViewBars>
 <fastViewBar fastViewLocation="16384" id="bottomLeft" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="1">
 <fastViews>
-<view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
+<view id="org.eclipse.ui.views.ContentOutline" ratio="0.299444"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="1024" id="bottomRight" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="1">
 <fastViews>
 <view id="org.eclipse.ui.views.TaskList" ratio="0.3"/>
-<view id="org.eclipse.ui.console.ConsoleView" ratio="0.54507774"/>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.36390978"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="16384" id="topLeft" orientation="512" selectedTabId="org.eclipse.ui.navigator.ProjectExplorer" style="1">
 <fastViews>
-<view id="org.eclipse.ui.navigator.ProjectExplorer" ratio="0.299444"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" ratio="0.29864973"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
 <layout>
 <mainWindow>
 <info folder="true" part="topLeft">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
@@ -192,15 +239,16 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.25940594" ratioLeft="262" ratioRight="748" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottomRight" ratio="0.659375" ratioLeft="422" ratioRight="218" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
 <page content="org.eclipse.team.ui.GenericHistoryView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="bottomLeft" ratio="0.5" ratioLeft="320" ratioRight="320" relationship="4" relative="topLeft">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
@@ -259,18 +307,31 @@
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.RunToLine"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
-<fastViewBars>&#x0A;<fastViewBar fastViewLocation="16384" id="left" orientation="512" selectedTabId="org.eclipse.jdt.ui.PackageExplorer" style="1">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.jdt.ui.PackageExplorer" ratio="0.29795918"/>
+<fastViewBars>
+<fastViewBar fastViewLocation="16384" id="left" orientation="512" selectedTabId="org.eclipse.jdt.ui.PackageExplorer" style="1">
+<fastViews>
+<view id="org.eclipse.jdt.ui.PackageExplorer" ratio="0.29795918"/>
 <view id="org.eclipse.jdt.ui.TypeHierarchy" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.ui.views.ProblemView" style="1">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.jdt.ui.JavadocView" ratio="0.3"/>
+<fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="1">
+<fastViews>
+<view id="org.eclipse.jdt.ui.JavadocView" ratio="0.3"/>
+<view id="org.eclipse.jdt.callhierarchy.view" ratio="0.3"/>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.29924813"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="131072" id="right" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="1">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.ui.views.ContentOutline" ratio="0.29959184"/>
+<fastViewBar fastViewLocation="131072" id="right" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
+<fastViews>
+<view id="org.eclipse.ui.views.ContentOutline" ratio="0.29959184"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
-<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="left">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
+<layout>
+<mainWindow>
+<info folder="true" part="left">
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
@@ -278,25 +339,126 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="left">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="left">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.24950495" ratioLeft="252" ratioRight="758" relationship="2" relative="left"/>
-<info folder="true" part="bottom" ratio="0.70186335" ratioLeft="678" ratioRight="288" relationship="4" relative="org.eclipse.ui.editorss">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
+<info folder="true" part="bottom" ratio="0.70186335" ratioLeft="678" ratioRight="288" relationship="4" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.callhierarchy.view" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="right" ratio="0.74934036" ratioLeft="568" ratioRight="190" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+<info folder="true" part="right" ratio="0.74934036" ratioLeft="568" ratioRight="190" relationship="2" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaTrimState="0" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.debug.internal.ui.DebugPerspectiveFactory" id="org.eclipse.debug.ui.DebugPerspective" label="Debug"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<show_view_action id="org.eclipse.debug.ui.DebugView"/>
+<show_view_action id="org.eclipse.debug.ui.VariableView"/>
+<show_view_action id="org.eclipse.debug.ui.BreakpointView"/>
+<show_view_action id="org.eclipse.debug.ui.ExpressionView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ant.ui.views.AntView"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<show_view_action id="org.eclipse.jdt.debug.ui.DisplayView"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.debug.ui.commands.RunToLine"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<fastViewBars>
+<fastViewBar fastViewLocation="131072" id="org.eclipse.debug.internal.ui.ToolsFolderView" orientation="256" selectedTabId="org.eclipse.debug.ui.VariableView" style="0">
+<fastViews>
+<view id="org.eclipse.debug.ui.VariableView" ratio="0.3"/>
+<view id="org.eclipse.debug.ui.BreakpointView" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="16384" id="org.eclipse.debug.internal.ui.NavigatorFolderView" orientation="256" selectedTabId="org.eclipse.jdt.ui.TypeHierarchy" style="0">
+<fastViews>
+<view id="org.eclipse.debug.ui.DebugView" ratio="0.3"/>
+<view id="org.eclipse.jdt.ui.TypeHierarchy" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+</fastViewBars>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.debug.ui.DebugView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.74980146" ratioLeft="944" ratioRight="315" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.74887216" ratioLeft="498" ratioRight="167" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.debug.ui.DisplayView" label="LabelNotFound"/>
+<page content="org.eclipse.search.SearchResultView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.4497992" ratioLeft="224" ratioRight="274" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.74980146" ratioLeft="944" ratioRight="315" relationship="2" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+<page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.49960285" ratioLeft="629" ratioRight="630" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.debug.ui.VariableView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
@@ -307,174 +469,164 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Empire.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Propulsion.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Equipement.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Affichage.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Constantes.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Construction.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Empire.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Entite.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Equipement.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Espece.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Fenetre.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Planetes.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Propulsion.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Simulation.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Vaisseaux.java"/>
-<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=GalaxyWars/\/usr\/lib\/jvm\/java-8-oracle\/jre\/lib\/rt.jar&lt;javax.swing(JComponent.class"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Entite.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Simulation.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Planetes.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/PlanetesInoccupees.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Empire.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Constantes.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GalaxyWars/src/Espece.java"/>
 </editors>
-<item historyLabel="Empire.java" index="0">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="8293" y="0"/>
 </item>
-<item historyLabel="Empire.java" index="0">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Simulation.java" index="2">
+<position/>
 </item>
-<item historyLabel="Propulsion.java" index="1">
-<position info="not_deleted" x="100" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="8293" y="0"/>
 </item>
-<item historyLabel="Equipement.java" index="2">
-<position info="not_deleted" x="84" y="0"/>
+<item historyLabel="Empire.java" index="5">
+<position info="not_deleted" x="2550" y="0"/>
 </item>
-<item historyLabel="Affichage.java" index="3">
-<position info="not_deleted" x="5732" y="0"/>
+<item historyLabel="Simulation.java" index="2">
+<position/>
 </item>
-<item historyLabel="Affichage.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="8191" y="0"/>
 </item>
-<item historyLabel="Constantes.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Simulation.java" index="2">
+<position info="not_deleted" x="1327" y="0"/>
 </item>
-<item historyLabel="Construction.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Empire.java" index="5">
+<position info="not_deleted" x="2550" y="0"/>
 </item>
-<item historyLabel="Empire.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Constantes.java" index="6">
+<position info="not_deleted" x="865" y="0"/>
 </item>
-<item historyLabel="Entite.java" index="7">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="PlanetesInoccupees.java" index="4">
+<position info="not_deleted" x="718" y="0"/>
 </item>
-<item historyLabel="Equipement.java" index="8">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Constantes.java" index="6">
+<position info="not_deleted" x="1288" y="0"/>
 </item>
-<item historyLabel="Espece.java" index="9">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="PlanetesInoccupees.java" index="4">
+<position info="not_deleted" x="718" y="0"/>
 </item>
-<item historyLabel="Fenetre.java" index="10">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Empire.java" index="5">
+<position info="not_deleted" x="2550" y="0"/>
 </item>
-<item historyLabel="Planetes.java" index="11">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="8078" y="0"/>
 </item>
-<item historyLabel="Propulsion.java" index="12">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Empire.java" index="5">
+<position info="not_deleted" x="908" y="0"/>
 </item>
-<item historyLabel="Simulation.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="7180" y="0"/>
 </item>
-<item historyLabel="Vaisseaux.java" index="14">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Simulation.java" index="2">
+<position info="not_deleted" x="1327" y="0"/>
 </item>
-<item historyLabel="Affichage.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="7180" y="0"/>
 </item>
-<item historyLabel="Simulation.java" index="13">
-<position info="not_deleted" x="1870" y="0"/>
+<item historyLabel="PlanetesInoccupees.java" index="4">
+<position info="not_deleted" x="718" y="0"/>
 </item>
-<item historyLabel="Constantes.java" index="4">
-<position info="not_deleted" x="1633" y="0"/>
+<item historyLabel="Planetes.java" index="3">
+<position info="not_deleted" x="753" y="0"/>
 </item>
-<item historyLabel="Entite.java" index="7">
-<position info="not_deleted" x="23" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="7180" y="0"/>
 </item>
-<item historyLabel="Empire.java" index="6">
-<position info="not_deleted" x="320" y="0"/>
+<item historyLabel="Empire.java" index="5">
+<position info="not_deleted" x="908" y="0"/>
 </item>
-<item historyLabel="Construction.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Entite.java" index="1">
+<position info="not_deleted" x="745" y="0"/>
 </item>
-<item historyLabel="Empire.java" index="6">
-<position info="not_deleted" x="1369" y="117"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="7180" y="0"/>
 </item>
-<item historyLabel="Entite.java" index="7">
-<position info="not_deleted" x="2074" y="0"/>
+<item historyLabel="Entite.java" index="1">
+<position info="not_deleted" x="745" y="0"/>
 </item>
-<item historyLabel="Equipement.java" index="8">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Simulation.java" index="2">
+<position info="not_deleted" x="1379" y="0"/>
 </item>
-<item historyLabel="Espece.java" index="9">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="PlanetesInoccupees.java" index="4">
+<position info="not_deleted" x="718" y="0"/>
 </item>
-<item historyLabel="Fenetre.java" index="10">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="7718" y="0"/>
 </item>
-<item historyLabel="Planetes.java" index="11">
-<position info="not_deleted" x="23" y="0"/>
+<item historyLabel="Empire.java" index="5">
+<position info="not_deleted" x="908" y="0"/>
 </item>
-<item historyLabel="Entite.java" index="7">
-<position info="not_deleted" x="2074" y="0"/>
+<item historyLabel="Simulation.java" index="2">
+<position info="not_deleted" x="1379" y="0"/>
 </item>
-<item historyLabel="Planetes.java" index="11">
-<position info="not_deleted" x="1317" y="0"/>
+<item historyLabel="Empire.java" index="5">
+<position info="not_deleted" x="908" y="0"/>
 </item>
-<item historyLabel="Propulsion.java" index="12">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="7718" y="0"/>
 </item>
-<item historyLabel="Simulation.java" index="13">
-<position info="not_deleted" x="1870" y="0"/>
+<item historyLabel="Empire.java" index="5">
+<position info="not_deleted" x="908" y="0"/>
 </item>
-<item historyLabel="Affichage.java" index="3">
-<position info="not_deleted" x="5284" y="0"/>
+<item historyLabel="Simulation.java" index="2">
+<position info="not_deleted" x="1379" y="0"/>
 </item>
-<item historyLabel="Simulation.java" index="13">
-<position info="not_deleted" x="1870" y="0"/>
+<item historyLabel="Empire.java" index="5">
+<position info="not_deleted" x="908" y="0"/>
 </item>
-<item historyLabel="Vaisseaux.java" index="14">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Simulation.java" index="2">
+<position info="not_deleted" x="1379" y="0"/>
 </item>
-<item historyLabel="Affichage.java" index="3">
-<position info="not_deleted" x="5216" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="7718" y="0"/>
 </item>
-<item historyLabel="Simulation.java" index="13">
-<position info="not_deleted" x="1824" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="7900" y="0"/>
 </item>
-<item historyLabel="Vaisseaux.java" index="14">
-<position info="not_deleted" x="722" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="7790" y="0"/>
 </item>
-<item historyLabel="Affichage.java" index="3">
-<position info="not_deleted" x="5438" y="34"/>
+<item historyLabel="PlanetesInoccupees.java" index="4">
+<position info="not_deleted" x="718" y="0"/>
 </item>
-<item historyLabel="JComponent.class" index="15">
-<position info="not_deleted" x="39825" y="0"/>
+<item historyLabel="Simulation.java" index="2">
+<position info="not_deleted" x="2018" y="0"/>
 </item>
-<item historyLabel="Affichage.java" index="3">
-<position info="not_deleted" x="5458" y="11"/>
+<item historyLabel="PlanetesInoccupees.java" index="4">
+<position info="not_deleted" x="718" y="0"/>
 </item>
-<item historyLabel="Planetes.java" index="11">
-<position info="not_deleted" x="724" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="7790" y="0"/>
 </item>
-<item historyLabel="Fenetre.java" index="10">
-<position info="not_deleted" x="498" y="0"/>
+<item historyLabel="Espece.java" index="7">
+<position info="not_deleted" x="104" y="0"/>
 </item>
-<item historyLabel="Entite.java" index="7">
-<position info="not_deleted" x="2401" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="7790" y="0"/>
 </item>
-<item historyLabel="Affichage.java" index="3">
-<position info="not_deleted" x="5438" y="34"/>
+<item historyLabel="Simulation.java" index="2">
+<position info="not_deleted" x="1361" y="0"/>
 </item>
-<item historyLabel="Planetes.java" index="11">
-<position info="not_deleted" x="724" y="0"/>
+<item historyLabel="Espece.java" index="7">
+<position info="not_deleted" x="104" y="0"/>
 </item>
-<item historyLabel="Simulation.java" index="16">
-<position info="not_deleted" x="1822" y="0"/>
+<item historyLabel="Empire.java" index="5">
+<position info="not_deleted" x="2459" y="0"/>
 </item>
-<item historyLabel="Constantes.java" index="17">
-<position info="not_deleted" x="1632" y="0"/>
+<item historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="7790" y="0"/>
 </item>
-<item active="true" historyLabel="Simulation.java" index="16">
-<position info="not_deleted" x="1764" y="0"/>
+<item active="true" historyLabel="Vaisseaux.java" index="0">
+<position info="not_deleted" x="7785" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -485,6 +637,15 @@
 <trimArea IMemento.internal.id="16384">
 <trimItem IMemento.internal.id="topLeft"/>
 <trimItem IMemento.internal.id="bottomLeft"/>
+<trimItem IMemento.internal.id="left"/>
+<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="right"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
+<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.ConsoleFolderView"/>
+<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.ToolsFolderView"/>
+<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.OutlineFolderView"/>
 </trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
@@ -494,10 +655,23 @@
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
 <trimItem IMemento.internal.id="bottomRight"/>
+<trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlanetesInoccupees.java" tooltip="GalaxyWars/src/PlanetesInoccupees.java">
+<persistable path="/GalaxyWars/src/PlanetesInoccupees.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="ArrayList.class" tooltip="java.util.ArrayList">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=GalaxyWars/\/usr\/lib\/jvm\/java-8-openjdk-i386\/jre\/lib\/rt.jar&lt;java.util(ArrayList.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Planetes.java" tooltip="GalaxyWars/src/Planetes.java">
+<persistable path="/GalaxyWars/src/Planetes.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Thread.class" tooltip="java.lang.Thread">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=GalaxyWars/\/usr\/lib\/jvm\/java-8-openjdk-i386\/jre\/lib\/rt.jar&lt;java.lang(Thread.class"/>
+</file>
 <file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="JComponent.class" tooltip="javax.swing.JComponent">
 <persistable org.eclipse.jdt.ui.ClassFileIdentifier="=GalaxyWars/\/usr\/lib\/jvm\/java-8-oracle\/jre\/lib\/rt.jar&lt;javax.swing(JComponent.class"/>
 </file>
@@ -509,9 +683,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Propulsion.java" tooltip="GalaxyWars/src/Propulsion.java">
 <persistable path="/GalaxyWars/src/Propulsion.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Planetes.java" tooltip="GalaxyWars/src/Planetes.java">
-<persistable path="/GalaxyWars/src/Planetes.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Fenetre.java" tooltip="GalaxyWars/src/Fenetre.java">
 <persistable path="/GalaxyWars/src/Fenetre.java"/>
@@ -533,15 +704,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Constantes.java" tooltip="GalaxyWars/src/Constantes.java">
 <persistable path="/GalaxyWars/src/Constantes.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Affichage.java" tooltip="GalaxyWars/src/Affichage.java">
-<persistable path="/GalaxyWars/src/Affichage.java"/>
-</file>
-<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="ArrayList.class" tooltip="java.util.ArrayList">
-<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=GalaxyWars/\/usr\/lib\/jvm\/java-8-openjdk-i386\/jre\/lib\/rt.jar&lt;java.util(ArrayList.class"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Test.java" tooltip="Tp/src/Test.java">
-<persistable path="/Tp/src/Test.java"/>
 </file>
 </mruList>
 </workbench>

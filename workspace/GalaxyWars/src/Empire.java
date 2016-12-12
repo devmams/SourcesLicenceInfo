@@ -16,12 +16,9 @@ public class Empire {
 		vaisseaux = new ArrayList<Vaisseaux>();
 		p = new Planetes(couleur);
 		ajouterPlanete(p);
-		System.out.println("p : " + p.getNumeroEntite());
 		v1 = new Vaisseaux(p,couleur);
 		ajoutVaisseaux(v1);
-		System.out.println("v1 : " + v1.getNumeroEntite());
 		v2 = new Vaisseaux(p,couleur);
-		System.out.println("v2 : " + v2.getNumeroEntite());
 		ajoutVaisseaux(v2);
 	}	
 	
@@ -36,9 +33,12 @@ public class Empire {
 		nouveauVaisseauxEnConstruction(p);
 	}
 	
-	public void supprPlanete(int i){
-		planetes.get(i).supprListeEntite(planetes.get(i));
-		planetes.remove(i);
+	public void supprPlanete(Planetes p){
+		for(int i=0 ;i<planetes.size() ;i++){
+			if(p.equals(planetes.get(i))){
+				planetes.remove(i);
+			}
+		}
 	}
 
 	public void ajoutVaisseaux(Vaisseaux v){
@@ -46,9 +46,13 @@ public class Empire {
 		v.ajoutListeEntite(v);
 	}
 	
-	public void supprVaisseaux(int i){
-		vaisseaux.get(i).supprListeEntite(vaisseaux.get(i));
-		vaisseaux.remove(i);
+	public void supprVaisseaux(Vaisseaux v){
+		for(int i=0 ;i<vaisseaux.size() ;i++){
+			if(v.equals(vaisseaux.get(i))){
+				vaisseaux.remove(i);
+				break;
+			}
+		}
 	}
 	
 	private void nouveauVaisseauxEnConstruction(Planetes p){
@@ -66,7 +70,7 @@ public class Empire {
 	public void autoDestruction(){
 		for(int i=0 ;i<vaisseaux.size() ;i++){
 			if(!vaisseaux.get(i).verifCarburant() || vaisseaux.get(i).getIntegrite() == 0){
-				supprVaisseaux(i);
+				supprVaisseaux(vaisseaux.get(i));
 			}
 		}
 	}
@@ -90,8 +94,16 @@ public class Empire {
 		}
 	}
 	
-	public void interaction(){
-		
+	public void interaction(ArrayList<Espece>especes,Empire empire,PlanetesInoccupees pI){
+		for(int i=0 ;i<vaisseaux.size(); i++){
+			vaisseaux.get(i).interactionVaisseaux(especes,empire,pI);
+		}
+	}
+	
+	public void reproduction(int tauxNatalite){
+		for(int p=0 ; p<planetes.size() ;p++){
+			planetes.get(p).reproductionPlanete(tauxNatalite);
+		}
 	}
 	
 	public ArrayList<Vaisseaux> getVaisseaux(){

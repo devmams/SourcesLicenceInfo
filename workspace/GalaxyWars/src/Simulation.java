@@ -27,19 +27,15 @@ public class Simulation {
 		Fenetre fenetre = new Fenetre(panneau);
 
 		ArrayList<Espece> especes = new ArrayList<Espece>();
-		
-		ArrayList<Planetes> planetesInoccupee = new ArrayList<Planetes>();
-
+	
 		//création d'espace initiales
 		for(int i=0 ; i<3 ;i++){
 			especes.add(new Espece());
 		}
 		
+		PlanetesInoccupees pI = new PlanetesInoccupees();
+		
 		//création de planètes inoccupées
-		for(int ind=0 ; ind<Constantes.NbPlanetesInocupee ;ind++){
-			planetesInoccupee.add(new Planetes(Color.white));
-			planetesInoccupee.get(ind).ajoutListeEntite(planetesInoccupee.get(ind));
-		}
 		
 		// boucle de simulation
 		int tour = 0;
@@ -58,29 +54,25 @@ public class Simulation {
 			ArrayList<Vaisseaux> listeVaisseaux = new ArrayList<Vaisseaux>();
 			
 			for (Espece e : especes) {
-				System.out.println("############taille P : "+ e.getCouleur() + " ---- " + e.getEmpire().getPlanetes().size());
-				for (int p=0; p<e.getEmpire().getPlanetes().size(); p++) {
-					listePlanetes.add(e.getEmpire().getPlanetes().get(p));
-					//e.getEmpire().getPlanetes().get(p).reproduction(); //reproduction de la population
-				}	
+				e.getEmpire().reproduction(e.getTauxNatalite()); //reproduction de la population
+				e.getEmpire().constructionVaisseaux(e.getTauxProductivite());
+				e.getEmpire().deplacementVaisseaux();
+				e.getEmpire().interaction(especes ,e.getEmpire(),pI);
+				e.getEmpire().autoDestruction();
+			}
+			
+			for (Espece e : especes) {
 				for (int v=0; v<e.getEmpire().getVaisseaux().size(); v++) {
 					listeVaisseaux.add(e.getEmpire().getVaisseaux().get(v));
-					e.getEmpire().getVaisseaux().get(v).interactionVaisseaux(e.getEmpire());
 				}
-				e.getEmpire().deplacementVaisseaux();
-				//e.getEmpire().autoDestruction();
-				//e.getEmpire().constructionVaisseaux(e.getTauxProductivite());
+				for (int p=0; p<e.getEmpire().getPlanetes().size(); p++) {
+					listePlanetes.add(e.getEmpire().getPlanetes().get(p));
+				}
 			}
 			
 			//ajout des planètes inoccupées
-			for(int i=0 ; i<Constantes.NbPlanetesInocupee; i++){
-				Planetes planetes = planetesInoccupee.get(i);
-				if (planetes.getColorEntite().equals(Color.WHITE)) {
-					listePlanetes.add(planetesInoccupee.get(i));
-				}
-				else{
-					System.out.println("planete blanche '''''''''''''''''''''''''''");
-				}
+			for(int i=0 ;i<pI.getPlanetesInoccupees().size() ;i++){
+				listePlanetes.add(pI.getPlanetesInoccupees().get(i));
 			}
 			
 			panneau.rafraichir(listePlanetes,listeVaisseaux);

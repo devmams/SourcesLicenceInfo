@@ -4,9 +4,7 @@ import java.util.Random;
 public class Planetes extends Entite {
 
 	private int taillePlanete;
-	private int tauxNatalite;
 	private Vaisseaux nvVaisseaux ;
-	public int cptIntegrite;
 	private int population;
 	
 	public Planetes(Color c){
@@ -14,13 +12,15 @@ public class Planetes extends Entite {
 		Random rand = new Random();
 		taillePlanete = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;//taille
 		population = taillePlanete/2;
-		tauxNatalite = Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin;//tauxNatalite
 	}
 	
 	public void infligeDegat(){
 		Random rand = new Random();
 		int degat = rand.nextInt(6) + 5;
 		population -= degat;
+		if(population < 0){
+			population = 0;
+		}
 	}
 	
 	public int getTaillePlante(){
@@ -37,7 +37,7 @@ public class Planetes extends Entite {
 	}
 	
 	public void vaisseauxEnConstruction(Planetes p){
-		nvVaisseaux = new Vaisseaux(p,p.getColorEntite());
+		nvVaisseaux = new Vaisseaux(p,getColorEntite());
 		nvVaisseaux.setIntegrite(0);
 	}
 	
@@ -49,13 +49,21 @@ public class Planetes extends Entite {
 		return population;
 	}
 	
-	public int getTauxNatalite(){
-		return tauxNatalite;
-	}
-	
-	public void reproduction(){
+	public void reproductionPlanete(int tauxNatalite){
 		population = min(taillePlanete, population*(1+tauxNatalite));
 	}
+	
+	public boolean populationNull() {
+		boolean res = false;
+		System.out.println("pop : "+population);
+		if(population > 0){
+			res = true;
+		}
+		return false;
+	}
 		
+	public void modifPopulation(int nvPop){
+		population = nvPop;
+	}
 		
 }

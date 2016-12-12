@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.util.Random;
 
 public abstract class Entite {
-	private Color couleur;
+	protected Color couleur;
 	protected int abs;
 	protected int ord;
 	private static Entite[] listeEntites = new Entite[300];
@@ -19,7 +19,7 @@ public abstract class Entite {
 		couleur = c ;
 		typeEntite = 'p';
 	}
-
+	
 	public Entite(Planetes p,Color c){
 		caseAdjacente(p);
 		couleur = c;
@@ -27,7 +27,7 @@ public abstract class Entite {
 	}
 	
 	public abstract void infligeDegat();
-	
+		
 	public void modifCouleur(Color newColor){
 		couleur = newColor;
 	}
@@ -55,13 +55,10 @@ public abstract class Entite {
 	}
 	
 	public void caseAdjacente(Planetes p){
-		System.err.println("1----------");
 		abs = p.getAbscisse()-1;
 		ord = p.getOrdonnee()-1;
 		recadrerCoordonnees(abs, ord);
-		System.out.println(occupee(abs, ord));
 		if(occupee(abs, ord)){
-			System.err.println("2----------");
 			abs = p.getAbscisse();
 			ord = p.getOrdonnee()-1;
 			recadrerCoordonnees(abs, ord);
@@ -164,5 +161,5 @@ public abstract class Entite {
 	public int retrouverOrd(int num){
 		return num/Constantes.Largeur;
 	}
-
+	
 }

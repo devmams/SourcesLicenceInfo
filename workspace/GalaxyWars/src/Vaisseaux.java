@@ -1,9 +1,11 @@
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Random;
 
 
 public class Vaisseaux extends Entite {
 	
+	private static final String Planetes = null;
 	private int resistance;
 	private Propulsion propulsion;
 	private char typeDeplacement;
@@ -27,7 +29,7 @@ public class Vaisseaux extends Entite {
 	}
 	
 	public void nouvelleIntegrite(int t , int p){
-		integrite = min (resistance, integrite + p * t);
+		integrite = min (resistance, integrite + (p * t));
 	}
 	
 	public char typeDeplacement(){
@@ -255,27 +257,34 @@ public class Vaisseaux extends Entite {
 		integrite -= degat;
 	}
 	
-	public void interactionVaisseaux(Empire e){
+	public void interactionVaisseaux(ArrayList<Espece> esp,Empire e , PlanetesInoccupees pI){	
 		int cible = caseCible();
-		System.out.println("cible : " + cible);
 		if(occupee(retrouverAbs(cible),retrouverOrd(cible))){ //verifie si la case ciblée est occupée
-			System.out.println("occupée");
 			Entite entiteCible = getListeEntites(cible);
 			Color colorEntiteCible = entiteCible.getColorEntite();
+			char typeEntite = entiteCible.getTypeEntite();
 			
-			if(!colorEntiteCible.equals(getColorEntite()) && !colorEntiteCible.equals(Color.white)){
-				//verifie si le vaisseaux est ennemi
-				System.out.println("ennemi");
+			if(!colorEntiteCible.equals(getColorEntite()) && !colorEntiteCible.equals(Color.white)){//verifie si la cible est ennemie
 				entiteCible.infligeDegat();
+				if(typeEntite == 'p'){
+					for(int i=0 ;i<esp.size();i++){
+						if(colorEntiteCible == esp.get(i).getCouleur()){
+							esp.get(i).getEmpire().supprPlanete((Planetes) entiteCible);
+						}
+					}
+					entiteCible.modifCouleur(Color.white);
+					pI.ajoutPlaneteInoccupee((Planetes) entiteCible);
+				}
 			}
-			else if(colorEntiteCible.equals(getColorEntite()) && entiteCible.getTypeEntite() == 'p'){
-				System.out.println("alliée");
+			else if(colorEntiteCible.equals(getColorEntite()) && typeEntite == 'p'){
 				propulsion.rechargerCarburant();
 			}
-			else if(colorEntiteCible.equals(Color.white)){
-				entiteCible.modifCouleur(e.getEmpirColor());
-				e.ajouterPlaneteIno((Planetes) entiteCible);
-				//System.out.println("************************"+(Planetes) getListeEntites(cible));
+			else if(typeEntite == 'p' && colorEntiteCible.equals(Color.white)){
+				entiteCible.modifCouleur(getColorEntite());
+				pI.supprPlaneteInoccupee((Planetes) entiteCible);
+				e.ajouterPlanete((Planetes) entiteCible);
+				e.supprVaisseaux((Vaisseaux) getListeEntites(getNumeroEntite()));
+				supprListeEntite(getListeEntites(getNumeroEntite()));
 			}
 		}
 	}
