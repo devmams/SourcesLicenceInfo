@@ -12,10 +12,16 @@ public class Simulation {
 	 * @return Vrai ssi la partie est terminée
 	 */
 	public static Boolean victoire() {
-		// TODO : à modifier
-		return false;
+		boolean victoire = false;
+		
+		
+		
+		
+		return victoire;
 	}
 
+	
+	
 	/**
 	 * @param args
 	 */
@@ -77,8 +83,7 @@ public class Simulation {
 			
 			panneau.rafraichir(listePlanetes,listeVaisseaux);
 			/////////////////////////////////////////////////////////
-			/////////////////////////////////////////////////////////
-			/////////////////////////////////////////////////////////
+			
 			
 			// temporisation avant prochain tour
 			try {

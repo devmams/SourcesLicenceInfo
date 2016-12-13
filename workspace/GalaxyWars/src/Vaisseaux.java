@@ -29,9 +29,7 @@ public class Vaisseaux extends Entite {
 	}
 	
 	public void nouvelleIntegrite(double tauxProductivite , double pop){
-		System.out.println("resistance : "+resistance +" ; integriteInit : "+integrite);
 		integrite = min (resistance, integrite + (pop * tauxProductivite));
-		System.out.println("new integrite : "+integrite);
 	}
 	
 	public char typeDeplacement(){
@@ -287,7 +285,6 @@ public class Vaisseaux extends Entite {
 				((Planetes) entiteCible).modifPopulation(getIntegrite());
 				e.ajouterPlanete((Planetes) entiteCible);
 				e.supprVaisseaux((Vaisseaux) getListeEntites(getNumeroEntite()));
-				supprListeEntite(getListeEntites(getNumeroEntite()));
 			}
 		}
 	}

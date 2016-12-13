@@ -49,7 +49,6 @@ public class Planetes extends Entite {
 	public void reproductionPlanete(double tauxNatalite){
 		//System.out.println("pop init : "+population +" ; "+"taillePop : "+taillePlanete);
 		//System.out.println("natalite : "+ tauxNatalite);
-		
 		population = min(taillePlanete, population*(1+tauxNatalite));
 		//System.out.println("pop :"+ population);
 	}
@@ -58,9 +57,7 @@ public class Planetes extends Entite {
 		boolean res = false;
 		if(population <= 0){
 			res = true;
-			System.out.println(population + "---------------------------");
 		}
-		//System.out.println(population +"+++++++++++++++++++++++");
 		return false;
 	}
 		

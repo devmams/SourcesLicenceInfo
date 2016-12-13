@@ -53,6 +53,7 @@ public class Empire {
 				break;
 			}
 		}
+		v.supprListeEntite(v);
 	}
 	
 	private void nouveauVaisseauxEnConstruction(Planetes p){
