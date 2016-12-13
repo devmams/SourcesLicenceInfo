@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -12,15 +13,26 @@ public class Simulation {
 	 * @return Vrai ssi la partie est terminée
 	 */
 	public static Boolean victoire() {
-		boolean victoire = false;
-		
-		
-		
-		
+		boolean victoire = true;
+		Entite entiteVide = new Vaisseaux();
+		Entite[] listeEntite = entiteVide.getListeEntites();
+		Color colorEntiteInit = null;
+		for(int i=0 ;i<listeEntite.length ;i++){
+			if(listeEntite[i] != null && !listeEntite[i].getColorEntite().equals(Color.white)){
+				colorEntiteInit = listeEntite[i].getColorEntite();
+				break;
+			}
+		}
+		for(int j=0 ;j<listeEntite.length ;j++){
+			if(listeEntite[j] != null){
+				if(!colorEntiteInit.equals(listeEntite[j].getColorEntite())){
+					victoire = false;
+					break;
+				}
+			}
+		}
 		return victoire;
 	}
-
-	
 	
 	/**
 	 * @param args
@@ -34,37 +46,33 @@ public class Simulation {
 
 		ArrayList<Espece> especes = new ArrayList<Espece>();
 	
-		//création d'espace initiales
+		//création d'especes initiales
 		for(int i=0 ; i<3 ;i++){
 			especes.add(new Espece());
 		}
 		
-		PlanetesInoccupees pI = new PlanetesInoccupees();
-		
 		//création de planètes inoccupées
+		PlanetesInoccupees pI = new PlanetesInoccupees();
 		
 		// boucle de simulation
 		int tour = 0;
 		while (!victoire() && tour<Constantes.TourMax) {
 			// décompte des tours
 			tour += 1;
-			// Exécution des étapes du tour courant
-			// TODO : à compléter
-			
 			
 			// Affichage d'un bref rapport textuel
 			System.out.println("Tour " + tour + " :");
 			
 			
+			// Exécution des étapes du tour courant
 			ArrayList<Planetes> listePlanetes = new ArrayList<Planetes>();
 			ArrayList<Vaisseaux> listeVaisseaux = new ArrayList<Vaisseaux>();
 			
 			for (Espece e : especes) {
 				e.getEmpire().reproduction(e.getTauxNatalite()); //reproduction de la population
 				e.getEmpire().constructionVaisseaux(e.getTauxProductivite());
-				e.getEmpire().deplacementVaisseaux();
+				e.getEmpire().deplacementVaisseaux(especes);
 				e.getEmpire().interaction(especes ,e.getEmpire(),pI);
-				e.getEmpire().autoDestruction();
 			}
 			
 			for (Espece e : especes) {
@@ -81,9 +89,8 @@ public class Simulation {
 				listePlanetes.add(pI.getPlanetesInoccupees().get(i));
 			}
 			
+			//Raffraichissement de la Galaxie
 			panneau.rafraichir(listePlanetes,listeVaisseaux);
-			/////////////////////////////////////////////////////////
-			
 			
 			// temporisation avant prochain tour
 			try {

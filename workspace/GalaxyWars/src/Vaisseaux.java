@@ -4,13 +4,13 @@ import java.util.Random;
 
 
 public class Vaisseaux extends Entite {
-	
-	private static final String Planetes = null;
 	private int resistance;
 	private Propulsion propulsion;
 	private char typeDeplacement;
 	private double integrite;
 
+	public Vaisseaux(){}
+	
 	public Vaisseaux(Planetes p,Color c){
 		super(p,c);
 		Random rand = new Random();
@@ -225,11 +225,12 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
-	public void deplacement(){
+	public void deplacement(ArrayList<Espece> esp){
 		if(verifCarburant()){
 			//getPropulsion().diminuerCarburant();
 			deplace();
 		}
+		autoDestruction(esp);
 	}
 	
 	public int caseCible(){
@@ -257,10 +258,22 @@ public class Vaisseaux extends Entite {
 		integrite -= degat;
 	}
 	
+	public void autoDestruction(ArrayList<Espece> esp){
+		if(!verifCarburant() || getIntegrite() <= 0){
+			for(int i=0 ;i<esp.size();i++){
+				if(getColorEntite() == esp.get(i).getCouleur()){
+					esp.get(i).getEmpire().supprVaisseaux((Vaisseaux) getEntite(getNumeroEntite()));
+					break;
+				}
+			}
+		}
+	
+	}
+	
 	public void interactionVaisseaux(ArrayList<Espece> esp,Empire e , PlanetesInoccupees pI){	
 		int cible = caseCible();
 		if(occupee(retrouverAbs(cible),retrouverOrd(cible))){ //verifie si la case ciblée est occupée
-			Entite entiteCible = getListeEntites(cible);
+			Entite entiteCible = getEntite(cible);
 			Color colorEntiteCible = entiteCible.getColorEntite();
 			char typeEntite = entiteCible.getTypeEntite();
 			
@@ -270,10 +283,14 @@ public class Vaisseaux extends Entite {
 					for(int i=0 ;i<esp.size();i++){
 						if(colorEntiteCible == esp.get(i).getCouleur()){
 							esp.get(i).getEmpire().supprPlanete((Planetes) entiteCible);
+							break;
 						}
 					}
 					entiteCible.modifCouleur(Color.white);
 					pI.ajoutPlaneteInoccupee((Planetes) entiteCible);
+				}
+				if(typeEntite == 'v'){
+					((Vaisseaux) entiteCible).autoDestruction(esp);
 				}
 			}
 			else if(colorEntiteCible.equals(getColorEntite()) && typeEntite == 'p'){//vérifie si la planete est alliée
@@ -284,7 +301,7 @@ public class Vaisseaux extends Entite {
 				entiteCible.modifCouleur(getColorEntite());
 				((Planetes) entiteCible).modifPopulation(getIntegrite());
 				e.ajouterPlanete((Planetes) entiteCible);
-				e.supprVaisseaux((Vaisseaux) getListeEntites(getNumeroEntite()));
+				e.supprVaisseaux((Vaisseaux) getEntite(getNumeroEntite()));
 			}
 		}
 	}

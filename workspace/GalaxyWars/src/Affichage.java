@@ -137,13 +137,14 @@ public final class Affichage extends JPanel {
 		g.setXORMode(Color.BLACK);
 
 		// affichage des planètes et vaisseaux
-		for (Planetes p : lesPlanetes) {
-			affichePlanete(g,p.getAbscisse(),p.getOrdonnee(),p.getTaillePlante(),p.getColorEntite());
+		if(lesPlanetes != null && lesVaisseaux != null){
+			for (Planetes p : lesPlanetes) {
+				affichePlanete(g,p.getAbscisse(),p.getOrdonnee(),p.getTaillePlante(),p.getColorEntite());
+			}
+			for (Vaisseaux v : lesVaisseaux) {
+				afficheVaisseau(g,v.getAbscisse(),v.getOrdonnee(),v.getResistance(),v.getTypeDeplacement()+"p",v.getColorEntite());
+			}
 		}
-		for (Vaisseaux v : lesVaisseaux) {
-			afficheVaisseau(g,v.getAbscisse(),v.getOrdonnee(),v.getResistance(),v.getTypeDeplacement()+"p",v.getColorEntite());
-		}
-		
 	}
 	
 }

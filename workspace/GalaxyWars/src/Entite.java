@@ -7,6 +7,8 @@ public abstract class Entite {
 	protected int ord;
 	private static Entite[] listeEntites = new Entite[300];
 	private char typeEntite; // 'v' pour vaisseaux et 'p' pour planete
+	
+	public Entite(){}
 
 	public Entite(Color c){
 		Random rand = new Random();
@@ -32,8 +34,12 @@ public abstract class Entite {
 		couleur = newColor;
 	}
 	
-	public Entite getListeEntites(int pos){
+	public Entite getEntite(int pos){
 		return listeEntites[pos];
+	}
+	
+	public Entite[] getListeEntites(){
+		return listeEntites;
 	}
 	
 	public void ajoutListeEntite(Entite e){

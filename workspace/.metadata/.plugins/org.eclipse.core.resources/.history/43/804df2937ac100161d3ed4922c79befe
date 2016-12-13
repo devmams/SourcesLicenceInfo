@@ -1,0 +1,111 @@
+import java.awt.Color;
+import java.io.ObjectInputStream.GetField;
+import java.util.ArrayList;
+import java.util.Random;
+
+/**
+ * @brief Classe gérant la simulation de conquête galactique
+ */
+public class Simulation {
+
+	/**
+	 * 
+	 * @return Vrai ssi la partie est terminée
+	 */
+	public static Boolean victoire() {
+		boolean victoire = true;
+		Entite entiteVide = new Vaisseaux();
+		Entite[] listeEntite = entiteVide.getListeEntites();
+		Color colorEntiteInit = null;
+		for(int i=0 ;i<listeEntite.length ;i++){
+			if(listeEntite[i] != null && !listeEntite[i].getColorEntite().equals(Color.white)){
+				colorEntiteInit = listeEntite[i].getColorEntite();
+				break;
+			}
+		}
+		for(int j=0 ;j<listeEntite.length ;j++){
+			if(listeEntite[j] != null){
+				if(!colorEntiteInit.equals(listeEntite[j].getColorEntite())){
+					victoire = false;
+					break;
+				}
+			}
+		}
+		return victoire;
+	}
+
+	
+	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// création du panneau d'affichage
+		Affichage panneau = new Affichage();
+		
+		// création de la fenêtre principale contenant le panneau
+		Fenetre fenetre = new Fenetre(panneau);
+
+		ArrayList<Espece> especes = new ArrayList<Espece>();
+	
+		//création d'especes initiales
+		for(int i=0 ; i<3 ;i++){
+			especes.add(new Espece());
+		}
+		
+		//création de planètes inoccupées
+		PlanetesInoccupees pI = new PlanetesInoccupees();
+		
+		// boucle de simulation
+		int tour = 0;
+		while (!victoire() && tour<Constantes.TourMax) {
+			// décompte des tours
+			tour += 1;
+			
+			// Affichage d'un bref rapport textuel
+			System.out.println("Tour " + tour + " :");
+			
+			
+			// Exécution des étapes du tour courant
+			ArrayList<Planetes> listePlanetes = new ArrayList<Planetes>();
+			ArrayList<Vaisseaux> listeVaisseaux = new ArrayList<Vaisseaux>();
+			
+			for (Espece e : especes) {
+				e.getEmpire().reproduction(e.getTauxNatalite()); //reproduction de la population
+				e.getEmpire().constructionVaisseaux(e.getTauxProductivite());
+				e.getEmpire().deplacementVaisseaux(especes);
+				e.getEmpire().interaction(especes ,e.getEmpire(),pI);
+			}
+			
+			for (Espece e : especes) {
+				for (int v=0; v<e.getEmpire().getVaisseaux().size(); v++) {
+					listeVaisseaux.add(e.getEmpire().getVaisseaux().get(v));
+				}
+				for (int p=0; p<e.getEmpire().getPlanetes().size(); p++) {
+					listePlanetes.add(e.getEmpire().getPlanetes().get(p));
+				}
+			}
+			
+			//ajout des planètes inoccupées
+			for(int i=0 ;i<pI.getPlanetesInoccupees().size() ;i++){
+				listePlanetes.add(pI.getPlanetesInoccupees().get(i));
+			}
+			
+			panneau.rafraichir(listePlanetes,listeVaisseaux);
+			/////////////////////////////////////////////////////////
+			
+			
+			// temporisation avant prochain tour
+			try {
+				Thread.sleep(Constantes.TourMs);
+			}
+			catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("fin");
+		// fermeture de la fenêtre
+		//fenetre.dispose();
+	}
+
+}

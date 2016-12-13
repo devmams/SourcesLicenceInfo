@@ -68,14 +68,6 @@ public class Empire {
 		return planetes;
 	}
 	
-	public void autoDestruction(){
-		for(int i=0 ;i<vaisseaux.size() ;i++){
-			if(!vaisseaux.get(i).verifCarburant() || vaisseaux.get(i).getIntegrite() == 0){
-				supprVaisseaux(vaisseaux.get(i));
-			}
-		}
-	}
-	
 	public void constructionVaisseaux(double t){
 		for(int i=0 ; i<planetes.size() ;i++){
 			if(planetes.get(i).constructionTerminee(t)){
@@ -89,9 +81,9 @@ public class Empire {
 		}
 	}
 	
-	public void deplacementVaisseaux(){
+	public void deplacementVaisseaux(ArrayList<Espece> esp){
 		for(int i=0 ; i<vaisseaux.size() ;i++){
-			vaisseaux.get(i).deplacement();
+			vaisseaux.get(i).deplacement(esp);
 		}
 	}
 	
