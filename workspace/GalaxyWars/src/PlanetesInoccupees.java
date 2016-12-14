@@ -6,12 +6,12 @@ public class PlanetesInoccupees {
 
 	ArrayList<Planetes> planetesInoccupees;
 
-	public PlanetesInoccupees(){
+	public PlanetesInoccupees(Galaxie galaxie){
 		planetesInoccupees = new ArrayList<Planetes>();
 		for(int i=0 ; i<Constantes.NbPlanetesInocupee ;i++){
-			Planetes p = new Planetes(Color.white);
+			Planetes p = new Planetes(Color.white,galaxie);
 			planetesInoccupees.add(p);
-			p.ajoutListeEntite(p);
+			galaxie.ajoutEntite(p);
 		}
 	}
 	

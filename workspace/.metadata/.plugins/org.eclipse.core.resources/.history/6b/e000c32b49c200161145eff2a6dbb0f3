@@ -1,0 +1,40 @@
+
+public class Galaxie {
+
+	private Entite[][] grilleEntites;
+	
+	public Galaxie(){
+		grilleEntites = new Entite[Constantes.Largeur][Constantes.Hauteur];
+	}
+	
+	public void ajoutEntite(Entite ent){
+		grilleEntites[ent.getAbscisse()][ent.getOrdonnee()] = ent;
+	}
+	
+	public void supprEntite(Entite ent){
+		grilleEntites[ent.getAbscisse()][ent.getOrdonnee()] = null;
+	}
+	
+	public void modifPositionEntite(int anciennePos, int nouvellePos){
+		listeEntites[nouvellePos] = listeEntites[anciennePos];
+		listeEntites[anciennePos] = null;
+	}
+	
+	public boolean occupee(Entite ent){
+		boolean res = false;
+		int x = ent.getAbscisse();
+		int y = ent.getOrdonnee();
+		if(grilleEntites[x][y] != null ){
+			res = true;
+		}
+		return res;
+	}
+	
+	public boolean occupee(int x,int y){
+		boolean res = false;
+		if(grilleEntites[x][y] != null ){
+			res = true;
+		}
+		return res;
+	}
+}

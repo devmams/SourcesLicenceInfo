@@ -9,21 +9,21 @@ public class Espece {
 	private Empire empire;
 	private Color coul;
 	
-	public Espece(){
+	public Espece(Galaxie galaxie){
 		Random rand = new Random();
 		idEspece++;
 		tauxNatalite = ((Math.abs(rand.nextInt())%(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin))*0.01;
 		tauxProductivite = ((Math.abs(rand.nextInt())%(Constantes.TauxProductiviteMax-Constantes.TauxProductiviteMin+1) + Constantes.TauxProductiviteMin))*0.01;
 		coul = creerCouleur(idEspece);
-		empire = new Empire(coul);
+		empire = new Empire(coul,galaxie);
 	}
 	
 	public static Color creerCouleur(int x){
 		Color col = Color.white;//noir
 		switch(x){
 		case 1 : col = Color.red;break;//rouge
-		case 2 : col = new Color(0,192,0);break;//vert
-		case 3 : col = new Color(0,128,224);break;//bleu
+		case 2 : col = Color.green;break;//vert
+		case 3 : col = Color.blue;break;//bleu
 		case 4 : col = Color.orange;break;//orange
 		}
 		return col;

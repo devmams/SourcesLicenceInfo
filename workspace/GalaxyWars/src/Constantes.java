@@ -18,7 +18,7 @@ public class Constantes {
 	// Caractéristiques des planètes
 	public static final int PlaneteTailleMin = 10; // taille minimale d'une planète
 	public static final int PlaneteTailleMax = 100; // taille maximale d'une planète
-	public static final int NbPlanetesInocupee = 50; //
+	public static final int NbPlanetesInocupee = 20; //
 	
 	// Caractéristiques des vaisseaux
 	public static final int VaisseauResistanceMin = 1; // résistance minimale d'un vaisseau
@@ -36,7 +36,7 @@ public class Constantes {
 	public static final int PropulsionPorteeMax = 5; // portée maximal d'une propulsion
 
 	// Paramètres de la simulation
-	public static final int TourMax = 500; // nombre de tours maximum
+	public static final int TourMax = 1000; // nombre de tours maximum
 	public static final int TourMs = 50; // durée d'un tour en millisecondes
 	//public static final int TourMs = 1000; // durée d'un tour en millisecondes
 	

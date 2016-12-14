@@ -5,16 +5,15 @@ public abstract class Entite {
 	protected Color couleur;
 	protected int abs;
 	protected int ord;
-	private static Entite[] listeEntites = new Entite[300];
 	private String typeEntite; // "vaisseaux" pour vaisseaux et "planete" pour planete
 	
 	public Entite(){}
 
-	public Entite(Color c){
+	public Entite(Color c,Galaxie galaxie){
 		Random rand = new Random();
 		abs = rand.nextInt(Constantes.Largeur); //abscisse
 		ord = rand.nextInt(Constantes.Hauteur); //ordonnée
-		while(occupee(abs, ord)){
+		while(galaxie.occupee(abs, ord)){
 			abs = rand.nextInt(Constantes.Largeur); //abscisse
 			ord = rand.nextInt(Constantes.Hauteur); //ordonnée
 		}
@@ -22,8 +21,8 @@ public abstract class Entite {
 		typeEntite = "planete";
 	}
 	
-	public Entite(Planetes p,Color c){
-		caseAdjacente(p);
+	public Entite(Planetes p,Color c,Galaxie galaxie){
+		caseAdjacente(p,galaxie);
 		couleur = c;
 		typeEntite = "vaisseaux";
 	}
@@ -34,61 +33,40 @@ public abstract class Entite {
 		couleur = newColor;
 	}
 	
-	public Entite getEntite(int pos){
-		return listeEntites[pos];
-	}
-	
-	public Entite[] getListeEntites(){
-		return listeEntites;
-	}
-	
-	public void ajoutListeEntite(Entite e){
-		listeEntites[e.getNumeroEntite()] = e;
-	}
-	
-	public void supprListeEntite(Entite e){
-		listeEntites[e.getNumeroEntite()] = null;
-	}
-	
-	public void modifPositionEntite(int anciennePos, int nouvellePos){
-		//System.out.println("Entite.modifPositionEntite() " + Thread.currentThread().getName());
-		listeEntites[nouvellePos] = listeEntites[anciennePos];
-		listeEntites[anciennePos] = null;
-	}
 	
 	public String getTypeEntite(){
 		return typeEntite;
 	}
 	
-	public void caseAdjacente(Planetes p){
+	public void caseAdjacente(Planetes p,Galaxie galaxie){
 		abs = p.getAbscisse()-1;
 		ord = p.getOrdonnee()-1;
 		recadrerCoordonnees(abs, ord);
-		if(occupee(abs, ord)){
+		if(galaxie.occupee(abs, ord)){
 			abs = p.getAbscisse();
 			ord = p.getOrdonnee()-1;
 			recadrerCoordonnees(abs, ord);
-			if(occupee(abs, ord)){
+			if(galaxie.occupee(abs, ord)){
 				abs = p.getAbscisse()+1;
 				ord = p.getOrdonnee()-1;
 				recadrerCoordonnees(abs, ord);
-				if(occupee(abs, ord)){
+				if(galaxie.occupee(abs, ord)){
 					abs = p.getAbscisse()+1;
 					ord = p.getOrdonnee();
 					recadrerCoordonnees(abs, ord);
-					if(occupee(abs, ord)){
+					if(galaxie.occupee(abs, ord)){
 						abs = p.getAbscisse()+1;
 						ord = p.getOrdonnee()+1;
 						recadrerCoordonnees(abs, ord);
-						if(occupee(abs, ord)){
+						if(galaxie.occupee(abs, ord)){
 							abs = p.getAbscisse();
 							ord = p.getOrdonnee()+1;
 							recadrerCoordonnees(abs, ord);
-							if(occupee(abs, ord)){
+							if(galaxie.occupee(abs, ord)){
 								abs = p.getAbscisse()-1;
 								ord = p.getOrdonnee()+1;
 								recadrerCoordonnees(abs, ord);
-								if(occupee(abs, ord)){
+								if(galaxie.occupee(abs, ord)){
 									abs = p.getAbscisse()-1;
 									ord = p.getOrdonnee();
 									recadrerCoordonnees(abs, ord);
@@ -135,16 +113,6 @@ public abstract class Entite {
 	public void recadrerCoordonnees(int x,int y){
 		abs = recadrerAbscisse(x);
 		ord = recadrerOrdonnee(y);
-	}
-
-	//renvoie vrai si la case est occupee
-	public boolean occupee(int x, int y){
-		boolean occupee = false;
-		int tmp = Constantes.Largeur*y + x;
-		if(listeEntites[tmp] != null){
-			occupee = true;
-		}
-		return occupee;
 	}
 
 	public int getNumeroEntite(){

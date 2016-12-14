@@ -1,0 +1,22 @@
+
+public class Galaxie {
+
+	private Entite[][] grilleEntites;
+	
+	public Galaxie(){
+		grilleEntites = new Entite[Constantes.Largeur][Constantes.Hauteur];
+	}
+	
+	public void ajoutEntite(Entite ent){
+		grilleEntites[ent.getAbscisse()][ent.getOrdonnee()] = ent;
+	}
+	
+	public boolean occupee(Entite ent){
+		boolean res = false;
+		int abs = ent.getAbscisse();
+		int ord = ent.getOrdonnee()
+		
+		
+		return res;
+	}
+}

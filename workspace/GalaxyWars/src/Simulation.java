@@ -1,37 +1,59 @@
 import java.awt.Color;
 import java.io.ObjectInputStream.GetField;
+import java.nio.channels.GatheringByteChannel;
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * @brief Classe gérant la simulation de conquête galactique
  */
 public class Simulation {
 
+	private static String vainqueur;
+	private static Galaxie galaxie = new Galaxie();
 	/**
 	 * 
 	 * @return Vrai ssi la partie est terminée
 	 */
 	public static Boolean victoire() {
 		boolean victoire = true;
-		Entite entiteVide = new Vaisseaux();
-		Entite[] listeEntite = entiteVide.getListeEntites();
 		Color colorEntiteInit = null;
-		for(int i=0 ;i<listeEntite.length ;i++){
-			if(listeEntite[i] != null && !listeEntite[i].getColorEntite().equals(Color.white)){
-				colorEntiteInit = listeEntite[i].getColorEntite();
-				break;
-			}
-		}
-		for(int j=0 ;j<listeEntite.length ;j++){
-			if(listeEntite[j] != null){
-				if(!colorEntiteInit.equals(listeEntite[j].getColorEntite())){
-					victoire = false;
+		for(int x=0;x<galaxie.getGalaxieLargeur() ;x++){
+			for(int y=0 ;y<galaxie.getGalaxieHauteur(); y++){
+				if(galaxie.occupee(x, y)){
+					colorEntiteInit = galaxie.getEntite(galaxie.getGalaxieLargeur()*y +x).getColorEntite();
 					break;
 				}
 			}
 		}
+		
+		for(int x=0 ;x<galaxie.getGalaxieLargeur() ;x++){
+			for(int y=0 ;y<galaxie.getGalaxieHauteur() ;y++){
+				int id = galaxie.getGalaxieLargeur()*y +x;
+				if(galaxie.getEntite(id) != null){
+					if(!colorEntiteInit.equals(galaxie.getEntite(id).getColorEntite())){
+						victoire = false;
+						break;			
+					}
+				}
+			}
+		}
+		if(victoire){
+			vainqueur(colorEntiteInit);
+		}
 		return victoire;
+	}
+	
+	public static void vainqueur(Color c){
+		if(c.equals(Color.red))
+			vainqueur = "ROUGE";
+		else if (c.equals(Color.green))
+			vainqueur = "VERT";
+		else if(c.equals(Color.blue))
+			vainqueur = "BLEU";
+	}
+	
+	public static void afficheVainqueur(){
+		System.out.println("Les "+vainqueur+" sont Vainqueurs !");
 	}
 	
 	/**
@@ -44,15 +66,17 @@ public class Simulation {
 		// création de la fenêtre principale contenant le panneau
 		Fenetre fenetre = new Fenetre(panneau);
 
+		//Galaxie galaxie = new Galaxie();
+		
 		ArrayList<Espece> especes = new ArrayList<Espece>();
 	
 		//création d'especes initiales
 		for(int i=0 ; i<3 ;i++){
-			especes.add(new Espece());
+			especes.add(new Espece(galaxie));
 		}
 		
 		//création de planètes inoccupées
-		PlanetesInoccupees pI = new PlanetesInoccupees();
+		PlanetesInoccupees pI = new PlanetesInoccupees(galaxie);
 		
 		// boucle de simulation
 		int tour = 0;
@@ -70,9 +94,9 @@ public class Simulation {
 			
 			for (Espece e : especes) {
 				e.getEmpire().reproduction(e.getTauxNatalite()); //reproduction de la population
-				e.getEmpire().constructionVaisseaux(e.getTauxProductivite());
-				e.getEmpire().deplacementVaisseaux(especes);
-				e.getEmpire().interaction(especes ,e.getEmpire(),pI);
+				e.getEmpire().constructionVaisseaux(e.getTauxProductivite(),galaxie);
+				e.getEmpire().deplacementVaisseaux(especes,galaxie);
+				e.getEmpire().interaction(especes ,e.getEmpire(),pI,galaxie);
 			}
 			
 			for (Espece e : especes) {
@@ -100,6 +124,7 @@ public class Simulation {
 				e.printStackTrace();
 			}
 		}
+		afficheVainqueur();
 		System.out.println("fin");
 		// fermeture de la fenêtre
 		//fenetre.dispose();

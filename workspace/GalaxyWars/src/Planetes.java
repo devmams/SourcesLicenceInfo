@@ -7,8 +7,8 @@ public class Planetes extends Entite {
 	private Vaisseaux nvVaisseaux ;
 	private double population;
 	
-	public Planetes(Color c){
-		super(c);
+	public Planetes(Color c,Galaxie galaxie){
+		super(c,galaxie);
 		Random rand = new Random();
 		taillePlanete = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;//taille
 		population = taillePlanete/2;
@@ -33,8 +33,8 @@ public class Planetes extends Entite {
 		return bool;
 	}
 	
-	public void vaisseauxEnConstruction(Planetes p){
-		nvVaisseaux = new Vaisseaux(p,getColorEntite());
+	public void vaisseauxEnConstruction(Planetes p,Galaxie galaxie){
+		nvVaisseaux = new Vaisseaux(p,getColorEntite(),galaxie);
 		nvVaisseaux.setIntegrite(0);
 	}
 	
