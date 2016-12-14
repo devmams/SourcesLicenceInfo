@@ -6,7 +6,7 @@ public abstract class Entite {
 	protected int abs;
 	protected int ord;
 	private static Entite[] listeEntites = new Entite[300];
-	private char typeEntite; // 'v' pour vaisseaux et 'p' pour planete
+	private String typeEntite; // "vaisseaux" pour vaisseaux et "planete" pour planete
 	
 	public Entite(){}
 
@@ -19,13 +19,13 @@ public abstract class Entite {
 			ord = rand.nextInt(Constantes.Hauteur); //ordonnée
 		}
 		couleur = c ;
-		typeEntite = 'p';
+		typeEntite = "planete";
 	}
 	
 	public Entite(Planetes p,Color c){
 		caseAdjacente(p);
 		couleur = c;
-		typeEntite = 'v';
+		typeEntite = "vaisseaux";
 	}
 	
 	public abstract void infligeDegat();
@@ -56,7 +56,7 @@ public abstract class Entite {
 		listeEntites[anciennePos] = null;
 	}
 	
-	public char getTypeEntite(){
+	public String getTypeEntite(){
 		return typeEntite;
 	}
 	
