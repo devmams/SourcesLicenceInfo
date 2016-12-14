@@ -41,7 +41,7 @@ public class Vaisseaux extends Entite {
 			listeEquipement[0] = "s";
 			listeEquipement[1] = "t";
 			listeEquipement[2] = "c";
-			listeEquipement[3] = "p";
+			listeEquipement[4] = "p";
 		}
 	}
 	

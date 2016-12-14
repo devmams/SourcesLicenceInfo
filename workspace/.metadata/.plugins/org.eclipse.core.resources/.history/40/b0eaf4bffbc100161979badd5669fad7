@@ -18,7 +18,7 @@ public class Constantes {
 	// Caractéristiques des planètes
 	public static final int PlaneteTailleMin = 10; // taille minimale d'une planète
 	public static final int PlaneteTailleMax = 100; // taille maximale d'une planète
-	public static final int NbPlanetesInocupee = 50; //
+	public static final int NbPlanetesInocupee = 200; //
 	
 	// Caractéristiques des vaisseaux
 	public static final int VaisseauResistanceMin = 1; // résistance minimale d'un vaisseau

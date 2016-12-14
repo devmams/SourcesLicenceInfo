@@ -20,29 +20,24 @@ public class Vaisseaux extends Entite {
 		integrite = rand.nextInt(resistance+1); // résistance
 		propulsion = new Propulsion();
 		typeDeplacement = typeDeplacement();
-		nb = rand.nextInt(4) + 1;
+		nb = rand.nextInt(3) + 1;
 		listeEquipement = new String[nb];
 		creerEquipements();
 	} 
 	
 	private void creerEquipements(){
 		if(listeEquipement.length == 1)
-			listeEquipement[0] = "s";
+			listeEquipement[0] = "v";
 		else if(listeEquipement.length == 2){
-			listeEquipement[0] = "s";
-			listeEquipement[1] = "t";
+			listeEquipement[0] = "v";
+			listeEquipement[1] = "v";
 		}
 		else if(listeEquipement.length == 3){
-			listeEquipement[0] = "s";
-			listeEquipement[1] = "t";
-			listeEquipement[2] = "c";
+			listeEquipement[0] = "v";
+			listeEquipement[1] = "v";
+			listeEquipement[2] = "v";
 		}
-		else if(listeEquipement.length == 4){
-			listeEquipement[0] = "s";
-			listeEquipement[1] = "t";
-			listeEquipement[2] = "c";
-			listeEquipement[3] = "p";
-		}
+		//listeEquipement[0] = "p";
 	}
 	
 	public void avancerEquipement(){

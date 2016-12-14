@@ -21,8 +21,8 @@ public class Constantes {
 	public static final int NbPlanetesInocupee = 50; //
 	
 	// Caractéristiques des vaisseaux
-	public static final int VaisseauResistanceMin = 1; // résistance minimale d'un vaisseau
-	public static final int VaisseauResistanceMax = 10; // résistance maximale d'un vaisseau
+	public static final int VaisseauResistanceMin = 100000; // résistance minimale d'un vaisseau
+	public static final int VaisseauResistanceMax = 100000; // résistance maximale d'un vaisseau
 	
 	// Caractéristiques de la propulsion
 	public static final int PorteeMin = 1;
