@@ -32,9 +32,9 @@ public class Galaxie {
 		grilleEntites[xAnc][yAnc] = null;
 	}
 	
-	public Entite getEntite(Entite ent){
+	/*public Entite getEntite(Entite ent){
 		return grilleEntites[ent.getAbscisse()][ent.getOrdonnee()];
-	}
+	}*/
 	
 	public Entite getEntite(int id){
 		int y = id/Constantes.Largeur;
@@ -42,7 +42,7 @@ public class Galaxie {
 		return grilleEntites[x][y];
 	}
 	
-	public boolean occupee(Entite ent){
+	/*public boolean occupee(Entite ent){
 		boolean res = false;
 		int x = ent.getAbscisse();
 		int y = ent.getOrdonnee();
@@ -50,7 +50,7 @@ public class Galaxie {
 			res = true;
 		}
 		return res;
-	}
+	}*/
 	
 	public boolean occupee(int x,int y){
 		boolean res = false;

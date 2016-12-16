@@ -1,0 +1,101 @@
+/**
+ * Classe permettant de créer une espèce
+ * 
+ * @author Glenn PLOUHINEC / Mamadou DIALLO
+ */
+import java.awt.Color;
+import java.util.Random;
+
+
+public class Espece {
+	// identifiant de l'espèce.
+	private static int idEspece = 0;
+	// taux de natalite de l'espèce.
+	private double tauxNatalite;
+	// taux de productivite de l'espèce.
+	private double tauxProductivite;
+	// empire de l'espèce.
+	private Empire empire;
+	// couoleur de l'espèce.
+	private Color coul;
+	
+	/**
+	 * Construit une espece.
+	 * @param la galaxie contenant l'espèce.
+	 */
+	public Espece(Galaxie galaxie){
+		Random rand = new Random();
+		idEspece++;
+		tauxNatalite = (rand.nextInt(Constantes.TauxNataliteMax-Constantes.TauxNataliteMin+1) + Constantes.TauxNataliteMin)*0.01;
+		tauxProductivite = (rand.nextInt(Constantes.TauxProductiviteMax-Constantes.TauxProductiviteMin+1) + Constantes.TauxProductiviteMin))*0.01;
+		coul = creerCouleur(idEspece);
+		empire = new Empire(coul,galaxie);
+	}
+	
+	/**
+	 * affecte une couleur à une espèce en fonction de son identifiant.
+	 * @param identifiant de l'espèce.
+	 */
+	public static Color creerCouleur(int x){
+		Color col = Color.white;//noir
+		switch(x){
+		case 1 : col = Color.red;break;//rouge
+		case 2 : col = Color.green;break;//vert
+		case 3 : col = Color.blue;break;//bleu
+		case 4 : col = Color.orange;break;//orange
+		}
+		return col;
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return le taux de natalite de l'espèce.
+	 */
+	public double getTauxNatalite(){
+		return tauxNatalite;
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return la couleur de l'espèce.
+	 */
+	public Color getCouleur(){
+		return coul;
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return l'empire de l'espèce.
+	 */
+	public Empire getEmpire() {
+		return empire;
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return le taux de productivite de l'espèce.
+	 */
+	public double getTauxProductivite(){
+		return tauxProductivite;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

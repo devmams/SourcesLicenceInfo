@@ -1,0 +1,205 @@
+/**
+ * Classe abstraite dont hérite Vaisseaux et Planete
+ * 
+ * @author Glenn PLOUHINEC / Mamadou DIALLO
+ */
+
+import java.awt.Color;
+import java.util.Random;
+
+public abstract class Entite {
+	// couleur de entité.
+	protected Color couleur;
+	// abscisse de entité.
+	protected int abs;
+	// ordonnée de entité.
+	protected int ord;
+	// type d'une entité. "vaisseaux" pour vaisseaux et "planete" pour planete
+	private String typeEntite;
+
+	/**
+	 * constructeur servant a créer une entité planete .
+	 * @param la couleur de la planete et une galaxie.
+	 */
+	public Entite(Color c,Galaxie galaxie){
+		Random rand = new Random();
+		abs = rand.nextInt(Constantes.Largeur);
+		ord = rand.nextInt(Constantes.Hauteur); //ordonnée
+		while(galaxie.occupee(abs, ord)){ 
+			abs = rand.nextInt(Constantes.Largeur); //abscisse
+			ord = rand.nextInt(Constantes.Hauteur); //ordonnée
+		}
+		couleur = c ;
+		typeEntite = "planete";
+	}
+	
+	/**
+	 * constructeur servant a créer une entité vaisseaux .
+	 * @param la couleur du vaisseaux , la couleur du vaisseaux et une galaxie.
+	 */
+	public Entite(Planetes p,Color c,Galaxie galaxie){
+		caseAdjacente(p,galaxie);
+		couleur = c;
+		typeEntite = "vaisseaux";
+	}
+	
+	/**
+	 * méthode abstraite implementée dans planetes et vaisseaux
+	 */
+	public abstract void infligeDegat();
+		
+	/**
+	 * modofie la couleur d'une entité.
+	 * @param la nouvelle couleur de l'entité.
+	 */
+	public void modifCouleur(Color newColor){
+		couleur = newColor;
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return le type de l'entité.
+	 */
+	public String getTypeEntite(){
+		return typeEntite;
+	}
+	
+	/**
+	 * permet de repérer une case inoccupée dans les 8 cases adjacentes, autour d'une planète.
+	 * @param la planete concernée et une galaxie.
+	 */
+	public void caseAdjacente(Planetes p,Galaxie galaxie){
+		abs = p.getAbscisse()-1;
+		ord = p.getOrdonnee()-1;
+		recadrerCoordonnees(abs, ord);
+		if(galaxie.occupee(abs, ord)){
+			abs = p.getAbscisse();
+			ord = p.getOrdonnee()-1;
+			recadrerCoordonnees(abs, ord);
+			if(galaxie.occupee(abs, ord)){
+				abs = p.getAbscisse()+1;
+				ord = p.getOrdonnee()-1;
+				recadrerCoordonnees(abs, ord);
+				if(galaxie.occupee(abs, ord)){
+					abs = p.getAbscisse()+1;
+					ord = p.getOrdonnee();
+					recadrerCoordonnees(abs, ord);
+					if(galaxie.occupee(abs, ord)){
+						abs = p.getAbscisse()+1;
+						ord = p.getOrdonnee()+1;
+						recadrerCoordonnees(abs, ord);
+						if(galaxie.occupee(abs, ord)){
+							abs = p.getAbscisse();
+							ord = p.getOrdonnee()+1;
+							recadrerCoordonnees(abs, ord);
+							if(galaxie.occupee(abs, ord)){
+								abs = p.getAbscisse()-1;
+								ord = p.getOrdonnee()+1;
+								recadrerCoordonnees(abs, ord);
+								if(galaxie.occupee(abs, ord)){
+									abs = p.getAbscisse()-1;
+									ord = p.getOrdonnee();
+									recadrerCoordonnees(abs, ord);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Accesseur.
+	 * @return la couleur l'entité.
+	 */
+	public Color getColorEntite(){
+		return couleur;
+	}
+
+	/**
+	 * Accesseur.
+	 * @return l'abscisse de l'entité.
+	 */
+	public int getAbscisse(){
+		return abs;
+	}
+
+	/**
+	 * Accesseur.
+	 * @return l'ordonnée de l'entité.
+	 */
+	public int getOrdonnee(){
+		return ord;
+	}
+
+	/**
+	 * recadre l'abscisse si une entité sort de la grille.
+	 * @param l'abscisse à recadrer.
+	 */
+	public int recadrerAbscisse(int x){
+		int temp = x;
+		if(x<0)
+			temp = Constantes.Largeur + x;
+		if(x>Constantes.Largeur-1){
+			temp = x - Constantes.Largeur;
+		}
+		return temp;
+	}
+
+	/**
+	 * recadre l'ordonnée si une entité sort de la grille.
+	 * @param l'ordonnée à recadrer.
+	 */
+	public int recadrerOrdonnee(int y){
+		int temp = y;
+		if(y<0)
+			temp = Constantes.Hauteur + y;
+		if(y>Constantes.Hauteur-1)
+			temp = y - Constantes.Hauteur;
+		return temp;
+	}
+
+	/**
+	 * recadre les cordonnées si une entité sort de la grille.
+	 * @param l'abscisse et l'ordonnée à recadrer.
+	 */
+	public void recadrerCoordonnees(int x,int y){
+		abs = recadrerAbscisse(x);
+		ord = recadrerOrdonnee(y);
+	}
+
+	/**
+	 * Accesseur.
+	 * @return l'identifant de l'entite qui depend de sa position.
+	 */
+	public int getNumeroEntite(){
+		return Constantes.Largeur*ord + abs;
+	}
+	
+	/**
+	 * retourne le minimum entre deux valeurs.
+	 * @param les deux valeurs à comparer.
+	 */
+	public double min(double a ,double b){
+		double tmp = a;
+		if(a > b){
+			tmp = b;
+		}
+		return tmp;
+	}
+	
+	/**
+	 * permet de retrouver l'abscisse d'une entité à partir de son numéro identifiant.
+	 * @param l'identifiant de l'entite.
+	 */
+	public int retrouverAbs(int num){
+		int ordon = retrouverOrd(num);
+		return num - (ordon*Constantes.Largeur);
+	}
+	
+	public int retrouverOrd(int num){
+		return num/Constantes.Largeur;
+	}
+	
+}

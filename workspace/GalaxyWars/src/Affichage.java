@@ -31,7 +31,6 @@ public final class Affichage extends JPanel {
 	/**
 	 * @brief Constructeur initialisant le panneau d'affichage
 	 */
-	// TODO : à compléter pour faire le lien entre la galaxie et le panneau d'affichage ...
 	public Affichage() {
 		// calcul des dimensions du panneau en fonction des paramètres de la galaxie
 		larg = Constantes.Largeur*Constantes.GfxCase;

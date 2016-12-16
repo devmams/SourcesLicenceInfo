@@ -1,5 +1,10 @@
+/**
+ * Classe permettant de créer la propulsion d'un 
+ * vaisseaux
+ * 
+ * @author Glenn PLOUHINEC / Mamadou DIALLO
+ */
 import java.util.Random;
-
 
 public class Propulsion {
 

@@ -1,15 +1,31 @@
+/**
+ * @brief Classe permettant de créer l'empire d'une espece.
+ * 
+ * @author Glenn PLOUHINEC / Mamadou DIALLO
+ */
+
 import java.awt.Color;
 import java.util.ArrayList;
 
 public class Empire {
 
+	//Couleur d'un empire
 	private Color couleur;
+	// planètes dont dispose un empire
 	private ArrayList<Planetes> planetes;
+	// prémière planète d'un empire.
 	private Planetes p;
+	// vaisseaux dont dispose un empire
 	private ArrayList<Vaisseaux> vaisseaux;
+	//premier vaisseaux de l'empire
 	private Vaisseaux v1;
+	//deuc=xième vaisseaux de l'empire
 	private Vaisseaux v2;
 
+	/**
+	 * Construit un empire qui a une planete et deux vaisseaux.
+	 * @param la couleur de l'espèce et une galaxie.
+	 */
 	public Empire(Color col,Galaxie galaxie){
 		couleur = col;
 		planetes = new ArrayList<Planetes>();
@@ -22,6 +38,10 @@ public class Empire {
 		ajoutVaisseaux(v2,galaxie);
 	}	
 	
+	/**
+	 * Ajoute une nouvelle planète dans l'empire.
+	 * @param planete à rajouter et une galaxie.
+	 */
 	public void ajouterPlanete(Planetes p,Galaxie galaxie){
 		planetes.add(p);
 		galaxie.ajoutEntite(p);
@@ -29,6 +49,10 @@ public class Empire {
 		nouveauVaisseauxEnConstruction(p,galaxie);
 	}
 	
+	/**
+	 * Supprime une planète dans l'empire.
+	 * @param planete à supprimer.
+	 */
 	public void supprPlanete(Planetes p){
 		for(int i=0 ;i<planetes.size() ;i++){
 			if(p.equals(planetes.get(i))){
@@ -37,12 +61,19 @@ public class Empire {
 		}
 	}
 
+	/**
+	 * Ajoute un nouveau vaisseaux dans l'empire.
+	 * @param vaisseau à rajouter et une galaxie.
+	 */
 	public void ajoutVaisseaux(Vaisseaux v,Galaxie galaxie){
 		vaisseaux.add(v);
 		galaxie.ajoutEntite(v);
-		//v.ajoutListeEntite(v);
 	}
 	
+	/**
+	 * Supprime un vaisseaux dans l'empire.
+	 * @param vaisseaux à supprimer et une galaxie.
+	 */
 	public void supprVaisseaux(Vaisseaux v,Galaxie galaxie){
 		for(int i=0 ;i<vaisseaux.size() ;i++){
 			if(v.equals(vaisseaux.get(i))){
@@ -51,21 +82,44 @@ public class Empire {
 			}
 		}
 		galaxie.supprEntite(v);
-		//v.supprListeEntite(v);
 	}
 	
+	/**
+	 * demarre la construction d'un nouveau vaisseaux.
+	 * planete construisant le vaisseaux et une galaxie. 
+	 */
 	private void nouveauVaisseauxEnConstruction(Planetes p,Galaxie galaxie){
 		p.vaisseauxEnConstruction(p,galaxie);
 	}
 	
+	/**
+	 * Accesseur.
+	 * @return la couleur de l'empire.
+	 */
 	public Color getEmpirColor(){
 		return couleur;
 	}
 	
+	/**
+	 * Accesseur.
+	 * @return toutes les planète de l'empire.
+	 */
 	public ArrayList<Planetes> getPlanetes(){
 		return planetes;
 	}
 	
+	/**
+	 * Accesseur.
+	 * @return tous les vaisseaux de l'empire.
+	 */
+	public ArrayList<Vaisseaux> getVaisseaux(){
+		return vaisseaux;
+	}
+	
+	/**
+	 * rajoute le vaisseaux construit dans l'empire et demarre une nouvelle construction. 
+	 * @param le taux de productivité de l'espèce et une galaxie.
+	 */
 	public void constructionVaisseaux(double t,Galaxie galaxie){
 		for(int i=0 ; i<planetes.size() ;i++){
 			if(planetes.get(i).constructionTerminee(t)){
@@ -79,26 +133,34 @@ public class Empire {
 		}
 	}
 	
+	/**
+	 * deplace tous les vaisseaux de l'empire.
+	 * @param l'espèce et une galaxie.
+	 */
 	public void deplacementVaisseaux(ArrayList<Espece> esp,Galaxie galaxie){
 		for(int i=0 ; i<vaisseaux.size() ;i++){
 			vaisseaux.get(i).deplacement(esp,galaxie);
 		}
 	}
 	
+	/**
+	 * interaction de chaque vaisseaux de l'empire avec les autres entités.
+	 * @param l'espèce , l'empire et les planetes inoccuppées et une galaxie.
+	 */
 	public void interaction(ArrayList<Espece>especes,Empire empire,PlanetesInoccupees pI,Galaxie galaxie){
 		for(int i=0 ;i<vaisseaux.size(); i++){
 			vaisseaux.get(i).interactionVaisseaux(especes,empire,pI,galaxie);
 		}
 	}
 	
+	/**
+	 * reproduction de chaque planète de l'empire.
+	 * @param le taux de natalite de l'espèce.
+	 */
 	public void reproduction(double tauxNatalite){
 		for(int p=0 ; p<planetes.size() ;p++){
 			planetes.get(p).reproductionPlanete(tauxNatalite);
 		}
-	}
-	
-	public ArrayList<Vaisseaux> getVaisseaux(){
-		return vaisseaux;
 	}
 	
 	

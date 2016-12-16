@@ -1,3 +1,8 @@
+/**
+ * @brief Classe permettant de créer une planete.
+ * 
+ * @author Glenn PLOUHINEC / Mamadou DIALLO
+ */
 import java.awt.Color;
 import java.util.Random;
 
@@ -10,7 +15,7 @@ public class Planetes extends Entite {
 	public Planetes(Color c,Galaxie galaxie){
 		super(c,galaxie);
 		Random rand = new Random();
-		taillePlanete = Math.abs(rand.nextInt())%(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;//taille
+		taillePlanete = rand.nextInt(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;//taille
 		population = taillePlanete/2;
 	}
 	
@@ -40,10 +45,6 @@ public class Planetes extends Entite {
 	
 	public Vaisseaux vaisseauxConstruit(){
 		return nvVaisseaux;
-	}
-	
-	public double getPopulaltion(){
-		return population;
 	}
 	
 	public void reproductionPlanete(double tauxNatalite){

@@ -25,15 +25,10 @@ public class Constantes {
 	public static final int VaisseauResistanceMax = 10; // résistance maximale d'un vaisseau
 	
 	// Caractéristiques de la propulsion
-	public static final int PorteeMin = 1;
-	public static final int PorteeMax = 5;
+	public static final int PorteeMin = 1;// portée minimal d'une propulsion
+	public static final int PorteeMax = 5;// portée maximal d'une propulsion
 	public static final int CarburantMin = 10;
 	public static final int CarburantMax = 20;
-
-	
-	// Caractéristiques des propulsions
-	public static final int PropulsionPorteeMin = 1; // portée minimal d'une propulsion
-	public static final int PropulsionPorteeMax = 5; // portée maximal d'une propulsion
 
 	// Paramètres de la simulation
 	public static final int TourMax = 1000; // nombre de tours maximum

@@ -1,30 +1,43 @@
+/**
+ * @brief Classe permettant de créer un vaisseaux.
+ * 
+ * @author Glenn PLOUHINEC / Mamadou DIALLO
+ */
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
 
 public class Vaisseaux extends Entite {
+	// résistance du vaisseaux.
 	private int resistance;
+	// propulsion du vaisseaux.
 	private Propulsion propulsion;
+	// type de deplacement du vaisseaux.
 	private char typeDeplacement;
+	// integrité du vaisseaux.
 	private double integrite;
+	// la liste d'equipement du vaisseaux entre (1 et 4).
 	private String[] listeEquipement;
-	private int nb; //nombre equipement
 	
-	public Vaisseaux(){}
-	
+	/**
+	 * Construit un vaisseaux.
+	 * @param la planete du vaisseaux , sa couleur et la galaxie.
+	 */
 	public Vaisseaux(Planetes p,Color c,Galaxie galaxie){
 		super(p,c,galaxie);
 		Random rand = new Random();
-		resistance = Math.abs(rand.nextInt())%(Constantes.VaisseauResistanceMax-Constantes.VaisseauResistanceMin+1) + Constantes.VaisseauResistanceMin; // résistance
+		resistance = rand.nextInt(Constantes.VaisseauResistanceMax-Constantes.VaisseauResistanceMin+1) + Constantes.VaisseauResistanceMin;
 		integrite = rand.nextInt(resistance+1); // résistance
 		propulsion = new Propulsion();
 		typeDeplacement = typeDeplacement();
-		nb = rand.nextInt(4) + 1;
-		listeEquipement = new String[nb];
+		listeEquipement = new String[rand.nextInt(4) + 1];
 		creerEquipements();
 	} 
 	
+	/**
+	 * crée la liste d'équipements.
+	 */
 	private void creerEquipements(){
 		if(listeEquipement.length == 1)
 			listeEquipement[0] = "s";
@@ -45,6 +58,10 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
+	/**
+	 * permet d'avancer les équipements chaque équipement prend la place de l'équipement qui le precède.
+	 *  le prémier devient le dernier.
+	 */
 	public void avancerEquipement(){
 		if(listeEquipement.length > 1){
 			String tmp = listeEquipement[0];
@@ -55,22 +72,42 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
+	/**
+	 * Accesseur.
+	 * @return le premier equipement c-a-d l'équipement actuellement utilisé.
+	 */
 	public String equipementCourant(){
 		return listeEquipement[0];
 	}
 	
+	/**
+	 * Mutateur.
+	 * affecte une nouvelle intégrité au vaisseau.
+	 * @param la nouvelle integrité.
+	 */
 	public void setIntegrite(int nouvelleIntegrite){
 		integrite = nouvelleIntegrite;
 	}
 	
+	/**
+	 * Accesseur.
+	 * @return l'integrité du vaisseaux.
+	 */
 	public double getIntegrite() {
 		return integrite;
 	}
 	
+	/**
+	 * modifie l'intégrité du vaisseau pendant la construction du vaisseau par une planète.
+	 * @param le taux de productivité de l'espèce et la population de la planete.
+	 */
 	public void nouvelleIntegrite(double tauxProductivite , double pop){
 		integrite = min (resistance, integrite + (pop * tauxProductivite));
 	}
 	
+	/**
+	 * fonction créant le type de deplacement du vaisseaux.
+	 */
 	public char typeDeplacement(){
 		char s = '+';
 		Random r = new Random();
@@ -83,18 +120,34 @@ public class Vaisseaux extends Entite {
 		return s;
 	}
 	
+	/**
+	 * Accesseur.
+	 * @return le type de deplacement du vaisseaux.
+	 */
 	public char getTypeDeplacement(){
 		return typeDeplacement;
 	}
 	
+	/**
+	 * Accesseur.
+	 * @return la résistance du vaisseaux.
+	 */
 	public int getResistance(){
 		return resistance;
 	}
 	
+	/**
+	 * Accesseur.
+	 * @return la propulsion du vaisseaux.
+	 */
 	public Propulsion getPropulsion(){
 		return propulsion;
 	}
 	
+	/**
+	 * méthode vérifiant le carburant du vaisseaux .
+	 * 	renvoie vrai si le vaisseaux dispose toujours de carburant.
+	 */
 	public boolean verifCarburant(){
 		boolean res = false;
 		if(getPropulsion().getCarburant() > 0){

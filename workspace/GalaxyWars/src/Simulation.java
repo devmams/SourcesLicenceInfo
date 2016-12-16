@@ -1,11 +1,12 @@
-import java.awt.Color;
-import java.io.ObjectInputStream.GetField;
-import java.nio.channels.GatheringByteChannel;
-import java.util.ArrayList;
-
 /**
  * @brief Classe gérant la simulation de conquête galactique
+ * 
+ * @author Glenn PLOUHINEC / Mamadou DIALLO
  */
+
+import java.awt.Color;
+import java.util.ArrayList;
+
 public class Simulation {
 
 	private static String vainqueur;

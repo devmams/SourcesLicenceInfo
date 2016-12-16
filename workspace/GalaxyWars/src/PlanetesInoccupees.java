@@ -1,3 +1,8 @@
+/**
+ * @brief Classe permettant de créer et gérer les planètes inoccupées
+ * 
+ * @author Glenn PLOUHINEC / Mamadou DIALLO
+ */
 import java.awt.Color;
 import java.util.ArrayList;
 
