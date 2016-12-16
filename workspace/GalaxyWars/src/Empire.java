@@ -17,10 +17,14 @@ public class Empire {
 	private Planetes p;
 	// vaisseaux dont dispose un empire
 	private ArrayList<Vaisseaux> vaisseaux;
-	//premier vaisseaux de l'empire
+	// premier vaisseaux de l'empire
 	private Vaisseaux v1;
-	//deuc=xième vaisseaux de l'empire
+	// deuxième vaisseaux de l'empire
 	private Vaisseaux v2;
+	//nombre de planetes présentes dans la galaxie.
+	private static int nbPlanetesOccupees = 0;
+	//nombre de vaisseaux présentes dans la galaxie.
+	private static int nbVaisseaux = 0;
 
 	/**
 	 * Construit un empire qui a une planete et deux vaisseaux.
@@ -47,6 +51,7 @@ public class Empire {
 		galaxie.ajoutEntite(p);
 		//p.ajoutListeEntite(p);
 		nouveauVaisseauxEnConstruction(p,galaxie);
+		nbPlanetesOccupees++;
 	}
 	
 	/**
@@ -59,6 +64,7 @@ public class Empire {
 				planetes.remove(i);
 			}
 		}
+		nbPlanetesOccupees--;
 	}
 
 	/**
@@ -68,6 +74,7 @@ public class Empire {
 	public void ajoutVaisseaux(Vaisseaux v,Galaxie galaxie){
 		vaisseaux.add(v);
 		galaxie.ajoutEntite(v);
+		nbVaisseaux++;
 	}
 	
 	/**
@@ -82,6 +89,7 @@ public class Empire {
 			}
 		}
 		galaxie.supprEntite(v);
+		nbVaisseaux--;
 	}
 	
 	/**
@@ -163,6 +171,29 @@ public class Empire {
 		}
 	}
 	
+	public int getPopulationTotale(){
+		int popTotale = 0;
+		for(int i=0 ;i<planetes.size() ;i++){
+			popTotale += planetes.get(i).getPopulation();
+		}
+		return popTotale;
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return le nombre de vaisseaux presents dans la galaxie.
+	 */
+	public int getNbvaisseaux(){
+		return nbVaisseaux;
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return le nombre de planetes occupées dans la galaxie.
+	 */
+	public int getNbPlanetesOccupees(){
+		return nbPlanetesOccupees;
+	}
 	
 }
 

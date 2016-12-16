@@ -1,0 +1,163 @@
+import java.awt.Color;
+
+
+public class Galaxie {
+
+	// grille deux dimension representant notre galaxie.
+	private static Entite[][] grilleEntites;
+	// largeur de la galaxie
+	private int largeur;
+	// hauteur de la galaxie
+	private int hauteur;
+	//nombre d'entites présentes dans la galaxie.
+	private static int nbEntites = 0;
+	//nombre de planetes présentes dans la galaxie au depart.
+	private static int nbPlanetesOccupees = 4;
+	//nombre de planetes présentes dans la galaxie.
+	private static int nbPlanetesInoccupees = 20;
+	//nombre de vaisseaux présentes dans la galaxie.
+	private static int nbVaisseaux = 0;
+	
+	/**
+	 * Construit une galaxie.
+	 */
+	public Galaxie(){
+		largeur = Constantes.Largeur;
+		hauteur = Constantes.Hauteur;
+		grilleEntites = new Entite[largeur][hauteur];
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return la largeur de la galaxie.
+	 */
+	public int getGalaxieLargeur(){
+		return largeur;
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return la hauteur de la galaxie.
+	 */
+	public int getGalaxieHauteur(){
+		return hauteur;
+	}
+	
+	/**
+	 * ajoute une entité dans notre galaxie.
+	 * @param entité à ajouter.
+	 */
+	public void ajoutEntite(Entite ent){
+		grilleEntites[ent.getAbscisse()][ent.getOrdonnee()] = ent;
+		nbEntites++;
+		if(ent.getTypeEntite() == "planete" && !ent.getColorEntite().equals(Color.white))
+			nbPlanetesOccupees++;
+		else if(ent.getTypeEntite() == "planete" && ent.getColorEntite().equals(Color.white))
+			nbPlanetesInoccupees++;
+		else if(ent.getTypeEntite() == "vaisseaux")
+			nbVaisseaux++;
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return le nombre de vaisseaux presents dans la galaxie.
+	 */
+	public void getNbvaisseaux(){
+		//return nbVaisseaux;
+	}
+	
+	/**
+	 * Mutateur.
+	 * augmente le nombre de planetes inoccupées dans la galaxie.
+	 */
+	public void augPlanetesInoccupees(int nb){
+		nbPlanetesInoccupees++;
+		nbPlanetesOccupees--;
+	}
+	
+	/**
+	 * Mutateur.
+	 * diminue le nombre de planetes inoccupées dans la galaxie.
+	 */
+	public void dimPlanetesInoccupees(int nb){
+		nbPlanetesInoccupees = nb;
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return le nombre de planetes inoccupées dans la galaxie.
+	 */
+	public int getNbPlanetesInoccupees(){
+		return nbPlanetesInoccupees;
+		 
+	}
+	
+	/**
+	 * Mutateur.
+	 * Modifie le nombre de planetes occupées dans la galaxie.
+	 */
+	public void modifPlanetesOccupees(int nb){
+		nbPlanetesOccupees = nb;
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return le nombre de planetes occupées dans la galaxie.
+	 */
+	public int getNbPlanetesOccupees(){
+		return nbPlanetesOccupees;
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return le nombre d'entites presentes dans la galaxie.
+	 */
+	public int getNbEntites(){
+		return nbEntites;
+	}
+	
+	/**
+	 * supprime une entité dans notre galaxie.
+	 * @param entité à supprimer.
+	 */
+	public void supprEntite(Entite ent){
+		grilleEntites[ent.getAbscisse()][ent.getOrdonnee()] = null;
+		nbEntites--;
+		if(ent.getTypeEntite() == "planete" && !ent.getColorEntite().equals(Color.white))
+			nbPlanetesOccupees--;
+		else if(ent.getTypeEntite() == "planete" && ent.getColorEntite().equals(Color.white))
+			nbPlanetesInoccupees--;
+		else if(ent.getTypeEntite() == "vaisseaux")
+			nbVaisseaux--;
+	}
+	
+	/**
+	 * modifie la position d'une entité dans la galaxie.
+	 * @param ancienne et nouvelle position.
+	 */
+	public void modifPositionEntite(int xAnc,int yAnc,int xNouv,int yNouv){
+		grilleEntites[xNouv][yNouv] = grilleEntites[xAnc][yAnc];
+		grilleEntites[xAnc][yAnc] = null;
+	}
+	
+	/**
+	 * @return une entité présente à une position donnée 
+	 * dans la galaxie.
+	 */
+	public Entite getEntite(int id){
+		int y = id/Constantes.Largeur;
+		int x = id - (y*Constantes.Largeur);
+		return grilleEntites[x][y];
+	}
+
+	/**
+	 * @return vrai Ssi la position est occupée dans la galaxie.
+	 */
+	public boolean occupee(int x,int y){
+		boolean res = false;
+		if(grilleEntites[x][y] != null ){
+			res = true;
+		}
+		return res;
+	}
+}

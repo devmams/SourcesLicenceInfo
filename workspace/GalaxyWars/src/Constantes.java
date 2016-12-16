@@ -31,8 +31,8 @@ public class Constantes {
 	public static final int CarburantMax = 20;
 
 	// Paramètres de la simulation
-	public static final int TourMax = 1000; // nombre de tours maximum
-	public static final int TourMs = 50; // durée d'un tour en millisecondes
+	public static final int TourMax = 2000; // nombre de tours maximum
+	public static final int TourMs = 5000; // durée d'un tour en millisecondes
 	//public static final int TourMs = 1000; // durée d'un tour en millisecondes
 	
 	// Paramètres d'affichage

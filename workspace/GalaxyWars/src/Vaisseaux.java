@@ -22,7 +22,7 @@ public class Vaisseaux extends Entite {
 	
 	/**
 	 * Construit un vaisseaux.
-	 * @param la planete du vaisseaux , sa couleur et la galaxie.
+	 * @param la planete du vaisseaux , sa couleur et sa galaxie.
 	 */
 	public Vaisseaux(Planetes p,Color c,Galaxie galaxie){
 		super(p,c,galaxie);
@@ -156,6 +156,10 @@ public class Vaisseaux extends Entite {
 		return res;
 	}
 	
+	/**
+	 * déplace le vaisseaux vers le haut.
+	 * @param la galaxie contenat le vaisseaux
+	 */
 	private void sensHaut(Galaxie galaxie){
 		int ancien = ord;
 		int tmp = ord - getPropulsion().positionAtteinte();
@@ -166,6 +170,10 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
+	/**
+	 * déplace le vaisseaux vers le bas.
+	 * @param la galaxie contenat le vaisseaux
+	 */
 	private void sensBas(Galaxie galaxie){
 		int ancien = ord;
 		int tmp = ord + getPropulsion().positionAtteinte();
@@ -176,6 +184,10 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
+	/**
+	 * déplace le vaisseaux vers la gauche.
+	 * @param la galaxie contenat le vaisseaux
+	 */
 	private void sensGauche(Galaxie galaxie){
 		int ancien = abs;
 		int tmp = abs - getPropulsion().positionAtteinte();
@@ -186,6 +198,10 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
+	/**
+	 * déplace le vaisseaux vers la droite.
+	 * @param la galaxie contenat le vaisseaux
+	 */
 	private void sensDroit(Galaxie galaxie){
 		int ancien = abs;
 		int tmp = abs + getPropulsion().positionAtteinte();
@@ -196,6 +212,10 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
+	/**
+	 * déplace le vaisseaux en diagonale en haut à droite.
+	 * @param la galaxie contenat le vaisseaux
+	 */
 	private void sensDiagonaleHD(Galaxie galaxie){
 		int ancien1 = abs;
 		int ancien2 = ord;
@@ -211,6 +231,10 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
+	/**
+	 * déplace le vaisseaux en diagonale en bas à droite.
+	 * @param la galaxie contenat le vaisseaux
+	 */
 	private void sensDiagonaleBD(Galaxie galaxie){
 		int ancien1 = abs;
 		int ancien2 = ord;
@@ -226,6 +250,10 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
+	/**
+	 * déplace le vaisseaux en diagonale en bas à gauche.
+	 * @param la galaxie contenat le vaisseaux
+	 */
 	private void sensDiagonaleBG(Galaxie galaxie){
 		int ancien1 = abs;
 		int ancien2 = ord;
@@ -241,6 +269,10 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
+	/**
+	 * déplace le vaisseaux en diagonale en haut à gauche.
+	 * @param la galaxie contenat le vaisseaux
+	 */
 	private void sensDiagonaleHG(Galaxie galaxie){
 		int ancien1 = abs;
 		int ancien2 = ord;
@@ -256,6 +288,10 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
+	/**
+	 * détermine aléatoirement la direction et le sens linéaire que va prendre le vaisseau.
+	 * @param la galaxie contenat le vaisseaux
+	 */
 	private void lineaire(Galaxie galaxie){
 		Random rd = new Random();
 		int sens = rd.nextInt(4);//sens de placement
@@ -267,6 +303,10 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
+	/**
+	 * détermine aléatoirement la direction et le sens diagonale que va prendre le vaisseau.
+	 * @param la galaxie contenat le vaisseaux
+	 */
 	private void diagonale(Galaxie galaxie){
 		Random rd = new Random();
 		int sens = rd.nextInt(4);//sens de placement
@@ -278,6 +318,10 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
+	/**
+	 * détermine aléatoirement la direction et le sens omnidirectionnel que va prendre le vaisseau.
+	 * @param la galaxie contenat le vaisseaux
+	 */
 	private void omnidirectionnelle(Galaxie galaxie){
 		Random rd = new Random();
 		int sens = rd.nextInt(8);//sens de placement
@@ -293,6 +337,10 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
+	/**
+	 * choisis la méthode de deplacement qui convient en fonction du type de deplacement. 
+	 * @param la galaxie contenat le vaisseaux
+	 */
 	private void deplace(Galaxie galaxie){
 		switch(typeDeplacement){
 		case '+' :lineaire(galaxie);break;	
@@ -301,6 +349,10 @@ public class Vaisseaux extends Entite {
 		}
 	}
 	
+	/**
+	 * deplace le vaisseaux s'il dispose toujours de carburant. 
+	 * @param espece du vaisseaux et la galaxie contenat le vaisseaux
+	 */
 	public void deplacement(ArrayList<Espece> esp,Galaxie galaxie){
 		if(verifCarburant()){
 			getPropulsion().diminuerCarburant();
@@ -309,6 +361,10 @@ public class Vaisseaux extends Entite {
 		autoDestruction(esp,galaxie);
 	}
 	
+	/**
+	 * choisit aléatoirement une case adjacente au vaisseau 
+	 * 	qui fera office de la cible. 
+	 */
 	public int caseCible(){
 		int caseCible = 0;
 		int posAbs = retrouverAbs(getNumeroEntite());
@@ -328,12 +384,19 @@ public class Vaisseaux extends Entite {
 		return caseCible;
 	}	
 	
+	/**
+	 * inflige le degat au vaisseaux cible.
+	 */
 	public void infligeDegat(){
 		Random rand = new Random();
 		int degat = rand.nextInt(3) + 1;
 		integrite -= degat;
 	}
 	
+	/**
+	 * detruit le vaisseaux s'il n'a plus de carburant et d'integrité.
+	 * @param l'espece du vaisseaux , et la galaxie contenant le vaisseaux.
+	 */
 	public void autoDestruction(ArrayList<Espece> esp,Galaxie galaxie){
 		if(!verifCarburant() || getIntegrite() <= 0){
 			for(int i=0 ;i<esp.size();i++){
@@ -346,6 +409,11 @@ public class Vaisseaux extends Entite {
 	
 	}
 	
+	/**
+	 * permet l'interaction entre le vaisseaux et sa cible.
+	 * @param l'espece du vaisseaux ,l'emire du vaisseaux ,
+	 * 		les planete inoccupées et la galaxie contenant le vaisseaux.
+	 */
 	public void interactionVaisseaux(ArrayList<Espece> esp,Empire e , PlanetesInoccupees pI,Galaxie galaxie){	
 		int cible = caseCible();
 		//if(occupee(retrouverAbs(cible),retrouverOrd(cible))){ //verifie si la case ciblée est occupée
@@ -390,7 +458,7 @@ public class Vaisseaux extends Entite {
 				}
 			}
 		}
-		avancerEquipement();//l'equipement courant devient l'equipement qui suit
+		avancerEquipement();//l'equipement courant devient l'equipement qui precede.
 	}
 }
 

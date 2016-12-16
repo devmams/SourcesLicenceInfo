@@ -1,0 +1,50 @@
+
+public class Galaxie {
+
+	private static Entite[][] grilleEntites;
+	private int largeur;
+	private int hauteur;
+	
+	public Galaxie(){
+		largeur = Constantes.Largeur;
+		hauteur = Constantes.Hauteur;
+		grilleEntites = new Entite[largeur][hauteur];
+	}
+	
+	public int getGalaxieLargeur(){
+		return largeur;
+	}
+	
+	public int getGalaxieHauteur(){
+		return hauteur;
+	}
+	
+	public void ajoutEntite(Entite ent){
+		grilleEntites[ent.getAbscisse()][ent.getOrdonnee()] = ent;
+	}
+	
+	public void supprEntite(Entite ent){
+		grilleEntites[ent.getAbscisse()][ent.getOrdonnee()] = null;
+	}
+	
+	public void modifPositionEntite(int xAnc,int yAnc,int xNouv,int yNouv){
+		grilleEntites[xNouv][yNouv] = grilleEntites[xAnc][yAnc];
+		grilleEntites[xAnc][yAnc] = null;
+	}
+	
+	
+	public Entite getEntite(int id){
+		int y = id/Constantes.Largeur;
+		int x = id - (y*Constantes.Largeur);
+		return grilleEntites[x][y];
+	}
+
+	
+	public boolean occupee(int x,int y){
+		boolean res = false;
+		if(grilleEntites[x][y] != null ){
+			res = true;
+		}
+		return res;
+	}
+}

@@ -1,0 +1,104 @@
+/**
+ * @brief Classe permettant de créer une planete.
+ * 
+ * @author Glenn PLOUHINEC / Mamadou DIALLO
+ */
+import java.awt.Color;
+import java.util.Random;
+
+public class Planetes extends Entite {
+
+	// taille de la planete.
+	private int taillePlanete;
+	// vaisseaix que construit la planete.
+	private Vaisseaux nvVaisseaux ;
+	// population de la planete.
+	private double population;
+	
+	/**
+	 * Construit une planete.
+	 * @param la couleur de la planete , et sa galaxie.
+	 */
+	public Planetes(Color c,Galaxie galaxie){
+		super(c,galaxie);
+		Random rand = new Random();
+		taillePlanete = rand.nextInt(Constantes.PlaneteTailleMax-Constantes.PlaneteTailleMin+1) + Constantes.PlaneteTailleMin;//taille
+		population = taillePlanete/2;
+	}
+	
+	/**
+	 * inflige le degat au vaisseaux cible.
+	 */
+	public void infligeDegat(){
+		Random rand = new Random();
+		int degat = rand.nextInt(6) + 5;
+		population -= degat;
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return la population de la planete.
+	 */
+	public int getTaillePlante(){
+		return taillePlanete;
+	}
+	
+	/**
+	 * fonction retournant "vrai" si la construction du nouveau 
+	 * 	vaisseaux est terminée.
+	 * @param taux de productivité de l'espèce.
+	 */
+	public boolean constructionTerminee(double t){
+		boolean bool = false;
+		nvVaisseaux.nouvelleIntegrite(t,population);
+		if(nvVaisseaux.getIntegrite() == nvVaisseaux.getResistance()){
+			bool = true;
+		}
+		return bool;
+	}
+	
+	/**
+	 * demarre la construction d'un nouveau vaisseau.
+	 * @param planète constructeur et sa galaxie.
+	 */
+	public void vaisseauxEnConstruction(Planetes p,Galaxie galaxie){
+		nvVaisseaux = new Vaisseaux(p,getColorEntite(),galaxie);
+		nvVaisseaux.setIntegrite(0);
+	}
+	
+	/**
+	 * Accesseur.
+	 * @return le nouveau vaisseau venant d'être créé.
+
+	 */
+	public Vaisseaux vaisseauxConstruit(){
+		return nvVaisseaux;
+	}
+	
+	/**
+	 * augmentation de la population en fonction du taux de natalité de l'espèce.
+	 * @param le taux de natalité de l'espece.
+	 */
+	public void reproductionPlanete(double tauxNatalite){
+		//System.out.println("pop init : "+population +" ; "+"taillePop : "+taillePlanete);
+		//System.out.println("natalite : "+ tauxNatalite);
+		population = min(taillePlanete, population*(1+tauxNatalite));
+		//System.out.println("pop :"+ population);
+	}
+	
+	/**
+	 * indique si une planète est inhabitée.
+	 */
+	public boolean populationNull() {
+		boolean res = false;
+		if(population <= 0){
+			res = true;
+		}
+		return res;
+	}
+		
+	public void modifPopulation(double nvPop){
+		population = nvPop;
+	}
+		
+}

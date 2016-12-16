@@ -1,7 +1,7 @@
 /**
  * @brief Classe gérant la simulation de conquête galactique
  * 
- * @author Glenn PLOUHINEC / Mamadou DIALLO
+ * @author ...
  */
 
 import java.awt.Color;
@@ -9,7 +9,11 @@ import java.util.ArrayList;
 
 public class Simulation {
 
-	private static String vainqueur;
+	// Couleur vainqueur
+	private static String couleurMot;
+
+	
+	// la galaxie du jeu.
 	private static Galaxie galaxie = new Galaxie();
 	/**
 	 * 
@@ -39,22 +43,35 @@ public class Simulation {
 			}
 		}
 		if(victoire){
-			vainqueur(colorEntiteInit);
+			couleurMot(colorEntiteInit);
+		}
+		else{
+			couleurMot(Color.white);
 		}
 		return victoire;
 	}
 	
-	public static void vainqueur(Color c){
+	/**
+	 * Determine l'espèce vainqueur .
+	 */
+	public static void couleurMot(Color c){
 		if(c.equals(Color.red))
-			vainqueur = "ROUGE";
+			couleurMot = "ROUGE";
 		else if (c.equals(Color.green))
-			vainqueur = "VERT";
+			couleurMot = "VERT";
 		else if(c.equals(Color.blue))
-			vainqueur = "BLEU";
+			couleurMot = "BLEU";
+		else if(c.equals(Color.orange))
+			couleurMot = "ORANGE";
+		else if(c.equals(Color.white))
+			couleurMot = "Aucun";
 	}
 	
+	/**
+	 * Affiche l'espèce vainqueur.
+	 */
 	public static void afficheVainqueur(){
-		System.out.println("Les "+vainqueur+" sont Vainqueurs !");
+		System.out.println(couleurMot+" Vainqueur !");
 	}
 	
 	/**
@@ -64,15 +81,14 @@ public class Simulation {
 		// création du panneau d'affichage
 		Affichage panneau = new Affichage();
 		
-		// création de la fenêtre principale contenant le panneau
-		Fenetre fenetre = new Fenetre(panneau);
-
-		//Galaxie galaxie = new Galaxie();
+		// crée une nouvelle fenetre.
+		new Fenetre(panneau);
 		
+		// crée la liste des espèces
 		ArrayList<Espece> especes = new ArrayList<Espece>();
 	
-		//création d'especes initiales
-		for(int i=0 ; i<3 ;i++){
+		//Rajout des nouvelles especes crées , 4 espèces au totales
+		for(int i=0 ; i<4 ;i++){
 			especes.add(new Espece(galaxie));
 		}
 		
@@ -90,6 +106,19 @@ public class Simulation {
 			
 			
 			// Exécution des étapes du tour courant
+			for (Espece e : especes) {
+				Color c = e.getCouleur();
+				couleurMot(c);
+				System.out.println("Populations de l'espèce "+couleurMot+" : "+e.getEmpire().getPopulationTotale());
+			}
+			System.out.println("Nombres d'entiés : "+galaxie.getNbEntites());
+			System.out.println("Nombre de planètes occupées : "+especes.get(0).getEmpire().getNbPlanetesOccupees());
+			System.out.println("Nombre de planètes inoccupées : "+pI.getNbPlanetesInoccupees());
+			System.out.println("Nombre de vaisseaux : "+especes.get(0).getEmpire().getNbPlanetesOccupees());
+
+			
+			
+			
 			ArrayList<Planetes> listePlanetes = new ArrayList<Planetes>();
 			ArrayList<Vaisseaux> listeVaisseaux = new ArrayList<Vaisseaux>();
 			
@@ -125,7 +154,7 @@ public class Simulation {
 				e.printStackTrace();
 			}
 		}
-		afficheVainqueur();
+		//afficheVainqueur();
 		System.out.println("fin");
 		// fermeture de la fenêtre
 		//fenetre.dispose();
