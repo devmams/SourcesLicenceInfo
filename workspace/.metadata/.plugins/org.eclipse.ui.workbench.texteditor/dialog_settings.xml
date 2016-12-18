@@ -6,30 +6,31 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="modif" key="selection"/>
+		<item value="mot1" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="modif"/>
-			<item value="ino"/>
-			<item value="tour"/>
-			<item value="inoc"/>
-			<item value="case"/>
-			<item value="VaisseauResistanceMin"/>
-			<item value="inter"/>
-			<item value="integ"/>
+			<item value="lettre"/>
+			<item value="estReconnu"/>
+			<item value="resultat"/>
+			<item value="etatArrivee"/>
+			<item value="transitions"/>
+			<item value="while"/>
+			<item value="transite"/>
+			<item value="initialise"/>
 		</list>
 		<list key="replacehistory">
+			<item value="mot1"/>
 			<item value="partieFini"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="310" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="436" key="DIALOG_HEIGHT"/>
-		<item value="495" key="DIALOG_X_ORIGIN"/>
+		<item value="408" key="DIALOG_HEIGHT"/>
+		<item value="838" key="DIALOG_X_ORIGIN"/>
 		<item value="96" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
