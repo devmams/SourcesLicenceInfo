@@ -93,55 +93,50 @@ public class AutomateNonDeterministe extends Automate {
     }
        // effectue une transition à partir de l'état courant 
        //    avec la "mot1" donnée, met à jour l'état courant
-    public void transite(String mot) {
-    	String mot1 = mot.substring(0,2);
-    	String mot2 = mot.substring(2,4);
-        if (!start) {   // Si pas encore démarré
-            trouveDepart(mot1);   // On cherche l'état de départ candidat
+   public void transite(String mot) {	   
+	   String mot1 = mot.substring(0,2);
+	   if (!start) {   // Si pas encore démarré
+           trouveDepart(mot1);   // On cherche l'état de départ candidat
+       }
+       System.out.println("etat courant "+nomEtat(courant)+" transition par "+mot1);
+       if (erreur) // on ne continue pas après la première erreur rencontrée
+           { errMsg+=mot1; }  // on empile les "mot1s restantes"
+	   if(mot.length()==2 && transitionPresente(courant, mot1)){
+	   		for(int i=0 ;i<transitions.get(courant).size() ;i++){
+	   			if(estFinal(transitions.get(courant).get(i).etatArrivee)){
+	       			courant = transitions.get(courant).get(i).etatArrivee;
+	       			erreur = false;
+	       			break;
+	   			}
+	   			else if(i+1 == transitions.get(courant).size()){
+	                errMsg="l'état "+nomEtat(transitions.get(courant).get(0).etatArrivee)+" n'est pas final ";// message si on s'arête là
+	                erreur = true;
+	   			}
+	   		}
+	   	}
+	   	else if(mot.length()==2 && !transitionPresente(courant, mot1)){
+			errMsg="Pas de transition de l'état "+nomEtat(courant)+" avec "+mot1;// + la suite des mot1s
+			erreur = true;
+			return;
+		}
+	   	else{
+        // recherche de la transition correspondante
+	   		if(transitionPresente(courant, mot1)){
+	    		for(int i=0 ;i<transitions.get(courant).size() ;i++){
+	    			int tmp = courant;
+	    			courant = transitions.get(courant).get(i).etatArrivee;
+	        		transite(mot.substring(2,mot.length()));
+	        		if(estReconnu() && mot.length() == 2){
+	        			return;
+	        		}
+	        		courant = tmp;
+	    		}
+	   		}
         }
-        System.out.println("etat courant "+nomEtat(courant)+" transition par "+mot1);
-        if (erreur) // on ne continue pas après la première erreur rencontrée
-            { errMsg+=mot1; }  // on empile les "mot1s restantes"
-        else // pas d'erreur, on essaie de transiter
-        { // recherche de la transition correspondante
-            int rech=0;
-            /*while (rech<transitions.get(courant).size() && !mot1.equals(transitions.get(courant).get(rech).symbole))
-                  {rech++;}*/
-        	while (rech<transitions.get(courant).size()){ // si il y a  bien une transition avec cette mot1
-        		System.out.println("rech : "+rech+" ; taille: "+transitions.get(courant).size());
-                //System.out.println(courant); // DEBUG
-        		int tmp = transitions.get(courant).get(rech).etatArrivee;
-        		if(mot2.equals("  ")){
-        			if(estFinal(tmp)){
-        				courant = tmp;
-        			}
-        		}
-        		else{
-        			if(transitionPresente(tmp, mot2)){
-        				courant = tmp;
-        			}
-        		}
-                errMsg="l'état "+nomEtat(courant)+" n'est pas final ";   // message si on s'arête là
-
-        		// mise à jour de courant
-                //System.out.println("-"+"->"+courant); // DEBUG
-                //System.out.println("tmp--->"+tmp); // DEBUG
-
-        		/*else if(transitionPresente(tmp, mot1)){
-                    courant=transitions.get(courant).get(rech).etatArrivee;
-                    errMsg="l'état "+nomEtat(courant)+" n'est pas final ";   // message si on s'arête là
-                    System.out.println("----2");
-                    //break;
-        		}*/
-        		rech++;
-            }
-            System.out.println("-"+"->"+courant); // DEBUG
-            /*if(rech>=transitions.get(courant).size()){  // il n'y a pas de transition avec cette mot1 
-        	//else{
-        		errMsg="Pas de transition de l'état "+nomEtat(courant)+" avec "+mot1+ " avant ";   // + la suite des mot1s
-                erreur=true;
-                }*/
-        }
+    }
+    
+    public void determinisation(){
+    	
     }
 
     @Override

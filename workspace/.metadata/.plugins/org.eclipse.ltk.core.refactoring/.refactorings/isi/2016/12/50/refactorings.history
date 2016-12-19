@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Convert local variable &apos;Auto2.AutomateNonDeterministe.transite().premiereTrans&apos; in &apos;Auto2.AutomateNonDeterministe.transite()&apos; to field&#x0A;- Original project: &apos;isi&apos;&#x0A;- Original element: &apos;Auto2.AutomateNonDeterministe.transite().premiereTrans&apos;&#x0A;- Field name: &apos;premiereTrans&apos;&#x0A;- Initialize field in method&#x0A;- Declared visibility: &apos;private&apos;" description="Convert local variable &apos;premiereTrans&apos; to field" final="false" flags="2" id="org.eclipse.jdt.ui.promote.temp" initialize="1" input="/src&lt;Auto2{AutomateNonDeterministe.java" name="premiereTrans" selection="4534 59" stamp="1482104742815" static="false" version="1.0" visibility="2"/>
+</session>

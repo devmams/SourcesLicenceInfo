@@ -39,15 +39,15 @@
 </editorArea>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Automate.java" partName="Automate.java" path="/home/ousmane/Fac/workspace/isi/src/Auto2/Automate.java" title="Automate.java" tooltip="isi/src/Auto2/Automate.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/isi/src/Auto2/Automate.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="10" selectionOffset="3428" selectionTopPixel="714"/>
+<editorState selectionHorizontalPixel="0" selectionLength="8" selectionOffset="3655" selectionTopPixel="714"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AutomateNonDeterministe.java" partName="AutomateNonDeterministe.java" path="/home/ousmane/Fac/workspace/isi/src/Auto2/AutomateNonDeterministe.java" title="AutomateNonDeterministe.java" tooltip="isi/src/Auto2/AutomateNonDeterministe.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AutomateNonDeterministe.java" partName="AutomateNonDeterministe.java" path="/home/ousmane/Fac/workspace/isi/src/Auto2/AutomateNonDeterministe.java" title="AutomateNonDeterministe.java" tooltip="isi/src/Auto2/AutomateNonDeterministe.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/isi/src/Auto2/AutomateNonDeterministe.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="102" selectionOffset="4275" selectionTopPixel="1750"/>
+<editorState selectionHorizontalPixel="28" selectionLength="0" selectionOffset="5427" selectionTopPixel="2032"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UtiliseAutomate.java" partName="UtiliseAutomate.java" path="/home/ousmane/Fac/workspace/isi/src/Auto2/UtiliseAutomate.java" title="UtiliseAutomate.java" tooltip="isi/src/Auto2/UtiliseAutomate.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UtiliseAutomate.java" partName="UtiliseAutomate.java" path="/home/ousmane/Fac/workspace/isi/src/Auto2/UtiliseAutomate.java" title="UtiliseAutomate.java" tooltip="isi/src/Auto2/UtiliseAutomate.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/isi/src/Auto2/UtiliseAutomate.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2242" selectionTopPixel="459"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1358" selectionTopPixel="459"/>
 </editor>
 </editors>
 <views>
@@ -59,9 +59,7 @@
 </view>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="">
-<customFilters userDefinedPatternsEnabled="false">
-<xmlDefinedFilters>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
+<customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*" isEnabled="true"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter" isEnabled="false"/>
@@ -86,27 +84,12 @@
 </customFilters>
 </viewState>
 </view>
+<view id="org.eclipse.jdt.callhierarchy.view" partName="Call Hierarchy"/>
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
 </view>
-<view id="org.eclipse.jdt.callhierarchy.view" partName="Call Hierarchy"/>
 <view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
 <viewState/>
-</view>
-<view id="org.eclipse.ui.views.TaskList" partName="Tasks">
-<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
-<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="350" org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="746" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.priorityField="35" org.eclipse.ui.ide.resourceField="105"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
-</viewState>
-</view>
-<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
-<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
 </view>
 </views>
 <perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
@@ -140,55 +123,38 @@
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.RunToLine"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
-<fastViewBars>
-<fastViewBar fastViewLocation="16384" id="bottomLeft" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="1">
-<fastViews>
-<view id="org.eclipse.ui.views.ContentOutline" ratio="0.299444"/>
+<fastViewBars>&#x0A;<fastViewBar fastViewLocation="16384" id="bottomLeft" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="1">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.ui.views.ContentOutline" ratio="0.299444"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="1024" id="bottomRight" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="1">
-<fastViews>
-<view id="org.eclipse.ui.views.TaskList" ratio="0.3"/>
+<fastViewBar fastViewLocation="1024" id="bottomRight" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="1">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.ui.views.TaskList" ratio="0.3"/>
 <view id="org.eclipse.ui.console.ConsoleView" ratio="0.36390978"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="16384" id="topLeft" orientation="512" selectedTabId="org.eclipse.ui.navigator.ProjectExplorer" style="1">
-<fastViews>
-<view id="org.eclipse.ui.navigator.ProjectExplorer" ratio="0.29864973"/>
+<fastViewBar fastViewLocation="16384" id="topLeft" orientation="512" selectedTabId="org.eclipse.ui.navigator.ProjectExplorer" style="1">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.ui.navigator.ProjectExplorer" ratio="0.29864973"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
-<layout>
-<mainWindow>
-<info folder="true" part="topLeft">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="topLeft">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.team.ccvs.ui.RepositoriesView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.25940594" ratioLeft="262" ratioRight="748" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottomRight" ratio="0.659375" ratioLeft="422" ratioRight="218" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
+<info folder="true" part="bottomRight" ratio="0.659375" ratioLeft="422" ratioRight="218" relationship="4" relative="org.eclipse.ui.editorss">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
 <page content="org.eclipse.team.ui.GenericHistoryView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="bottomLeft" ratio="0.5" ratioLeft="320" ratioRight="320" relationship="4" relative="topLeft">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+<info folder="true" part="bottomLeft" ratio="0.5" ratioLeft="320" ratioRight="320" relationship="4" relative="topLeft">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
@@ -196,7 +162,7 @@
 </mainWindow>
 </layout>
 </perspective>
-<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<perspective editorAreaTrimState="1" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
 <alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
@@ -269,7 +235,7 @@
 <layout>
 <mainWindow>
 <info folder="true" part="left">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
@@ -287,7 +253,7 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.24950495" ratioLeft="252" ratioRight="758" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.70186335" ratioLeft="678" ratioRight="288" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="LabelNotFound"/>
@@ -300,7 +266,7 @@
 </folder>
 </info>
 <info folder="true" part="right" ratio="0.74934036" ratioLeft="568" ratioRight="190" relationship="2" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
@@ -391,160 +357,159 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/isi/src/Auto2/Automate.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/isi/src/Auto2/AutomateNonDeterministe.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/isi/src/Auto2/UtiliseAutomate.java"/>
-<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=isi/\/usr\/lib\/jvm\/java-8-openjdk-i386\/jre\/lib\/rt.jar&lt;java.lang(String.class"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/isi/src/Auto2/Automate.java"/>
 </editors>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="4917" y="0"/>
+</item>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
 <position/>
 </item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="962" y="0"/>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="433" y="0"/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
+<item historyLabel="AutomateNonDeterministe.java" index="0">
 <position/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="4928" y="0"/>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="4939" y="0"/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="4727" y="0"/>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="869" y="0"/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="5105" y="0"/>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="5214" y="0"/>
 </item>
-<item historyLabel="Automate.java" index="0">
-<position info="not_deleted" x="3428" y="10"/>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="1909" y="0"/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="5105" y="0"/>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="4464" y="0"/>
 </item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="962" y="0"/>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="919" y="0"/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="5006" y="0"/>
+</item>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="1909" y="0"/>
+</item>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="5006" y="0"/>
+</item>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="4591" y="0"/>
+</item>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="4530" y="0"/>
+</item>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="4530" y="0"/>
+</item>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
 <position/>
 </item>
-<item historyLabel="UtiliseAutomate.java" index="2">
+<item historyLabel="Automate.java" index="2">
+<position info="not_deleted" x="3655" y="8"/>
+</item>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="1991" y="0"/>
+</item>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="3557" y="0"/>
+</item>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="1427" y="0"/>
+</item>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="4786" y="0"/>
+</item>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="1481" y="0"/>
+</item>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="4786" y="0"/>
+</item>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
 <position/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="1481" y="0"/>
+</item>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="4401" y="0"/>
+</item>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="1481" y="0"/>
+</item>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="4401" y="0"/>
+</item>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="4500" y="0"/>
+</item>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="1481" y="0"/>
+</item>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
 <position/>
 </item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="920" y="0"/>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="951" y="0"/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
+<item historyLabel="AutomateNonDeterministe.java" index="0">
 <position/>
 </item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="333" y="0"/>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="951" y="0"/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="5613" y="0"/>
-</item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="1057" y="0"/>
-</item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
+<item historyLabel="AutomateNonDeterministe.java" index="0">
 <position/>
 </item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="1322" y="0"/>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="951" y="0"/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="3596" y="0"/>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="5311" y="0"/>
 </item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="1193" y="0"/>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="1055" y="0"/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="3596" y="0"/>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="5311" y="0"/>
 </item>
-<item historyLabel="Automate.java" index="0">
-<position info="not_deleted" x="3428" y="10"/>
-</item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="1193" y="0"/>
-</item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="3596" y="0"/>
-</item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="1193" y="0"/>
-</item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="3596" y="0"/>
-</item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="1193" y="0"/>
-</item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="4067" y="0"/>
-</item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="1057" y="0"/>
-</item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="3304" y="0"/>
-</item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="1280" y="0"/>
-</item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="3304" y="0"/>
-</item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="3596" y="0"/>
-</item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="1280" y="0"/>
-</item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="3594" y="0"/>
-</item>
-<item historyLabel="UtiliseAutomate.java" index="2">
+<item historyLabel="UtiliseAutomate.java" index="1">
 <position info="not_deleted" x="1265" y="0"/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="3594" y="0"/>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="3210" y="0"/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="5012" y="0"/>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="1368" y="0"/>
 </item>
-<item historyLabel="String.class" index="3">
-<position info="not_deleted" x="77808" y="64"/>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="3210" y="0"/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="5012" y="0"/>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="919" y="0"/>
 </item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="1265" y="0"/>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="3210" y="0"/>
 </item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="1281" y="77"/>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="4811" y="0"/>
 </item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="1279" y="0"/>
+<item historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="960" y="0"/>
 </item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="1499" y="0"/>
+<item historyLabel="AutomateNonDeterministe.java" index="0">
+<position info="not_deleted" x="5427" y="0"/>
 </item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="3558" y="38"/>
-</item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="1993" y="0"/>
-</item>
-<item historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="3596" y="0"/>
-</item>
-<item historyLabel="UtiliseAutomate.java" index="2">
-<position info="not_deleted" x="2242" y="0"/>
-</item>
-<item active="true" historyLabel="AutomateNonDeterministe.java" index="1">
-<position info="not_deleted" x="3596" y="0"/>
+<item active="true" historyLabel="UtiliseAutomate.java" index="1">
+<position info="not_deleted" x="960" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -553,8 +518,6 @@
 <actionBarAdvisor/>
 <trimLayout>
 <trimArea IMemento.internal.id="16384">
-<trimItem IMemento.internal.id="topLeft"/>
-<trimItem IMemento.internal.id="bottomLeft"/>
 <trimItem IMemento.internal.id="left"/>
 </trimArea>
 <trimArea IMemento.internal.id="131072">
@@ -567,7 +530,6 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
-<trimItem IMemento.internal.id="bottomRight"/>
 <trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
