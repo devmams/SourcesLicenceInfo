@@ -19,6 +19,8 @@ void creer( FilePriorite & ); //initialiser chainage vide
 
 bool est_vide( const FilePriorite &);
 
+void supprimer(FilePriorite & ch, Maillon * pm);
+
 void enfiler( FilePriorite & , const Commune & );
 
 std::string premier( const FilePriorite & );

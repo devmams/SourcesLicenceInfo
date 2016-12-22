@@ -53,7 +53,7 @@ bool est_vide(const FilePriorite & Tab)
  * @b Sortie :
  *       - @e Tab: La structure de données (File de Priorité) modifiée
  *
- * @pre - La File est non vide
+ * @pre - La File est non vide et pos < Tab.nb
  * @post - Un élément en moins
  *
  * @b Complexité - θ(nb)
@@ -163,7 +163,7 @@ void creer(FilePriorite & Tab)
 void enfiler(FilePriorite & Tab, const Commune & com)
 {
 	assert(Tab.nb < Taille);
-	
+
 	unsigned int postcond = Tab.nb;
 
 	if(est_vide(Tab))
@@ -246,7 +246,7 @@ void defiler( FilePriorite & Tab)
 /**
  * @brief procédure changer_priorite
  *
- * @param Tab la File de Priorité, nomCherche  la commune recherchée, nvPrio la nouvelle priorité 
+ * @param Tab la File de Priorité, nomCherche  la commune recherchée, nvPrio la nouvelle priorité
  *
  * @b Role : Modifier la priorité d'une commune dont on connaît le nom, on lui affecte une nouvelle priorité nvPrio, en conservant une file triée de façon cohérente
  * @b Entrée :

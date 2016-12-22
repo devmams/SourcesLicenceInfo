@@ -3,10 +3,10 @@
 #include <string>
 #include "commune.hpp"
 
-#define TAILLE 40000
+#define Taille 40000
 
 struct FilePriorite{
-  Commune TabCommune[TAILLE];
+  Commune TabCommune[Taille];
   unsigned int nb;
 };
 
@@ -15,6 +15,8 @@ struct FilePriorite{
 void creer( FilePriorite & ); // initialiser tableau vide
 
 bool est_vide( const FilePriorite & );
+
+void supprimer( FilePriorite & Tab, unsigned int pos);
 
 void enfiler( FilePriorite &, const Commune & );
 

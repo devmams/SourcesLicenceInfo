@@ -16,8 +16,8 @@
 
 // Mise en commentaire du fichier d'en-tête non utilisé pour ne pas avoir de conflit lors de la compilation
 
- #include "file_chainage.hpp"    // le fichier contenant la structure de données chaînée
-//#include "file_tableau.hpp"   // le fichier contenant la structure de données tabulaire
+//#include "file_chainage.hpp"    // le fichier contenant la structure de données chaînée
+#include "file_tableau.hpp"   // le fichier contenant la structure de données tabulaire
 
  //----------------------------------------------------------------------------------------------------------
 
@@ -42,15 +42,14 @@ int main(int argc, char **argv)
 {
   FilePriorite fp;
   FilePriorite fdp;
-  
+
   creer(fp);
   assert(est_vide(fp));
-  
+
   Commune commune;
-  
+
   std::string line;
   std::ifstream file;
-
 
 //----------------------------------------------------------------------------------------------------------
 
@@ -74,12 +73,17 @@ int main(int argc, char **argv)
 
 // Jeu de tests
 //--------------------------------------------------------------------
+  //cout << "result : " << est_vide(fp) <<endl;
 
-  cout << "File de base: " << endl;
+  //cout << "File de base: " << endl;
+  cout << endl;
   afficher(fp);
   cout << endl;
+  /*cout << "File avec l'élément 1 supprimé: " << endl;
+  supprimer(fp , 1);
+  afficher(fp);*/
 
-  defiler(fp);
+  /*defiler(fp);
   defiler(fp);
   cout << "File défilée 2 fois: " << endl;
   afficher(fp);
@@ -117,5 +121,5 @@ int main(int argc, char **argv)
   cout << "Communes les plus prioritaires pouvant être prises en charge par l'Etat avec un budget de " << budget << "€ : " << endl;
   fdp = communes_couteuses(fp, budget);
   afficher(fdp);
-  cout << endl;
+  cout << endl;*/
 }
