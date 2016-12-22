@@ -26,8 +26,8 @@ public class UtiliseAutomate {
         A.ajouteTransition("Pim", "Da" ,"Pam" );
         A.ajouteTransition("Pim", "Da" ,"Poum" );
         A.ajouteTransition("Poum", "ba" ,"Pam" );
-        A.ajouteTransition("Pam", "ba" ,"Pipo" );
         A.ajouteTransition("Pam", "ba" ,"Pim" );
+        A.ajouteTransition("Pam", "ba" ,"Pipo" );
         A.ajouteTransition("Pipo", "Da" ,"Poum" );
         A.ajouteTransition("Pipo", "Da" ,"Pam" );
 
@@ -35,29 +35,24 @@ public class UtiliseAutomate {
         
         ///////// phase 2 utilisation
         // d'abord un mot reconnu
-        String mot="ba  ";  // mot à reconnaitre par deux caractère
+        String mot="baba";  // mot à reconnaitre par deux caractère
         A.reinitialise(); // on trouvera un sommet initial à la première transition
-        for (int i=0;i<mot.length();i = i + 2){
-        	if(!mot.substring(i,i+2).equals("  "))
-        		A.transite(mot.substring(i,i+4)); // on transite par deux caractère
-        }
-        System.out.println(mot + A.resultat()); // reconnu
+        A.transite(mot);
+        System.out.println(mot + " " + A.resultat()); // reconnu
+        
         // puis un mot non reconnu (absence de transition)
-        mot="DabaDaba  ";  // mot à reconnaitre deux caractères par deux caractère
+        mot="DaDa";  // mot à reconnaitre deux caractères par deux caractère
         A.initialise("Pim"); // on part d'un sommet initial donné
-        for (int i=0;i<mot.length();i = i + 2){
-        	if(!mot.substring(i,i+2).equals("  "))
-        		A.transite(mot.substring(i,i+4)); // on transite par deux  caractère
-        }
-        System.out.println(mot + A.resultat()); // Pas de transition de l'état 1 avec Da
+		A.transite(mot); // on transite par deux  caractère
+        System.out.println(mot + " " + A.resultat()); // Pas de transition des états "pam" et "poum" avec Da
 
-        /*// puis un mot non reconnu (état d'arrivée non final)
+        // puis un mot non reconnu (état d'arrivée non final)
        mot="ba  ";  // mot à reconnaitre caractère par caractère
         A.initialise("Poum"); // on part d'un sommet initial
         for (int i=0;i<mot.length();i = i + 2){
         	if(!mot.substring(i,i+2).equals("  "))
         		A.transite(mot.substring(i,i+4)); // on transite avec chaque caractère
         }
-        System.out.println(mot + A.resultat()); // Pas final*/
+        System.out.println(mot + " " + A.resultat()); // l'etat "pam" pas final
     }
 }

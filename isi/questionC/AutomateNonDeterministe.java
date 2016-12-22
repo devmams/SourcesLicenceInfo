@@ -93,55 +93,50 @@ public class AutomateNonDeterministe extends Automate {
     }
        // effectue une transition à partir de l'état courant 
        //    avec la "mot1" donnée, met à jour l'état courant
-    public void transite(String mot) {
-    	String mot1 = mot.substring(0,2);
-    	String mot2 = mot.substring(2,4);
-        if (!start) {   // Si pas encore démarré
-            trouveDepart(mot1);   // On cherche l'état de départ candidat
-        }
-        System.out.println("etat courant "+nomEtat(courant)+" transition par "+mot1);
-        if (erreur) // on ne continue pas après la première erreur rencontrée
-            { errMsg+=mot1; }  // on empile les "mot1s restantes"
-        else // pas d'erreur, on essaie de transiter
-        { // recherche de la transition correspondante
-        	if(transitionPresente(courant, mot1)){
-	            int rech=0;
-	        	while (rech<transitions.get(courant).size()){ // si il y a  bien une transition avec cette mot1
-	        		if(mot2.equals("  ")){
-	        			boolean finalTrouve = false;
-	            		int tmp = transitions.get(courant).get(rech).etatArrivee;
-	    				if(estFinal(tmp)){
-	    					finalTrouve = true;
-	        				courant = tmp;
-	        				break;
-	        			}
-	        			if(!finalTrouve && rech+1 >= transitions.get(courant).size()){
-	                        errMsg="l'état "+nomEtat(transitions.get(courant).get(0).etatArrivee)+" n'est pas final ";   // message si on s'arête là
-	                        erreur = true;
-	        			}
+   public void transite(String mot) {	   
+	   String mot1 = mot.substring(0,2);
+	   if (!start) {   // Si pas encore démarré
+           trouveDepart(mot1);   // On cherche l'état de départ candidat
+       }
+       System.out.println("etat courant "+nomEtat(courant)+" transition par "+mot1);
+       if (erreur) // on ne continue pas après la première erreur rencontrée
+           { errMsg+=mot1; }  // on empile les "mot1s restantes"
+	   if(mot.length()==2 && transitionPresente(courant, mot1)){
+	   		for(int i=0 ;i<transitions.get(courant).size() ;i++){
+	   			if(estFinal(transitions.get(courant).get(i).etatArrivee)){
+	       			courant = transitions.get(courant).get(i).etatArrivee;
+	       			erreur = false;
+	       			break;
+	   			}
+	   			else if(i+1 == transitions.get(courant).size()){
+	                errMsg="l'état "+nomEtat(transitions.get(courant).get(0).etatArrivee)+" n'est pas final ";// message si on s'arête là
+	                erreur = true;
+	   			}
+	   		}
+	   	}
+	   	else if(mot.length()==2 && !transitionPresente(courant, mot1)){
+			errMsg="Pas de transition de l'état "+nomEtat(courant)+" avec "+mot1;// + la suite des mot1s
+			erreur = true;
+			return;
+		}
+	   	else{
+        // recherche de la transition correspondante
+	   		if(transitionPresente(courant, mot1)){
+	    		for(int i=0 ;i<transitions.get(courant).size() ;i++){
+	    			int tmp = courant;
+	    			courant = transitions.get(courant).get(i).etatArrivee;
+	        		transite(mot.substring(2,mot.length()));
+	        		if(estReconnu() && mot.length() == 2){
+	        			return;
 	        		}
-	        		else{
-	            		boolean trouve = false;
-	            		int tmp = transitions.get(courant).get(rech).etatArrivee;
-	        			if(transitionPresente(tmp, mot2)){
-	        				trouve = true;
-	        				courant = tmp;
-	        				break;
-	        			}
-	        			if(!trouve && rech+1 >= transitions.get(courant).size()){
-	                		courant = transitions.get(courant).get(0).etatArrivee;
-	                		errMsg="Pas de transition de l'état "+nomEtat(courant)+" avec "+mot2+ " avant ";   // + la suite des mot1s
-	        				erreur = true;
-	        			}
-	        		}
-	        		rech++;
-	            }
-        	}
-        	else{
-        		errMsg="Pas de transition de l'état "+nomEtat(courant)+" avec "+mot1+ " avant ";   // + la suite des mot1s
-        		erreur = true;
-        	}
+	        		courant = tmp;
+	    		}
+	   		}
         }
+    }
+    
+    public void determinisation(){
+    	
     }
 
     @Override

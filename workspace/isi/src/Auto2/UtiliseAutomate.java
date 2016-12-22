@@ -1,6 +1,10 @@
 package Auto2;
 
+
+
 import java.util.ArrayList;
+
+import Auto2.Automate;
 
 public class UtiliseAutomate {
 
@@ -32,27 +36,32 @@ public class UtiliseAutomate {
         A.ajouteTransition("Pipo", "Da" ,"Pam" );
 
         System.out.println(A);
+        A.determinisation();
+        System.out.println(A);
         
         ///////// phase 2 utilisation
         // d'abord un mot reconnu
-        String mot="Da";  // mot à reconnaitre par deux caractère
+        /*String mot="Da";  // mot à reconnaitre par deux caractère
         A.reinitialise(); // on trouvera un sommet initial à la première transition
-        A.transite(mot);
+        for (int i=0;i<mot.length();i = i + 2){
+    		A.transite(mot.substring(i,i+2)); // on transite avec chaque caractère
+        }
         System.out.println(mot + " " + A.resultat()); // reconnu
         
         // puis un mot non reconnu (absence de transition)
-        mot="DaDa";  // mot à reconnaitre deux caractères par deux caractère
+        mot="Daba";  // mot à reconnaitre deux caractères par deux caractère
         A.initialise("Pim"); // on part d'un sommet initial donné
-		A.transite(mot); // on transite par deux  caractère
+        for (int i=0;i<mot.length();i = i + 2){
+    		A.transite(mot.substring(i,i+2)); // on transite avec chaque caractère
+        }
         System.out.println(mot + " " + A.resultat()); // Pas de transition des états "pam" et "poum" avec Da
-
+       
         // puis un mot non reconnu (état d'arrivée non final)
-       mot="ba  ";  // mot à reconnaitre caractère par caractère
+       mot="ba";  // mot à reconnaitre caractère par caractère
         A.initialise("Poum"); // on part d'un sommet initial
         for (int i=0;i<mot.length();i = i + 2){
-        	if(!mot.substring(i,i+2).equals("  "))
-        		A.transite(mot.substring(i,i+4)); // on transite avec chaque caractère
+    		A.transite(mot.substring(i,i+2)); // on transite avec chaque caractère
         }
-        System.out.println(mot + " " + A.resultat()); // l'etat "pam" pas final
+        System.out.println(mot + " " + A.resultat()); // l'etat "pam" pas final*/
     }
 }
