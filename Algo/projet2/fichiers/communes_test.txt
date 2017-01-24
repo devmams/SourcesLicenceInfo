@@ -12,7 +12,7 @@ Lucelle:71
 Urtière:11
 Hardancourt:79
 Méréaucourt:11
-Casterets:0
+Casterets:100
 Châtillon-sur-Lison:70
 Chérizet:26
 Pennes-le-Sec:48
