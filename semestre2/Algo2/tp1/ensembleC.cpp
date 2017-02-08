@@ -2,9 +2,6 @@
 #include <string>
 #include <vector>
 #include "ensembleC.hpp"
-using namespace std;
-
-
 
 ensembleC::ensembleC(){
   this->tete = NULL;
