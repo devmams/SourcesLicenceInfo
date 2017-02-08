@@ -2,9 +2,9 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "ensembleC.hpp"
+#include "ensemble.hpp"
 
-vector<string> decomposeEnMot(string ch){
+/*vector<string> decomposeEnMot(string ch){
   vector<string> vCh;
   string mot = "";
   for(int i=0 ; i<ch.length() ;i++){
@@ -41,18 +41,24 @@ void principale(){
   for(int m=0 ; m<26 ; m++){
     //cout << tab[m].contenu() <<endl;
   }
-}
+}*/
+
+template class ensemble<>;
+template class ensemble<int>;
 
 int main(){
-  principale();
-  /*ensembleC e;
-  cout<< "estVide ? : " << e.estVide() << " nbElement : "<< e.nbelem()<<endl;
-  e.ajoute("tres");
-  e.ajoute("bien");
-  cout<< "estVide ? : " << e.estVide() << " nbElement : "<< e.nbelem()<<endl;
-  cout<<">> " << e.contenu() <<endl;
-  e.retire("tres");
-  cout<< "estVide ? : " << e.estVide() << " nbElement : "<< e.nbelem()<<endl;
-  cout<<">> " << e.contenu() <<endl;*/
+  //principale();
+  ensemble<> e0;
+  //ensemble<int> e1
+
+  cout<< "estVide ? : " << e0.estVide() << " nbElement : "<< e0.nbelem()<<endl;
+  e0.ajoute("tres");
+  e0.ajoute("bien");
+  cout<< "estVide ? : " << e0.estVide() << " nbElement : "<< e0.nbelem()<<endl;
+  //cout<<">> " << e.contenu() <<endl;
+  e0.retire("tres");
+  cout<< "estVide ? : " << e0.estVide() << " nbElement : "<< e0.nbelem()<<endl;
+  //cout<<">> " << e.contenu() <<endl;
   return 0;
 }
+//gpp testEnsemble.cpp -o test && ./test
