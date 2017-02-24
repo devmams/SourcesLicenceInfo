@@ -1,10 +1,15 @@
-
+/**
+ * @file Ensa.hpp
+ * @author Fatma Maouloud, Mamadou Diallo
+ * @date 20/02/2017 Création
+ * @brief classe Ensemble avec chainage sans doublons.
+**/
 #ifndef ENSA_HPP
 #define ENSA_HPP
 
 
-#include <iostream>
-#include <string>
+#include <iostream> // cout et cin
+#include <string>   // utilisation du type string
 using namespace std;
 
 template < typename T = string >
@@ -28,10 +33,11 @@ class Ensa {
     void ajoute(T mot);
     void retire(T mot);
     string contenu();
-    void intersectionEns(Ensa e);
-    void unionEns(Ensa e);
-    void differenceEns(Ensa e);
+    Ensa<T> intersectionEns(Ensa e);
+    Ensa<T> unionEns(Ensa e);
+    Ensa<T> differenceEns(Ensa e);
     int nbelem();
+
 };
 
 #include "Ensa.tpp"

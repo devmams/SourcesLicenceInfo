@@ -74,7 +74,7 @@ void Ensa<T>::retire(T mot){
       this->nb--;
     }
 }
-
+//attention à l'affichage d'une chaine vide..........
 template < typename T>
 string Ensa<T>::contenu(){
   Maillon *cour = this->tete;
@@ -87,15 +87,63 @@ string Ensa<T>::contenu(){
   return sst.str();
 }
 
-/*template < typename T>
-void Ensa<T>::intersectionEns(Ensa e){}
+template < typename T>
+Ensa<T> Ensa<T>::intersectionEns(Ensa<T> e){
+	
+	Ensa<T> ens_res;
+	Maillon *tmp = this->tete;
+	
+	 for(int i=0; i<this->nb ; i++)
+	 {
+		if(e.contient(tmp->ch))
+		{
+			ens_res.ajoute(tmp->ch);
+		}
+		tmp = tmp->suiv;
+	}
+		return(ens_res);
+	
+	}
 
 template < typename T>
-void Ensa<T>::unionEns(Ensa e){}
+Ensa<T> Ensa<T>::unionEns(Ensa<T> e){
+	
+	Ensa<T> ens_res = e;
+	Maillon *tmp = this->tete;
+	
+	for(int i=0; i<this->nb ; i++){
+		if(!ens_res.contient(tmp->ch))
+		{
+			ens_res.ajoute(tmp->ch);
+		}
+		tmp = tmp->suiv;
+		
+		}
+		return(ens_res);
+}
 
+//ici on considére la différence entre l'élément passer en parametre avec celui qu'on a à la base!!!
 template < typename T>
-void Ensa<T>::differenceEns(Ensa e){}
-*/
+Ensa<T> Ensa<T>::differenceEns(Ensa<T> e){
+	
+	Ensa<T> ens_res;
+	Maillon *tmp = this->tete;
+	
+	
+	for(int i=0; i<this->nb ; i++){
+		if(!e.contient(tmp->ch))
+		{
+			ens_res.ajoute(tmp->ch);
+		}
+		tmp = tmp->suiv;
+		
+		}
+		return(ens_res);
+	
+	
+	
+}
+
 template < typename T>
 int Ensa<T>::nbelem(){
   return this->nb;
