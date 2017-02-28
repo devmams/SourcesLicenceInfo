@@ -5,7 +5,7 @@
 %% 1. Elements à l indice pairs d une liste d une longueur paire
 %% membp(+Liste,-Pairs) :
 membp([], []).
-membp([_],[]).
+%% membp([_],[]).
 membp([_,E|L],[E|T]) :-
   membp(L,T).
 
@@ -31,8 +31,8 @@ e1(Liste) :-
   tab(1),
   write(R),
   nl,
-  fail;
-  true.
+  fail.
+e1(Liste) :-  write('tout essayé'),nl,true.
 
 %% 4. Enumeration des elements d'une liste avec ses positions
 %% lstel(+List,?Position,?Element):

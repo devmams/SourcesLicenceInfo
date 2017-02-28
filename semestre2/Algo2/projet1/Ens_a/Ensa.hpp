@@ -1,9 +1,15 @@
+/**
+ * @file Ensa.hpp
+ * @author Fatma Maouloud, Mamadou Diallo
+ * @date 20/02/2017 Création
+ * @brief classe Ensa.
+**/
 #ifndef ENSA_HPP
 #define ENSA_HPP
 
 
-#include <iostream>
-#include <string>
+#include <iostream> // cout et cin
+#include <string>   // utilisation du type string
 using namespace std;
 
 template < typename T = string >
