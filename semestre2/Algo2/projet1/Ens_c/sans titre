@@ -1,0 +1,21 @@
+#ifndef ENSA_HPP
+#define ENSA_HPP
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+template < typename T = string >
+class Ensc{
+
+
+
+
+
+
+
+};
+
+#include "Ensa.tpp"
+#endif

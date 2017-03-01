@@ -30,16 +30,25 @@ Ensa<T>::Ensa(){
 //--------------------------------------------------------------------
 /**
  * @brief destructeur ~Ensa().
- * @b Role : détruit l'ensemble
+ * @b Role : détruit tous les éléments de l'ensemble.
  * @b Entrée : Rien
  * @b Sortie : Rien
  * @pre - aucune
  * @post - aucune
- * @b Complexité - θ(?)
+ * @b Complexité - O(nb)
  *
 **/
-template < typename T>
-Ensa<T>::~Ensa(){}
+template <typename T>
+Ensa<T>::~Ensa(){
+  Maillon *cour , *efface;
+  cour = this->tete;
+  efface = cour;
+  for(int i=0 ;i<this->nb ;i++){
+    cour = cour->suiv;
+    delete(efface);
+    efface = cour;
+  }
+}
 
 //--------------------------------------------------------------------
 /**
@@ -81,6 +90,7 @@ bool Ensa<T>::contient(T elt){
   return res;
 }
 
+
 //--------------------------------------------------------------------
 /**
  * @brief fonction ajoute()
@@ -106,11 +116,10 @@ void Ensa<T>::ajoute(T elt){
     while(cour->suiv != NULL){
       cour = cour->suiv;
     }
-    nv->suiv = cour->suiv;
     cour->suiv = nv;
+    nv->suiv = NULL;
     this->nb++;
   }
-
 }
 
 //--------------------------------------------------------------------
@@ -128,7 +137,7 @@ template < typename T>
 void Ensa<T>::retire(T elt){
   Maillon *cour = this->tete;
   Maillon *prec = this->tete;
-  if(!estVide() || contient(elt)){
+  if(!estVide() && contient(elt)){
     while(cour->ch != elt){
       prec = cour;
       cour = cour->suiv;
@@ -173,47 +182,52 @@ string Ensa<T>::contenu(){
  * @brief fonction intersectionEns()
  * @b Role : fait l'intersection de deux ensembles
  * @b Entrée : - @e e : ensemble à intersecter
- * @b Sortie : - @ e : ensemble résultant de l'intersection
+ * @b Sortie : - modification de l'objet courant.
  * @pre - aucune
  * @post - aucune
  * @b Complexité - O(nb²)
  *
 **/
 template < typename T>
-Ensa<T> Ensa<T>::intersectionEns(Ensa<T> e){
-	Ensa<T> ens_res;
-	Maillon *tmp = this->tete;
-	 for(int i=0; i<this->nb ; i++){
-     if(e.contient(tmp->ch)){
-  			ens_res.ajoute(tmp->ch);
-      }
-  		tmp = tmp->suiv;
+void Ensa<T>::intersectionEns(Ensa<T> & e){
+  Ensa<T> ensRes;
+  Maillon *tmpRes = this->tete;
+  for(int i=0 ;i<this->nb ;i++){
+    ensRes.ajoute(tmpRes->ch);
+    tmpRes = tmpRes->suiv;
+  }
+  this->tete = NULL;
+  this->nb =0 ; //initialisation de l'objet courant.
+  tmpRes = ensRes.tete;
+  for(int j=0; j<ensRes.nb ; j++){
+    if(ensRes.contient(tmpRes->ch) && e.contient(tmpRes->ch)){
+      this->ajoute(tmpRes->ch);
     }
-		return(ens_res);
-	}
+	  tmpRes = tmpRes->suiv;
+  }
+}
 
-  //--------------------------------------------------------------------
-  /**
-   * @brief fonction unionEns()
-   * @b Role : fait l'union de deux ensembles
-   * @b Entrée : - @e e : ensemble à unir
-   * @b Sortie : - @ e : ensemble résultant de l'union
-   * @pre - aucune
-   * @post - aucune
-   * @b Complexité - O(nb²)
-   *
-  **/
+
+//---------------------------------------------------------------------
+/**
+ * @brief fonction unionEns()
+ * @b Role : fait l'union de deux ensembles
+ * @b Entrée : - @e e : ensemble à unir
+ * @b Sortie : - modification de l'objet courant.
+ * @pre - aucune
+ * @post - aucune
+ * @b Complexité - O(nb²)
+ *
+**/
 template < typename T>
-Ensa<T> Ensa<T>::unionEns(Ensa<T> e){
-	Ensa<T> ens_res = e;
-	Maillon *tmp = this->tete;
-	for(int i=0; i<this->nb ; i++){
-		if(!ens_res.contient(tmp->ch)){
-      ens_res.ajoute(tmp->ch);
+void Ensa<T>::unionEns(const Ensa<T> & e){
+	Maillon *tmp = e.tete;
+	for(int i=0; i<e.nb ; i++){
+		if(!this->contient(tmp->ch)){
+      this->ajoute(tmp->ch);
     }
 		tmp = tmp->suiv;
 	}
-	return(ens_res);
 }
 
 //--------------------------------------------------------------------
@@ -221,25 +235,30 @@ Ensa<T> Ensa<T>::unionEns(Ensa<T> e){
  * @brief fonction differenceEns()
  * @b Role : fait la difference entre deux ensembles
  * @b Entrée : - @e e : ensemble à rétrancher
- * @b Sortie : - @e ens_res : ensemble résultant de la différence
+ * @b Sortie : - modification de l'objet courant.
  * @pre - aucune
  * @post - aucune
  * @b Complexité - O(nb²)
  *
 **/
 template < typename T>
-Ensa<T> Ensa<T>::differenceEns(Ensa<T> e){
-	Ensa<T> ens_res;
-	Maillon *tmp = this->tete;
-	for(int i=0; i<this->nb ; i++){
-		if(!e.contient(tmp->ch)){
-			ens_res.ajoute(tmp->ch);
-	  }
-		tmp = tmp->suiv;
-	}
-	return(ens_res);
+void Ensa<T>::differenceEns(Ensa<T> & e){
+  Ensa<T> ensRes;
+  Maillon *tmpRes = this->tete;
+  for(int i=0 ;i<this->nb ;i++){
+    ensRes.ajoute(tmpRes->ch);
+    tmpRes = tmpRes->suiv;
+  }
+  this->tete = NULL;
+  this->nb =0 ; //initialisation de l'objet courant.
+  tmpRes = ensRes.tete;
+  for(int j=0; j<ensRes.nb ; j++){
+    if(!e.contient(tmpRes->ch)){
+      this->ajoute(tmpRes->ch);
+    }
+	  tmpRes = tmpRes->suiv;
+  }
 }
-
 //--------------------------------------------------------------------
 /**
  * @brief fonction nbelem()

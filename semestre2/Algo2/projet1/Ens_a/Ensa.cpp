@@ -19,16 +19,17 @@ int main(){
   cout<< "estVide ? : " << e0.estVide() << " nbElement : "<< e0.nbelem() <<endl;
   e0.ajoute("tres");
   e0.ajoute("bien");
-  e0.ajoute("bien");
+  e0.ajoute("fffffffffffff");
   e0.ajoute("assez");
   e0.ajoute("askkkksez");
-
+  cout<< "e0 : "<< e0.contenu() <<endl;
   e1.ajoute("tres");
 	e1.ajoute("bien");
-	e1.ajoute("bien");
 	e1.ajoute("assez");
-	cout<< e0.unionEns(e1).contenu() <<endl; //union et affichage des deux ensembles.
+  cout<< "e1 : "<< e1.contenu() <<endl;
+	e0.unionEns(e1);
+  cout <<"-e : "<< e0.contenu() <<endl; //union et affichage des deux ensembles.
 
   return 0;
 }
-//gpp testEnsa.cpp -o test && ./test
+//gpp Ensa.cpp -o test && ./test

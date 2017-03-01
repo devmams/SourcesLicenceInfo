@@ -33,9 +33,9 @@ class Ensa {
     void ajoute(T mot);
     void retire(T mot);
     string contenu();
-    Ensa<T> intersectionEns(Ensa e);
-    Ensa<T> unionEns(Ensa e);
-    Ensa<T> differenceEns(Ensa e);
+    void intersectionEns(Ensa & e);
+    void unionEns(const Ensa & e);
+    void differenceEns(Ensa & e);
     int nbelem();
 
 };
