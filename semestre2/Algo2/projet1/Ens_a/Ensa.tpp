@@ -81,7 +81,7 @@ template < typename T>
 bool Ensa<T>::contient(T elt){
   bool res = false;
   Maillon *cour = this->tete;
-  for(int i=0 ;i<nb ;i++){
+  for(int i=0 ;i<this->nb ;i++){
     if(cour->ch == elt){
       res = true;
     }
@@ -94,7 +94,7 @@ bool Ensa<T>::contient(T elt){
 //--------------------------------------------------------------------
 /**
  * @brief fonction ajoute()
- * @b Role : ajoute un élément dans l'Ensemble
+ * @b Role : ajoute un élément dans l'Ensemble ,l'ajout est fait en queue.
  * @b Entrée : - @e elt : élément à rajouter
  * @b Sortie : - Rien mais l'ensemble est modifié
  * @pre - aucune
@@ -128,7 +128,7 @@ void Ensa<T>::ajoute(T elt){
  * @b Role : retire un élément dans l'Ensemble
  * @b Entrée : - @e elt : élément à supprimer
  * @b Sortie : - Rien mais l'ensemble est modifié
- * @pre - !estVide()
+ * @pre - aucune
  * @post - aucune
  * @b Complexité - O(nb)
  *
@@ -159,7 +159,7 @@ void Ensa<T>::retire(T elt){
  * @brief fonction contenu()
  * @b Role : concatène tous les éléments de l'ensemble
  * @b Entrée : Rien
- * @b Sortie : - @e chaine de caratère resultant des concatenations.
+ * @b Sortie : - @e chaine de caratère resultante des concatenations.
  * @pre - aucune
  * @post - aucune
  * @b Complexité - O(nb)
@@ -167,9 +167,9 @@ void Ensa<T>::retire(T elt){
 **/
 template < typename T>
 string Ensa<T>::contenu(){
+  stringstream sst;
   if(!estVide()){
     Maillon *cour = this->tete;
-    stringstream sst;
     while(cour->suiv != NULL){
       sst << cour->ch << " ";
       cour = cour->suiv;
@@ -198,7 +198,7 @@ void Ensa<T>::intersectionEns(Ensa<T> & e){
     ensRes.ajoute(tmpRes->ch);
     tmpRes = tmpRes->suiv;
   }
-  this->tete = NULL;
+  this->tete = NULL;//initialisation de l'objet courant.
   this->nb =0 ; //initialisation de l'objet courant.
   tmpRes = ensRes.tete;
   for(int j=0; j<ensRes.nb ; j++){
@@ -261,6 +261,7 @@ void Ensa<T>::differenceEns(Ensa<T> & e){
 	  tmpRes = tmpRes->suiv;
   }
 }
+
 //--------------------------------------------------------------------
 /**
  * @brief fonction nbelem()

@@ -121,7 +121,7 @@ void Ensb<T>::retire(T elt){
  * @brief fonction contenu()
  * @b Role : concatène tous les éléments de l'ensemble
  * @b Entrée : Rien
- * @b Sortie : - @e chaine de caratère resultant des concatenations.
+ * @b Sortie : - @e chaine de caratère resultante des concatenations.
  * @pre - aucune
  * @post - aucune
  * @b Complexité - O(nb)

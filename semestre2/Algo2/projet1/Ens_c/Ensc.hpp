@@ -1,46 +1,37 @@
+/**
+ * @file Ensc.hpp
+ * @author Fatma Maouloud, Mamadou Diallo
+ * @date 20/02/2017 Création
+ * @brief classe Ensc.
+**/
 #ifndef ENSC_HPP
 #define ENSC_HPP
-
-
-#include <iostream>
-#include <string>
+#include <iostream> // cout et cin
+#include <string> // utilisation du type string
 using namespace std;
 
 template < typename T = string >
 class Ensc{
-
 	private:
-	
 	struct Maillon{
-		T chaine;
+		T ch;
 		Maillon* suiv;
 	};
 	Maillon* tete;
 	int nb;
-		
-		
-		
-	public:
 
+	public:
     Ensc();
     ~Ensc();
     bool estVide();
-    bool contient(T mot);
-    void ajoute(T mot);
-    void retire(T mot);
+    bool contient(T elt);
+    void ajoute(T elt);
+    void retire(T elt);
     string contenu();
-    Ensc<T> intersectionEns(Ensc e);
-    Ensc<T> unionEns(Ensc e);
-    Ensc<T> differenceEns(Ensc e);
+    void intersectionEns(Ensc & e);
+    void unionEns(const Ensc & e);
+    void differenceEns(Ensc & e);
     int nbelem();
-    
-		
-		
-		} 
-
-
-
-
 
 };
 
