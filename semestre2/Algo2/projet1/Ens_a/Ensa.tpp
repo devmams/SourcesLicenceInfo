@@ -167,13 +167,15 @@ void Ensa<T>::retire(T elt){
 **/
 template < typename T>
 string Ensa<T>::contenu(){
-  Maillon *cour = this->tete;
-  stringstream sst;
-  while(cour->suiv != NULL){
-    sst << cour->ch << " ";
-    cour = cour->suiv;
+  if(!estVide()){
+    Maillon *cour = this->tete;
+    stringstream sst;
+    while(cour->suiv != NULL){
+      sst << cour->ch << " ";
+      cour = cour->suiv;
+    }
+    sst << cour->ch;
   }
-  sst << cour->ch;
   return sst.str();
 }
 

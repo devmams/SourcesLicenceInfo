@@ -7,7 +7,6 @@
 #ifndef ENSA_HPP
 #define ENSA_HPP
 
-
 #include <iostream> // cout et cin
 #include <string>   // utilisation du type string
 using namespace std;
@@ -16,7 +15,6 @@ template < typename T = string >
 class Ensa {
 
   private:
-
     struct Maillon {
       T ch;
       Maillon* suiv;
@@ -25,7 +23,6 @@ class Ensa {
     int nb;
 
   public:
-
     Ensa();
     ~Ensa();
     bool estVide();

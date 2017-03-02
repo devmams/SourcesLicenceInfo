@@ -1,22 +1,25 @@
+/**
+ * @file Ensb.hpp
+ * @author Fatma Maouloud, Mamadou Diallo
+ * @date 20/02/2017 Création
+ * @brief classe Ensb.
+**/
 #ifndef ENSB_HPP
 #define ENSB_HPP
 
-#include <iostream>
-#include <string>
+#include <iostream> // cout et cin
+#include <string> // utilisation du type string
 using namespace std;
 #define Taille 40000
-
 
 template < typename T = string >
 class Ensb {
 
  private:
-
 	T tab[Taille];
 	int nb;
 
  public:
-
   Ensb();
   ~Ensb();
   bool estVide();
@@ -24,9 +27,9 @@ class Ensb {
   void ajoute(T elt);
   void retire(T elt);
   string contenu();
-  Ensb<T> intersectionEns(Ensb e);
-  Ensb<T> unionEns(Ensb e);
-  Ensb<T> differenceEns(Ensb e);
+  void intersectionEns(Ensb & e);
+  void unionEns(const Ensb & e);
+  void differenceEns(Ensb & e);
   int nbelem();
 
 };
