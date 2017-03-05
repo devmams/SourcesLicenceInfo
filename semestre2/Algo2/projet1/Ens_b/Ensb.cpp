@@ -8,17 +8,21 @@ template class Ensb<>;
 template class Ensb<int>;
 
 int main(){
-  Ensb<string> e0;
-  Ensb<string> e1;
-	e0.ajoute("tres");
-	e0.ajoute("bien");
-  e0.ajoute("bravo");
-  cout<<"e0 : "<< e0.contenu() <<endl;
-  e1.ajoute("tres");
-	e1.ajoute("bifen");
-  e1.ajoute("bravo");
-  cout<<"e1 : "<< e1.contenu() <<endl;
-  e0.differenceEns(e1);
-  cout<<"-e : "<< e0.contenu() <<endl;
+  Ensb<int> eInt;
+  Ensb<string> eString;
+	/*e0.ajoute(1);
+	e0.ajoute(5);
+  e0.ajoute(4);
+  e0.ajoute(3);
+  e0.ajoute(0);
+  e0.ajoute(10);
+  e0.ajoute(2);*/
+  eString.ajoute("tres");
+	eString.ajoute("bien");
+  eString.ajoute("avec");
+  eString.ajoute("bravo");
+  eString.ajoute("aaac");
+  eString.ajoute("aaaab");
+  cout<<"eString : "<< eString.contenu() <<endl;;
 	return 0;
 }
