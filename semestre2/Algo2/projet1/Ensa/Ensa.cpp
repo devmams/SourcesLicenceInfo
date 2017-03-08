@@ -27,7 +27,7 @@ int main(){
 	e1.ajoute("bien");
 	e1.ajoute("assez");
   cout<< "e1 : "<< e1.contenu() <<endl;
-	e0.unionEns(e1);
+	e0.differenceEns(e1);
   cout <<"-e : "<< e0.contenu() <<endl; //union et affichage des deux ensembles.
 
   return 0;

@@ -9,10 +9,9 @@
 
 #include <iostream> // cout et cin
 #include <string> // utilisation du type string
-using namespace std;
 #define Taille 40000
 
-template < typename T = string >
+template < typename T = std::string >
 class Ensb {
 
  private:
@@ -26,12 +25,10 @@ class Ensb {
   bool contient(T elt);
   void ajoute(T elt);
   void retire(T elt);
-  string contenu();
+  std::string contenu();
   void intersectionEns(Ensb & e);
   void unionEns(const Ensb & e);
   void differenceEns(Ensb & e);
-  int nbelem();
-
 };
 #include "Ensb.tpp"
 #endif

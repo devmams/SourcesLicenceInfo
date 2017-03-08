@@ -3,6 +3,7 @@
 #include <vector>
 #include <sstream>
 #include "Ensb.hpp"
+using namespace std;
 
 //--------------------------------------------------------------------
 /**
@@ -86,18 +87,14 @@ bool Ensb<T>::contient(T elt){
 template < typename T>
 void Ensb<T>::ajoute(T elt){
 	if(!contient(elt)){
-		if(estVide())
-			this->tab[this->nb] = elt;
-		else{
-			int ind=0;
-			while((elt > this->tab[ind]) && ind < this->nb){
-				ind++;
-			}
-			for(int i=this->nb ;i>ind ;i--){
-				this->tab[i] = this->tab[i-1];
-			}
-			this->tab[ind] = elt;
+		int ind=0;
+		while((elt > this->tab[ind]) && ind < this->nb){
+			ind++;
 		}
+		for(int i=this->nb ;i>ind ;i--){
+			this->tab[i] = this->tab[i-1];
+		}
+		this->tab[ind] = elt;
 		this->nb++;
 	}
 }
