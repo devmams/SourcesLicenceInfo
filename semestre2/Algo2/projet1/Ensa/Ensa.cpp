@@ -22,13 +22,14 @@ int main(){
   e0.ajoute("fffffffffffff");
   e0.ajoute("assez");
   e0.ajoute("askkkksez");
-  cout<< "e0 : "<< e0.contenu() <<endl;
+  cout << "cont : " << e0.contient("trres") <<endl;
+  /*cout<< "e0 : "<< e0.contenu() <<endl;
   e1.ajoute("tres");
 	e1.ajoute("bien");
 	e1.ajoute("assez");
   cout<< "e1 : "<< e1.contenu() <<endl;
 	e0.differenceEns(e1);
-  cout <<"-e : "<< e0.contenu() <<endl; //union et affichage des deux ensembles.
+  cout <<"-e : "<< e0.contenu() <<endl; //union et affichage des deux ensembles.*/
 
   return 0;
 }

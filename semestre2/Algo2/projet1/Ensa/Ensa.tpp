@@ -79,15 +79,11 @@ bool Ensa<T>::estVide(){
 **/
 template < typename T>
 bool Ensa<T>::contient(T elt){
-  bool res = false;
   Maillon *cour = this->tete;
-  for(int i=0 ;i<this->nb ;i++){
-    if(cour->ch == elt){
-      res = true;
-    }
+  while(cour != NULL && cour->ch != elt){
     cour = cour->suiv;
   }
-  return res;
+  return cour != NULL;
 }
 
 

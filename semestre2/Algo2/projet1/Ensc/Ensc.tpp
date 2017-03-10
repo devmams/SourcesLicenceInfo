@@ -80,15 +80,12 @@ bool Ensc<T>::estVide(){
 **/
 template < typename T>
 bool Ensc<T>::contient(T elt){
-	bool res = false;
-  Maillon *cour = this->tete;
-  for(int i=0 ;i<this->nb ;i++){
-    if(cour->ch == elt){
-      res = true;
-    }
-    cour = cour->suiv;
-  }
-  return res;
+	  Maillon *cour = this->tete;
+	  while(cour != NULL && cour->ch != elt){
+	    cour = cour->suiv;
+	  }
+	  return cour != NULL;
+	}
 }
 
 //--------------------------------------------------------------------
