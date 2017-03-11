@@ -29,7 +29,7 @@ Ensb<T>::Ensb(){
  * @b Sortie : Rien
  * @pre - aucune
  * @post - aucune
- * @b Complexité - O(1)
+ * @b Complexité - θ(1)
  *
 **/
 template < typename T>
