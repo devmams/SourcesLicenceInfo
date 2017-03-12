@@ -1,3 +1,9 @@
+/**
+ * @file Ensb.tpp
+ * @author Fatma MAOULOUD, Mamadou DIALLO
+ * @date 20/02/2017 Création
+ * @brief Implémentation des méthodes de la classe Ensb.
+**/
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,35 +14,25 @@ template class Ensb<>;
 template class Ensb<int>;
 
 int main(){
-  Ensb<int> eInt;
-  Ensb<int> eInt2;
-  Ensb<string> eString;
-	eInt.ajoute(1);
-	eInt.ajoute(5);
-  eInt.ajoute(4);
-  eInt.ajoute(3);
-  eInt.ajoute(0);
-  eInt.ajoute(0);
-  eInt.ajoute(10);
-  eInt.ajoute(10);
-  eInt.ajoute(2);
-  cout<<"eInt : "<< eInt.contenu() <<endl;
+  Ensb<string> e0; //création premier ensemble.
+  Ensb<string> e1; //création deuxième ensemble.
+  cout<< "estVide ? : " << e0.estVide()<<endl;
+  e0.ajoute("tres");
+  e0.ajoute("bien");
+  e0.ajoute("assez");
+  e0.ajoute("bravo");
+  e0.ajoute("bravo");
 
-  eInt2.ajoute(0);
-  eInt2.ajoute(0);
-  eInt2.ajoute(10);
-  eInt2.ajoute(10);
-  eInt2.ajoute(2);
-  cout<<"eInt2 : "<< eInt2.contenu() <<endl;
-  /*eString.ajoute("tres");
-	eString.ajoute("bien");
-  eString.ajoute("avec");
-  eString.ajoute("bravo");
-  eString.ajoute("aaac");
-  eString.ajoute("aaaab");
-  cout<<"eString : "<< eString.contenu() <<endl;*/
-  eInt.differenceEns(eInt2);
-  cout<<"eIntF : "<< eInt.contenu() <<endl;
+  e1.ajoute("tres");
+  e1.ajoute("bien");
+  e1.ajoute("assez");
 
-	return 0;
+  cout <<"e0  : "<< e0.contenu() <<endl; // contenu de e0
+  cout <<"e1  : "<< e1.contenu() <<endl; // contenu de e1
+  e0.unionEns(e1);
+  //e0.intersectionEns(e1);
+  //e0.differenceEns(e1);
+  cout <<"res : "<< e0.contenu() <<endl; // resultat
+
+  return 0;
 }

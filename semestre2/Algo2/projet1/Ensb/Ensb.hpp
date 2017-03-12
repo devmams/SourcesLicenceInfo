@@ -9,7 +9,7 @@
 
 #include <iostream> // cout et cin
 #include <string> // utilisation du type string
-#define Taille 40000
+#define Taille 40000 //capacité du tableau tab
 
 template < typename T = std::string >
 class Ensb {

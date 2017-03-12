@@ -1,6 +1,6 @@
 /**
  * @file Ensa.hpp
- * @author Fatma Maouloud, Mamadou Diallo
+ * @author Fatma MAOULOUD, Mamadou DIALLO
  * @date 20/02/2017 Création
  * @brief classe Ensa.
 **/
@@ -33,8 +33,6 @@ class Ensa {
     void intersectionEns(Ensa & e);
     void unionEns(const Ensa & e);
     void differenceEns(Ensa & e);
-    int nbelem();
-
 };
 
 #include "Ensa.tpp"

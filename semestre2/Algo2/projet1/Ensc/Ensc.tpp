@@ -1,6 +1,6 @@
 /**
  * @file Ensc.tpp
- * @author Fatma Maouloud, Mamadou Diallo
+ * @author Fatma MAOULOUD, Mamadou DIALLO
  * @date 20/02/2017 Création
  * @brief Implémentation des méthodes de la classe Ensc.
 **/
@@ -85,7 +85,6 @@ bool Ensc<T>::contient(T elt){
 	    cour = cour->suiv;
 	  }
 	  return cour != NULL;
-	}
 }
 
 //--------------------------------------------------------------------
@@ -242,7 +241,7 @@ void Ensc<T>::differenceEns(Ensc<T> & e){
     tmpRes = tmpRes->suiv;
   }
 	cout<< "eR : "<< ensRes.contenu() <<endl;
-  this->tete = NULL;
+  this->tete = NULL; //initialisation de l'objet courant.
   this->nb =0 ; //initialisation de l'objet courant.
   tmpRes = ensRes.tete;
   for(int j=0; j<ensRes.nb ; j++){
@@ -251,20 +250,4 @@ void Ensc<T>::differenceEns(Ensc<T> & e){
     }
 	  tmpRes = tmpRes->suiv;
   }
-}
-
-//--------------------------------------------------------------------
-/**
- * @brief fonction nbelem()
- * @b Role : retourne le nombre d'élément d'un ensemble.
- * @b Entrée : Rien
- * @b Sortie : -@e nb : le nombre d'élément.
- * @pre - aucune
- * @post - aucune
- * @b Complexité - θ(1)
- *
-**/
-template < typename T>
-int Ensc<T>::nbelem(){
-  return this->nb;
 }

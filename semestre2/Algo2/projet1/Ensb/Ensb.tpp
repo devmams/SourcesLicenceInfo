@@ -1,3 +1,9 @@
+/**
+ * @file Ensb.tpp
+ * @author Fatma MAOULOUD, Mamadou DIALLO
+ * @date 20/02/2017 Création
+ * @brief Implémentation des méthodes de la classe Ensb.
+**/
 #include <iostream>
 #include <string>
 #include <vector>
@@ -33,7 +39,7 @@ Ensb<T>::Ensb(){
  *
 **/
 template < typename T>
-Ensb<T>::~Ensb(){}
+Ensb<T>::~Ensb(){ /* Rien à écrire ici ! */ }
 
 //--------------------------------------------------------------------
 /**

@@ -1,6 +1,6 @@
 /**
  * @file Ensa.tpp
- * @author Fatma Maouloud, Mamadou Diallo
+ * @author Fatma MAOULOUD, Mamadou DIALLO
  * @date 20/02/2017 Création
  * @brief Implémentation des méthodes de la classe Ensa.
 **/
@@ -256,20 +256,4 @@ void Ensa<T>::differenceEns(Ensa<T> & e){
     }
 	  tmpRes = tmpRes->suiv;
   }
-}
-
-//--------------------------------------------------------------------
-/**
- * @brief fonction nbelem()
- * @b Role : retourne le nombre d'élément d'un ensemble.
- * @b Entrée : Rien
- * @b Sortie : -@e nb : le nombre d'élément.
- * @pre - aucune
- * @post - aucune
- * @b Complexité - θ(1)
- *
-**/
-template < typename T>
-int Ensa<T>::nbelem(){
-  return this->nb;
 }

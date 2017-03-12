@@ -1,6 +1,6 @@
 /**
  * @file Ensc.hpp
- * @author Fatma Maouloud, Mamadou Diallo
+ * @author Fatma MAOULOUD, Mamadou DIALLO
  * @date 20/02/2017 Création
  * @brief classe Ensc.
 **/
@@ -31,8 +31,6 @@ class Ensc{
     void intersectionEns(Ensc & e);
     void unionEns(const Ensc & e);
     void differenceEns(Ensc & e);
-    int nbelem();
-
 };
 
 #include "Ensc.tpp"
