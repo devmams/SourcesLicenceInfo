@@ -30,7 +30,6 @@ class FP_ch {
     void enfiler(T e);
     void defiler();
     T premier();
-    
 
 };
 

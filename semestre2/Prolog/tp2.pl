@@ -4,8 +4,8 @@
 
 %% 1. Elements à l indice pairs d une liste d une longueur paire
 %% membp(+Liste,-Pairs) :
-membp([], []).
-%% membp([_],[]).
+%% membp([], []).
+membp([_],[]).
 membp([_,E|L],[E|T]) :-
   membp(L,T).
 
@@ -120,6 +120,9 @@ e9(P) :-
 
 %% 10. PROGRAMMEZ : Enumeration des suffixes d'une liste.
 %% suff(-Pref,+Liste)
+
+suff(L,L).
+suff(S,[E|L1]) :- suff(S,L1).
 
 e10(S) :-
   suff(S,[a,b,c,d]),
