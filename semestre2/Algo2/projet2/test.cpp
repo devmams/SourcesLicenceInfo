@@ -59,15 +59,18 @@ int main()
     cout << endl;*/
 
     // ANCETRES
-    Ancetres a, b("registre.txt");
+    Ancetres a, b("registre.txt") , com;
 
     // Tests de l'affichage
   //  cout << "a :" << endl << a << endl;
-    cout << "b:" << endl << b << endl;
+    cout << "b :" << endl << b << endl;
     cout << endl;
-    b.racines();
+    //b.racines();
     cout << "-------------------" << endl;
-    b.individus();
+    //b.individus();
+    cout << "com :" << endl << b.ancetresCommuns({'m',"jean","2004-02-29"},{'f',"Camille","2007-01-15"})<< endl;
+    //cout << "com :" << endl << b.ancetresCommuns({'f',"Brigitte","1978-04-21"},{'m',"Jacques","1980-06-06"})<< endl;
+    cout << endl;
     // À COMPLÉTER ...
 
     return 0;

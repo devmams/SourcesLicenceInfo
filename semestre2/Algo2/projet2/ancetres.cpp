@@ -50,7 +50,7 @@ Ancetres::Ancetres(std::string fic)
         if ( p != 0 )
         {
             per = noeuds.at(p-1).ind;
-            cout<<"-----"<< per <<endl;
+            //cout<<"-----"<< per <<endl;
             this->setPere(ind,per);
         }
         // enregistrement de la mère si connue
@@ -203,14 +203,50 @@ std::set<Individu> Ancetres::individus() const
 Ancetres Ancetres::ancetresCommuns(Individu ind1, Individu ind2) const
 {
     Ancetres com;
-    // À COMPLÉTER
+    std::vector<Noeud> tempNoeuds = noeuds;
+    unordered_map<Individu,unsigned int> tempTab = indTOnd;
+    int val1 = tempTab[ind1];
+    int val2 = tempTab[ind2];
+    int ip1 , im1 , ip2 , im2 ;
+    /*cout << "val1 : "<< val1 << " ; val2 : "<<val2 <<endl;
+    cout << "ip1 : "<< ip1 << " ; im1 : "<< im1 <<endl;
+    cout << "ip2 : "<< ip2 << " ; im2 : "<< im2 <<endl;*/
+    if(this->hasPere(ind1) || this->hasMere(ind1)){
+      if(this->hasPere(ind1)){
+        ip1 = tempNoeuds[val1].pere;
+        if(this->hasPere(ind2)){
+          ip2 = tempNoeuds[val2].pere;
+          com.fusion(ancetresCommuns(tempNoeuds[ip1].ind , tempNoeuds[ip2].ind));
+        }
+        if(this->hasMere(ind2)){
+          im2 = tempNoeuds[val2].mere;
+          com.fusion(ancetresCommuns(tempNoeuds[ip1].ind , tempNoeuds[im2].ind));
+        }
+      }
+      if(this->hasMere(ind1)){
+        im1 = tempNoeuds[val1].mere;
+        if(this->hasPere(ind2)){
+          ip2 = tempNoeuds[val2].pere;
+          com.fusion(ancetresCommuns(tempNoeuds[im1].ind , tempNoeuds[ip2].ind));
+        }
+        if(this->hasMere(ind2)){
+          im2 = tempNoeuds[val2].mere;
+          com.fusion(ancetresCommuns(tempNoeuds[im1].ind , tempNoeuds[im2].ind));
+        }
+      }
+    }
+    else if(ind1 == ind2){
+      com.ajouter(ind1);
+    }
     return com;
 }
 
 //--------------------------------------------------------------------
 void Ancetres::fusion(Ancetres anc)
 {
-    // À COMPLÉTER
+  for(int i=0 ;i<(int)anc.noeuds.size() ;i++){
+    this->ajouter(anc.noeuds[i].ind);
+  }
 }
 
 //--------------------------------------------------------------------
