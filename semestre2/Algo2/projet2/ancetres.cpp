@@ -50,7 +50,7 @@ Ancetres::Ancetres(std::string fic)
         if ( p != 0 )
         {
             per = noeuds.at(p-1).ind;
-            cout<<"-----"<< per <<endl; 
+            cout<<"-----"<< per <<endl;
             this->setPere(ind,per);
         }
         // enregistrement de la mère si connue
@@ -90,26 +90,25 @@ bool Ancetres::estPresent(const Individu & ind) const
 //--------------------------------------------------------------------
 void Ancetres::ajouter(const Individu & ind)
 {
-  //assert(!estPresent(ind));
+  assert(!estPresent(ind));
+  unsigned int val = noeuds.size();
   Noeud nv;
   nv.ind = ind;
   nv.pere = -1;
   nv.mere = -1;
   noeuds.push_back(nv);
-
-
-  /*indTOnd.insert(ind);
-  cout<< "-----" <<endl;
-
-  int i = indTOnd[ind];
-  std::cout<< i <<std::endl;*/
+  indTOnd[ind] = val;
 }
 
 //--------------------------------------------------------------------
 bool Ancetres::hasPere(Individu ind) const
 {
     bool hp = false;
-    // À COMPLÉTER
+    std::vector<Noeud> tempNoeuds = noeuds;
+    unordered_map<Individu,unsigned int> tempTab = indTOnd;
+    unsigned int i = tempTab[ind];
+    if(tempNoeuds[i].pere != -1)
+      hp = true;
     return hp;
 }
 
@@ -117,22 +116,32 @@ bool Ancetres::hasPere(Individu ind) const
 Individu Ancetres::getPere(Individu ind) const
 {
     Individu p;
-
-
+    std::vector<Noeud> tempNoeuds = noeuds;
+    unordered_map<Individu,unsigned int> tempTab = indTOnd;
+    unsigned int i = tempTab[ind];
+    unsigned int ip = tempNoeuds[i].pere;
+    p = tempNoeuds[ip].ind;
     return p;
 }
 
 //--------------------------------------------------------------------
 void Ancetres::setPere(Individu ind, Individu pere)
 {
-    // À COMPLÉTER
+  vector<Noeud> tempNoeuds = noeuds;
+  unsigned int ip = indTOnd[pere];
+  unsigned int i = indTOnd[ind];
+  noeuds[i].pere = ip;
 }
 
 //--------------------------------------------------------------------
 bool Ancetres::hasMere(Individu ind) const
 {
     bool hm = false;
-    // À COMPLÉTER
+    std::vector<Noeud> tempNoeuds = noeuds;
+    unordered_map<Individu,unsigned int> tempTab = indTOnd;
+    unsigned int i = tempTab[ind];
+    if(tempNoeuds[i].mere != -1)
+      hm = true;
     return hm;
 }
 
@@ -140,14 +149,20 @@ bool Ancetres::hasMere(Individu ind) const
 Individu Ancetres::getMere(Individu ind) const
 {
     Individu m;
-    // À COMPLÉTER
+    std::vector<Noeud> tempNoeuds = noeuds;
+    unordered_map<Individu,unsigned int> tempTab = indTOnd;
+    unsigned int i = tempTab[ind];
+    unsigned int im = tempNoeuds[i].mere;
+    m = tempNoeuds[im].ind;
     return m;
 }
 
 //--------------------------------------------------------------------
 void Ancetres::setMere(Individu ind, Individu mere)
 {
-    // À COMPLÉTER
+  unsigned int im = indTOnd[mere];
+  unsigned int i = indTOnd[ind];
+  noeuds[i].mere = im;
 }
 
 //--------------------------------------------------------------------

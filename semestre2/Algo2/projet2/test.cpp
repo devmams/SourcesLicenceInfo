@@ -22,7 +22,7 @@ int main()
                 ind6={'m',"Camille","2007-01-25"};
 
     // Tests de la méthode Individu::enChaine et <<
-    cout << "ind1 : " << ind1 << endl;
+    /*cout << "ind1 : " << ind1 << endl;
     cout << "ind2 : " << ind2 << endl;
     cout << "ind3 : " << ind3 << endl;
     cout << "ind4 : " << ind4 << endl;
@@ -56,13 +56,13 @@ int main()
     cout << "ind4 --> " << hash<Individu>{}(ind4) << endl;
     cout << "ind5 --> " << hash<Individu>{}(ind5) << endl;
     cout << "ind6 --> " << hash<Individu>{}(ind6) << endl;
-    cout << endl;
+    cout << endl;*/
 
     // ANCETRES
     Ancetres a, b("registre.txt");
 
     // Tests de l'affichage
-    cout << "a :" << endl << a << endl;
+  //  cout << "a :" << endl << a << endl;
     cout << "b:" << endl << b << endl;
     cout << endl;
 
