@@ -65,7 +65,9 @@ int main()
   //  cout << "a :" << endl << a << endl;
     cout << "b:" << endl << b << endl;
     cout << endl;
-
+    b.racines();
+    cout << "-------------------" << endl;
+    b.individus();
     // À COMPLÉTER ...
 
     return 0;

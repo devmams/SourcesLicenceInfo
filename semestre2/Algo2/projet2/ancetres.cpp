@@ -169,7 +169,21 @@ void Ancetres::setMere(Individu ind, Individu mere)
 std::set<Individu> Ancetres::racines() const
 {
     std::set<Individu> rac;
-    // À COMPLÉTER
+    std::vector<Noeud> tempNoeuds = noeuds;
+    bool estParent;
+    for(int i=0 ; i<(int)tempNoeuds.size() ;i++){
+      estParent = false;
+      Individu ind = tempNoeuds[i].ind;
+      for(int j=0 ; j<(int)tempNoeuds.size() ;j++){
+        if(tempNoeuds[j].pere == i || tempNoeuds[j].mere == i){
+          estParent = true;
+        }
+      }
+      if(!estParent){
+        cout<< "ind rac : "<<ind <<endl;
+        rac.insert(ind);
+      }
+    }
     return rac;
 }
 
@@ -177,7 +191,11 @@ std::set<Individu> Ancetres::racines() const
 std::set<Individu> Ancetres::individus() const
 {
     std::set<Individu> inds;
-    // À COMPLÉTER
+    std::vector<Noeud> tempNoeuds = noeuds;
+    for(int i=0 ;i<(int)tempNoeuds.size() ;i++){
+      inds.insert(tempNoeuds[i].ind);
+      cout<< "indsss : "<<tempNoeuds[i].ind <<endl;
+    }
     return inds;
 }
 
