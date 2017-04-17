@@ -3,20 +3,41 @@
  * @date 21/03/2017 Création
  * @brief Définition des méthodes de la classe Descendants
 **/
-
+#include <iostream>
 #include "descendants.hpp" // pour le type Descendants
+using namespace std;
+
 // EN AJOUTER SI BESOIN
 
 //--------------------------------------------------------------------
 Descendants::Descendants(const Individu & ind)
 {
-    // À COMPLÉTER
+    racine.ind = ind;
+    racine.fils = NULL;
+    racine.frere = NULL;
 }
 
 //--------------------------------------------------------------------
 Descendants::Descendants(const Individu & ind, const Ancetres & anc)
 {
-    // À COMPLÉTER
+  racine.ind = ind;
+  racine.fils = NULL;
+  racine.frere = NULL;
+  std::set<Individu> inds = anc.individus();
+  for(auto i=inds.begin() ; i!=inds.end() ;++i){
+    Individu enf = *i;
+    if(ind.sexe == 'm'){
+      if(anc.hasPere(enf) && anc.getPere(enf) == ind){
+        this->ajouter(ind,enf);
+        Descendants(enf,anc);
+      }
+    }else{
+      if(anc.hasMere(enf) && anc.getMere(enf) == ind){
+        this->ajouter(ind,enf);
+        Descendants(enf,anc);
+      }
+    }
+  }
 }
 
 //--------------------------------------------------------------------
@@ -28,7 +49,12 @@ Descendants::~Descendants()
 //--------------------------------------------------------------------
 void Descendants::afficher(std::ostream & os) const
 {
-    // À COMPLÉTER
+  Noeud *cour = racine.fils;
+  // cout<< "rac : "<< cour->ind <<endl;
+/*  while(cour->fils != NULL){
+    os << cour->ind << std::endl;
+    cour = cour->fils;
+  }*/
 }
 
 //--------------------------------------------------------------------
@@ -40,7 +66,31 @@ bool Descendants::estPresent(const Individu & ind) const
 //--------------------------------------------------------------------
 void Descendants::ajouter(const Individu & par, const Individu & enf)
 {
-    // À COMPLÉTER
+  Noeud *nv;
+  nv->ind = enf;
+  nv->fils = NULL;
+  nv->frere = NULL;
+  if(racine.fils == NULL)
+    racine.fils = nv;
+  else{
+    if(racine.fils->ind < enf){
+      nv->frere = racine.fils;
+      racine.fils = nv;
+    }
+    else{
+      Noeud *cour = racine.fils;
+      Noeud *prec ;
+      while(cour != NULL && enf < cour->ind){
+        prec = cour;
+        cour = cour->frere;
+      }
+      if(cour->ind < enf){
+        prec->frere = nv;
+        nv->frere = cour;
+      }
+    }
+  }
+
 }
 
 //--------------------------------------------------------------------

@@ -205,37 +205,24 @@ Ancetres Ancetres::ancetresCommuns(Individu ind1, Individu ind2) const
     Ancetres com;
     std::vector<Noeud> tempNoeuds = noeuds;
     unordered_map<Individu,unsigned int> tempTab = indTOnd;
-    int val1 = tempTab[ind1];
-    int val2 = tempTab[ind2];
-    int ip1 , im1 , ip2 , im2 ;
-    /*cout << "val1 : "<< val1 << " ; val2 : "<<val2 <<endl;
-    cout << "ip1 : "<< ip1 << " ; im1 : "<< im1 <<endl;
-    cout << "ip2 : "<< ip2 << " ; im2 : "<< im2 <<endl;*/
     if(this->hasPere(ind1) || this->hasMere(ind1)){
       if(this->hasPere(ind1)){
-        ip1 = tempNoeuds[val1].pere;
         if(this->hasPere(ind2)){
-          ip2 = tempNoeuds[val2].pere;
-          com.fusion(ancetresCommuns(tempNoeuds[ip1].ind , tempNoeuds[ip2].ind));
+          com.fusion(ancetresCommuns(this->getPere(ind1) , this->getPere(ind2)));
         }
         if(this->hasMere(ind2)){
-          im2 = tempNoeuds[val2].mere;
-          com.fusion(ancetresCommuns(tempNoeuds[ip1].ind , tempNoeuds[im2].ind));
+          com.fusion(ancetresCommuns(this->getPere(ind1) , this->getMere(ind2)));
         }
       }
       if(this->hasMere(ind1)){
-        im1 = tempNoeuds[val1].mere;
         if(this->hasPere(ind2)){
-          ip2 = tempNoeuds[val2].pere;
-          com.fusion(ancetresCommuns(tempNoeuds[im1].ind , tempNoeuds[ip2].ind));
+          com.fusion(ancetresCommuns(this->getMere(ind1) , this->getPere(ind2)));
         }
         if(this->hasMere(ind2)){
-          im2 = tempNoeuds[val2].mere;
-          com.fusion(ancetresCommuns(tempNoeuds[im1].ind , tempNoeuds[im2].ind));
+          com.fusion(ancetresCommuns(this->getMere(ind1) , this->getMere(ind2)));
         }
       }
-    }
-    else if(ind1 == ind2){
+    }else if(ind1 == ind2){
       com.ajouter(ind1);
     }
     return com;

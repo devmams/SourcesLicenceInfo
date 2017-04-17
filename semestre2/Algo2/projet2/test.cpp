@@ -72,6 +72,10 @@ int main()
     //cout << "com :" << endl << b.ancetresCommuns({'f',"Brigitte","1978-04-21"},{'m',"Jacques","1980-06-06"})<< endl;
     cout << endl;
     // À COMPLÉTER ...
+    cout << "----------ddddddddddddddddddddddddddd---------" << endl;
+    Descendants d({'f',"Anne","1953-04-28"},b);
+    cout << "d :" << endl << d << endl;
+    cout << endl;
 
     return 0;
 }
