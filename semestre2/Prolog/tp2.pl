@@ -17,6 +17,7 @@ membi([A,_|L],[A|T]) :-
   membi(L,T).
 
 
+
 %% 3. Choix nondeterministe d'un element d'une liste (predicat bibl. select/3)
 %% sele(+List,?Element,?Rest): enumere les elements de la
 %% Liste a travers le backtracking. Rest = List \ {Element}.

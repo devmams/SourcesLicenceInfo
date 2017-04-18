@@ -180,7 +180,7 @@ std::set<Individu> Ancetres::racines() const
         }
       }
       if(!estParent){
-        cout<< "ind rac : "<<ind <<endl;
+        cout<< "ind rac : "<< ind <<endl;
         rac.insert(ind);
       }
     }
@@ -203,30 +203,45 @@ std::set<Individu> Ancetres::individus() const
 Ancetres Ancetres::ancetresCommuns(Individu ind1, Individu ind2) const
 {
     Ancetres com;
-    std::vector<Noeud> tempNoeuds = noeuds;
-    unordered_map<Individu,unsigned int> tempTab = indTOnd;
-    if(this->hasPere(ind1) || this->hasMere(ind1)){
-      if(this->hasPere(ind1)){
-        if(this->hasPere(ind2)){
-          com.fusion(ancetresCommuns(this->getPere(ind1) , this->getPere(ind2)));
-        }
-        if(this->hasMere(ind2)){
-          com.fusion(ancetresCommuns(this->getPere(ind1) , this->getMere(ind2)));
-        }
+    Ancetres ancInd1 = ancetreIndividus(ind1);
+    Ancetres ancInd2 = ancetreIndividus(ind2);
+    for(int i=0 ;i<(int)ancInd1.noeuds.size() ;i++){
+      if(ancInd2.estPresent(ancInd1.noeuds[i].ind)){
+        com.ajouter(ancInd1.noeuds[i].ind);
       }
-      if(this->hasMere(ind1)){
-        if(this->hasPere(ind2)){
-          com.fusion(ancetresCommuns(this->getMere(ind1) , this->getPere(ind2)));
-        }
-        if(this->hasMere(ind2)){
-          com.fusion(ancetresCommuns(this->getMere(ind1) , this->getMere(ind2)));
-        }
-      }
-    }else if(ind1 == ind2){
-      com.ajouter(ind1);
     }
     return com;
 }
+
+//--------------------------------------------------------------------
+Ancetres Ancetres::ancetreIndividus(Individu ind) const{
+  Ancetres ancInd;
+  if(this->hasPere(ind)){
+    Individu p = getPere(ind);
+    ancInd.ajouter(p);
+    ancInd.fusion(ancetreIndividus(p));
+  }
+  if(this->hasMere(ind)){
+    Individu m = getMere(ind);
+    ancInd.ajouter(m);
+    ancInd.fusion(ancetreIndividus(m));
+  }
+  return ancInd;
+}
+//--------------------------------------------------------------------
+
+std::vector<Individu> Ancetres::lesFils(Individu ind) const{
+  std::vector<Individu> v;
+  std::vector<Noeud> tempNoeuds = noeuds;
+  for(int i=0 ;i<tempNoeuds.size() ;i++){
+    individu f = tempNoeuds[i].ind;
+    if(getPere(f) == ind || getMere(f) == ind)
+      v.push_back(f);
+  }
+  return v;
+}
+
+
 
 //--------------------------------------------------------------------
 void Ancetres::fusion(Ancetres anc)

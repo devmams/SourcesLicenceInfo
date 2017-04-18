@@ -20,24 +20,30 @@ Descendants::Descendants(const Individu & ind)
 //--------------------------------------------------------------------
 Descendants::Descendants(const Individu & ind, const Ancetres & anc)
 {
+
   racine.ind = ind;
   racine.fils = NULL;
   racine.frere = NULL;
-  std::set<Individu> inds = anc.individus();
-  for(auto i=inds.begin() ; i!=inds.end() ;++i){
-    Individu enf = *i;
-    if(ind.sexe == 'm'){
-      if(anc.hasPere(enf) && anc.getPere(enf) == ind){
-        this->ajouter(ind,enf);
-        Descendants(enf,anc);
-      }
-    }else{
-      if(anc.hasMere(enf) && anc.getMere(enf) == ind){
-        this->ajouter(ind,enf);
-        Descendants(enf,anc);
+  std::List<*Noeud> ch;
+  std::vector<Individu> tabFils;
+  ch.push_back(&racine);
+  while(ch.size() > 0){
+    Noeud *pre = ch.front();
+    tabFils = lesFils(pre->ind);
+    for(int i=0 ; i<tabFils.size() ;i++){
+      Noeud nv;
+      nv.ind = tabFils[i];
+      if(racine.fils == NULL){
+        racine.fils =
       }
     }
+
+
   }
+
+  for(auto i=inds.begin() ; i!=inds.end() ;++i){
+    Individu enf = *i;
+
 }
 
 //--------------------------------------------------------------------

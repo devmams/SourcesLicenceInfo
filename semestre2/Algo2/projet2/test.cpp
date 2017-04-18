@@ -68,14 +68,28 @@ int main()
     //b.racines();
     cout << "-------------------" << endl;
     //b.individus();
-    cout << "com :" << endl << b.ancetresCommuns({'m',"jean","2004-02-29"},{'f',"Camille","2007-01-15"})<< endl;
+    //cout << "com :" << endl << b.ancetresCommuns({'m',"jean","2004-02-29"},{'f',"Brigitte","1978-04-21"})<< endl;
     //cout << "com :" << endl << b.ancetresCommuns({'f',"Brigitte","1978-04-21"},{'m',"Jacques","1980-06-06"})<< endl;
-    cout << endl;
+    //cout << endl;
+
+    Individu jean = {'m',"jean","2004-02-29"};
+    Individu henri = {'m',"Henri","1975-04-18"};
+    Individu camille = {'f',"Camille","2007-01-15"};
+
+
+    cout<< "ancetreInd1 " << endl <<  b.ancetreIndividus(jean) <<endl;
+    cout << "-------------------" << endl;
+    cout<< "ancetreInd2 " << endl <<  b.ancetreIndividus(camille) <<endl;
+    cout << "-------------------" << endl;
+    cout<< "ancetreCom " << endl <<  b.ancetresCommuns(jean,camille) <<endl;
+
+
+
     // À COMPLÉTER ...
-    cout << "----------ddddddddddddddddddddddddddd---------" << endl;
+    /*cout << "----------ddddddddddddddddddddddddddd---------" << endl;
     Descendants d({'f',"Anne","1953-04-28"},b);
     cout << "d :" << endl << d << endl;
-    cout << endl;
+    cout << endl;*/
 
     return 0;
 }

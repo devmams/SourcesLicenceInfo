@@ -22,7 +22,7 @@ class Descendants
          * @brief Constructeur d'un arbre pour un individu
          * @param ind L'individu racine
          * @post L'arbre a ind pour racine et aucun autre nœud
-         * 
+         *
          * @b Complexité À INDIQUER
          **/
         Descendants(const Individu & ind);
@@ -33,22 +33,22 @@ class Descendants
          * @param anc La forêt d'ancêtres
          * @pre ind est présent dans anc
          * @post L'arbre a ind pour racine et contient tous les descendants de ind présents dans anc
-         * 
+         *
          * @b Complexité À INDIQUER
          **/
         Descendants(const Individu & ind, const Ancetres & anc);
-        
+
         /**
          * @brief Destructeur
-         * 
+         *
          * @b Complexité À INDIQUER
          **/
         ~Descendants();
-        
+
         /**
          * @brief Affiche dans un flux de sortie (fichier ou écran)
          * @param os Le flux de sortie
-         * 
+         *
          * @b Complexité À INDIQUER
          **/
         void afficher(std::ostream & os) const;
@@ -57,7 +57,7 @@ class Descendants
          * @brief Indique si un individu est présent dans l'arbre
          * @param ind L'individu à rechercher
          * @return Vrai ssi l'individu est dans l'arbre
-         * 
+         *
          * @b Complexité À INDIQUER
          **/
         bool estPresent(const Individu & ind) const;
@@ -67,23 +67,23 @@ class Descendants
          * @param par L'individu parent
          * @param enf Le nouvel individu enfant
          * @pre L'individu par est déjà dans l'arbre, pas l'individu enf
-         * 
+         *
          * @b Complexité À INDIQUER
          **/
         void ajouter(const Individu & par, const Individu & enf);
-        
+
         /**
          * @brief Calcule l'ensemble des individus descendants de l'individu racine au degré k (1 = les enfants, 2 = les petits enfants, ...)
          * @return Les descendants au k-ième degré
-         * 
+         *
          * @b Complexité À INDIQUER
          **/
         std::set<Individu> auDegre(unsigned int k) const;
-        
+
         /**
          * @brief Calcule l'ensemble des descendants communs à deux arbres
          * @return L'ensemble des descendants communs
-         * 
+         *
          * @b Complexité À INDIQUER
          **/
         std::set<Individu> descendantsCommuns(const Descendants & des) const;

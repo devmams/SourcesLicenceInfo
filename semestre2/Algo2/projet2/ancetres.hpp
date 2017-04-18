@@ -160,6 +160,10 @@ class Ancetres
          **/
         void fusion(Ancetres anc);
 
+        ///////////////
+        Ancetres ancetreIndividus(Individu ind) const;
+
+
     private:
         // Un nœud de la forêt contient un individu et les indices de ses parents (-1 si inconnus)
         struct Noeud {
