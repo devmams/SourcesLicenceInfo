@@ -233,10 +233,16 @@ Ancetres Ancetres::ancetreIndividus(Individu ind) const{
 std::vector<Individu> Ancetres::lesFils(Individu ind) const{
   std::vector<Individu> v;
   std::vector<Noeud> tempNoeuds = noeuds;
-  for(int i=0 ;i<tempNoeuds.size() ;i++){
-    individu f = tempNoeuds[i].ind;
-    if(getPere(f) == ind || getMere(f) == ind)
-      v.push_back(f);
+  for(int i=0 ;i<(int)tempNoeuds.size() ;i++){
+    Individu f = tempNoeuds[i].ind;
+    if(ind.sexe == 'm'){
+      if(hasPere(f) && getPere(f) == ind)
+        v.push_back(f);
+    }
+    if(ind.sexe == 'f'){
+      if(hasMere(f) && getMere(f) == ind)
+        v.push_back(f);
+    }
   }
   return v;
 }

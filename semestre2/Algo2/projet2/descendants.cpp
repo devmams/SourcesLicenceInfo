@@ -3,6 +3,7 @@
  * @date 21/03/2017 Création
  * @brief Définition des méthodes de la classe Descendants
 **/
+#include <list>
 #include <iostream>
 #include "descendants.hpp" // pour le type Descendants
 using namespace std;
@@ -20,30 +21,40 @@ Descendants::Descendants(const Individu & ind)
 //--------------------------------------------------------------------
 Descendants::Descendants(const Individu & ind, const Ancetres & anc)
 {
-
   racine.ind = ind;
   racine.fils = NULL;
   racine.frere = NULL;
-  std::List<*Noeud> ch;
+  std::list<Noeud*> ch;
   std::vector<Individu> tabFils;
   ch.push_back(&racine);
   while(ch.size() > 0){
-    Noeud *pre = ch.front();
-    tabFils = lesFils(pre->ind);
-    for(int i=0 ; i<tabFils.size() ;i++){
-      Noeud nv;
-      nv.ind = tabFils[i];
-      if(racine.fils == NULL){
-        racine.fils =
+    Noeud *pre = new Noeud;
+    pre = ch.front();
+    cout << "front pre-------------------" << pre->ind <<endl;
+    tabFils = anc.lesFils(pre->ind);
+    for(int k=0 ; k<(int)tabFils.size() ;k++){
+      Noeud *nv = new Noeud;
+      nv->ind = tabFils[k];
+      nv->fils = NULL;
+      nv->frere = NULL;
+      if(pre->fils == NULL || pre->fils->ind < nv->ind){
+        nv->frere = pre->fils;
+        pre->fils = nv;
       }
+      else{
+        Noeud* cour = pre->fils;
+        Noeud* avant = cour;
+        while(cour != NULL && nv->ind < cour->ind){
+          avant = cour;
+          cour = cour->frere;
+        }
+        avant->frere = nv;
+        nv->frere = cour;
+      }
+      ch.push_back(nv);
     }
-
-
+    ch.pop_front();
   }
-
-  for(auto i=inds.begin() ; i!=inds.end() ;++i){
-    Individu enf = *i;
-
 }
 
 //--------------------------------------------------------------------
@@ -55,12 +66,19 @@ Descendants::~Descendants()
 //--------------------------------------------------------------------
 void Descendants::afficher(std::ostream & os) const
 {
-  Noeud *cour = racine.fils;
-  // cout<< "rac : "<< cour->ind <<endl;
-/*  while(cour->fils != NULL){
-    os << cour->ind << std::endl;
-    cour = cour->fils;
-  }*/
+  Noeud rac = racine;
+  std::list<Noeud*> chn;
+  chn.push_back(&rac);
+  cout << rac.ind <<endl;
+  while(chn.size() > 0){
+    Noeud *cour = chn.front()->fils;
+    while(cour != NULL){
+      cout << cour->ind <<endl;
+      chn.push_back(cour);
+      cour = cour->frere;
+    }
+    chn.pop_front();
+  }
 }
 
 //--------------------------------------------------------------------
@@ -72,31 +90,8 @@ bool Descendants::estPresent(const Individu & ind) const
 //--------------------------------------------------------------------
 void Descendants::ajouter(const Individu & par, const Individu & enf)
 {
-  Noeud *nv;
-  nv->ind = enf;
-  nv->fils = NULL;
-  nv->frere = NULL;
-  if(racine.fils == NULL)
-    racine.fils = nv;
-  else{
-    if(racine.fils->ind < enf){
-      nv->frere = racine.fils;
-      racine.fils = nv;
-    }
-    else{
-      Noeud *cour = racine.fils;
-      Noeud *prec ;
-      while(cour != NULL && enf < cour->ind){
-        prec = cour;
-        cour = cour->frere;
-      }
-      if(cour->ind < enf){
-        prec->frere = nv;
-        nv->frere = cour;
-      }
-    }
-  }
-
+  // for(auto i=inds.begin() ; i!=inds.end() ;++i){
+  //   Individu enf = *i;
 }
 
 //--------------------------------------------------------------------

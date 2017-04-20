@@ -75,6 +75,7 @@ int main()
     Individu jean = {'m',"jean","2004-02-29"};
     Individu henri = {'m',"Henri","1975-04-18"};
     Individu camille = {'f',"Camille","2007-01-15"};
+    Individu anne = {'f',"Anne","1953-04-28"};
 
 
     cout<< "ancetreInd1 " << endl <<  b.ancetreIndividus(jean) <<endl;
@@ -84,12 +85,10 @@ int main()
     cout<< "ancetreCom " << endl <<  b.ancetresCommuns(jean,camille) <<endl;
 
 
-
-    // À COMPLÉTER ...
-    /*cout << "----------ddddddddddddddddddddddddddd---------" << endl;
-    Descendants d({'f',"Anne","1953-04-28"},b);
+    cout << "----------ddddddddddddddddddddddddddd---------" << endl;
+    Descendants d(anne,b);
     cout << "d :" << endl << d << endl;
-    cout << endl;*/
+    cout << endl;
 
     return 0;
 }

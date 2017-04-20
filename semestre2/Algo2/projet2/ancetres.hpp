@@ -162,7 +162,7 @@ class Ancetres
 
         ///////////////
         Ancetres ancetreIndividus(Individu ind) const;
-
+        std::vector<Individu> lesFils(Individu ind) const;
 
     private:
         // Un nœud de la forêt contient un individu et les indices de ses parents (-1 si inconnus)
