@@ -7,24 +7,24 @@
 #include "individu.hpp" // pour le type Individu
 
 //--------------------------------------------------------------------
-std::string Individu::enChaine() const 
-{ 
-    return std::string() + sexe + "\t" + nom + "\t" + date; 
+std::string Individu::enChaine() const
+{
+    return std::string() + sexe + "\t" + nom + "\t" + date;
 }
 
 //--------------------------------------------------------------------
 bool Individu::operator==(const Individu & ind) const
 {
-    return (sexe==ind.sexe and nom==ind.nom and date==ind.date); 
+    return (sexe==ind.sexe and nom==ind.nom and date==ind.date);
 }
 
 //--------------------------------------------------------------------
 bool Individu::operator<(const Individu & ind) const
 {
     // comparaison lexicographique, par année, puis mois, puis jour, puis sexe, puis nom
-    return ( date < ind.date ) 
-        or ( date == ind.date and ( sexe < ind.sexe 
-                               or ( sexe == ind.sexe and nom < nom ) ) ) ; 
+    return ( date < ind.date )
+        or ( date == ind.date and ( sexe < ind.sexe
+                               or ( sexe == ind.sexe and nom < nom ) ) ) ;
 }
 
 //--------------------------------------------------------------------

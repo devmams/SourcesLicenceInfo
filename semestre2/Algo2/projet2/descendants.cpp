@@ -30,7 +30,6 @@ Descendants::Descendants(const Individu & ind, const Ancetres & anc)
   while(ch.size() > 0){
     Noeud *pre = new Noeud;
     pre = ch.front();
-    cout << "front pre-------------------" << pre->ind <<endl;
     tabFils = anc.lesFils(pre->ind);
     for(int k=0 ; k<(int)tabFils.size() ;k++){
       Noeud *nv = new Noeud;
@@ -69,11 +68,11 @@ void Descendants::afficher(std::ostream & os) const
   Noeud rac = racine;
   std::list<Noeud*> chn;
   chn.push_back(&rac);
-  cout << rac.ind <<endl;
+  os << rac.ind <<endl;
   while(chn.size() > 0){
     Noeud *cour = chn.front()->fils;
     while(cour != NULL){
-      cout << cour->ind <<endl;
+      os << cour->ind <<endl;
       chn.push_back(cour);
       cour = cour->frere;
     }
@@ -82,9 +81,29 @@ void Descendants::afficher(std::ostream & os) const
 }
 
 //--------------------------------------------------------------------
+
 bool Descendants::estPresent(const Individu & ind) const
 {
-    // À COMPLÉTER
+  Noeud rac = racine;
+  std::list<Noeud*> chn;A
+  chn.push_back(&rac);
+  bool res = false;
+  while(chn.size() > 0 && res == false){
+    Noeud *cour = chn.front()->fils;
+    cout<< "entré 1" <<endl;
+    while(cour != NULL && res == false){
+      cout<< "entré 2" <<endl;
+      cout << "cour : " << cour->ind.nom << " ; ind : "<< ind.nom <<endl;
+      if(cour->ind == ind){
+        res = true;
+        cout<< "entré" <<endl;
+      }
+      chn.push_back(cour);
+      cour = cour->frere;
+    }
+    chn.pop_front();
+  }
+  return res;
 }
 
 //--------------------------------------------------------------------

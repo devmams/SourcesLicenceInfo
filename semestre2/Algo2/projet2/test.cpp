@@ -66,13 +66,13 @@ int main()
     cout << "b :" << endl << b << endl;
     cout << endl;
     //b.racines();
-    cout << "-------------------" << endl;
+    cout << "-------------------" <<endl;
     //b.individus();
     //cout << "com :" << endl << b.ancetresCommuns({'m',"jean","2004-02-29"},{'f',"Brigitte","1978-04-21"})<< endl;
     //cout << "com :" << endl << b.ancetresCommuns({'f',"Brigitte","1978-04-21"},{'m',"Jacques","1980-06-06"})<< endl;
     //cout << endl;
 
-    Individu jean = {'m',"jean","2004-02-29"};
+    Individu jean = {'m',"Jean","2004-02-29"};
     Individu henri = {'m',"Henri","1975-04-18"};
     Individu camille = {'f',"Camille","2007-01-15"};
     Individu anne = {'f',"Anne","1953-04-28"};
@@ -85,10 +85,11 @@ int main()
     cout<< "ancetreCom " << endl <<  b.ancetresCommuns(jean,camille) <<endl;
 
 
-    cout << "----------ddddddddddddddddddddddddddd---------" << endl;
+    cout << "----------descendant---------" << endl;
     Descendants d(anne,b);
     cout << "d :" << endl << d << endl;
     cout << endl;
+    cout << "est present : "<< d.estPresent({'m',"Jean","2004-02-29"}) <<endl;
 
     return 0;
 }
