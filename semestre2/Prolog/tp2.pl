@@ -6,8 +6,7 @@
 %% membp(+Liste,-Pairs) :
 %% membp([], []).
 membp([_],[]).
-membp([_,E|L],[E|T]) :-
-  membp(L,T).
+membp([_,E|L],[E|T]) :- membp(L,T).
 
 %% 2. PROGRAMMER : Elements impairs d'une liste d'une longueur paire
 % membi(+Liste,-Impaires)
