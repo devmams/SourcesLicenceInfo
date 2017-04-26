@@ -78,18 +78,20 @@ int main()
     Individu anne = {'f',"Anne","1953-04-28"};
 
 
-    cout<< "ancetreInd1 " << endl <<  b.ancetreIndividus(jean) <<endl;
+    /*cout<< "ancetreInd1 " << endl <<  b.ancetreIndividus(jean) <<endl;
     cout << "-------------------" << endl;
     cout<< "ancetreInd2 " << endl <<  b.ancetreIndividus(camille) <<endl;
     cout << "-------------------" << endl;
-    cout<< "ancetreCom " << endl <<  b.ancetresCommuns(jean,camille) <<endl;
+    cout<< "ancetreCom " << endl <<  b.ancetresCommuns(jean,camille) <<endl;*/
 
 
     cout << "----------descendant---------" << endl;
     Descendants d(anne,b);
     cout << "d :" << endl << d << endl;
     cout << endl;
-    cout << "est present : "<< d.estPresent({'m',"Jean","2004-02-29"}) <<endl;
-
+    //cout << "est present : "<< d.estPresent(anne) <<endl;
+    d.ajouter(jean,henri);
+    cout << "d :" << endl << d << endl;
+    d.auDegre(2);
     return 0;
 }

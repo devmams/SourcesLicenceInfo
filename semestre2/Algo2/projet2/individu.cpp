@@ -24,7 +24,7 @@ bool Individu::operator<(const Individu & ind) const
     // comparaison lexicographique, par année, puis mois, puis jour, puis sexe, puis nom
     return ( date < ind.date )
         or ( date == ind.date and ( sexe < ind.sexe
-                               or ( sexe == ind.sexe and nom < nom ) ) ) ;
+                               or ( sexe == ind.sexe and nom < ind.nom ) ) ) ;
 }
 
 //--------------------------------------------------------------------

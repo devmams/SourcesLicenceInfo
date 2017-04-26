@@ -36,14 +36,18 @@ Descendants::Descendants(const Individu & ind, const Ancetres & anc)
       nv->ind = tabFils[k];
       nv->fils = NULL;
       nv->frere = NULL;
-      if(pre->fils == NULL || pre->fils->ind < nv->ind){
+      if(pre->fils == NULL){
+        nv->frere = pre->fils;
+        pre->fils = nv;
+      }
+      else if(nv->ind < pre->fils->ind){
         nv->frere = pre->fils;
         pre->fils = nv;
       }
       else{
         Noeud* cour = pre->fils;
         Noeud* avant = cour;
-        while(cour != NULL && nv->ind < cour->ind){
+        while(cour != NULL && cour->ind < nv->ind){
           avant = cour;
           cour = cour->frere;
         }
@@ -54,6 +58,9 @@ Descendants::Descendants(const Individu & ind, const Ancetres & anc)
     }
     ch.pop_front();
   }
+  cout << "rac : " << racine.ind << endl;
+  cout << "rac fils: " << racine.fils->ind << endl;
+  cout << "rac fils frere: " << racine.fils->frere->ind << endl;
 }
 
 //--------------------------------------------------------------------
@@ -85,38 +92,93 @@ void Descendants::afficher(std::ostream & os) const
 bool Descendants::estPresent(const Individu & ind) const
 {
   Noeud rac = racine;
-  std::list<Noeud*> chn;A
+  std::list<Noeud*> chn;
   chn.push_back(&rac);
-  bool res = false;
-  while(chn.size() > 0 && res == false){
+  bool trouve = false;
+  if(rac.ind == ind){
+    trouve = true;
+  }
+  while(chn.size() > 0 && trouve == false){
     Noeud *cour = chn.front()->fils;
-    cout<< "entré 1" <<endl;
-    while(cour != NULL && res == false){
-      cout<< "entré 2" <<endl;
-      cout << "cour : " << cour->ind.nom << " ; ind : "<< ind.nom <<endl;
+    while(cour != NULL && trouve == false){
       if(cour->ind == ind){
-        res = true;
-        cout<< "entré" <<endl;
+        trouve = true;
       }
       chn.push_back(cour);
       cour = cour->frere;
     }
     chn.pop_front();
   }
-  return res;
+  return trouve;
 }
 
 //--------------------------------------------------------------------
 void Descendants::ajouter(const Individu & par, const Individu & enf)
 {
-  // for(auto i=inds.begin() ; i!=inds.end() ;++i){
-  //   Individu enf = *i;
+  std::list<Noeud*> chn;
+  chn.push_back(&racine);
+  bool trouve = false;
+  Noeud *cour;
+  if(racine.ind == par){
+    cour = &racine;
+    trouve = true;
+  }
+  while(chn.size() > 0 && trouve == false){
+    cour = chn.front()->fils;
+    while(cour != NULL && trouve == false){
+      if(cour->ind == par){
+        trouve = true;
+      }
+      else{
+        chn.push_back(cour);
+        cour = cour->frere;
+      }
+    }
+    chn.pop_front();
+  }
+  if(trouve){
+    Noeud *nv = new Noeud;
+    nv->ind = enf;
+    nv->fils = NULL;
+    nv->frere = NULL;
+    if(cour->fils == NULL){
+      nv->frere = cour->fils;
+      cour->fils = nv;
+    }
+    else if(nv->ind < cour->fils->ind){
+      nv->frere = cour->fils;
+      cour->fils = nv;
+    }
+    else{
+      Noeud* apres = cour->fils;
+      Noeud* avant = apres;
+      while(apres != NULL && apres->ind < nv->ind){
+        avant = apres;
+        apres = apres->frere;
+      }
+      avant->frere = nv;
+      nv->frere = cour;
+    }
+  }
 }
 
 //--------------------------------------------------------------------
 std::set<Individu> Descendants::auDegre(unsigned int k) const
 {
-    // À COMPLÉTER
+    const Noeud* rac = new Noeud;
+    rac = &racine;
+    unsigned int niveau = 0;
+    std::set<Individu> res;
+    while(niveau != k){
+        rac = rac->fils;
+        niveau++;
+    }
+    while(rac != NULL){
+      res.insert(rac->ind);
+      cout<<"tttttt " <<rac->ind<<endl;
+      rac= rac->frere;
+    }
+    return res;
 }
 
 //--------------------------------------------------------------------

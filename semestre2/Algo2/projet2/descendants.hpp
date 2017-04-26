@@ -97,7 +97,6 @@ class Descendants
         };
         // Attributs
         Noeud racine; // le nœud de l'individu racine
-        void afficheRec(std::ostream & os, Noeud *pm) const;
         // Méthodes
         // EN AJOUTER AU BESOIN
 };
