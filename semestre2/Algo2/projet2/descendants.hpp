@@ -98,7 +98,7 @@ class Descendants
         // Attributs
         Noeud racine; // le nœud de l'individu racine
         // Méthodes
-        // EN AJOUTER AU BESOIN
+        
 };
 
 /// surcharge de l'opérateur d'affichage << pour les Descendants

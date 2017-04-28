@@ -66,7 +66,21 @@ Descendants::Descendants(const Individu & ind, const Ancetres & anc)
 //--------------------------------------------------------------------
 Descendants::~Descendants()
 {
-    // À COMPLÉTER
+  std::list<Noeud*> ch;
+  ch.push_back(&racine);
+  while(ch.size() > 0){
+    Noeud* n = ch.front()->fils;
+    while(n != NULL){
+      ch.push_back(n);
+      n = n->frere;
+    }
+    Noeud* ajeter = ch.front();
+    ch.pop_front();
+    if(ajeter != &racine){
+      cout<< "delete : "<< ajeter->ind <<endl;
+      delete(ajeter);
+    }
+  }
 }
 
 //--------------------------------------------------------------------
@@ -165,26 +179,52 @@ void Descendants::ajouter(const Individu & par, const Individu & enf)
 //--------------------------------------------------------------------
 std::set<Individu> Descendants::auDegre(unsigned int k) const
 {
-    const Noeud* rac = new Noeud;
-    rac = &racine;
-    unsigned int niveau = 0;
-    std::set<Individu> res;
-    while(niveau != k){
-        rac = rac->fils;
-        niveau++;
-    }
+  std::set<Individu> res;
+  const Noeud* rac = &racine;
+  const Noeud* racInf = rac;
+  unsigned int niveau = 0;
+  while(niveau != k && rac != NULL){
+    racInf = rac;
+    rac = rac->fils;
+    niveau++;
+    cout << "niv : "<< niveau <<endl;
+  }
+  while(racInf != NULL){
+    rac = racInf->fils;
     while(rac != NULL){
       res.insert(rac->ind);
-      cout<<"tttttt " <<rac->ind<<endl;
-      rac= rac->frere;
+      rac = rac->frere;
     }
-    return res;
+    racInf = racInf->frere;
+  }
+  for(Individu i : res){
+    cout<<"i : " << i <<endl;
+  }
+  return res;
 }
 
 //--------------------------------------------------------------------
 std::set<Individu> Descendants::descendantsCommuns(const Descendants & des) const
 {
-    // À COMPLÉTER
+  std::set<Individu> res;
+  Noeud rac = racine;
+  std::list<Noeud*> ch;
+  ch.push_back(&rac);
+  while(ch.size() > 0){
+    Noeud *f = ch.front()->fils;
+    while (f != NULL) {
+      if(des.estPresent(f->ind)){
+        res.insert(f->ind);
+      }
+      ch.push_back(f);
+      f = f->frere;
+    }
+    ch.pop_front();
+  }
+  for(Individu i : res){
+    cout<<"i_com : " << i <<endl;
+  }
+  return res;
 }
 
 //--------------------------------------------------------------------

@@ -76,6 +76,8 @@ int main()
     Individu henri = {'m',"Henri","1975-04-18"};
     Individu camille = {'f',"Camille","2007-01-15"};
     Individu anne = {'f',"Anne","1953-04-28"};
+    Individu alfred = {'m',"Alfred","1954-08-19"};
+
 
 
     /*cout<< "ancetreInd1 " << endl <<  b.ancetreIndividus(jean) <<endl;
@@ -87,11 +89,11 @@ int main()
 
     cout << "----------descendant---------" << endl;
     Descendants d(anne,b);
+    //Descendants des(alfred,b);
     cout << "d :" << endl << d << endl;
     cout << endl;
-    //cout << "est present : "<< d.estPresent(anne) <<endl;
-    d.ajouter(jean,henri);
-    cout << "d :" << endl << d << endl;
-    d.auDegre(2);
+    //cout << "des :" << endl << des << endl;
+    //cout << endl;
+    //d.descendantsCommuns(des);
     return 0;
 }
