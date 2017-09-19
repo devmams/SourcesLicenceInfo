@@ -1,0 +1,18 @@
+
+public class Boule {
+
+	private Cellule boule;
+	
+	public Boule(Cellule boule){
+		this.boule = boule;
+	}
+	
+	public Cellule getBoule(){
+		return boule;
+	}
+	
+	public Boule diagGauche(){
+		
+	}
+	
+}

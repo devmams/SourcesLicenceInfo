@@ -1,0 +1,42 @@
+
+public class Boule {
+
+	private Cellule boule;
+	
+	public Boule(Cellule boule){
+		this.boule = boule;
+	}
+	
+	public Cellule getBoule(){
+		return boule;
+	}
+	
+	public Boule versHaut(){
+		return new Boule(new Cellule(boule.getX(), boule.getY()-1, boule.getC()));
+	}
+	
+	public Boule versBas(){
+		return new Boule(new Cellule(boule.getX(), boule.getY()+1, boule.getC()));
+	}
+	
+	public Boule diagHautGauche(){
+		return new Boule(new Cellule(boule.getX()-1, boule.getY()-1, boule.getC()));
+	}
+	
+	public Boule diagHautDroite(){
+		return new Boule(new Cellule(boule.getX()+1, boule.getY()-1, boule.getC()));
+	}
+	
+	public Boule diagBasGauche(){
+		return new Boule(new Cellule(boule.getX()-1, boule.getY()+1, boule.getC()));
+	}
+	
+	public Boule diagBasDroite(){
+		return new Boule(new Cellule(boule.getX()+1, boule.getY()+1, boule.getC()));
+	}
+	
+	public boolean posPrec(){
+		
+	}
+	
+}

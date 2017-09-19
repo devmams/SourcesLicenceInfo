@@ -1,0 +1,148 @@
+/**
+ * Classe permettant de créer le plateau du jeu.
+ * 
+ * 
+ * @author Glenn PLOUHINEC / Mamadou DIALLO
+ */
+public class Plateau {
+	
+	//Largeur du plateau.
+	private int largeur = 10;
+	
+	//Longeur du plateau.
+	private int hauteur = 20;
+	
+	//Tableau de Type Cellule.
+	private Cellule grille[][];
+	
+	/**
+	 * Construit un plateau contenant des Cellules sans couleur.
+	 * @param 4 Cellules.
+	 */
+	public Plateau(){
+		this.grille = new Cellule[largeur][hauteur];
+		for(int i=0 ; i<10 ; i++){
+			//Remplie les 20 premières lignes notre plateau par des cellules vides.
+			for(int j=0 ; j<20 ; j++){
+				this.grille[i][j] = new Cellule(0,0,'n'); 
+			}
+			//Remplie la dernière ligne de notre plateau par des cellules différent de vide.
+			/*for(int k=0 ; k<10 ; k++){
+				this.grille[k][20] = new Cellule(0,0,'z');
+			}*/
+		}
+	}
+	
+	/**
+	 * Construit un plateau contenant des Cellules avec une couleur.
+	 * @param un caractère contenant une couleur.
+	 */
+	public Plateau(char c){
+		this.grille = new Cellule[largeur][hauteur];
+		for(int i=0 ; i<10 ; i++){
+			for(int j=0 ; j<20 ; j++){
+				this.grille[i][j] = new Cellule(0,0,c); 
+			}
+			for(int k=0 ; k<10 ; k++){
+				this.grille[k][20] = new Cellule(0,0,'z');
+			}
+		}
+	}
+
+	
+	/**
+	 * vérifie si la boule à atteint le bord gauche
+	 * @param la pièce à vérifier.
+	 */
+	public boolean briqueTouchee(Boule boule, Mur mur){
+		boolean res = false;
+		if((this.grille[(int)boule.getBoule().getX()][(int)boule.getBoule().getY()-1].getC() != 'n'
+		|| this.grille[(int)boule.getBoule().getX()-1][(int)boule.getBoule().getY()+1].getC() != 'n')
+		&& (this.grille[(int)boule.getBoule().getX()][(int)boule.getBoule().getY()-1].getC() == mur.getMurCol() 
+		|| this.grille[(int)boule.getBoule().getX()][(int)boule.getBoule().getY()+1].getC() == mur.getMurCol())
+		){
+			res = true;
+		}
+		return res;
+
+	}
+	
+	public boolean barreTouchee(Boule boule, BarreLaterale barre){
+		boolean res = false;
+		if(occupee(boule) && this.grille[(int)boule.getBoule().getX()][(int)boule.getBoule().getY()].getC() == barre.getCelluleUn().getC()){
+			res = true;
+		}
+		return res;
+	}
+
+	
+	/**
+	 * efface la brique detruite
+	 */
+	public void supprimeBrique(Boule boule){
+		this.grille[(int)boule.getBoule().getX()][(int)boule.getBoule().getY()-1] = new Cellule(0,0,'n');
+		this.grille[(int)boule.getBoule().getX()-1][(int)boule.getBoule().getY()+1] = new Cellule(0,0,'n');
+	}
+	
+	/**
+	 * vérifie si la barre laterale ne deborde pas 
+	 * @param la pièce à vérifier.
+	 */
+	public boolean deborder(BarreLaterale b){
+		boolean res = false;
+		if((b.getCelluleUn().getX() < 0 ) || (b.getCelluleTrois().getX() > 10))
+			res = true;
+		return res;
+	}
+	
+	/**
+	 * Retire l'ancienne barre laterale
+	 * @param la barre à rétirer.
+	 */
+	public void retirerBarre(BarreLaterale b){
+		this.grille[(int)b.getCelluleUn().getX()][(int)b.getCelluleUn().getY()] = new Cellule(0,0,'n');
+		this.grille[(int)b.getCelluleDeux().getX()][(int)b.getCelluleDeux().getY()] = new Cellule(0,0,'n');
+		this.grille[(int)b.getCelluleTrois().getX()][(int)b.getCelluleTrois().getY()] = new Cellule(0,0,'n');
+	}
+	
+	/**
+	 * Retire l'ancienne boule.
+	 * @param la boule à rétirer.
+	 */
+	public void retirerBoule(Boule b){
+		this.grille[(int)b.getBoule().getX()][(int)b.getBoule().getY()] = new Cellule(0,0,'n');
+	}
+	
+	/**
+	 * Ajoute une pièce dans le plateau
+	 * @param la pièce à ajouter.
+	 */
+	public void ajouterMur(Mur m){
+		for(int i=0 ;i<10 ;i++){
+			for(int j=0 ;j<4 ;j++){
+				this.grille[i][j] = m.getTabC()[j][i]; 
+			}
+		}
+	}
+	
+	public void ajouterBarre(BarreLaterale b){
+		this.grille[(int)b.getCelluleUn().getX()][(int)b.getCelluleUn().getY()] = b.getCelluleUn();
+		this.grille[(int)b.getCelluleDeux().getX()][(int)b.getCelluleDeux().getY()] = b.getCelluleDeux();
+		this.grille[(int)b.getCelluleTrois().getX()][(int)b.getCelluleTrois().getY()] = b.getCelluleTrois();
+	}
+	
+	public void ajouterBoule(Boule b){
+		this.grille[(int)b.getBoule().getX()][(int)b.getBoule().getY()] = b.getBoule();
+	}
+	
+	
+	/**
+	 * Accesseur.
+	 * @return une cellule du plateau.
+	 * @param i et j coordonnées de la cellule
+	 */
+	public Cellule getCellule(int k, int l) {
+		return grille[k][l];
+	}
+	
+}

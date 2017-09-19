@@ -1,0 +1,16 @@
+
+public class Fabrique {
+
+	
+	
+	
+	
+	/**
+	 * Création barre latéralle 
+	 */
+	Piece barreLateral(){
+		x = 1.5 + (int)(Math.random() * 6 );
+		return new Piece(new Cellule(x,0.5,'b'),new Cellule(x,1.5,'b'),new Cellule(x,2.5,'b'),new Cellule(x,3.5,'b'));
+	}
+
+}

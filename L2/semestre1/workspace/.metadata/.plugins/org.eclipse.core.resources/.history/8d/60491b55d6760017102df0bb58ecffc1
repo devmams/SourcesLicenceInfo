@@ -1,0 +1,67 @@
+
+public class BarreLaterale {
+	
+	//première cellule de la pièce
+		private Cellule un ;
+		
+		//deuxième cellule de la pièce
+		private Cellule deux ;
+		
+		//troisième cellule de la pièce
+		private Cellule trois ;
+
+		
+		public BarreLaterale(Cellule c1,Cellule c2,Cellule c3){
+			this.un = c1;
+			this.deux = c2;
+			this.trois = c3;
+		}
+		
+		/**
+		 * Accesseur.
+		 * @return la première cellule de la pièce.
+		 */
+		public Cellule getCelluleUn(){
+			return this.un;
+		}
+		
+		/**
+		 * Accesseur.
+		 * @return la deuxième cellule de la pièce.
+		 */
+		public Cellule getCelluleDeux(){
+			return this.deux;
+		}
+		
+		/**
+		 * Accesseur.
+		 * @return la troisième cellule de la pièce.
+		 */
+		public Cellule getCelluleTrois(){
+			return this.trois;
+		}
+		
+		public BarreLaterale versGauche(){
+			return new BarreLaterale(new Cellule(un.getX()-1, un.getY(),'b'), new Cellule(deux.getX()-1, deux.getY(),'b')
+			,new Cellule(trois.getX()-1, trois.getY(),'b'));
+		}
+		
+		
+		public BarreLaterale versDroite(){
+			return new BarreLaterale(new Cellule(un.getX()-1, un.getY(),'b'), new Cellule(deux.getX()-1, deux.getY(),'b')
+			,new Cellule(trois.getX()-1, trois.getY(),'b'));
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+}

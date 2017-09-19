@@ -1,0 +1,99 @@
+
+public class Boule {
+
+	private Cellule boule;
+	
+	public Boule(Cellule boule){
+		this.boule = boule;
+	}
+	
+	public Cellule getBoule(){
+		return boule;
+	}
+	
+	public Boule versHaut(){
+		return new Boule(new Cellule(boule.getX(), boule.getY()-1, boule.getC()));
+	}
+	
+	public Boule versBas(){
+		return new Boule(new Cellule(boule.getX(), boule.getY()+1, boule.getC()));
+	}
+	
+	public Boule diagHautGauche(){
+		return new Boule(new Cellule(boule.getX()-1, boule.getY()-1, boule.getC()));
+	}
+	
+	public Boule diagHautDroite(){
+		return new Boule(new Cellule(boule.getX()+1, boule.getY()-1, boule.getC()));
+	}
+	
+	public Boule diagBasGauche(){
+		return new Boule(new Cellule(boule.getX()-1, boule.getY()+1, boule.getC()));
+	}
+	
+	public Boule diagBasDroite(){
+		return new Boule(new Cellule(boule.getX()+1, boule.getY()+1, boule.getC()));
+	}
+	
+	public boolean sensPrec(Boule b){
+		boolean res = false;
+		if(boule.getX() > b.getBoule().getX())
+			res = true;
+		return res;
+	}
+	
+	public boolean hautOuBas(Boule b){
+		boolean res = false;
+		if(boule.getY() > b.getBoule().getY())
+			res = true;
+		return res;
+	}
+	
+	/**
+	 * vérifie si la boule à atteint le bord gauche
+	 * @param la pièce à vérifier.
+	 */
+	public boolean bordGaucheAtteint(){
+		boolean res = false;
+		if(boule.getX() < 0){
+			res = true;
+		}
+		return res;
+	}
+	
+	/**
+	 * vérifie si la boule à atteint le bord droit
+	 * @param la pièce à vérifier.
+	 */
+	public boolean bordDroitAtteint(){
+		boolean res = false;
+		if(boule.getX() > 10){
+			res = true;
+		}
+		return res;
+	}
+	
+	/**
+	 * vérifie si la boule à atteint le Haut
+	 * @param la pièce à vérifier.
+	 */
+	public boolean bordHautAtteint(){
+		boolean res = false;
+		if(boule.getY() < 0){
+			res = true;
+		}
+		return res;
+	}
+	
+	/**
+	 * vérifie si la boule à atteint le Bas
+	 * @param la pièce à vérifier.
+	 */
+	public boolean bordBasAtteint(){
+		boolean res = false;
+		if(boule.getY() > 20){
+			res = true;
+		}
+		return res;
+	}
+}

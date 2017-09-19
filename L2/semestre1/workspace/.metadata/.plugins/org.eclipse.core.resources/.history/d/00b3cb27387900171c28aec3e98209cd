@@ -1,0 +1,26 @@
+
+public class Boule {
+
+	private Cellule boule;
+	
+	public Boule(Cellule boule){
+		this.boule = boule;
+	}
+	
+	public Cellule getBoule(){
+		return boule;
+	}
+	
+	public Boule versHaut(){
+		return new Boule(new Cellule(boule.getX(), boule.getY()-1, boule.getC()));
+	}
+	
+	public Boule diagGauche(){
+		return new Boule(new Cellule(boule.getX()-1, boule.getY()-1, boule.getC()));
+	}
+	
+	public Boule diagDroite(){
+		return new Boule(new Cellule(boule.getX()+1, boule.getY()-1, boule.getC()));
+	}
+	
+}

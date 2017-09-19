@@ -1,0 +1,27 @@
+
+public class Fabrique {
+
+	private BarreLaterale barre;
+	
+	/**
+	 * Construit une Fabrique vide.
+	 */
+	public Fabrique(){}
+	
+	
+	public BarreLaterale creerBarreLaterale(){
+		barre = 
+	}
+	
+	
+	
+	
+	
+	
+	public BarreLaterale(){
+		this.un = new Cellule(4.5,19.5,'b');
+		this.deux = new Cellule(5.5,19.5,'b');
+		this.trois = new Cellule(6.5,19.5,'b');
+	}
+
+}

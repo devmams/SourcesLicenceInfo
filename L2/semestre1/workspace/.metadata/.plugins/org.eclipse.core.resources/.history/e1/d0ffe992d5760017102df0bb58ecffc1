@@ -1,0 +1,61 @@
+
+public class BarreLaterale {
+	
+	//première cellule de la pièce
+		private Cellule un ;
+		
+		//deuxième cellule de la pièce
+		private Cellule deux ;
+		
+		//troisième cellule de la pièce
+		private Cellule trois ;
+
+		
+		public BarreLaterale(Cellule c1,Cellule c2,Cellule c3){
+			this.un = c1;
+			this.deux = c2;
+			this.trois = c3;
+		}
+		
+		/**
+		 * Accesseur.
+		 * @return la première cellule de la pièce.
+		 */
+		public Cellule getCelluleUn(){
+			return this.un;
+		}
+		
+		/**
+		 * Accesseur.
+		 * @return la deuxième cellule de la pièce.
+		 */
+		public Cellule getCelluleDeux(){
+			return this.deux;
+		}
+		
+		/**
+		 * Accesseur.
+		 * @return la troisième cellule de la pièce.
+		 */
+		public Cellule getCelluleTrois(){
+			return this.trois;
+		}
+		
+		public BarreLaterale versGauche(){
+			return new BarreLaterale(c1, c2, c3)
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+}

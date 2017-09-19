@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;BarreLaterale.java&apos; to &apos;Cellule.java&apos;&#x0A;- Original project: &apos;Tetris&apos;&#x0A;- Destination element: &apos;Cellule.java&apos;&#x0A;- Original element: &apos;BarreLaterale.java&apos;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=CasseBrique/src&lt;{Cellule.java" element1="/src&lt;{BarreLaterale.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1501602909445" units="1" version="1.0"/>
+</session>

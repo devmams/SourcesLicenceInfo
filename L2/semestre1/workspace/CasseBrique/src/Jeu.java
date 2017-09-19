@@ -1,0 +1,283 @@
+/**
+ * Classe permettant l'affichage graphique du jeu.
+ * 
+ * 
+ * @author Glenn PLOUHINEC / Mamadou DIALLO
+ */
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JFrame;
+import javax.swing.Box.Filler;
+
+public class Jeu extends JFrame implements KeyListener {
+
+	private static final long serialVersionUID = 1L;
+	//nécessaire à la méthode de double buffering
+	Image offI;
+	//nécessaire à la méthode de double buffering
+	Graphics offG;
+	//création d'un objet plateau.
+	Plateau plt;
+	//création d'un objet Fabrique.
+	Fabrique f;
+	//objet Mur
+	Mur mur;
+	//objet BarreLaterale
+	BarreLaterale barre;
+	//objet boule
+	Boule boule;
+	//variable permettant de reprendre une patie
+	boolean partieEnCours = true;
+
+	/**
+	 * Construit une Parie de Jeu.
+	 */
+	public Jeu(){}
+
+	/**
+	 * Fonction Principale d'une partie de jeu.
+	 */
+	public static void main(String[] args) {
+		Jeu g = new Jeu();
+		g.setVisible(true);
+		g.setSize(200, 420);
+	    g.setLocationRelativeTo(null);
+	    g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		g.jouer();
+	}
+
+	/**
+	 * crée une nouvelle piece et la deplace vers le bas chaque 3 secondes.
+	 */
+	private void jouer () {
+		// Boucle infinie (tant que mon_process existe et n'est pas interrompu)
+		//while(true){
+			partieEnCours = true;
+			plt = new Plateau();
+			f = new Fabrique();
+			// Ajout de l'écouteur de clavier
+			this.addKeyListener(this);
+			mur = f.creerMur();
+			barre = f.creerBarreLaterale();
+			boule = f.creerBoule();
+			plt.ajouterMur(mur);
+			plt.ajouterBarre(barre);
+			repaint();
+			Boule bouleTmp;
+			Boule anc;
+			String aFaire="diagHautDroite";
+			//String aFaire="diagHautGauche";
+			bouleTmp = boule;
+			while (partieEnCours){
+				repaint();
+				anc = bouleTmp;
+				bouleTmp = boule;
+				if(plt.briqueTouchee(boule, mur)){
+					plt.supprimeBrique(boule);
+					if(boule.sensPrec(anc)){
+						if(boule.hautOuBas(anc))
+							aFaire = "diagHautDroite";
+						else
+							aFaire = "diagBasDroite";
+					}
+					else{
+						if(boule.hautOuBas(anc))
+							aFaire = "diagHautGauche";
+						else
+							aFaire = "diagBasGauche";
+					}
+				}
+				else if(plt.barreTouchee(boule, barre)){
+					if(boule.sensPrec(anc))
+						aFaire = "diagHautDroite";
+					else
+						aFaire = "diagHautGauche";
+				}
+				else if(bouleTmp.bordDroitAtteint()){
+					if(boule.hautOuBas(anc)){
+						aFaire = "diagBasGauche";
+					}else{
+						aFaire = "diagHautGauche";
+					}
+				}
+				else if(bouleTmp.bordGaucheAtteint()){
+					if(boule.hautOuBas(anc)){
+						aFaire = "diagBasDroite";
+					}else{
+						aFaire = "diagHautDroite";
+					}
+				}
+				else if(bouleTmp.bordHautAtteint()){
+					if(boule.sensPrec(anc)){
+						aFaire = "diagBasDroite";
+					}else{
+						aFaire = "diagBasGauche";
+					}
+				}
+				else if(bouleTmp.bordBasAtteint()){
+					partieEnCours = false;
+				}
+				if(partieEnCours){
+					if(aFaire == "diagBasGauche")
+						boule = boule.diagBasGauche();
+					else if(aFaire == "diagHautGauche")
+						boule = boule.diagHautGauche();
+					else if(aFaire == "diagBasDroite")
+						boule = boule.diagBasDroite();
+					else if(aFaire == "diagHautDroite")
+						boule = boule.diagHautDroite();		
+				}
+				if(boule.horsCadre()){
+					if(aFaire == "diagBasGauche")
+						boule = boule.diagBasDroite();
+					else if(aFaire == "diagBasDroite")
+						boule = boule.diagBasGauche();
+					else if(aFaire == "diagHautDroite")
+						boule = boule.diagHautGauche();
+					else if(aFaire == "diagHautGauche")
+						boule = boule.diagHautDroite();
+				}
+				plt.retirerBoule(bouleTmp);
+				plt.ajouterBoule(boule);
+				repaint();
+				
+				//suspend la methode de 0.3 secondes.
+				try {
+					Thread.sleep(200);
+				}
+				catch (InterruptedException e) {
+					return;
+				}
+			}
+			//boule.versHaut();
+			partieEnCours = true;
+			boule = f.creerBoule();
+			repaint();
+			//colorie tout notre plateau en vert à la fin d'une partie.
+			//plt = new Plateau('a');
+			repaint();
+			//suspend la methode de 0.3 secondes.
+			try {
+				Thread.sleep(50);
+			}
+			catch (InterruptedException e) {
+				return;
+			}
+		//}		
+	}
+				
+
+	/**
+	 * actualise notre écran graphique
+	 */
+	public void update(Graphics g){
+		if(offI == null){
+			//crée une Image 200x420.
+			offI = createImage(200, 420);
+			offG = offI.getGraphics();
+		}
+		offG.clearRect(0, 0, 200, 420);
+		paint(offG);
+		g.drawImage(offI, 0, 0, null);
+	}
+
+	/**
+	 * colorie chaque cellule de notre plateau
+	 * @param un Graphique.
+	 */
+	public void paint (Graphics g) {
+		for (int k=0;k<10;k++) {
+			for (int l=0;l<20;l++) {
+				if (plt.getCellule(k,l).getC() == 'n') {
+					g.setColor(Color.black);//noir
+					g.fill3DRect (20*k,20*l,20,20,true);
+				}
+				else{
+					switch (plt.getCellule(k,l).getC()) {
+					case 'a':     g.setColor(new Color(0,192,0));    g.fill3DRect (20*k,20*l,20,20,true); break; //vert
+					case 'b':     g.setColor(Color.pink);            g.fill3DRect (20*k,20*l,20,20,true); break; //rouge
+                    case 'c':     g.setColor(new Color(0,128,224));  g.fill3DRect (20*k,20*l,20,20,true); break; //bleu
+                    case 'd':     g.setColor(new Color(0,192,192));  g.fill3DRect(20*k,20*l,20,20,true); break; //cyan
+                    case 'e':     g.setColor(Color.orange);          g.fill3DRect(20*k,20*l,20,20,true); break; //orange
+                    case 'f':     g.setColor(Color.red);        	 g.fill3DRect(20*k,20*l,20,20,true); break; //blanc
+                    case 'g':     g.setColor(Color.magenta);         g.fill3DRect(20*k,20*l,20,20,true); break; //magenta
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * deplace la pièce en fonction de la direction choisie.
+	 * @param un keyEvent.
+	 */
+	public void keyPressed(KeyEvent e) {
+		switch (e.getKeyCode()) {
+		case KeyEvent.VK_LEFT : if (barre != null) {//deplace la barre à gauche.
+			BarreLaterale bTmp = barre; 
+			barre = barre.versGauche();
+			plt.retirerBarre(bTmp);
+			if(plt.deborder(barre)){
+				barre = bTmp;
+			}
+			plt.ajouterBarre(barre);
+			repaint();
+		}
+		break;
+		case KeyEvent.VK_RIGHT : if (barre != null){//deplace la pièce à droite.
+			BarreLaterale bTmp = barre; 
+			barre = barre.versDroite();
+			plt.retirerBarre(bTmp);
+			if(plt.deborder(barre)){
+				barre = bTmp;
+			}
+			plt.ajouterBarre(barre);
+			repaint();
+		}
+		break;
+		/*case KeyEvent.VK_UP : if (p != null) {//fais tourner la pièce.
+			Piece tmp = p;
+			p = f.rotationPiece(p);
+			plt.retirer(tmp);
+			if(!plt.accepter(p)){
+				p = tmp;;
+			}
+			plt.ajouter(p);
+			repaint();
+		}
+		case KeyEvent.VK_DOWN : if (p != null) {//deplace la pièce en bas.
+			plt.retirer(p);
+			if(!plt.accepter(p.versLeBas())){
+				plt.ajouter(p);
+				repaint();
+			}
+			else{
+				p = p.versLeBas();
+				plt.ajouter(p);
+				repaint();
+			}
+		}
+		break;*/
+		default : repaint();
+		}
+	}
+	
+	/**
+	 * utile pour le KeyListener.
+	 * @param un keyEvent.
+	 */
+	public void keyReleased(KeyEvent e){
+	}
+
+	/**
+	 * utile pour le KeyListener.
+	 * @param un keyEvent.
+	 */
+	public void keyTyped(KeyEvent e){
+	}
+
+}

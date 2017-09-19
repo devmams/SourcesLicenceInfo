@@ -1,0 +1,11 @@
+
+public class Mur {
+
+	public Mur(){
+		for(int y=0 ; y<4 ;y++){
+			for(int x=0; x<10 ;x++){
+				Cellule c = new Cellule(x+0.5,y+0.5,'a');
+			}
+		}
+	}
+}

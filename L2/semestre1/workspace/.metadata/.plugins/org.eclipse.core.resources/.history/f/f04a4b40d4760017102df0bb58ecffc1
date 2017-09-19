@@ -1,0 +1,21 @@
+
+public class BarreLaterale {
+	
+	//première cellule de la pièce
+		private Cellule un ;
+		
+		//deuxième cellule de la pièce
+		private Cellule deux ;
+		
+		//troisième cellule de la pièce
+		private Cellule trois ;
+
+		
+		public BarreLaterale(){
+			this.un = new Cellule(4.5,19.5,'b');
+			this.deux = new Cellule(5.5,19.5,'b');
+			this.trois = new Cellule(5.5,19.5,'b');
+		}
+		
+
+}
