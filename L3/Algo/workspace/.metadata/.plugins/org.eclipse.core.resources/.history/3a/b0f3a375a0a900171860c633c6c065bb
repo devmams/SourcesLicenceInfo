@@ -36,6 +36,7 @@ public class Tri {
  				b++;
 			}	
 		}
+		//afficherTab(tab);
 	}
 	
 	public void afficherTab(int[] tab){

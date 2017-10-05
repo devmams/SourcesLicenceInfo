@@ -25,6 +25,7 @@ public class Tri {
 			if(a == d2){}
 			else if(b == f+1){
 				tab[i] = tab1[a-d];
+				//tab[a-d] = tab[i];
 				a++;
 			}
 			else if(tab1[a-d] < tab[b]){
@@ -33,9 +34,11 @@ public class Tri {
 			}
 			else{
 				tab[i] = tab[b];
+				//tab[b] = tab[i];
  				b++;
 			}	
 		}
+		//afficherTab(tab);
 	}
 	
 	public void afficherTab(int[] tab){
