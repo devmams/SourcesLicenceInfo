@@ -1,0 +1,24 @@
+
+public class Tri {
+
+	private int tab[];
+	
+	public Tri(int[] tab){
+		this.tab = tab;
+	}
+	
+	public int[] triFusion(int[] tab, int d, int f){
+		if(tab.length <= 1)
+			return tab;
+		else
+			return fusion(triFusion(tab),triFusion(tab, tab.length/2, tab.length));
+	}
+	
+	public int[] fusion(int[] t1 , int[] t2){
+		if()
+	}
+	
+	public int getTab(){
+		return tab[0];
+	}
+}

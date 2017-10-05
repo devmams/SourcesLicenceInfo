@@ -1,0 +1,17 @@
+
+public class Tri {
+
+	private int tab[];
+	
+	public Tri(int[] tab){
+		this.tab = tab;
+	}
+	
+	public triFusion(int[] tab){
+		
+	}
+	
+	public int getTab(){
+		return tab[0];
+	}
+}

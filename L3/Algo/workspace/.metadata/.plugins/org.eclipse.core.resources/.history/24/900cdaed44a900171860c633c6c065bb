@@ -1,0 +1,26 @@
+
+public class Tri {
+	
+	public Tri(){}
+	
+	public static void triFusion(int[] tab,int d, int f){
+		int milieu = (d+f)/2;
+		if(d != f){
+			triFusion(tab, d, milieu);
+			triFusion(tab, milieu+1, f);
+			fusion(tab , d , milieu , f);
+		}
+			
+	}
+	
+	private static void fusion(int[] tab ,int d ,int d2, int f){
+		int tab1= new int[d2-d+1];
+		for(int i=d ;i<d2 ;i++){
+			tab1[i-d] = tab[i];
+		}
+	}
+	
+	public int getTab(){
+		return tab[0];
+	}
+}

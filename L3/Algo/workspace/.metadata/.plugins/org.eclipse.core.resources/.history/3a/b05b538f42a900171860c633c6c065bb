@@ -1,0 +1,29 @@
+
+public class Tri {
+
+	private int tab[];
+	int d,f;
+	
+	public Tri(int[] tab,int d, int f){
+		this.tab = tab;
+		this.d = d;
+		this.f = f;
+	}
+	
+	public int[] triFusion(){
+		int milieu = (d+f)/2;
+		if(milieu <= 1)
+			return tab;
+		else
+			return fusion(triFusion(tab, 0, milieu/2),triFusion(tab, milieu+1, tab.length));
+	}
+	
+	public int[] fusion(int deb , int fin){
+		int tab1= new int[]
+		for()
+	}
+	
+	public int getTab(){
+		return tab[0];
+	}
+}
