@@ -1,0 +1,34 @@
+
+public class Arbre {
+
+	private Noeud racine;
+	private int niveau;
+	public Arbre(Noeud r) {
+		racine = r;
+		niveau = 0;
+	}
+	
+	public Noeud getRacine(){
+		return racine;
+	}
+	
+	private boolean estOperateur(char c)
+	{
+		if(c == '+' || c == '-' || c == '*' || c == '/')
+		{
+			return true;
+		}else{return false;}
+	}
+	
+	public void afficherArbre(Noeud rac){
+		Noeud pFilsG = rac.gauche().gauche();
+		Noeud pFilsD = rac.droit().droit();
+		if((pFilsG.getEstNul() != true) && (estOperateur(pFilsG.getElt()))){
+			afficherArbre(rac.gauche());
+		}
+		else{
+			System.out.println(rac.gauche().getElt());
+			System.out.println(rac.getElt());
+		}
+	}
+}

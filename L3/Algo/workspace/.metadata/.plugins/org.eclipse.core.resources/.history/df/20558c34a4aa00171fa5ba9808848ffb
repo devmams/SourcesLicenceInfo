@@ -1,0 +1,28 @@
+
+public class Arbre {
+
+	private Noeud racine;
+	private int niveau;
+	public Arbre(Noeud r) {
+		racine = r;
+		niveau = 0;
+	}
+	
+	public Noeud getRacine(){
+		return racine;
+	}
+	
+	public void afficherArbre(Noeud rac){
+		System.out.println(rac.getElt());
+		if(rac.gauche().getEstNul() != true){
+			afficherArbre(rac.gauche());
+			System.out.println(rac.gauche().getElt());
+			System.out.println(rac.getElt());
+			System.out.println(rac.droit().getElt());
+			afficherArbre(rac.droit());
+		}
+		else{
+			System.out.println(rac.getElt());
+		}
+	}
+}
