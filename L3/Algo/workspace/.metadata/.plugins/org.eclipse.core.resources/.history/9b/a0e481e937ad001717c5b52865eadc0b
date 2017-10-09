@@ -1,0 +1,9 @@
+
+public class Droite {
+	double a,b,c;
+	
+	public Droite(Point A,Point B) {
+	
+	
+	}
+}

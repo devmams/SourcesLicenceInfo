@@ -1,0 +1,8 @@
+
+public class Droite {
+	private double a,b,c;
+	
+	public Droite(Point A,Point B) {
+		a = (B.getY()/)
+	}
+}

@@ -1,0 +1,4 @@
+
+public class Droite {
+	double a,b,c;
+}

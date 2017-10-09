@@ -1,0 +1,9 @@
+
+public class Droite {
+	private double a,b,c;
+	
+	public Droite(Point A,Point B) {
+		a = (B.getY()-A.getY()/B.getX()-A.getX());
+		c = A.getY() - (a*A.getX());
+	}
+}

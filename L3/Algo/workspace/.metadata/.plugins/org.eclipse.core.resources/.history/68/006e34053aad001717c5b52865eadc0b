@@ -1,0 +1,15 @@
+
+public class Droite {
+	private double a,b,c;
+	
+	public Droite(Point A,Point B) {
+		// aX + bY + c = 0
+		a = (B.getY()-A.getY()/B.getX()-A.getX());
+		c = A.getY() - (a*A.getX());
+		b = 1;
+	}
+	
+	public void afficheDroite(){
+		
+	}
+}

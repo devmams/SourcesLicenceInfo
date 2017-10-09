@@ -1,0 +1,6 @@
+
+public class Main {
+	Point p1 = new Point(5, 13);
+	Point p2 = new Point(10, 23);
+
+}
