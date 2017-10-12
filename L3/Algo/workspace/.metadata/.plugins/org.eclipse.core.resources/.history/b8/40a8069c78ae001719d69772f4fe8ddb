@@ -1,0 +1,9 @@
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Noeud n = new Noeud('a', new Noeud(), new Noeud());
+		System.out.println(n.getC());
+	}
+	
+}

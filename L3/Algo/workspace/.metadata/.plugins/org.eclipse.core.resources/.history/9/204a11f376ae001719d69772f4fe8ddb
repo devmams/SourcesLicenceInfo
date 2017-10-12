@@ -1,0 +1,23 @@
+
+public class Noeud {
+	private char c;
+	private Noeud g;
+	private Noeud d;
+	boolean estNul;
+	
+	public Noeud(char ch,Noeud ga,Noeud dr){
+		c = ch;
+		g = ga;
+		d = dr;
+		estNul = false;
+	}
+	
+	public Noeud(){
+		estNul = true;
+	}
+	
+	public getC(){
+		return c;
+	}
+	
+}

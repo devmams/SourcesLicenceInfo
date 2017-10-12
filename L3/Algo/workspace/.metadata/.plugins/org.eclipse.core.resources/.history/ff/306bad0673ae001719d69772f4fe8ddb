@@ -1,0 +1,21 @@
+import java.security.PrivateKey;
+import java.util.Scanner;
+
+
+public class Main {
+	 
+	
+	 
+	 
+	 public static void main(String[] args) {
+		 private int a;
+		 Private int b;
+		 PlusGrand pg = new PlusGrand();
+		 
+		 Scanner sc = new Scanner(System.in);
+		 a = sc.nextInt();
+		 b = sc.nextInt();
+		 int res = plusGrand(a,b);
+		 System.out.println(res);
+	}
+}

@@ -1,0 +1,16 @@
+import java.security.PrivateKey;
+import java.util.Scanner;
+
+
+public class Main {
+	 
+	
+	 
+	 
+		public static void main(String[] args) {
+
+		 PlusGrand pg = new PlusGrand();
+		 System.out.println(pg.plusGrand(142, 25));
+		 
+	}
+}

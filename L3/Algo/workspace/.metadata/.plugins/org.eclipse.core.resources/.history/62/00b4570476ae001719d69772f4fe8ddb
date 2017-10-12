@@ -1,0 +1,12 @@
+
+public class Noeud {
+	private char c;
+	private Noeud g;
+	private Noeud d;
+	
+	public Noeud(char c,Noeud g,Noeud d){
+		c = c;
+	}
+	
+	
+}

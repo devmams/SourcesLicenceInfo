@@ -1,0 +1,22 @@
+
+public class Droite {
+	private double a,b,c;
+	
+	public Droite(Point A,Point B) {
+		// aX + bY + c = 0
+		b = -B.getX() + A.getX();
+		a = B.getY() - A.getX();
+		
+		a = ((B.getY()-A.getY())/(B.getX()-A.getX()));
+		c = A.getY() - (a*A.getX());
+		b = -1;
+		Point U(xB-xA,yB-yA);
+		b = -U.getX();
+		a = U.getY();
+		c=-a*A.getX()-b*A.getY();
+	}
+	
+	public void afficheDroite(){
+		System.out.println(a+ "X + "+b+"Y +"+c+" = 0" );
+	}
+}

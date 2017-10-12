@@ -4,12 +4,36 @@ public class Droite {
 	
 	public Droite(Point A,Point B) {
 		// aX + bY + c = 0
-		a = ((B.getY()-A.getY())/(B.getX()-A.getX()));
-		c = A.getY() - (a*A.getX());
-		b = -1;
+		b = -B.getX() + A.getX();
+		a = B.getY() - A.getY();
+		c = -a*A.getX()-b*A.getY();
+	}
+	
+	public Droite(int a,int b,int c){
+		this.a = a;
+		this.b = b;
+		this.c = c;
+
 	}
 	
 	public void afficheDroite(){
-		System.out.println(a+ "X + "+b+"Y +"+c+" = 0" );
+		System.out.println("eq = "+a+ "X + "+ b +"Y +"+c+" = 0" );
+	}
+	
+	public int appartient(Point p){
+		double res = a*p.getX()+b*p.getY()+c;
+		if(res == 0)
+			return 0;
+		else if (res>0)
+			 return 1;
+		else
+			 return -1;
+	}
+	
+	
+	public Point intersection(Droite d2){
+		double x = ((d2.c/d2.b)-(c/b))/((a/b)-(d2.a/d2.b));
+		double y = ((-a/b)*x) - (c/b);
+		return new Point(x, y);
 	}
 }

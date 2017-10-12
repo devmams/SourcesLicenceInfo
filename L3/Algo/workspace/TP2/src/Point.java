@@ -15,4 +15,9 @@ public class Point {
 	public double getY(){
 		return y;
 	}
+	
+	
+	public void affPoint(){
+		System.out.println(x +" , "+y);
+	}
 }

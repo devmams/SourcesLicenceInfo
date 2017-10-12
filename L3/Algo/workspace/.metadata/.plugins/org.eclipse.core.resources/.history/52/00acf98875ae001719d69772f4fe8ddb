@@ -1,0 +1,6 @@
+
+public class Noeud {
+	char c;
+	private Noeud g;
+	private Noeud d;
+}

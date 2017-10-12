@@ -1,0 +1,17 @@
+
+public class PlusGrand {
+	
+	public private
+	
+	public PlusGrand(){}
+	
+	
+   public int plusGrand(int a,int b){
+		 if(a > b){
+			 return a;
+		 }
+		 else{
+			 return b;
+		 }
+	}
+}
