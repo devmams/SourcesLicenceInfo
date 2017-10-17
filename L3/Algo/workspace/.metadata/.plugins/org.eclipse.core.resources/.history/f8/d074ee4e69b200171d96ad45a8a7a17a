@@ -1,0 +1,24 @@
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Point p1 = new Point(1, 1);
+		Point p2 = new Point(2, 2);
+		Droite d1 = new Droite(p1, p2);
+		Point pd1 = new Point(1, -1);
+		Point pd2 = new Point(2, 0);
+		Droite d2 = new Droite(pd1, pd2);
+
+		d1.afficheDroite();
+		d2.afficheDroite();
+
+		System.out.println("intersecte : "+d1.intersecte(d2));
+		
+		//System.out.println(d1.appartient(new Point((93/61), (1223/305))));
+		
+		if(d1.intersecte(d2))
+			(d1.PointIntersection(d2)).affPoint();
+		else
+			System.out.println("les deux droites ne s'intercetent pas !");
+	}
+}

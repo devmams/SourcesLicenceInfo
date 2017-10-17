@@ -2,4 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="Arbre"/>
 <fullyQualifiedTypeName name="Noeud"/>
+<fullyQualifiedTypeName name="Droite"/>
+<fullyQualifiedTypeName name="Point"/>
 </qualifiedTypeNameHistroy>

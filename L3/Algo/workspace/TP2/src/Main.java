@@ -2,19 +2,27 @@
 public class Main {
 	
 	public static void main(String[] args) {
-		Point p1 = new Point(4, 5);
-		Point p2 = new Point(-1, 3);
-		Droite d1 = new Droite(p1, p2);
-		Point pd1 = new Point(3, 7);
-		Point pd2 = new Point(0, -4);
-		Droite d2 = new Droite(pd1, pd2);
+		Point A = new Point(0.5, 1);
+		Point B = new Point(2, 3);
+		Droite d1 = new Droite(A, B);
+		Point C = new Point(1.5, 0.5);
+		Point D = new Point(1.5, 4);
+		Droite d2 = new Droite(C, D);
 
 		d1.afficheDroite();
 		d2.afficheDroite();
 
-		//System.out.println(d1.appartient(new Point((93/61), (1223/305))));
+		System.out.println("intersecteDrt : "+d1.intersectionDroite(d2));		
+		if(d1.intersectionDroite(d2))
+			(d1.pointIntersectionDroite(d2)).affPoint();
+		else
+			System.out.println("les deux droites ne s'intersectent pas !");
 		
-		
-		(new Droite(-2, 1, -5).intersection(new Droite(3, 1, -1))).affPoint();
+		System.out.println("intersecteSeg : "+d1.intersectionSegment(A, B, C, D));
+
+		if(d1.intersectionSegment(A, B, C, D))
+			d1.pointIntersectionsegment(A, B, C, D).affPoint();
+		else
+			System.out.println("les deux segments ne s'intersectent pas !");
 	}
 }

@@ -1,4 +1,3 @@
-
 public class Droite {
 	private double a,b,c;
 	
@@ -13,7 +12,6 @@ public class Droite {
 		this.a = a;
 		this.b = b;
 		this.c = c;
-
 	}
 	
 	public void afficheDroite(){
@@ -30,10 +28,52 @@ public class Droite {
 			 return -1;
 	}
 	
+	public boolean intersectionDroite(Droite d1){
+		boolean res = false;
+		if(a/b != d1.a/d1.b){
+			res = true;
+		}
+		return res;
+	}
 	
-	public Point intersection(Droite d2){
+	public Point pointIntersectionDroite(Droite d2){
 		double x = ((d2.c/d2.b)-(c/b))/((a/b)-(d2.a/d2.b));
 		double y = ((-a/b)*x) - (c/b);
 		return new Point(x, y);
+	}
+	
+	public boolean intersectionSegment(Point A,Point B,Point C,Point D){
+		Droite d1 = new Droite(A, B);
+		Droite d2 = new Droite(C, D);
+		boolean res = false;
+		if(d1.intersectionDroite(d2)){
+			Point p = d1.pointIntersectionDroite(d2);
+			if(((p.getY() <= max(A.getY(),B.getY())) && (p.getX() <= max(A.getX(),B.getX()))&& (p.getY() >= min(A.getY(),B.getY())) && p.getX() >= min(A.getX(),B.getX()))
+			&&((p.getY() <= max(C.getY(),D.getY())) && (p.getX() <= max(C.getX(),D.getX()))&& (p.getY() >= min(C.getY(),D.getY())) && p.getX() >= min(C.getX(),D.getX()))){
+						res = true;
+			}
+		}
+		return res;
+	}
+	
+	public Point pointIntersectionsegment(Point A,Point B,Point C,Point D){
+		Droite d1 = new Droite(A, B);
+		Droite d2 = new Droite(C, D);
+		Point p = d1.pointIntersectionDroite(d2);
+		return p;
+	}
+	
+	private double max(double a,double b){
+		double res = a;
+		if(b > a)
+			res = b;
+		return res;
+	}
+	
+	private double min(double a,double b){
+		double res = a;
+		if(a > b)
+			res = b;
+		return res;
 	}
 }

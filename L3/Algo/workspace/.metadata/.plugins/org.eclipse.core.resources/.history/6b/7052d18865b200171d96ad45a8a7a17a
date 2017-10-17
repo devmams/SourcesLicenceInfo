@@ -1,0 +1,20 @@
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Point p1 = new Point(4, 5);
+		Point p2 = new Point(-1, 3);
+		Droite d1 = new Droite(p1, p2);
+		Point pd1 = new Point(3, 7);
+		Point pd2 = new Point(0, -4);
+		Droite d2 = new Droite(pd1, pd2);
+
+		d1.afficheDroite();
+		d2.afficheDroite();
+
+		//System.out.println(d1.appartient(new Point((93/61), (1223/305))));
+		
+		
+		(new Droite(-2, 1, -5).intersection(new Droite(3, 1, -1))).affPoint();
+	}
+}
