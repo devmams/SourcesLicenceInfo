@@ -37,8 +37,30 @@ public class Droite {
 	}
 	
 	public Point pointIntersectionDroite(Droite d2){
-		double x = ((d2.c/d2.b)-(c/b))/((a/b)-(d2.a/d2.b));
-		double y = ((-a/b)*x) - (c/b);
+		double x = -10;
+		double y = -10;
+		if(a == 0 || b == 0 || d2.a == 0 || d2.b == 0){
+			if(a == 0){
+				x = ((c/b)-(d2.c/d2.b))*(d2.b/d2.a);
+				y = -(c/b);
+			}
+			if(b == 0){
+				y = ((c/a)-(d2.c/d2.a))*(d2.a/d2.b);
+				x = -(c/a);
+			}
+			if(d2.a == 0){
+				x = ((d2.c/d2.b)-(c/b))*(b/a);
+				y = -(d2.c/d2.b);
+			}
+			if(d2.b == 0){
+				y = ((d2.c/d2.a)-(c/a))*(a/b);
+				x = -(d2.c/d2.a);
+			}
+		}
+		else{
+			x = ((d2.c/d2.b)-(c/b))/((a/b)-(d2.a/d2.b));
+			y = ((-a/b)*x) - (c/b);
+		}
 		return new Point(x, y);
 	}
 	
