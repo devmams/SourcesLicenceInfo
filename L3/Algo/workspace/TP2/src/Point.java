@@ -16,6 +16,13 @@ public class Point {
 		return y;
 	}
 	
+	public boolean egale(Point p){
+		boolean res = false;
+		if(x == p.getX() && y == p.getY()){
+			res = true;
+		}
+		return res;
+	}
 	
 	public void affPoint(){
 		System.out.println(x +" , "+y);

@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+
+
+public class Polygone {
+	private ArrayList<Point> points;
+	
+	public Polygone(){
+		points = new ArrayList<>();
+	} 
+	
+	public Polygone(Point A,Point B,Point C){
+		points = new ArrayList<>();
+		points.add(A);points.add(B);points.add(C);
+	}
+	
+	public Polygone(Point A,Point B,Point C,Point D){
+		points = new ArrayList<>();
+		points.add(A);points.add(B);points.add(C);points.add(D);
+	}
+	
+	public void posPointTriangle(Point p){
+		Point A = points.get(0);
+		Point C = points.get(1);
+		Point B = points.get(2);
+		Droite AB, BC , CD;
+
+	}
+	
+	public void addPoint(Point p){
+		points.add(p);
+	}
+	
+	public ArrayList<Point> getPolygone(){
+		return points; 
+	}
+	
+	
+	
+}

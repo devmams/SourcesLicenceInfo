@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+
+
+public class Polygone {
+	private ArrayList<Point> points;
+	
+	public Polygone(){
+		points = new ArrayList<>();
+	} 
+	
+	public void consTriangle(Point A,Point B,Point C){
+		points.add(A);points.add(B);points.add(C);
+	}
+	
+	public void consCarre(Point A,Point B,Point C,Point D){
+		points.add(A);points.add(B);points.add(C);points.add(D);
+	}
+	
+	public void addPoint(Point p){
+		points.add(p);
+	}
+	
+}

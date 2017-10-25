@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+
+
+public class Polygone {
+	private ArrayList<Point> points;
+	
+	public Polygone(){
+		points = new ArrayList<>();
+	} 
+	
+	public void consTriangle(Point A,Point B,Point C){
+		
+	}
+	
+	
+}

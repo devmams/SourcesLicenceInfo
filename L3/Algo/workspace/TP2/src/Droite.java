@@ -37,25 +37,27 @@ public class Droite {
 	}
 	
 	public Point pointIntersectionDroite(Droite d2){
-		double x = -10;
-		double y = -10;
-		if(a == 0 || b == 0 || d2.a == 0 || d2.b == 0){
-			if(a == 0){
-				x = ((c/b)-(d2.c/d2.b))*(d2.b/d2.a);
-				y = -(c/b);
-			}
-			if(b == 0){
-				y = ((c/a)-(d2.c/d2.a))*(d2.a/d2.b);
-				x = -(c/a);
-			}
-			if(d2.a == 0){
-				x = ((d2.c/d2.b)-(c/b))*(b/a);
-				y = -(d2.c/d2.b);
-			}
-			if(d2.b == 0){
-				y = ((d2.c/d2.a)-(c/a))*(a/b);
-				x = -(d2.c/d2.a);
-			}
+		double x = 0;
+		double y = 0;
+		if(a == 0 && (b != 0 )){
+			y = -(c/b);
+			if(d2.a != 0)
+				x = (((-d2.b/d2.a)*y)-(d2.c/d2.a));
+		}
+		else if(b == 0 && a != 0){
+			x = -(c/a);
+			if(d2.b != 0)
+				y = (((-d2.a/d2.b)*x)-(d2.c/d2.b));
+		}				
+		else if(d2.a == 0 && d2.b != 0){
+			y = -(d2.c/d2.b);
+			if(a != 0)
+				x = (((-b/a)*y)-(c/a));
+		}
+		else if(d2.b == 0 && d2.a != 0){
+			x = -(d2.c/d2.a);
+			if(b != 0)
+				y = (((-a/b)*x)-(c/b));
 		}
 		else{
 			x = ((d2.c/d2.b)-(c/b))/((a/b)-(d2.a/d2.b));
@@ -64,16 +66,24 @@ public class Droite {
 		return new Point(x, y);
 	}
 	
-	public boolean intersectionSegment(Point A,Point B,Point C,Point D){
+	public boolean intersectionSegments(Point A,Point B,Point C,Point D){
 		Droite d1 = new Droite(A, B);
 		Droite d2 = new Droite(C, D);
 		boolean res = false;
 		if(d1.intersectionDroite(d2)){
 			Point p = d1.pointIntersectionDroite(d2);
-			if(((p.getY() <= max(A.getY(),B.getY())) && (p.getX() <= max(A.getX(),B.getX()))&& (p.getY() >= min(A.getY(),B.getY())) && p.getX() >= min(A.getX(),B.getX()))
-			&&((p.getY() <= max(C.getY(),D.getY())) && (p.getX() <= max(C.getX(),D.getX()))&& (p.getY() >= min(C.getY(),D.getY())) && p.getX() >= min(C.getX(),D.getX()))){
-						res = true;
-			}
+			if(appartientSegment(p, A, B) && appartientSegment(p, C, D))
+				res = true;
+		}
+		return res;
+	}
+	
+	public boolean appartientSegment(Point p,Point A,Point B){
+		boolean res = false;
+		Droite d = new Droite(A, B);
+		if(d.appartient(p) == 0){
+			if((p.getY() <= max(A.getY(),B.getY())) && (p.getX() <= max(A.getX(),B.getX())) && (p.getY() >= min(A.getY(),B.getY())) && (p.getX() >= min(A.getX(),B.getX())))
+				res = true;
 		}
 		return res;
 	}
@@ -82,6 +92,16 @@ public class Droite {
 		Droite d1 = new Droite(A, B);
 		Droite d2 = new Droite(C, D);
 		Point p = d1.pointIntersectionDroite(d2);
+		if(A.egale(p))
+			System.out.println("le point d'intersection est le point A");
+		else if(B.egale(p))
+			System.out.println("le point d'intersection est le point B");
+		else if(C.egale(p))
+			System.out.println("le point d'intersection est le point C");
+		else if(D.egale(p))
+			System.out.println("le point d'intersection est le point D");
+		else
+			System.out.println("le point d'intersection n'est ni A ni B ni C ni D");
 		return p;
 	}
 	
@@ -98,4 +118,5 @@ public class Droite {
 			res = b;
 		return res;
 	}
+	
 }
