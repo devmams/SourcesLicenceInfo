@@ -1,0 +1,8 @@
+
+public class Noeud {
+
+	public Noeud() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,13 @@
+
+public class Noeud {
+
+	public Noeud r1;
+	public Noeud r2;
+	public Noeud r3;
+	public Noeud r4;
+	
+	public Noeud() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

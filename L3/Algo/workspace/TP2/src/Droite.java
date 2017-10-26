@@ -1,4 +1,4 @@
-public class Droite {
+                                 public class Droite {
 	private double a,b,c;
 	
 	public Droite(Point A,Point B) {
