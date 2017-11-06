@@ -19,7 +19,7 @@ public class Droite {
 	}
 	
 	public void afficheDroite(){
-		System.out.println("eq = "+a+ "X + "+ b +"Y +"+c+" = 0" );
+		System.out.println("eq : "+a+ "X + "+ b +"Y +"+c+" = 0" );
 	}
 	
 	public int appartient(Point p){
@@ -46,11 +46,11 @@ public class Droite {
 		}
 	}
 	
-	public Point intersectionDroite(Droite d){
-		double x = 0;
-		double y = 0;
-		if(this.intersecte(d))
-		{
+	public Point pointIntersection(Droite d){
+		double x,y;
+		if(this.intersecte(d)){
+			x = 0;
+			y = 0;
 			if(a == 0 && (b != 0 )){
 				y = -(c/b);
 				if(d.a != 0)
@@ -75,54 +75,9 @@ public class Droite {
 				x = ((d.c/d.b)-(c/b))/((a/b)-(d.a/d.b));
 				y = ((-a/b)*x) - (c/b);
 			}
-			
 			return new Point(x, y);
 		}else{
 			return new Point();
 		}
 	}
-	
-
-	
-	public boolean appartientSegment(Point p,Point A,Point B){
-		boolean res = false;
-		Droite d = new Droite(A, B);
-		if(d.appartient(p) == 0){
-			if((p.getY() <= max(A.getY(),B.getY())) && (p.getX() <= max(A.getX(),B.getX())) && (p.getY() >= min(A.getY(),B.getY())) && (p.getX() >= min(A.getX(),B.getX())))
-				res = true;
-		}
-		return res;
-	}
-	
-	public Point pointIntersectionsegment(Point A,Point B,Point C,Point D){
-		Droite d1 = new Droite(A, B);
-		Droite d2 = new Droite(C, D);
-		Point p = d1.pointIntersectionDroite(d2);
-		if(A.egale(p))
-			System.out.println("le point d'intersection est le point A");
-		else if(B.egale(p))
-			System.out.println("le point d'intersection est le point B");
-		else if(C.egale(p))
-			System.out.println("le point d'intersection est le point C");
-		else if(D.egale(p))
-			System.out.println("le point d'intersection est le point D");
-		else
-			System.out.println("le point d'intersection n'est ni A ni B ni C ni D");
-		return p;
-	}
-	
-	private double max(double a,double b){
-		double res = a;
-		if(b > a)
-			res = b;
-		return res;
-	}
-	
-	private double min(double a,double b){
-		double res = a;
-		if(a > b)
-			res = b;
-		return res;
-	}
-	
 }

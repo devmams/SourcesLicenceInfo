@@ -1,12 +1,18 @@
 
 public class Simulation {
-
-	/**
-	 * @param args
-	 */
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Point A = new Point(0,1);
+		Point B = new Point(2,1);
+		Droite d1 = new Droite(A, B);
+		Point C = new Point(1,0);
+		//Point D = new Point(1,2);
+		Point D = new Point(2,0);
+		Droite d2 = new Droite(C, D);
+		d1.afficheDroite();
+		d2.afficheDroite();
+		System.out.println(d1.intersecte(d2));
+		d1.pointIntersection(d2).affPoint();
 
 	}
-
 }

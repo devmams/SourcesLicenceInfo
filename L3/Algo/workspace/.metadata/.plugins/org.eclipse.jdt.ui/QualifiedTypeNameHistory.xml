@@ -4,4 +4,5 @@
 <fullyQualifiedTypeName name="Noeud"/>
 <fullyQualifiedTypeName name="Droite"/>
 <fullyQualifiedTypeName name="Point"/>
+<fullyQualifiedTypeName name="Segment"/>
 </qualifiedTypeNameHistroy>
