@@ -6,7 +6,8 @@ public class Triangle extends Polygone {
 		super(A,B,C);
 	}
 	
-	public void posPointTriangle(Point p){
+	public int posPointTriangle(Point p){
+		int res;
 		Point A = points.get(0);
 		Point B = points.get(1);
 		Point C = points.get(2);
@@ -14,29 +15,8 @@ public class Triangle extends Polygone {
 		AB = new Segment(A,B);
 		BC = new Segment(B,C);
 		CA = new Segment(C,A);
-		if(AB.appartient(p, A, B)){
-			if(A.egale(p))
-				System.out.println("le point est A");
-			else if(B.egale(p))
-				System.out.println("le point est B");
-			else
-				System.out.println("le point est sur le [AB]");
-		}
-		else if(BC.appartient(p, B, C)){
-			if(B.egale(p))
-				System.out.println("le point est B");
-			else if(C.egale(p))
-				System.out.println("le point est C");
-			else
-				System.out.println("le point est sur le [BC]");
-		}
-		else if(CA.appartient(p, C, A)){
-			if(C.egale(p))
-				System.out.println("le point est C");
-			else if(A.egale(p))
-				System.out.println("le point est A");
-			else
-				System.out.println("le point est sur le [CA]");
+		if(AB.appartient(p, A, B) || BC.appartient(p, B, C) || CA.appartient(p, C, A)){
+			res = 0; //sur l'un des cotés du triangle
 		}
 		else{
 			Droite dAB = new Droite(A,B);
@@ -45,11 +25,53 @@ public class Triangle extends Polygone {
 			if((dAB.appartient(p)==dAB.appartient(C)) 
 			&& (dBC.appartient(p)==dBC.appartient(A))
 			&& (dCA.appartient(p)==dCA.appartient(B))){
-				System.out.println("le point est à l'interieur du triangle");
+				res = 1; //à l'intérieur du triangle
 			}
 			else{
-				System.out.println("le point est à l'extérieur du triangle");
+				res = -1; //à l'extérieur du triangle
+			}
+		}
+		return res;
+	}
+	
+	public void affPosPointTriangle(Point p){
+		int res = posPointTriangle(p);
+		if(res == 1)
+			System.out.println("le point est à l'interieur du triangle");
+		else if(res == -1)
+			System.out.println("le point est à l'extérieur du triangle");
+		else{
+			Point A = points.get(0);
+			Point B = points.get(1);
+			Point C = points.get(2);
+			Segment AB = new Segment(A,B);
+			Segment BC = new Segment(B,C);
+			Segment CA = new Segment(C,A);
+			if(AB.appartient(p, A, B)){
+				if(A.egale(p))
+					System.out.println("le point est A");
+				else if(B.egale(p))
+					System.out.println("le point est B");
+				else
+					System.out.println("le point est sur le [AB]");
+			}
+			else if(BC.appartient(p, B, C)){
+				if(B.egale(p))
+					System.out.println("le point est B");
+				else if(C.egale(p))
+					System.out.println("le point est C");
+				else
+					System.out.println("le point est sur le [BC]");
+			}
+			else if(CA.appartient(p, C, A)){
+				if(C.egale(p))
+					System.out.println("le point est C");
+				else if(A.egale(p))
+					System.out.println("le point est A");
+				else
+					System.out.println("le point est sur le [CA]");
 			}
 		}
 	}
+	
 }

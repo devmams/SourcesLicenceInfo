@@ -1,0 +1,6 @@
+
+public class Surface {
+
+	private char couleur;
+	private Polygone poly;
+}

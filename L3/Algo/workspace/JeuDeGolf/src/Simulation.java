@@ -1,12 +1,14 @@
+import java.io.IOException;
+
 
 public class Simulation {
 	
-	public static void main(String[] args) {
-		Point A = new Point(1,2);
+	public static void main(String[] args) throws IOException {
+		/*Point A = new Point(1,2);
 		Point B = new Point(0,0);
 		Point C = new Point(2,0);
-		Point p = new Point(0.5,0);
-		/*Droite d1 = new Droite(A, B);
+		Point p = new Point(1,0);
+		Droite d1 = new Droite(A, B);
 		Point C = new Point(1,0);
 		Point D = new Point(1,2);
 		Point D = new Point(2,0);
@@ -14,11 +16,13 @@ public class Simulation {
 		d1.afficheDroite();
 		d2.afficheDroite();
 		System.out.println(d1.intersecte(d2));
-		d1.pointIntersection(d2).affPoint();*/
+		d1.pointIntersection(d2).affPoint();
 		Triangle tr = new Triangle(A,B,C);
-		tr.posPointTriangle(p);
-
+		System.out.println(tr.posPointTriangle(p));
+		tr.affPosPointTriangle(p);*/
 		
+		Terrain t = new Terrain();
 		
+		t.lireDescription("/comptes/E14F494H/Fac/L3/Algo/workspace/JeuDeGolf/DescriptionFIgureGolf.txt");
 	}
 }

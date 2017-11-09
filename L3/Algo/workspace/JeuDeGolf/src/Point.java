@@ -1,8 +1,8 @@
 
 public class Point {
-	private double x;
-	private double y;
-	private boolean existe;
+	public double x;
+	public double y;
+	public boolean existe;
 	
 	public Point(double x,double y){
 		this.x = x;
@@ -12,18 +12,6 @@ public class Point {
 	
 	public Point(){
 		this.existe = false;
-	}
-	
-	public boolean pointExiste(){
-		return existe;
-	}
-	
-	public double getX(){
-		return x;
-	}
-	
-	public double getY(){
-		return y;
 	}
 	
 	public boolean egale(Point p){

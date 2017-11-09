@@ -5,4 +5,6 @@
 <fullyQualifiedTypeName name="Droite"/>
 <fullyQualifiedTypeName name="Point"/>
 <fullyQualifiedTypeName name="Segment"/>
+<fullyQualifiedTypeName name="java.io.Reader"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>
