@@ -1,6 +1,6 @@
 public class Droite {
 	
-	private double a,b,c;
+	protected double a,b,c;
 	
 	public Droite(Point A,Point B) {
 		CalculCoefficientsDroite(A,B);
@@ -76,7 +76,8 @@ public class Droite {
 				y = ((-a/b)*x) - (c/b);
 			}
 			return new Point(x, y);
-		}else{
+		}
+		else{
 			return new Point();
 		}
 	}

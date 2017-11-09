@@ -1,0 +1,26 @@
+
+public class Simulation {
+	
+	public static void main(String[] args) {
+		Point A = new Point(1,2);
+		Point B = new Point(0,0);
+		Point C = new Point(0,0);
+		Point p = new Point(1,1);
+		/*Droite d1 = new Droite(A, B);
+		Point C = new Point(1,0);
+		Point D = new Point(1,2);
+		Point D = new Point(2,0);
+		Droite d2 = new Droite(C, D);
+		d1.afficheDroite();
+		d2.afficheDroite();
+		System.out.println(d1.intersecte(d2));
+		d1.pointIntersection(d2).affPoint();*/
+		Segment AB = new Segment(A, B);
+		Segment BC = new Segment(B, C);
+		Segment AC = new Segment(A, C);
+		System.out.println(AB.pointIntersection(p));
+
+		
+		
+	}
+}

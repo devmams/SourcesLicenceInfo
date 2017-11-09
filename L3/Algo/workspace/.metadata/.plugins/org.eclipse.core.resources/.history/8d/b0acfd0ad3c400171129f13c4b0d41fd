@@ -1,0 +1,8 @@
+
+public class Triangle extends Polygone {
+	
+	
+	public Triangle(Point A,Point B,Point C) {
+		super(A,B,C);
+	}
+}

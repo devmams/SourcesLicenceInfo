@@ -26,16 +26,10 @@ public class Point {
 		return y;
 	}
 	
-	public boolean equals(Object obj){
+	public boolean egale(Point p){
 		boolean res = false;
-		if(getClass()!=obj.getClass()){
-			res = false;
-		}
-		else{
-			Point pobj = (Point) obj;
-			if(x == pobj.x && y == pobj.y){
-				res = true;
-			}
+		if(x == p.x && y == p.y){
+			res = true;
 		}
 		return res;
 	}

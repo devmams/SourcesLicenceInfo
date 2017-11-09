@@ -1,0 +1,62 @@
+
+public class Point {
+	private double x;
+	private double y;
+	private boolean existe;
+	
+	public Point(double x,double y){
+		this.x = x;
+		this.y = y;
+		this.existe = true;
+	}
+	
+	public Point(){
+		this.existe = false;
+	}
+	
+	public boolean pointExiste(){
+		return existe;
+	}
+	
+	public double getX(){
+		return x;
+	}
+	
+	public double getY(){
+		return y;
+	}
+	
+	public boolean equals(Object obj){
+		boolean res = false;
+		if(getClass().equals(obj)){
+			System.out.println("meme classe");
+			Point pobj = (Point) obj;
+			if(x == pobj.x && y == pobj.y){
+				res = true;
+			}
+		}
+		return res;
+	}
+	
+	public static operator==(Point p){
+		
+	}
+	
+	public boolean egale(Point p){
+		boolean res = false;
+		if(x == p.x && y == p.y){
+			res = true;
+		}
+		if(getClass() == p.getClass()){
+			System.out.println("meme classe");
+		}
+		return res;
+	}
+	
+	public void affPoint(){
+		if(existe)
+			System.out.println("("+x+" , "+y+")");
+		else
+			System.out.println("(?? , ??)");
+	}
+}

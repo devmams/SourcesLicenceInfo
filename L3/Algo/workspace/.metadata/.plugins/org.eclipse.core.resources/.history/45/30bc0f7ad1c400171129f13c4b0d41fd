@@ -1,0 +1,79 @@
+import java.util.ArrayList;
+
+
+public class Polygone {
+	private ArrayList<Point> points;
+	
+	public Polygone(){
+		points = new ArrayList<Point>();
+	}
+	
+	public Polygone(ArrayList<Point> ensP){
+		points = ensP;
+	}
+	
+	public Polygone(Point A,Point B,Point C){
+		points = new ArrayList<Point>();
+		points.add(A);points.add(B);points.add(C);
+	}
+	
+	public Polygone(Point A,Point B,Point C,Point D){
+		points = new ArrayList<Point>();
+		points.add(A);points.add(B);points.add(C);points.add(D);
+	}
+	
+	public void posPointTriangle(Point p){
+		Point A = points.get(0);
+		Point B = points.get(1);
+		Point C = points.get(2);
+		Segment AB,BC ,CA;
+		AB = new Segment(A, B);
+		BC = new Segment(B, C);
+		CA = new Segment(C, A);
+		if(AB.appartient(p, A, B)){
+			if(p == A)
+				System.out.println("le point est A");
+			else if(p == B)
+				System.out.println("le point est B");
+			else
+				System.out.println("le point est sur le [AB]");
+		}
+		else if(BC.appartient(p, B, C)){
+			if(p == B)
+				System.out.println("le point est B");
+			else if(p == C)
+				System.out.println("le point est C");
+			else
+				System.out.println("le point est sur le [BC]");
+		}
+		else if(CA.appartient(p, C, A)){
+			if(p == C)
+				System.out.println("le point est C");
+			else if(p == A)
+				System.out.println("le point est A");
+			else
+				System.out.println("le point est sur le [CA]");
+		}
+		else{
+			if((AB.appartient(p)==AB.appartient(C)) 
+			&& (BC.appartient(p)==BC.appartient(A))
+			&& (CA.appartient(p)==CA.appartient(B))){
+				System.out.println("le point est à l'interieur du triangle");
+			}
+			else{
+				System.out.println("le point est à l'extérieur du triangle");
+			}
+		}
+	}
+	
+	public void addPoint(Point p){
+		points.add(p);
+	}
+	
+	public ArrayList<Point> getPolygone(){
+		return points; 
+	}
+	
+	
+	
+}
