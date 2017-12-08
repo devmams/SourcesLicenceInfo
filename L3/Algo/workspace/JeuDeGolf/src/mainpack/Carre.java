@@ -1,8 +1,17 @@
+/**
+ * Classe permettant de créer un Carre
+ * 
+ * @author Nicolas VANNIER / Mamadou DIALLO
+ */
 package mainpack;
 import java.util.ArrayList;
 
 public class Carre extends Polygone {
 
+	/**
+	 * Construit un carre
+	 * @param les quatres sommets du carre
+	 */
 	public Carre(Point A,Point B,Point C,Point D) {
 		points = new ArrayList<Point>();
 		points.add(A);
@@ -11,10 +20,20 @@ public class Carre extends Polygone {
 		points.add(D);
 	}
 
+	/**
+	 * Construit un carre
+	 * @param une Arraylist contenant les quatres points du carre
+	 */
 	public Carre(ArrayList<Point> ensPoints) {
 		super(ensPoints);
 	}
 
+	
+	/**
+	 * vérifie si un point est à l'interieur d'un carre ou pas
+	 * @param le point à vérifier
+	 * @return un booleen "true" si le point est à l'intérieur et "false" sinon
+	 */
 	public boolean estInterieurCarre(Point p)
 	{
 		Point A = points.get(0);
@@ -29,6 +48,11 @@ public class Carre extends Polygone {
 		}
 	}
 	
+	/**
+	 * vérifie si un point est à l'interieur ou sur les bords d'un carre
+	 * @param le point à vérifier
+	 * @return un booleen "true" si le point est à l'intérieur ou sur les bords et "false" sinon
+	 */
 	public boolean estInterieurOuBordCarre(Point p)
 	{
 		Point A = points.get(0);
@@ -43,6 +67,12 @@ public class Carre extends Polygone {
 		}
 	}
 	
+	
+	/**
+	 * vérifie si triangle est à l'interieur d'un carre ou pas
+	 * @param le triangle à vérifier
+	 * @return un booleen "true" si le triangle est à l'intérieur et "false" sinon
+	 */
 	public boolean triangleDansCarre(Triangle t)
 	{
 		

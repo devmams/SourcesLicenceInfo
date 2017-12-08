@@ -28,7 +28,7 @@ public class Polygone {
 	}
 	
 	/**
-	 * Méthode permettant d'afficher les points d'un polygone
+	 * Affiche les points d'un polygone
 	 */
 	public void affPoly() {
 		for(Point p: points)
@@ -39,7 +39,7 @@ public class Polygone {
 	}
 	
 	/**
-	 * Méthode permettant l'ajout d'un point dans un polygone
+	 * Permet d'ajouter un point dans un polygone
 	 * @param le point à rajouter
 	 */
 	public void addPoint(Point p){
@@ -47,7 +47,7 @@ public class Polygone {
 	}
 	
 	/**
-	 * Fonction retournant un Arraylist de Points
+	 * Retourne une Arraylist de Points
 	 * @return une Arraylist
 	 */
 	public ArrayList<Point> getPoints(){
@@ -55,8 +55,8 @@ public class Polygone {
 	}
 	
 	/**
-	 * Fonction vérifiant si un point est présent dans une arraylist ou pas
-	 * @param le point p
+	 * Vérifie si un point est présent dans une arraylist ou pas
+	 * @param le point à vérifier
 	 * @return "true" si le point est présent et "false" sinon
 	 */
 	public boolean estPointPoly(Point p)
@@ -72,7 +72,7 @@ public class Polygone {
 	}
 	
 	/**
-	 * Fonction vérifiant si un point est présent dans un triangle ou pas
+	 * Vérifie si un point est présent dans un triangle ou pas
 	 * @param le triangle t
 	 * @return "true" si le point est présent et "false" sinon
 	 */
@@ -91,7 +91,7 @@ public class Polygone {
 	}
 	
 	/**
-	 * Fonction vérifiant si un segment ouvert contient un point ou pas
+	 * Vérifie si un segment ouvert contient un point ou pas
 	 * @param le segment ouvert
 	 * @return "true" le segment ouvert contient un point et "false" sinon
 	 */
@@ -108,7 +108,7 @@ public class Polygone {
 	}
 	
 	/**
-	 * Fonction qui recherche une oreille pour la triangulation
+	 * Recherche une oreille pour la triangulation
 	 * @return un entier qui est l'indice de l'oreille
 	 */
 	public int rechercheOreille() {
@@ -166,8 +166,8 @@ public class Polygone {
 	}
 	
 	/**
-	 * Fonction retournant tous les côtes d'un polygone
-	 * @return l'ensemble des côtes
+	 * Retourne tous les côtes d'un polygone
+	 * @return l'ensemble des côtes du polygone
 	 */
 	public ArrayList<Segment> cotesPoly(){
 		ArrayList<Segment> tabSeg = new ArrayList<Segment>();
@@ -179,7 +179,7 @@ public class Polygone {
 	}
 	
 	/**
-	 * Fonction qui vérifie si un segment intersecte un polygone
+	 * Vérifie si un segment intersecte un polygone
 	 * @param le segment s
 	 * @return "true" si y a intersection et "false" sinon
 	 */
@@ -196,9 +196,9 @@ public class Polygone {
 	}
 	
 	/**
-	 * Fonction qui retourne l'indice d'un point dans un polygone
+	 * Retourne l'indice d'un point dans un polygone
 	 * @param un point p 
-	 * @return un entier qui estl'indice du point
+	 * @return un entier qui est l'indice du point
 	 */
 	public int indexPoint(Point p) {
 		int ind= -1;
@@ -212,7 +212,7 @@ public class Polygone {
 	}
 	
 	/**
-	 * Fonction qui retourne l'indice precedent d'un point dans un polygone
+	 * Retourne l'indice precedent d'un point dans un polygone
 	 * @param un point p 
 	 * @return un entier qui l'indice precedent du point
 	 */
@@ -225,7 +225,7 @@ public class Polygone {
 	}
 	
 	/**
-	 * Fonction qui retourne l'indice suivant d'un point dans un polygone
+	 * Retourne l'indice suivant d'un point dans un polygone
 	 * @param un point p 
 	 * @return un entier qui l'indice suivant du point
 	 */
@@ -238,7 +238,7 @@ public class Polygone {
 	}
 	
 	/**
-	 * Fonction retournant le nombre d'intersection propre d'un segment avec un polygone
+	 * Retourne le nombre d'intersection propre d'un segment avec un polygone
 	 * @param un segment s
 	 * @return un entier qui est le nobre d'intersection propre
 	 */
@@ -304,7 +304,7 @@ public class Polygone {
 	}
 	
 	/**
-	 * Fonction qui retourne le point à l'indice index d'un polygone
+	 * Retourne le point qui est à l'indice index d'un polygone
 	 * @param un entier index
 	 * @return un point 
 	 */
@@ -313,7 +313,7 @@ public class Polygone {
 	}
 	
 	/**
-	 * Fonction qui retourne le nombre de points d'un polygone
+	 * Retourne le nombre de points d'un polygone
 	 * @return un entier
 	 */
 	public int nbPoints() {
@@ -321,7 +321,7 @@ public class Polygone {
 	}
 	
 	/**
-	 * Méthode qui supprime le point à l'indice i dans un polygone
+	 * Supprime le point qui est à l'indice i dans un polygone
 	 */
 	public void retirerPoint(int i) {
 		points.remove(i);

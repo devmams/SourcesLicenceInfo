@@ -1,3 +1,8 @@
+/**
+ * Classe permettant de créer un Point
+ * 
+ * @author Nicolas VANNIER / Mamadou DIALLO
+ */
 package mainpack;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -7,16 +12,28 @@ public class Point {
 	public double y;
 	public boolean existe;
 	
+	/**
+	 * Construit un point
+	 * @param les coordonées du point
+	 */
 	public Point(double x,double y){
 		this.x = x;
 		this.y = y;
 		this.existe = true;
 	}
 	
+	/**
+	 * Construit un point null
+	 */
 	public Point(){
 		this.existe = false;
 	}
 	
+	/**
+	 * Vérifie si deuc points sont égaux
+	 * @param le point à comparer
+	 * @return un booléen "true" si y a egalité et "false" sinon
+	 */
 	public boolean egale(Point p){
 		boolean res = false;
 		
@@ -31,6 +48,9 @@ public class Point {
 		return res;
 	}
 	
+	/**
+	 * Affiche les coordonées d'un point
+	 */
 	public void affPoint(){
 		if(existe) {
 			System.out.println("("+x+" , "+y+")");
@@ -46,6 +66,10 @@ public class Point {
 		g.fillOval((int)(this.x*upScale), Simulation.T*upScale-(int)(this.y*upScale), 12, 12);
 	}
 	
+	/**
+	 * Calcule la distance entre deux points
+	 * @param l'autre point
+	 */
 	public double distanceEntreDeuxPoints(Point p){
 		double res;
 		res = ((p.x-x)*(p.x-x))+((p.y-y)*(p.y-y));

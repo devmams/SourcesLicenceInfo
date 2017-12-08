@@ -1,3 +1,9 @@
+/**
+ * Classe permettant de créer un Quadtree
+ * 
+ * @author Nicolas VANNIER / Mamadou DIALLO
+ */
+
 package mainpack;
 import java.util.ArrayList;
 
@@ -7,6 +13,10 @@ public class QuadTree {
 	private int t;
 	static double scope = 0.1;
 	
+	/**
+	 * Construit un quadtree
+	 * @param un terrain et un entier t
+	 */
 	public QuadTree(Terrain ter,int t){
 		
 		Region reg_racine = new Region(ter.getTriangles(),new Point(0,0),Simulation.T);
@@ -15,10 +25,17 @@ public class QuadTree {
 		ConstructionQT();
 	}
 	
+	/**
+	 * Retourne la racine du quadtree
+	 * @return un noeud
+	 */
 	public Noeud getRacine() {
 		return this.racine;
 	}
 	
+	/**
+	 * Construit le quadtree
+	 */
 	private void ConstructionQT()
 	{
 		decoupage(racine,Simulation.T);

@@ -1,0 +1,30 @@
+/**
+ * Classe permettant de créer un TriangleSurface
+ * 
+ * @author Nicolas VANNIER / Mamadou DIALLO
+ */
+
+package mainpack;
+
+public class TriangleSurface extends Triangle {
+
+	private int sParente;
+	
+	/**
+	 * Construit un triangleSurface
+	 * @param les trois sommets du triangle et l'identifiant entier du pere is
+	 */
+	public TriangleSurface(Point A, Point B, Point C,int is) {
+		super(A, B, C);
+		sParente = is;
+	}
+	
+	
+	/**
+	 * Construit un triangle
+	 * @return 
+	 */
+	public int getSurface() {
+		return sParente;
+	}
+}
