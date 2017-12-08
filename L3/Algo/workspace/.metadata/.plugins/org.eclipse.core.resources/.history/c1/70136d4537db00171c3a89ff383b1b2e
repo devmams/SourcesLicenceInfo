@@ -1,0 +1,212 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Balle {
+
+	public Point pos;
+	private Surface scour;
+	private Terrain terrain;
+	private Jeu partie;
+	
+	
+	public Balle(Point posInitiale,Jeu j,Terrain t)
+	{
+		this.pos = posInitiale;
+		this.terrain = t;
+		this.partie = j;
+		scour = surfaceAtterissage(pos);
+	}
+	
+	private double distanceAvecTrou()
+	{
+		return(this.pos.distanceEntreDeuxPoints(terrain.getTraces().get(partie.traceencours).arrive));
+	}
+	
+	public Point CalculePointAtterissageBalle(Point pdepart,Point pcible){
+		double x,y;
+		Droite trajectoireI = new Droite(pdepart, pcible);
+		Droite dAbscisse = new Droite(new Point(0,0), new Point(10,0));
+		Point pInters = trajectoireI.pointIntersection(dAbscisse);
+		double angleInit = dAbscisse.angleEntreDeuxDroite(trajectoireI);
+		double angleNouv = Math.toRadians(angleModifie(Math.toDegrees(angleInit)));
+		double distanceInit = pdepart.distanceEntreDeuxPoints(pcible);
+		double distanceNouv = distanceModifie(distanceInit);
+		double distTot = pInters.distanceEntreDeuxPoints(pdepart)+distanceNouv;
+		
+		if(scour.getCouleur()=='J')
+		{
+			distanceNouv = distanceNouv/2;
+		}
+		else if(scour.getCouleur()=='C' && distanceAvecTrou() <= 0.1)
+		{
+			return(pcible);
+		}
+		//DescriptionFIgureGolf.txt
+		System.out.println("angleIn : "+Math.toDegrees(angleNouv));
+		if(Math.toDegrees(angleNouv)<=90 && Math.toDegrees(angleNouv) >= 0){
+			System.out.println("angl : "+Math.toDegrees(angleNouv));
+			if(pdepart.x >= pcible.x && pdepart.y <= pcible.y){
+				x = pInters.x - distTot*Simulation.round(Math.cos(angleNouv),5);
+				y = distTot*Simulation.round(Math.sin(angleNouv),5);
+			}
+			else if(pdepart.x < pcible.x && pdepart.y <= pcible.y){
+				x = pInters.x + distTot*Simulation.round(Math.cos(angleNouv),5);
+				y = distTot*Simulation.round(Math.sin(angleNouv),5);
+			}
+			else if(pdepart.x >= pcible.x && pdepart.y >= pcible.y){
+				x = pInters.x + pInters.distanceEntreDeuxPoints(pcible)*Simulation.round(Math.cos(angleNouv),5);
+				y = pInters.distanceEntreDeuxPoints(pcible)*Simulation.round(Math.sin(angleNouv),5);
+			}
+			else{
+				x = pInters.x - pInters.distanceEntreDeuxPoints(pcible)*Simulation.round(Math.cos(angleNouv),5);
+				y = pInters.distanceEntreDeuxPoints(pcible)*Simulation.round(Math.sin(angleNouv),5);
+			}
+		}
+		else{
+			System.out.println("part2");
+			angleNouv = Math.toRadians(180+Math.toDegrees(angleNouv));
+			System.out.println("angl : "+Math.toDegrees(angleNouv));
+			if(pdepart.x >= pcible.x && pdepart.y <= pcible.y){
+				System.out.println("deb1");
+				x = pInters.x - distTot*Simulation.round(Math.cos(angleNouv),5);
+				y = distTot*Simulation.round(Math.sin(-angleNouv),5);
+			}
+			else if(pdepart.x < pcible.x && pdepart.y <= pcible.y){
+				System.out.println("deb2");
+				x = pInters.x + distTot*Simulation.round(Math.cos(angleNouv),5);
+				y = distTot*Simulation.round(Math.sin(angleNouv),5);
+			}
+			else if(pdepart.x >= pcible.x && pdepart.y >= pcible.y){
+				System.out.println("deb3");
+				x = pInters.x + pInters.distanceEntreDeuxPoints(pcible)*Simulation.round(Math.cos(angleNouv),5);
+				y = pInters.distanceEntreDeuxPoints(pcible)*Simulation.round(Math.sin(angleNouv),5);
+			}
+			else{
+				System.out.println("deb4");
+				x = pInters.x - pInters.distanceEntreDeuxPoints(pcible)*Simulation.round(Math.cos(angleNouv),5);
+				y = pInters.distanceEntreDeuxPoints(pcible)*Simulation.round(Math.sin(angleNouv),5);
+			}
+		}
+		
+		return new Point(Simulation.round(x,5),Simulation.round(y,5));
+	}
+	
+	
+	public int nbAleatoire(){
+		int res;
+		Random rand = new Random();
+		res = rand.nextInt(12);
+		if(res == 11){
+			return 40;
+		}else{
+			return res;
+		}
+	}
+	
+	public double distanceModifie(double distance){
+		Random rand = new Random();
+		int res = rand.nextInt(2);
+		double alea = nbAleatoire();
+		if(res == 0){
+			return distance-(distance*(alea/100)); 
+		}
+		else{
+			return distance+(distance*(alea/100));
+		}
+	}
+	
+	public double angleModifie(double angle){
+		Random rand = new Random();
+		int res = rand.nextInt(2);
+		int alea = nbAleatoire();
+		if(alea == 40){
+			System.out.println("angle rat� de beaucoup");
+		}
+		else{
+			System.out.println("angle rat� de peu");
+		}
+		if(res == 0){
+			return angle-alea; 
+		}
+		else{
+			return angle+alea;
+		}
+	}
+	
+	
+	
+
+	public Point CalculePointDepartBalle(Point pcour,Point pprec){
+		Surface zoneAtterrissage = surfaceAtterissage(pcour);
+		if(zoneAtterrissage == null || zoneAtterrissage.getCouleur() == 'S')
+		{
+			partie.incrementerScore();
+			return(pprec);
+		}
+		else if(zoneAtterrissage.getCouleur() == 'J'){
+			scour = zoneAtterrissage;
+			return(pcour);
+		}
+		else if(zoneAtterrissage.getCouleur() == 'C'){
+			scour = zoneAtterrissage;
+			return(pcour);
+		}
+		else if(zoneAtterrissage.getCouleur() == 'B'){
+			Segment s = new Segment(pprec,pcour);
+			Point pInter;
+			partie.incrementerScore();
+			for(Segment ssurface : zoneAtterrissage.getPoly().cotesPoly())
+			{
+				if(s.intersecte(ssurface))
+				{
+					pInter = s.pointIntersection(ssurface);
+					Region regInter = terrain.getQT().RecherchePointQT(terrain.getQT().getRacine(), pInter);
+					for(TriangleSurface ts : regInter.getTriangles())
+					{
+						if(terrain.getSurfaces().get(ts.getSurface()).getCouleur() == 'S')
+						{
+							return(pprec);
+						}
+						else if(terrain.getSurfaces().get(ts.getSurface()).getCouleur() != 'B')
+						{
+							scour = this.terrain.getSurfaces().get(ts.getSurface());
+						}
+					}
+					
+					return(pInter);
+				}
+			}
+			
+		}
+		else if(zoneAtterrissage.getCouleur() == 'V') {
+			scour = zoneAtterrissage;
+			return(pcour);
+		}
+		return pcour;
+	}
+
+
+	private Surface surfaceAtterissage(Point p) {
+		if(terrain.pointDansTerrain(p))
+		{
+			QuadTree qt = terrain.getQT();
+			Region r = qt.RecherchePointQT(qt.getRacine(), p);
+			TriangleSurface ts = r.RecherchePointTriangle(p);
+			return(terrain.getSurfaces().get(ts.getSurface()));
+		}
+		else {
+			return(null);
+		}
+	}
+	
+	public void GAfficher(Graphics g)
+	{
+		g.setColor(JGPanel.COLOR_YELLOW);
+		int upScale = Affichage.upScale;
+		g.fillOval((int)(this.pos.x*upScale), Simulation.T*upScale-(int)(this.pos.y*upScale), 8, 8);
+	}
+	
+}
+

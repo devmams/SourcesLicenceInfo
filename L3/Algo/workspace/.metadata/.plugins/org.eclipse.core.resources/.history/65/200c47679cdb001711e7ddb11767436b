@@ -1,0 +1,124 @@
+/**
+ * Classe permettant de créer un Segment
+ * 
+ * @author Nicolas VANNIER / Mamadou DIALLO
+ */
+
+package mainpack;
+import java.awt.Graphics;
+
+public class Segment extends Droite {
+
+	public Point P1;
+	public Point P2;
+	
+	/**
+	 * Construit un polygone sans point
+	 * @param deux points définissant les limites du segment
+	 */
+	public Segment(Point A,Point B){
+		super(A,B);
+		this.P1 = A;
+		this.P2 = B;
+	}
+	
+	/**
+	 * Affiche les deux points du segment
+	 */
+	public void affSegment() {
+		System.out.print("[("+P1.x+","+P1.y+") , ("+P2.x+","+P2.y+")");
+		System.out.println("");
+	}
+	
+	/**
+	 * Fonction vérifiant si deux segments s'intersectent
+	 * @param l'autre segment
+	 * @return "true" si y a intersection et "false" sinon 
+	 */
+	public boolean intersecte(Segment autre){
+		boolean res = false;
+		if(super.intersecte(autre)){
+			Point p = this.pointIntersection(autre);
+			if(appartientSegment(p) && autre.appartientSegment(p))
+			{
+				res = true;
+			}
+		}
+		return res;
+	}
+	
+	/**
+	 * Affiche le résultat de l'intersection entre deux segments
+	 * @param Quatre points 
+	 */
+	static void TestIntersectionDeuxSegments(Point p1,Point p2,Point p3,Point p4)
+	{
+		Segment s1 = new Segment(p1,p2);
+		Segment s2 = new Segment(p3,p4);
+		
+		if(s1.intersecte(s2))
+		{
+			System.out.println("Les segments s'intersectent.");
+			Point pinter = s1.pointIntersection(s2);
+			if(s1.estPointSegment(pinter) || s2.estPointSegment(pinter))
+			{
+				System.out.println("Le point d'intersection est identique � l'une des extremit�s des segments.");
+			}else
+			{
+				System.out.println("Le point d'intersection est diff�rents des extremit�s des segments");
+			}
+		}
+		else
+		{
+			System.out.println("Les segments ne s'intersectent pas.");
+		}
+	}
+	
+	/**
+	 * Fonction vérifiant si un point n'est pas sommet d'un segment
+	 * @param le point p
+	 * @return "true" si y a intersection et "false" sinon 
+	 */
+	public boolean estPointSegment(Point p) {
+		if(p.egale(P1) || p.egale(P2)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean appartientSegment(Point p){
+		boolean res = false;
+		if(super.appartient(p) == 0){
+			if((p.y <= max(P1.y,P2.y)) && (p.x <= max(P1.x,P2.x))
+			&& (p.y >= min(P1.y,P2.y)) && (p.x >= min(P1.x,P2.x)))
+				res = true;
+		}
+		return res;
+	}
+	
+	public void afficherVecteur() {
+		Vecteur u = new Vecteur(this);
+		u.afficher();
+	}
+	
+	private double max(double a,double b){
+		double res = a;
+		if(b > a)
+			res = b;
+		return res;
+	}
+	
+	private double min(double a,double b){
+		double res = a;
+		if(a > b)
+			res = b;
+		return res;
+	}
+	public void GAfficher(Graphics g)
+	{
+		g.setColor(JGPanel.COLOR_YELLOW);
+		int upScale = Affichage.upScale;
+		g.drawLine((int)(P1.x*upScale), Simulation.T*upScale-(int)(P1.y*upScale), (int)(P2.x*upScale),Simulation.T*upScale-(int)(P2.y*upScale));
+	}
+}

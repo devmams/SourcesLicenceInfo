@@ -1,0 +1,80 @@
+/**
+ * Classe permettant de créer un Triangle
+ * 
+ * @author Nicolas VANNIER / Mamadou DIALLO
+ */
+package mainpack;
+
+import java.util.ArrayList;
+
+public class Triangle extends Polygone {
+	
+	/**
+	 * Construit un triangle
+	 * @param les trois sommets du triangle
+	 */
+	public Triangle(Point A,Point B,Point C) {
+		points = new ArrayList<Point>();
+		points.add(A);points.add(B);points.add(C);
+	}
+	
+	/**
+	 * Construit un triangle
+	 * @param une Arraylist contenant les sommet du tringle
+	 */
+	public Triangle(ArrayList<Point> ensPoints) {
+		super(ensPoints);
+	}
+	
+	
+	/**
+	 * Teste si un triangle contient un point donné
+	 * @param le triangle et le point
+	 * @return un booleen "true" si le point est dans le triangle et "false" sinon
+	 */
+	static boolean TestTriangleContientPoint(Triangle t,Point p)
+	{
+		if(t.posPointTriangle(p) == 0 || t.posPointTriangle(p) == 1)
+		{
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Retourne la position d'un point par rapport à un triangle
+	 * @param le point p
+	 * @return un entier
+	 */
+	public int posPointTriangle(Point p){
+		int res;
+		Point prounded = new Point(Simulation.round(p.x, 2),Simulation.round(p.y,2));
+		//p = prounded;
+		Point A = points.get(0);
+		Point B = points.get(1);
+		Point C = points.get(2);
+		Segment AB, BC, CA;
+		AB = new Segment(A,B);
+		BC = new Segment(B,C);
+		CA = new Segment(C,A);
+		if(AB.appartientSegment(p) || BC.appartientSegment(p) || CA.appartientSegment(p)){
+			res = 0; //sur l'un des cot�s du triangle
+		}
+		else{
+			Droite dAB = new Droite(A,B);
+			Droite dBC = new Droite(B,C);
+			Droite dCA = new Droite(C,A);
+			if((dAB.appartient(p)==dAB.appartient(C)) 
+			&& (dBC.appartient(p)==dBC.appartient(A))
+			&& (dCA.appartient(p)==dCA.appartient(B))){
+				res = 1; //� l'int�rieur du triangle
+			}
+			else{
+				res = -1; //� l'ext�rieur du triangle
+			}
+		}
+		return res;
+	}
+	
+}

@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+
+public class Trace {
+	
+	private int par;
+	private ArrayList<Surface> parcours;
+	public Point depart;
+	public Point arrive;
+	
+	public Trace(ArrayList<Surface> parcours,Point depart,Point arrive,int par){
+		this.parcours = parcours;
+		this.depart = depart;
+		this.arrive = arrive;
+		this.par = par;
+	}
+	
+	public int getPar()
+	{
+		return par;
+	}
+	
+}

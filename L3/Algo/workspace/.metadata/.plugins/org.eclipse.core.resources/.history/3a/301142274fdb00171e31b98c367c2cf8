@@ -1,0 +1,34 @@
+import java.io.IOException;
+
+import javax.swing.JFrame;
+
+@SuppressWarnings("serial")
+public class Affichage extends JFrame{
+	static int upScale = 70;
+	public Affichage() {
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+		this.setResizable(false);
+		afficherMenu();
+	}
+
+	public void afficherMenu() {
+		this.setJMenuBar(null);
+		this.setTitle("Jeu de Golf - Menu Principal");
+		this.setSize(150,200);		
+		this.setContentPane(new MenuPanel(this));	
+	}
+	
+	public void afficherTerrain(String chemin_fichier,int t) throws IOException {
+		this.setTitle("Jeu de Golf - Visualisation");
+		this.setSize(Simulation.T*upScale+20,Simulation.T*upScale+20);
+		this.setContentPane(new TerrainPanel(new Terrain(chemin_fichier,t),this));
+	}
+	
+	public void afficherJeu(String chemin_fichier,int t) throws IOException  {
+		this.setTitle("Jeu de Golf - Partie");
+		this.setSize(Simulation.T*upScale+20,Simulation.T*upScale+50);
+		this.setContentPane(new JeuPanel(new Jeu(chemin_fichier,t),this));
+	}
+}
