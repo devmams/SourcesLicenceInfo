@@ -37,25 +37,43 @@ INSERT INTO Clients VALUES (2, 'Aimee', 'Hebert', 'Marigny-le-Chetel' ,'07..');
 INSERT INTO Clients VALUES (3, 'Marielle', 'Ribeiro', 'Mailleres' ,'08..');
 INSERT INTO Clients VALUES (4, 'Hilaire', 'Savary','Conie-Molitard' ,'09..');
 
-/*----------------------------------------------*/
+----------------------------------------------
 
 INSERT INTO Livres VALUES ('ref1', 'baseSeDonnees', 'apo', 'information');
-INSERT INTO Livres VALUES ('ref2', 'Reseau', 'Hebert', 'zadi' ,'telecom');
-INSERT INTO Livres VALUES ('ref3', 'Algo', 'Ribeiro', 'irie' ,'programmation');
-INSERT INTO Livres VALUES ('ref4', 'infoFonda', 'Savary','rene' ,'math');
+INSERT INTO Livres VALUES ('ref2', 'Reseau', 'zadi' ,'telecom');
+INSERT INTO Livres VALUES ('ref3', 'Algo', 'irie' ,'programmation');
+INSERT INTO Livres VALUES ('ref4', 'infoFonda','rene' ,'math');
 
-/*-----------------------------------------------*/
+-----------------------------------------------
 
-INSERT INTO Achats VALUES (1, 'ref1', 'Armand', '02/jan/2030');
-INSERT INTO Achats VALUES (2, 'ref4', 'Hebert', '02/dec/2050');
-INSERT INTO Achats VALUES (3, 'ref1', 'Ribeiro', '02/jul/2070');
-INSERT INTO Achats VALUES (3, 'ref3', 'Savary','02/mar/2077');
+INSERT INTO Achats VALUES (1, 'ref3', '02/jan/2008');
+INSERT INTO Achats VALUES (2, 'ref4', '05/dec/2011');
+INSERT INTO Achats VALUES (3, 'ref1', '02/jul/2010');
+INSERT INTO Achats VALUES (3, 'ref1', '06/mar/2009');
+INSERT INTO Achats VALUES (3, 'ref1', '16/jan/2009');
+INSERT INTO Achats VALUES (3, 'ref3', '09/JUN/2009');
+INSERT INTO Achats VALUES (2, 'ref3', '23/mar/2009');
 
-/*----------------------------------------------*/
+-----------------------------------------
 
-INSERT INTO Avis VALUES (1, 'ref1', 'bon livre');
-INSERT INTO Avis VALUES (2, 'ref4', 'Hebert','moyen livre');
-INSERT INTO Avis VALUES (3, 'ref1', 'Ribeiro', 'mauvais livre');
-INSERT INTO Avis VALUES (3, 'ref3', 'Savary','assez bon livre');
+INSERT INTO Avis VALUES (1, 'ref1', 18, 'bon livre');
+INSERT INTO Avis VALUES (1, 'ref1', 15, 'bon livre');
+INSERT INTO Avis VALUES (2, 'ref4', 10,'moyen livre');
+INSERT INTO Avis VALUES (4, 'ref4', 1,'mauvais livre');
+INSERT INTO Avis VALUES (3, 'ref2', 2, 'mauvais livre');
+INSERT INTO Avis VALUES (3, 'ref3', 13,'assez bon livre');
+INSERT INTO Avis VALUES (3, 'ref3', 13,NULL);
+INSERT INTO Avis VALUES (1, 'ref1', 13,NULL);
 
-SELECT * FROM Clients;
+SELECT titre,auteur,genre,refl FROM Livres
+WHERE refl IN (SELECT refl FROM Achats
+                GROUP BY refl
+                HAVING COUNT(refl) > 2);
+
+SELECT titre,refl,AVG(note) FROM Livres NATURAL JOIN Avis
+GROUP BY titre,refl
+HAVING AVG(note) > 10;
+
+SELECT idcl, nom, titre,note,commentaire FROM (Livres NATURAL JOIN Avis)
+                                    NATURAL JOIN Clients
+where commentaire IS NULL;
