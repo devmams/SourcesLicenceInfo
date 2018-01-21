@@ -1,0 +1,5 @@
+docker pull sath89/oracle-xe-11g
+
+docker run --name orcldb -d -p 8080:8080 -p 1521:1521 -v /home/dmousmane/Documents/oracle/data:/u01/app/oracle sath89/oracle-xe-11g
+
+docker exec -it orcldb bash
