@@ -14,7 +14,6 @@ CREATE TABLE Clients(
   tel varchar2(12)
 );
 
-
 -- création de la table Livres
 CREATE TABLE Livres(
   refl varchar2(10) PRIMARY KEY,

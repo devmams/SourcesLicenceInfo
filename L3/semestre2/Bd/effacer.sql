@@ -1,0 +1,10 @@
+DELETE FROM CLIENTS;                                                            
+DELETE FROM LIVRES;                                                             
+DELETE FROM ACHATS;                                                             
+DELETE FROM AVIS;                                                               
+DELETE FROM TEST;                                                               
+DELETE FROM TES;                                                                
+DELETE FROM UTILISATEUR;                                                        
+DELETE FROM TABLE1;                                                             
+DELETE FROM UTILISATEURD;                                                       
+DELETE FROM MAMADOU;                                                            
