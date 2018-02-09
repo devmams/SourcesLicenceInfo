@@ -4,7 +4,9 @@ type alteration = Becarre|Diese;;
 type hauteur = {n : nom ; a : alteration ; o : int}
 
 let do4 = {n = Do ; a = Becarre ; o = 4};;
+let dodiese4 = {n = Do ; a = Diese ; o = 4};;
 let la2 = {n = La ; a = Becarre ; o = 2};;
+let la3 = {n = La ; a = Becarre ; o = 3};;
 let la4 = {n = La ; a = Becarre ; o = 4};;
 let mi3 = {n = Mi ; a = Becarre ; o = 3};;
 
@@ -24,15 +26,23 @@ let note2midi x =
   60 + degre(x.n) + (plusun x) + 12 * (x.o - 3)
 ;;
 
-(* print_int(note2midi la2);;
+let midi2freq m =
+  int_of_float(440. *. (2. ** ((m -. 69.) /. 12.)))
+;;
+
+let note2freq h =
+  let m = float_of_int(note2midi h) in
+  midi2freq m
+;;
+
+(* print_int(note2freq dodiese4);;
 print_newline();; *)
 
-let midi2freq i = 400 * puiss 2 ((i-69)/12);;
-
-print_int(midi2freq 60);;
-print_newline();;
-
-let rec puiss x y =
-  if y = 0 then 1
-  else x * puiss x (y-1)
+let joue_note h =
+  let f = note2freq h in
+  sound f 1000
 ;;
+
+
+
+(*  *)

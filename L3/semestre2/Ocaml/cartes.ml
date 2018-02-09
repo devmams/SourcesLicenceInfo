@@ -68,6 +68,3 @@ match c with
   | Roi   -> 4
   | As    -> 11
 ;;
-
-
-(* let x = tire_random();; *)
