@@ -40,28 +40,45 @@ let gere_note i =
 ;;
 
 
-let rec arpegie a b c i oct sens =
+let rec arpegie a b c i oct oct_init sens =
   if(i == 0 && oct == 0 && sens = true) then ()
-  else if (i == 0 && oct == 1 && sens == false) then arpegie a b c 2 oct true
-  else if(i == 2) then
+  else if (i == 0 && oct == 1 && sens == false) then
+  begin
+  gere_note (a+12);
+  print_string(" - ");
+  gere_note (a+12);
+  print_string(" - ");
+  arpegie a b c 2 (oct_init-1) oct_init true
+  end
+  else if(i == 2 && sens == false) then
   begin
     gere_note a;
     print_string(" - ");
-    (* gere_note (a+4);
+    gere_note (a+b);
     print_string(" - ");
-    gere_note (a+7);
-    print_string(" - "); *)
-    arpegie b c (a+12) 1 oct sens
+    gere_note (a+c);
+    print_string(" - ");
+    arpegie a b c 1 oct oct_init sens
   end
-  else if (i == 1) then
-      arpegie c (a+12) (b+12) 0 oct sens
-  else
-      arpegie (a+12) (b+12) (c+12) 2 (oct-1) sens
+  else if (i == 1 && sens == false) then arpegie a b c 0 oct oct_init sens
+  else if (i == 0 && sens == false) then arpegie (a+12) b c 2 (oct-1) oct_init sens
+  else if(i == 2 && sens == true) then
+  begin
+    gere_note (a+c);
+    print_string(" - ");
+    gere_note (a+b);
+    print_string(" - ");
+    gere_note (a);
+    print_string(" - ");
+    arpegie a b c 1 oct oct_init sens
+  end
+  else if (i == 1 && sens == true) then arpegie a b c 0 oct oct_init sens
+  else if (i == 0 && sens == true) then arpegie (a-12) b c 2 (oct-1) oct_init sens
+
 ;;
 
-
-
-arpegie 48 4 7 2 1 false;;
+print_endline("48 - 52 - 55 - 60 - 64 - 67 - 72 - 76 - 79 - 84 - 84 - 79 - 76 - 72 - 67 - 64 - 60 - 55 - 52 - 48 \n");;
+arpegie 48 4 7 2 2 2 false;;
 print_newline();
 
 (*  *)
