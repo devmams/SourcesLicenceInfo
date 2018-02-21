@@ -39,6 +39,23 @@ let gere_note i =
   print_int(i)
 ;;
 
+let montant a b c =
+  gere_note a;
+  print_string(" - ");
+  gere_note (a+b);
+  print_string(" - ");
+  gere_note (a+c);
+  print_string(" - ");
+;;
+
+let descendant a b c =
+  gere_note (a+c);
+  print_string(" - ");
+  gere_note (a+b);
+  print_string(" - ");
+  gere_note (a);
+  print_string(" - ");
+;;
 
 let rec arpegie a b c i oct oct_init sens =
   if(i == 0 && oct == 0 && sens = true) then ()
@@ -52,24 +69,14 @@ let rec arpegie a b c i oct oct_init sens =
   end
   else if(i == 2 && sens == false) then
   begin
-    gere_note a;
-    print_string(" - ");
-    gere_note (a+b);
-    print_string(" - ");
-    gere_note (a+c);
-    print_string(" - ");
+    montant a b c;
     arpegie a b c 1 oct oct_init sens
   end
   else if (i == 1 && sens == false) then arpegie a b c 0 oct oct_init sens
   else if (i == 0 && sens == false) then arpegie (a+12) b c 2 (oct-1) oct_init sens
   else if(i == 2 && sens == true) then
   begin
-    gere_note (a+c);
-    print_string(" - ");
-    gere_note (a+b);
-    print_string(" - ");
-    gere_note (a);
-    print_string(" - ");
+    descendant a b c;
     arpegie a b c 1 oct oct_init sens
   end
   else if (i == 1 && sens == true) then arpegie a b c 0 oct oct_init sens
