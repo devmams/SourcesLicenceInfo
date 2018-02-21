@@ -17,22 +17,15 @@ let my_score = [la2;la3;la4;mi3];;
 length my_score;;
 
 let affiche_note note =
-  print_int(note.o)
+  print_int(note.o);
+  print_newline();
 ;;
-affiche_note la3;;
+(* affiche_note la3;; *)
 
-(* let applique l f =
-  match l with
-  | [] -> ()
-  | a::lrestant -> f a ; applique lrestant f
-;; *)
-
-(* applique my_score (x -> (x.o+1));; *)
-
-let applique l f =
+let rec applique l f =
     match l with
     | [] -> ()
-    | a::lrestant -> let temp = f a in affiche_note temp ; appliqueaux lrestant  ff
+    | a::lrestant -> f a ;applique lrestant  f
   ;;
 applique my_score affiche_note ;;
 
