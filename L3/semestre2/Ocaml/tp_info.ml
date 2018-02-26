@@ -11,7 +11,6 @@ let la3 = {n = La ; a = Becarre ; o = 3};;
 let la4 = {n = La ; a = Becarre ; o = 4};;
 let mi3 = {n = Mi ; a = Becarre ; o = 3};;
 
-<<<<<<< HEAD:L3/semestre2/Ocaml/tp_list.ml
 let note2midi x =
   (* val note2midi : hauteur -> int = <fun> *)
   let degre y =
@@ -27,8 +26,6 @@ let note2midi x =
   60 + degre(x.n) + (plusun x) + 12 * (x.o - 3)
 ;;
 
-=======
->>>>>>> 3643c0ee917f88f7c0be1dcebe97bb5410d4329d:L3/semestre2/Ocaml/tp_info.ml
 type score = hauteur list;;
 
 let my_score = [la2;la3;la4;mi3];;
@@ -43,7 +40,6 @@ let affiche_note note =
 let rec applique l f =
     match l with
     | [] -> ()
-<<<<<<< HEAD:L3/semestre2/Ocaml/tp_list.ml
     | a::lrestant -> f a ; applique lrestant f
   ;;
 
@@ -121,20 +117,8 @@ let rec melange l n =
 ;;
 
 melange l 5;;
-=======
-    | a::lrestant -> f a ;applique lrestant  f
-  ;;
+
 applique my_score affiche_note ;;
-
-
-
-
-
-
-
-
-
->>>>>>> 3643c0ee917f88f7c0be1dcebe97bb5410d4329d:L3/semestre2/Ocaml/tp_info.ml
 
 
 
