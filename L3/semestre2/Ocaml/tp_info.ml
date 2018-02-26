@@ -43,6 +43,8 @@ let rec applique l f =
     | a::lrestant -> f a ; applique lrestant f
   ;;
 
+applique my_score affiche_note ;;
+
 let transpose note intervalle =
   (note2midi note) + intervalle
 ;;
@@ -98,7 +100,6 @@ echange_aux l 0 9;;
 let echange l a b =
   let elts = echange_aux l a b in
   let rec echange_rec l ind_a ind_b ll ind lll =
-    print_int(length lll);
     match l with
     | [] -> ll
     | first::l_restant ->
@@ -107,7 +108,7 @@ let echange l a b =
         else first::echange_rec l_restant a b ll (ind+1) lll
   in echange_rec l a b [] 0 elts
 ;;
-echange l 3 8;;
+echange l 0 9;;
 
 
 let rec melange l n =
@@ -118,7 +119,30 @@ let rec melange l n =
 
 melange l 5;;
 
-applique my_score affiche_note ;;
+
+(* let rec dist l n1 n2 lres =
+  match n2 with
+  | 0 -> lres
+  | _ -> dist (tl l) (n1-1) (n2-1) ((hd l)::lres) *)
+
+(* let distribue l n =
+  let l_mel = melange l
+
+;; *)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
