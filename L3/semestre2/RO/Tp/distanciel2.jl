@@ -4,7 +4,7 @@ using JuMP, GLPKMathProgInterface
 
 # Fonction de modélisation implicite du problème
 
-function modelMuseeImplicite(solverSelected, Ind::Vector{Int}, ValInd::Dict{Int,Vector{Int}}, b::Vector{Int}, c::Vector{Int})
+function modelMuseeImplicite(solverSelected, Ind::Vector{Int}, ValInd::Vector{Vector{Int}}, b::Vector{Int}, c::Vector{Int})
     # Déclaration d'un modèle (initialement vide)
     m = Model(solver = solverSelected)
 
@@ -28,17 +28,18 @@ end
 
 Ind = [1:9 ...] # Définition du tableau [1,2,3,...,9]
 
-ValInd = Dict(1 => [1,5],
-            2 => [2,5],
-            3 => [3,5],
-            4 => [3,4],
-            5 => [2,7],
-            6 => [5,7],
-            7 => [5,4],
-            8 => [6,7],
-            9 => [6,8],
-            10 => [8,4],
-            11 => [5,9])
+ValInd = Vector{Vector{Int}}(11)
+ValInd = [[1,5],
+          [2,5],
+          [3,5],
+          [3,4],
+          [2,7],
+          [5,7],
+          [5,4],
+          [6,7],
+          [6,8],
+          [8,4],
+          [5,9]]
 
 b = [1 for i in 1:11]
 
