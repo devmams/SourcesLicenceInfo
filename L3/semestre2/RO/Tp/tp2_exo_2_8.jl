@@ -1,14 +1,9 @@
-#= Ex 2.2 problème de couverture d'ensemble modèle implicite
-   Nous pouvons maintenant utiliser directement des caractères pour les indices des caméras
-   JuMP permet d'utiliser n'importe quel intervalle ou tableau d'indices (de n'importe quel type) pour les variables de décisions
-   (cela ne s'applique pas aux tableaux en général en Julia, ni aux matrices creuses)
-   Comme nous savons que nous n'avons que des 1 dans les valeurs significative de notre "matrice creuse",
-   nous pouvons simplifier en utilisant simplement un vecteur de vecteurs de Char =#
+# Auteur : TASSI KEVIN et DIALLO MAMADOU
 
 using JuMP, GLPKMathProgInterface
 
 # Fonction de modélisation implicite du problème
-function modelMuseeImplicite(solverSelected, val::Dict{Char,Vector{Char}}, p::Dict{Char,Int},ind::Vector{Char})
+function modelMuseeImplicite(solverSelected, val::Dict{Char,Vector{Char}}, p::Dict{Char,Int},ind::Vector{Char} , nb::Int)
     # Déclaration d'un modèle (initialement vide)
     m = Model(solver = solverSelected)
 
@@ -24,7 +19,7 @@ function modelMuseeImplicite(solverSelected, val::Dict{Char,Vector{Char}}, p::Di
 
     # Déclaration des contraintes
     @constraint(m, ctr1[i='A':'M'], sum(y[j] for j in val[i]) >= x[i])
-    @constraint(m, ctr2, sum(y[j] for j in ind) == 2)
+    @constraint(m, ctr2, sum(y[j] for j in ind) == nb)
     # @constraint(m, Salle[i=1:nbSalles], sum(x[j] for j in SCam[i]) >= b[i])
     # Valeur retournée
     return m
@@ -67,9 +62,11 @@ val = Dict(
     'M' => ['H','L','M']
 )
 
+nb = 2
+
 # Création d'un modèle complété à partir des données
 
-m = modelMuseeImplicite(GLPKSolverMIP(),val,p,ind)
+m = modelMuseeImplicite(GLPKSolverMIP(),val,p,ind,nb)
 
 # Résolution
 

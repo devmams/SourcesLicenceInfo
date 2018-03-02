@@ -1,10 +1,4 @@
-
-#= Première modélisation vue en cours
-   Afin de pouvoir réutiliser le modèle (on pourrait avoir d'autres médicaments et d'autres toxines),
-   on le déclare indépendamment des données dans une fonction.
-   Il s'agit ici d'une modélisation implicite =#
-
-# On utilisera les packages suivants
+# Auteur : TASSI KEVIN et DIALLO MAMADOU
 
 using JuMP, GLPKMathProgInterface
 
@@ -19,19 +13,17 @@ function modelImplicite(solverSelected, f::Vector{Int}, c::Array{Int,2}, Ca::Vec
     m = Model(solver = solverSelected)
 
     # Déduction du nombre de variables et du nombre de contraintes à partir des données
-    # nbcontr = size(A,1) # taille de la matrice A sur la première dimension = nombre de lignes de A
-    # nbvar = size(A,2) # taille de la matrice A sur la deuxième dimension = nombre de colonnes de A
+    # nbCen = size(c,1) # taille de la matrice c sur la première dimension = nombre de lignes de c
+    # nbEnt = size(d,1) # taille de la matrice d sur la deuxième dimension = nombre de colonnes de d
     nbCen= size(c,1)
-    nbEnt= size(c,2)
-    #= Alternative possible (une fonction en Julia peut retourner plusieurs valeurs)
-    nbcontr, nbvar = size(A) =#
+    nbEnt= size(d,1)
 
     # Déclaration des variables
-    @variable(m,x[1:nbEnt], Bin)
+    @variable(m,x[1:nbEnt] >= 0, Bin)
     @variable(m,y[1:nbEnt, 1:nbCen] >= 0)
 
     # Déclaration de la fonction objectif (avec le sens d'optimisation)
-    @objective(m, Min, sum(f[i]x[i] for i in nbEnt) + sum(c[i,j]y[i,j] for i in 1:nbEnt, j in 1:nbCen))
+    @objective(m, Min, sum(f[i]x[i] for i in 1:nbEnt) + sum(c[i,j]y[i,j] for i in 1:nbEnt, j in 1:nbCen))
 
     # Déclaration des contraintes
     # (leur donner un nom est ici obligatoire pour grouper des contraintes en une seule déclaration)
@@ -46,23 +38,22 @@ end
 
 f = [3500,9000,10000,4000,3000,9000,9000,3000,4000,10000,9000,3500]
 
+M = 50000
+
 c = [
         100 80 50 50 60 100 120 90 60 70 65 110;
         120 90 60 70 65 110 140 110 80 80 75 130;
         140 110 80 80 75 130 160 125 100 100 80 150;
-        160 125 100 100 80 150 190 150 130 typemax(Int64) typemax(Int64) typemax(Int64);
-        190 150 130 typemax(Int64) typemax(Int64) typemax(Int64) 200 180 150 typemax(Int64) typemax(Int64) typemax(Int64);
-        200 180 150 typemax(Int64) typemax(Int64) typemax(Int64) 100 80 50 50 60 100;
+        160 125 100 100 80 150 190 150 130 M M M;
+        190 150 130 M M M 200 180 150 M M M;
+        200 180 150 M M M 100 80 50 50 60 100;
         100 80 50 50 60 100 120 90 60 70 65 110;
         120 90 60 70 65 110 140 110 80 80 75 130;
         140 110 80 80 75 130 160 125 100 100 80 150;
-        160 125 100 100 80 150 190 150 130 typemax(Int64) typemax(Int64) typemax(Int64);
-        190 150 130 typemax(Int64) typemax(Int64) typemax(Int64) 200 180 150 typemax(Int64) typemax(Int64) typemax(Int64);
-        200 180 150 typemax(Int64) typemax(Int64) typemax(Int64) 100 80 50 50 60 100
+        160 125 100 100 80 150 190 150 130 M M M;
+        190 150 130 M M M 200 180 150 M M M;
+        200 180 150 M M M 100 80 50 50 60 100
     ]
-
-
-
 
 Ca = [300,250,110,180,275,300,200,220,270,250,230,180]
 
@@ -72,6 +63,7 @@ d = [120,80,75,100,110,100,90,60,30,150,95,120]
 
 m = modelImplicite(GLPKSolverMIP(),f,c,Ca,d)
 
+println(m)
 
 # Résolution
 
