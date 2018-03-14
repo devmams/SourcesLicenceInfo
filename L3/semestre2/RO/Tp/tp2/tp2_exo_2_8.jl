@@ -8,7 +8,6 @@ function modelMuseeImplicite(solverSelected, val::Dict{Char,Vector{Char}}, p::Di
     m = Model(solver = solverSelected)
 
     # Déduction du nombre de salles à partir des données
-    # nbElem = length(ind)
 
     # Déclaration des variables
     @variable(m, x[ind], Bin)
@@ -20,16 +19,14 @@ function modelMuseeImplicite(solverSelected, val::Dict{Char,Vector{Char}}, p::Di
     # Déclaration des contraintes
     @constraint(m, ctr1[i='A':'M'], sum(y[j] for j in val[i]) >= x[i])
     @constraint(m, ctr2, sum(y[j] for j in ind) == nb)
-    # @constraint(m, Salle[i=1:nbSalles], sum(x[j] for j in SCam[i]) >= b[i])
+
     # Valeur retournée
     return m
 end
 
 # Déclaration des données
 
-# Saisie directe d'un vecteur de vecteurs creux pour remplacer la matrice creuse
-
-ind = ['A':'M'...] # Définition du tableau ['B','C','D',...,'Q','R']
+ind = ['A':'M'...] # Définition du tableau ['A','B','C',...,'L','M']
 
 p = Dict( 'A' =>53000,
           'B' =>46000,

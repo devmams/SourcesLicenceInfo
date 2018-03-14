@@ -14,7 +14,7 @@ function modelImplicite(solverSelected, f::Vector{Int}, c::Array{Int,2}, Ca::Vec
 
     # Déduction du nombre de variables et du nombre de contraintes à partir des données
     # nbCen = size(c,1) # taille de la matrice c sur la première dimension = nombre de lignes de c
-    # nbEnt = size(d,1) # taille de la matrice d sur la deuxième dimension = nombre de colonnes de d
+    # nbEnt = size(d,1) # taille de la matrice d sur la première dimension = nombre de ligne de d
     nbCen= size(c,1)
     nbEnt= size(d,1)
 
@@ -62,8 +62,6 @@ d = [120,80,75,100,110,100,90,60,30,150,95,120]
 # Création d'un modèle complété à partir des données
 
 m = modelImplicite(GLPKSolverMIP(),f,c,Ca,d)
-
-println(m)
 
 # Résolution
 
