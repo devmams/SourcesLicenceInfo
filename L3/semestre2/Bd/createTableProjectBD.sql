@@ -169,21 +169,18 @@ CREATE OR REPLACE TRIGGER trigger_vehicule_indisponible
 /
 SHOW ERROR
 
-CREATE OR REPLACE PROCEDURE dates_update
-is
+CREATE OR REPLACE PROCEDURE dates_update is
   nb integer;
   new_date_deb Locations.date_loc%TYPE;
   new_date_ret Locations.date_retour%TYPE;
   matricule_veh Locations.imm_veh%TYPE;
   id_clt Locations.id_client%TYPE;
   error_modif EXCEPTION;
-
   BEGIN
     id_clt := '&id_client';
     new_date_deb := '&date_loc';
     new_date_ret := '&date_retour';
     matricule_veh := '&imm_veh';
-
     SELECT COUNT(*) INTO nb FROM Locations
     WHERE imm_veh = matricule_veh AND id_client = id_clt;
     IF(nb = 0) THEN RAISE error_modif;
@@ -199,7 +196,7 @@ is
 /
 SHOW ERROR
 EXEC dates_update;
-DATEDIFF ('2000-01-01','2000-01-02') AS DateDiff;
+-- DATEDIFF ('2000-01-01','2000-01-02') AS DateDiff;
 
 
 CREATE OR REPLACE VIEW historique_clients AS

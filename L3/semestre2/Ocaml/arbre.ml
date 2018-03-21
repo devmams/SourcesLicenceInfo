@@ -1,5 +1,9 @@
-open Graphics;;
+(* open Graphics;;
 Graphics.open_graph"";;
+wait_next_event[Button_down];; *)
+(* lineto 10 100;;
+lineto 50 200;; *)
+(* let marge = 30;; *)
 
 type 'a arbre = Noeud of 'a * 'a arbre list | Feuille of 'a;;
 
@@ -26,13 +30,3 @@ let unarbre = Noeud (1, [Noeud (2, [Feuille 3; Noeud (4, [Feuille 5])]); Feuille
 profondeur unarbre;;
 largeur unarbre;;
 parcoursprof unarbre;;
-
-
-// lineto 50 200;;
-// lineto 10 100;;
-
-let marge = 30;;
-
-
-
-wait_next_event[Button_down];;

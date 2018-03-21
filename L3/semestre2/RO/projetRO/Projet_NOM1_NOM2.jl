@@ -14,11 +14,61 @@ using JuMP, GLPKMathProgInterface
    .
 =#
 
+function constCycles()
+    C = parseTSP("plat/exemple.dat")
+
+    m = TSP(GLPKSolverMIP(),C)
+
+    status = solve(m)
+
+    # Affichage des résultats (ici assez complet pour gérer certains cas d'"erreur")
+
+    if status == :Optimal
+        println("Problème résolu à l'optimalité")
+
+        println("z = ",getobjectivevalue(m)) # affichage de la valeur optimale
+
+        for i in 1:size(C,1), j in 1:size(C,1)
+            if isapprox(1.0,getvalue(m[:x][i,j]))
+                println("x[",i," ",j,"]")
+            end
+        end
+        println("x = ",getvalue(m[:x])) # affichage des valeurs du vecteur de variables
+
+
+    elseif status == :Unbounded
+        println("Problème non-borné")
+
+    elseif status == :Infeasible
+        println("Problème impossible")
+    end
+
+
+end
+
 
 # Fonction de résolution exacte du problème de voyageur de commerce, dont le distancier est passé en paramètre
 
-function TSP(C::Array{Int,2})
+function TSP(solverSelected, C::Array{Int,2})
+
+    m = Model(solver = solverSelected)
+
+    nbLieu= size(C,1)
+
+    @variable(m,x[1:nbLieu, 1:nbLieu] >= 0, Bin)
+
+    @objective(m, Min, sum(C[i,j]x[i,j] for i in 1:nbLieu, j in 1:nbLieu))
+
+
+    @constraint(m, ctr1[i=1:nbLieu], sum(x[i,j] for j in 1:nbLieu) == 1)
+    @constraint(m, ctr2[j=1:nbLieu], sum(x[i,j] for i in 1:nbLieu) == 1)
+
+    return m
+
 # À compléter!
+
+
+
 end
 
 
@@ -76,3 +126,5 @@ function parseTSP(nomFichier::String)
     # Retour de la matrice de coûts
     return C
 end
+
+constCycles()

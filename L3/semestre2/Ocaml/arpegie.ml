@@ -37,32 +37,30 @@ let note2freq h =
 ;;
 
 let gere_note i =
-  print_int(i)
+  Sys.command ("play -n synth " ^ string_of_float(0.5) ^ " sin " ^ string_of_float (midi2freq i) );;
 ;;
 
 let montant a b c =
   gere_note a;
-  print_string(" - ");
+  (* print_string(" - "); *)
   gere_note (a+b);
-  print_string(" - ");
+  (* print_string(" - "); *)
   gere_note (a+c);
-  print_string(" - ");
+  (* print_string(" - "); *)
 ;;
 
 let descendant a b c =
   gere_note (a+c);
-  print_string(" - ");
+  (* print_string(" - "); *)
   gere_note (a+b);
-  print_string(" - ");
+  (* print_string(" - "); *)
   gere_note (a);
-  print_string(" - ");
+  (* print_string(" - "); *)
 ;;
 
 let sommet a =
   gere_note (a);
-  print_string(" - ");
   gere_note (a);
-  print_string(" - ");
 ;;
 
 let rec arpegie a b c oct oct_init sens =
