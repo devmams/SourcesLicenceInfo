@@ -1,3 +1,5 @@
+--Alpha DIALLO, Mamadou Oury DIALLO, Kevin TASSI et Mamadou DIALLO
+
 DROP TABLE Locations;
 DROP TABLE Vehicules;
 DROP TABLE TypesVehicule;
@@ -93,6 +95,8 @@ INSERT INTO Locations VALUES ('01/Feb/2011', '13/May/2017', 'im199', 'clt369');
 INSERT INTO Locations VALUES ('30/Jan/2017', '11/Mar/2017', 'im269', 'clt458');
 INSERT INTO Locations VALUES ('14/Jan/2017', '16/Nov/2017', 'im500', 'clt499');
 INSERT INTO Locations VALUES ('05/Feb/2018', '25/Feb/2018', 'im916', 'clt363');
+
+
 
 -- CREATION DES ROLES
 
@@ -196,7 +200,6 @@ CREATE OR REPLACE PROCEDURE dates_update is
 /
 SHOW ERROR
 EXEC dates_update;
--- DATEDIFF ('2000-01-01','2000-01-02') AS DateDiff;
 
 
 CREATE OR REPLACE VIEW historique_clients AS
@@ -211,9 +214,9 @@ SELECT nom_client,prenom_client, id_veh, cout_jour, TO_DATE(date_retour, 'DD/MM/
 FROM TypesVehicule NATURAL JOIN Vehicules NATURAL JOIN Locations NATURAL JOIN Client;
 
 
--- select * from Locations;
--- select * from historique_clients where id_client = 'clt124';
 select * from Facture_location ;
 
 COMMIT;
 -- createTableProjectBD
+
+INSERT INTO Locations VALUES ('10/Jan/2017', '25/Feb/2018', 'im005', 'clt363');
