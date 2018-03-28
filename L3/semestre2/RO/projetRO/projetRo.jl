@@ -13,20 +13,21 @@ using JuMP, GLPKMathProgInterface
    .
 =#
 
-function constLiens(m::JuMP.Model)
-    # C = parseTSP("plat/exemple.dat")
-    # m = TSP(GLPKSolverMIP(),C) # m = Model(solver=GLPKSolverMIP())
-    # status = solve(m)
-    if status == :Optimal
-        T  = Vector{Vector{Int}}(0)
-        for i in 1:size(C,1), j in 1:size(C,1)
-            if isapprox(1.0,getvalue(m[:x][i,j]))
-                push!(T,[i,j])
-            end
-        end
-    end
-    return T
-end
+# function constLiens(m::JuMP.Model)
+#     # C = parseTSP("plat/exemple.dat")
+#     # m = TSP(GLPKSolverMIP(),C) # m = Model(solver=GLPKSolverMIP())
+#     status = solve(m)
+#     if status == :Optimal
+#         T  = Vector{Vector{Int}}(0)
+#         for i in 1:size(C,1), j in 1:size(C,1)
+#             if isapprox(1.0,getvalue(m[:x][i,j]))
+#                 push!(T,[i,j])
+#             end
+#         end
+#     end
+#     return T
+# end
+
 
 function constCycleRec(TLiens::Vector{Vector{Int}}, cycle::Vector{Int}, PointUtilises::Vector{Int} ,pointdeb::Int ,pointCour::Int)
     if( TLiens[pointCour][2] == pointdeb)
@@ -47,8 +48,8 @@ function appartient(PointUtilises::Vector{Int}, ind::Int)
     return false
 end
 
-function constCycles(m::JuMP.Model)
-    TLiens = constLiens(m)
+function constCycles(T::Vector{Vector{Int}})
+    TLiens = T
     # println(TLiens)
     # println(size(TLiens))
     PointUtilises = Vector{Int}(0)
@@ -68,37 +69,60 @@ function constCycles(m::JuMP.Model)
     # println("resultats :")
     # println(Tcycles)
     # println(PointUtilises)
+
     return Tcycles
 end
 
+function casseCyclesRec(T::Vector{Vector{Int}},m::JuMP.Model)
+    t = Tc[indmin([size(i) for i in Tc])]
+    mo = @constraint(m, ctr3, sum(x[2,6] + x[6,2]) <= 1)
+
+
+    return mo
+
+end
 
 # Fonction de résolution exacte du problème de voyageur de commerce, dont le distancier est passé en paramètre
 
 function TSP(solverSelected, C::Array{Int,2})
 
     m = Model(solver = solverSelected)
-
     nbLieu= size(C,1)
-
     @variable(m,x[1:nbLieu, 1:nbLieu] >= 0, Bin)
-
     @objective(m, Min, sum(C[i,j]x[i,j] for i in 1:nbLieu, j in 1:nbLieu) )
-
-
     @constraint(m, ctr1[i=1:nbLieu], sum(x[i,j] for j in 1:nbLieu if (i != j)) == 1)
     @constraint(m, ctr2[j=1:nbLieu], sum(x[i,j] for i in 1:nbLieu if (i != j)) == 1)
 
-    # @constraint(m, ctr3, sum(x[2,6] + x[6,2]) <= 1)
-    # @constraint(m, ctr4, sum(x[7,1] + x[1,7]) <= 1)
-
-    T = constCycles(m)
-
+    status = solve(m)
+    x = m[:x]
+    T  = Vector{Vector{Int}}(0)
+    for i in 1:size(C,1), j in 1:size(C,1)
+        if isapprox(1.0,getvalue(x[i,j]))
+            push!(T,[i,j])
+    end
+    end
     println(T)
+    Tc = constCycles(T)
+    println(Tc)
+
+    while size(Tc,1) >= 1
+        m = casseCyclesRec(Tc)
+        status = solve(m)
+        x = m[:x]
+        T  = Vector{Vector{Int}}(0)
+        for i in 1:size(C,1), j in 1:size(C,1)
+            if isapprox(1.0,getvalue(x[i,j]))
+                push!(T,[i,j])
+            end
+        end
+        Tc = constCycles(T)
+    end
+
+
+
+    # @constraint(m, ctr3, sum(x[2,6] + x[6,2]) <= 1)
 
     return m
-
-# À compléter!
-
 
 end
 
@@ -158,4 +182,6 @@ function parseTSP(nomFichier::String)
     return C
 end
 
-constCycles()
+# constCycles()
+C = parseTSP("plat/exemple.dat")
+TSP(GLPKSolverMIP(),C)
