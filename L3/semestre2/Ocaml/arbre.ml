@@ -28,6 +28,8 @@ let rec parcoursprof a =
 
 let unarbre = Noeud (1, [Noeud (2, [Feuille 3; Noeud (4, [Feuille 5])]); Feuille 6; Noeud (7,[Feuille 8])]);;
 
+let l = [Noeud (2, [Feuille 3; Noeud (4, [Feuille 5])]); Feuille 6; Noeud (7,[Feuille 8])];;
+
 let echange_aux l a b =
   let rec echange_aux_aux l ind_a ind_b ll ind =
     match l with
@@ -39,6 +41,7 @@ let echange_aux l a b =
   in echange_aux_aux l a b [] 0
 ;;
 
+echange_aux l 0 1;;
 
 let echange l a b =
   let elts = echange_aux l a b in
@@ -51,22 +54,26 @@ let echange l a b =
         else first::echange_rec l_restant a b ll (ind+1) lll
   in echange_rec l a b [] 0 elts
 ;;
+echange l 0 1;;
+
 
 let rec melange l n =
   match n with
   | 0 -> l
-  | _ -> melange (echange l 0 (Random.int 10)) (n-1)
+  | _ -> melange (echange l 0 (Random.int (length l) + 1)) (n-1)
 ;;
+
+melange l 5;;
 
 
 let rec parcoursRandom a =
-match a with
+  match a with
   | Feuille x -> [x]
-  | Noeud (x,l1) -> let l2 = melange (l1 0) in
-  x::List.fold_left (fun a b -> a@(parcoursprof b)) [] l2
+  | Noeud (x,l1) -> let l1 = melange l1 7 in
+  x::List.fold_left (fun a b -> a@(parcoursprof b)) [] l1
 ;;
 
 profondeur unarbre;;
 largeur unarbre;;
 parcoursprof unarbre;;
-(* parcoursRandom unarbre;; *)
+parcoursRandom unarbre;;

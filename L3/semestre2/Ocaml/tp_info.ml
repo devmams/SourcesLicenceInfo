@@ -1,4 +1,5 @@
- type midi = int;;
+open List;;
+type midi = int;;
 type nom = Do|Re|Mi|Fa|Sol|La|Si;;
 type alteration = Becarre|Diese;;
 type hauteur = {n : nom ; a : alteration ; o : int}
@@ -117,34 +118,3 @@ let rec melange l n =
 ;;
 
 melange l 5;;
-
-
-(* let rec dist l n1 n2 lres =
-  match n2 with
-  | 0 -> lres
-  | _ -> dist (tl l) (n1-1) (n2-1) ((hd l)::lres) *)
-
-(* let distribue l n =
-  let l_mel = melange l
-
-;; *)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-(*  *)
