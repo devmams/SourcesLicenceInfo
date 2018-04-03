@@ -118,6 +118,7 @@ let rec melange l n =
 ;;
 
 melange l 5;;
+<<<<<<< HEAD
 
 
 (* let rec dist l n1 n2 lres =
@@ -129,3 +130,5 @@ melange l 5;;
   let l_mel = melange l
 
 ;; *)
+=======
+>>>>>>> 22d5259d46c085a63c591b51cc678264d99e6087

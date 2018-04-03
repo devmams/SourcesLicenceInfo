@@ -1,0 +1,113 @@
+684J
+MAMADOU DIALLO
+COMPTE L3_23
+
+Suppression des tables car ce script sera reexecute plusieurs fois
+
+Table dropped.
+
+
+Table dropped.
+
+
+Table dropped.
+
+
+Table dropped.
+
+Creation des tables
+===================
+Creation table VELOS
+
+Table created.
+
+Creation table CLIENTS
+
+Table created.
+
+Creation table LOCATIONSENCOURS
+
+Table created.
+
+Creation table LOCATIONSPASSEES
+
+Table created.
+
+Population des tables
+=====================
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+*************************************************************
+******************** QUESTION 1 *****************************
+*************************************************************
+
+   VELO_ID DATE_ACHA         nb                                                                                                                                                                                                                                                                                                                                                                                 
+---------- --------- ----------                                                                                                                                                                                                                                                                                                                                                                                 
+         2 20-JAN-12          1                                                                                                                                                                                                                                                                                                                                                                                 
+         1 20-MAR-13          1                                                                                                                                                                                                                                                                                                                                                                                 
+
+*************************************************************
+******************** QUESTION 2 *****************************
+*************************************************************
+
+Procedure created.
+
+No errors.
+9                                                                                                                                                                                                                                                                                                                                                                                                               
+
+PL/SQL procedure successfully completed.
+
+*************************************************************
+******************** QUESTION 3 *****************************
+*************************************************************
+
+1 row created.
+
+
+1 row created.
+
+*************************************************************
+******************** QUESTION 4 *****************************
+*************************************************************
+
+EXTRACT(MONTHFROMDATE_LOCATION)   COUNT(*)                                                                                                                                                                                                                                                                                                                                                                      
+------------------------------- ----------                                                                                                                                                                                                                                                                                                                                                                      
+                              3          4                                                                                                                                                                                                                                                                                                                                                                      
+
+*************************************************************
+******************** QUESTION 5 *****************************
+*************************************************************
+A) Isabelle ne pourra pas faire un SELECT sur les lignes en cours de modification car elles sont verrouillees.
+VRAI
+B) Isabelle pourra voir les nouvelles valeurs mais seulement si elle se connecte avec le meme compte que David.
+VRAI
+C)Isabelle verra les anciennes versions des lignes.
+FAUX
+
+Commit complete.
+
