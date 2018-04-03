@@ -1,4 +1,5 @@
- type midi = int;;
+open List;;
+type midi = int;;
 type nom = Do|Re|Mi|Fa|Sol|La|Si;;
 type alteration = Becarre|Diese;;
 type hauteur = {n : nom ; a : alteration ; o : int}
@@ -128,23 +129,3 @@ melange l 5;;
   let l_mel = melange l
 
 ;; *)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-(*  *)
