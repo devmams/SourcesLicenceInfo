@@ -13,21 +13,6 @@ using JuMP, GLPKMathProgInterface
    .
 =#
 
-function constLiens(m::JuMP.Model)
-    # C = parseTSP("plat/exemple.dat")
-    # m = TSP(GLPKSolverMIP(),C) # m = Model(solver=GLPKSolverMIP())
-    # status = solve(m)
-    if status == :Optimal
-        T  = Vector{Vector{Int}}(0)
-        for i in 1:size(C,1), j in 1:size(C,1)
-            if isapprox(1.0,getvalue(m[:x][i,j]))
-                push!(T,[i,j])
-            end
-        end
-    end
-    return T
-end
-
 function constCycleRec(TLiens::Vector{Vector{Int}}, cycle::Vector{Int}, PointUtilises::Vector{Int} ,pointdeb::Int ,pointCour::Int)
     if( TLiens[pointCour][2] == pointdeb)
         push!(cycle,pointCour)
@@ -47,10 +32,8 @@ function appartient(PointUtilises::Vector{Int}, ind::Int)
     return false
 end
 
-function constCycles(m::JuMP.Model)
-    TLiens = constLiens(m)
-    # println(TLiens)
-    # println(size(TLiens))
+function constCycles(T::Vector{Vector{Int}})
+    TLiens = T
     PointUtilises = Vector{Int}(0)
     Tcycles = Vector{Vector{Int}}(0)
     ind = 1
@@ -65,43 +48,126 @@ function constCycles(m::JuMP.Model)
         end
     end
 
-    # println("resultats :")
-    # println(Tcycles)
-    # println(PointUtilises)
     return Tcycles
 end
 
-
-# Fonction de résolution exacte du problème de voyageur de commerce, dont le distancier est passé en paramètre
-
-function TSP(solverSelected, C::Array{Int,2})
-
+function resolution_exacte(solverSelected, C::Array{Int,2})
     m = Model(solver = solverSelected)
-
     nbLieu= size(C,1)
-
     @variable(m,x[1:nbLieu, 1:nbLieu] >= 0, Bin)
-
     @objective(m, Min, sum(C[i,j]x[i,j] for i in 1:nbLieu, j in 1:nbLieu) )
-
-
     @constraint(m, ctr1[i=1:nbLieu], sum(x[i,j] for j in 1:nbLieu if (i != j)) == 1)
     @constraint(m, ctr2[j=1:nbLieu], sum(x[i,j] for i in 1:nbLieu if (i != j)) == 1)
 
-    # @constraint(m, ctr3, sum(x[2,6] + x[6,2]) <= 1)
-    # @constraint(m, ctr4, sum(x[7,1] + x[1,7]) <= 1)
-
-    T = constCycles(m)
-
+    status = solve(m)
+    x = m[:x]
+    T  = Vector{Vector{Int}}(0)
+    for i in 1:size(C,1), j in 1:size(C,1)
+        if isapprox(1.0,getvalue(x[i,j]))
+            push!(T,[i,j])
+        end
+    end
     println(T)
+    Tc = constCycles(T)
+    println(Tc)
 
+    while size(Tc,1) > 1
+
+        t = Tc[indmin([size(i) for i in Tc])]
+        expr = AffExpr()
+        for j in 1:size(t,1)
+            if j == size(t,1)
+                push!(expr,1.0,x[t[j],t[1]])
+            else
+                push!(expr,1.0,x[t[j],t[j+1]])
+            end
+        end
+        println("#")
+        con = @constraint(m,expr <= size(t,1) - 1 )
+
+        status = solve(m)
+        x = m[:x]
+        T  = Vector{Vector{Int}}(0)
+        for i in 1:size(C,1), j in 1:size(C,1)
+            if isapprox(1.0,getvalue(x[i,j]))
+                push!(T,[i,j])
+            end
+        end
+        println(T)
+        Tc = constCycles(T)
+        println(Tc)
+    end
+    println(getobjectivevalue(m))
     return m
+end
 
-# À compléter!
+function delta(C::Array{Int,2},i1::Int,j1::Int,i2::Int,j2::Int)
+    return (C[i1,i2] + C[j1,j2] - C[i1,j1] - C[i2,j2])
+end
 
+function resolution_approchee(C::Array{Int,2})
+
+    nbLieu = size(C,1)
+    T  = Vector{Vector{Int}}(0)
+    for i in 1:nbLieu
+        if i == nbLieu
+            push!(T,[i,1])
+        else
+            push!(T,[i,i+1])
+        end
+    end
+    println(T)
+    r1 = rand(1:(nbLieu-2))
+    i1 = r1
+    j1 = r1+1
+    if(i1 == 1)
+        r2 = rand((j1+1):(nbLieu-1))
+    else r2 = rand((j1+1):nbLieu)
+    end
+
+    i2 = r2
+    j2 = r2+1
+    if(i2 == nbLieu)
+        j2 = 1
+    end
+    println(i1)
+    println(j1)
+    println(i2)
+    println(j2)
+    d = delta(C,i1,j1,i2,j2)
+    println(d)
+    if (d < 0)
+        t1 = [i1,i2]
+        t2 = [j1,j2]
+        T  = Vector{Vector{Int}}(0)
+        for i in 1:(i1-1)
+            push!(T,[i,i+1])
+        end
+        push!(T,t1)
+        ind = i2
+        while ind != j1
+            push!(T,[ind,ind-1])
+            ind = ind - 1
+        end
+        push!(T,t2)
+        if j2 != 1
+            for i in j2:nbLieu
+                if i == nbLieu
+                    push!(T,[i,1])
+                else
+                    push!(T,[i,i+1])
+                end
+            end
+        end
+    end
+    println(T)
 
 end
 
+# Fonction de résolution exacte du problème de voyageur de commerce, dont le distancier est passé en paramètre
+
+function TSP(C::Array{Int,2})
+end
 
 #= Fonction qui résout l'ensemble des instances du projet avec la méthode de résolution exacte,
    le temps d'exécution de chacune des instances est mesuré =#
@@ -158,4 +224,18 @@ function parseTSP(nomFichier::String)
     return C
 end
 
-constCycles()
+C = parseTSP("plat/exemple.dat")
+
+println("----------------")
+# C = parseTSP("plat/plat10.dat")
+# resolution_exacte(GLPKSolverMIP(),C)
+#
+# println("----------------")
+# C = parseTSP("relief/relief10.dat")
+
+println("-------exacte---------")
+# resolution_exacte(GLPKSolverMIP(),C)
+println("-------approchee---------")
+resolution_approchee(C)
+
+# scriptTSP()
